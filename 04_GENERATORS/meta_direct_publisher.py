@@ -1,279 +1,387 @@
 """
 Naskah Social OS — Direct Meta Graph API Publisher
-Supports publishing to Instagram (Single Image & Carousel) and Threads directly via Meta Graph API v21.0.
 
-Endpoints:
-- Instagram User Media: POST https://graph.instagram.com/v21.0/{ig-user-id}/media
-- Instagram Media Publish: POST https://graph.instagram.com/v21.0/{ig-user-id}/media_publish
-- Instagram Rate Limits: GET https://graph.instagram.com/v21.0/{ig-user-id}/content_publishing_limit
-- Threads Post: POST https://graph.threads.net/v1.0/me/threads
-- Threads Publish: POST https://graph.threads.net/v1.0/me/threads_publish
+Direct integration with official Meta APIs (no Composio):
+- Instagram Content Publishing API for single-image and carousel posts
+- Threads Publishing API for companion text/image posts
+
+Important Instagram publishing constraint:
+Meta fetches each media URL from its own servers. Image URLs must be public HTTPS
+URLs and image feed publishing is safest with JPEG files.
 """
 
-import os
-import sys
+from __future__ import annotations
+
 import json
-import time
+import os
 import pathlib
-import urllib.request
-import urllib.error
-import urllib.parse
+import time
+from typing import Any
+
+import requests
 
 ROOT_DIR = pathlib.Path(__file__).resolve().parent.parent
+IG_BASE_URL = "https://graph.instagram.com/v21.0"
+THREADS_BASE_URL = "https://graph.threads.net/v1.0"
+DEFAULT_TIMEOUT = 60
 
-def load_env():
-    """Load environment variables from .env file if available."""
+
+def load_env() -> None:
+    """Load environment variables from the project .env file if available."""
     env_file = ROOT_DIR / ".env"
-    if env_file.exists():
-        with open(env_file, "r", encoding="utf-8") as f:
-            for line in f:
-                line = line.strip()
-                if line and not line.startswith("#") and "=" in line:
-                    key, val = line.split("=", 1)
-                    os.environ.setdefault(key.strip(), val.strip())
+    if not env_file.exists():
+        return
+
+    for raw_line in env_file.read_text(encoding="utf-8").splitlines():
+        line = raw_line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, value = line.split("=", 1)
+        os.environ.setdefault(key.strip(), value.strip())
+
 
 load_env()
 
-IG_BASE_URL = "https://graph.instagram.com/v21.0"
-THREADS_BASE_URL = "https://graph.threads.net/v1.0"
+
+class MetaApiError(RuntimeError):
+    """Raised when Meta returns a non-success response."""
+
 
 class MetaDirectPublisher:
-    def __init__(self):
+    def __init__(self) -> None:
         self.ig_token = os.environ.get("INSTAGRAM_ACCESS_TOKEN", "").strip()
         self.ig_user_id = os.environ.get("INSTAGRAM_USER_ID", "").strip()
         self.threads_token = os.environ.get("THREADS_ACCESS_TOKEN", "").strip()
         self.threads_user_id = os.environ.get("THREADS_USER_ID", "").strip()
+        self.session = requests.Session()
+        self.session.headers.update({"User-Agent": "NaskahSocialOS/1.0"})
 
-    def check_status(self):
-        """Verify tokens and print account info."""
-        results = {}
-        
-        # Check IG
+    def _request_json(
+        self,
+        method: str,
+        url: str,
+        *,
+        params: dict[str, Any] | None = None,
+        data: dict[str, Any] | None = None,
+    ) -> dict[str, Any]:
+        try:
+            response = self.session.request(
+                method,
+                url,
+                params=params,
+                data=data,
+                timeout=DEFAULT_TIMEOUT,
+            )
+        except requests.RequestException as exc:
+            return {
+                "success": False,
+                "error_type": type(exc).__name__,
+                "error": str(exc),
+            }
+
+        try:
+            payload = response.json()
+        except ValueError:
+            payload = {"raw": response.text}
+
+        if not response.ok:
+            return {
+                "success": False,
+                "http_status": response.status_code,
+                "error": payload,
+            }
+
+        if isinstance(payload, dict):
+            payload.setdefault("success", True)
+            payload.setdefault("http_status", response.status_code)
+            return payload
+        return {"success": True, "http_status": response.status_code, "data": payload}
+
+    def _ig_get(self, path: str, params: dict[str, Any] | None = None) -> dict[str, Any]:
+        merged = {**(params or {}), "access_token": self.ig_token}
+        return self._request_json("GET", f"{IG_BASE_URL}/{path}", params=merged)
+
+    def _ig_post(self, path: str, data: dict[str, Any]) -> dict[str, Any]:
+        merged = {**data, "access_token": self.ig_token}
+        return self._request_json("POST", f"{IG_BASE_URL}/{path}", data=merged)
+
+    def _threads_get(self, path: str, params: dict[str, Any] | None = None) -> dict[str, Any]:
+        merged = {**(params or {}), "access_token": self.threads_token}
+        return self._request_json("GET", f"{THREADS_BASE_URL}/{path}", params=merged)
+
+    def _threads_post(self, path: str, data: dict[str, Any]) -> dict[str, Any]:
+        merged = {**data, "access_token": self.threads_token}
+        return self._request_json("POST", f"{THREADS_BASE_URL}/{path}", data=merged)
+
+    def check_status(self) -> dict[str, Any]:
+        """Verify Instagram and Threads credentials through read-only calls."""
+        results: dict[str, Any] = {}
+
         if self.ig_token:
-            url = f"{IG_BASE_URL}/me?fields=id,username,name,account_type&access_token={self.ig_token}"
-            try:
-                req = urllib.request.Request(url)
-                with urllib.request.urlopen(req) as resp:
-                    ig_data = json.loads(resp.read().decode("utf-8"))
-                    results["instagram"] = {
-                        "status": "connected",
-                        "id": ig_data.get("id"),
-                        "username": ig_data.get("username"),
-                        "account_type": ig_data.get("account_type")
-                    }
-            except Exception as e:
-                results["instagram"] = {"status": "error", "error": str(e)}
+            ig_data = self._ig_get("me", {"fields": "id,username,name,account_type"})
+            if ig_data.get("success"):
+                results["instagram"] = {
+                    "status": "connected",
+                    "id": ig_data.get("id"),
+                    "username": ig_data.get("username"),
+                    "account_type": ig_data.get("account_type"),
+                }
+            else:
+                results["instagram"] = {"status": "error", "details": ig_data}
         else:
             results["instagram"] = {"status": "missing_token"}
 
-        # Check Threads
         if self.threads_token:
-            url = f"{THREADS_BASE_URL}/me?fields=id,username&access_token={self.threads_token}"
-            try:
-                req = urllib.request.Request(url)
-                with urllib.request.urlopen(req) as resp:
-                    th_data = json.loads(resp.read().decode("utf-8"))
-                    results["threads"] = {
-                        "status": "connected",
-                        "id": th_data.get("id"),
-                        "username": th_data.get("username")
-                    }
-            except Exception as e:
-                results["threads"] = {"status": "error", "error": str(e)}
+            threads_data = self._threads_get("me", {"fields": "id,username"})
+            if threads_data.get("success"):
+                results["threads"] = {
+                    "status": "connected",
+                    "id": threads_data.get("id"),
+                    "username": threads_data.get("username"),
+                }
+            else:
+                results["threads"] = {"status": "error", "details": threads_data}
         else:
             results["threads"] = {"status": "missing_token"}
 
         return results
 
-    def check_ig_publishing_limit(self):
+    def check_ig_publishing_limit(self) -> dict[str, Any]:
         """Check Instagram publishing quota usage."""
         if not self.ig_token or not self.ig_user_id:
-            return {"error": "Missing IG credentials"}
-        
-        url = f"{IG_BASE_URL}/{self.ig_user_id}/content_publishing_limit?fields=quota_usage,config&access_token={self.ig_token}"
-        try:
-            req = urllib.request.Request(url)
-            with urllib.request.urlopen(req) as resp:
-                return json.loads(resp.read().decode("utf-8"))
-        except urllib.error.HTTPError as e:
-            return {"error": e.read().decode("utf-8")}
-        except Exception as e:
-            return {"error": str(e)}
+            return {"success": False, "error": "Missing IG credentials"}
+        return self._ig_get(
+            f"{self.ig_user_id}/content_publishing_limit",
+            {"fields": "quota_usage,config"},
+        )
 
-    def publish_ig_single_image(self, image_url: str, caption: str) -> dict:
-        """
-        Publish a single image post to Instagram.
-        image_url must be a publicly accessible HTTPS URL.
-        """
+    def list_recent_ig_media(self, limit: int = 10) -> dict[str, Any]:
+        """List recent Instagram media for duplicate checks and verification."""
         if not self.ig_token or not self.ig_user_id:
-            return {"error": "Missing Instagram credentials"}
+            return {"success": False, "error": "Missing IG credentials"}
+        return self._ig_get(
+            f"{self.ig_user_id}/media",
+            {
+                "fields": "id,caption,media_type,timestamp,permalink,children",
+                "limit": str(limit),
+            },
+        )
 
-        # Step 1: Create Container
-        url = f"{IG_BASE_URL}/{self.ig_user_id}/media"
-        payload = urllib.parse.urlencode({
-            "image_url": image_url,
-            "caption": caption,
-            "access_token": self.ig_token
-        }).encode("utf-8")
+    def get_ig_media(self, media_id: str) -> dict[str, Any]:
+        """Read one Instagram media object after publishing."""
+        if not self.ig_token:
+            return {"success": False, "error": "Missing IG credentials"}
+        return self._ig_get(
+            media_id,
+            {"fields": "id,caption,media_type,timestamp,permalink,children"},
+        )
 
-        req = urllib.request.Request(url, data=payload, method="POST")
-        try:
-            with urllib.request.urlopen(req) as resp:
-                res = json.loads(resp.read().decode("utf-8"))
-                container_id = res.get("id")
-        except urllib.error.HTTPError as e:
-            return {"error": f"Failed to create media container: {e.read().decode('utf-8')}"}
+    def check_ig_container_status(self, container_id: str) -> dict[str, Any]:
+        """Check a media container's publishing readiness/status."""
+        if not self.ig_token:
+            return {"success": False, "error": "Missing IG credentials"}
+        return self._ig_get(container_id, {"fields": "status_code"})
 
-        time.sleep(3)
+    def wait_for_ig_container(
+        self,
+        container_id: str,
+        *,
+        max_attempts: int = 6,
+        delay_seconds: int = 5,
+    ) -> dict[str, Any]:
+        """Wait until an Instagram container is ready enough to publish."""
+        last_status: dict[str, Any] = {}
+        for _ in range(max_attempts):
+            last_status = self.check_ig_container_status(container_id)
+            status_code = last_status.get("status_code")
+            if status_code in {"FINISHED", "PUBLISHED"}:
+                return last_status
+            if status_code in {"ERROR", "EXPIRED"}:
+                return last_status
+            time.sleep(delay_seconds)
+        return last_status
 
-        # Step 2: Publish Container
-        pub_url = f"{IG_BASE_URL}/{self.ig_user_id}/media_publish"
-        pub_payload = urllib.parse.urlencode({
-            "creation_id": container_id,
-            "access_token": self.ig_token
-        }).encode("utf-8")
+    @staticmethod
+    def _validate_public_https_urls(image_urls: list[str]) -> dict[str, Any] | None:
+        bad_urls = [url for url in image_urls if not url.startswith("https://")]
+        if bad_urls:
+            return {"success": False, "error": "All image URLs must be public HTTPS URLs", "bad_urls": bad_urls}
+        return None
 
-        pub_req = urllib.request.Request(pub_url, data=pub_payload, method="POST")
-        try:
-            with urllib.request.urlopen(pub_req) as resp:
-                pub_res = json.loads(resp.read().decode("utf-8"))
-                return {
-                    "success": True,
-                    "media_id": pub_res.get("id"),
-                    "container_id": container_id
-                }
-        except urllib.error.HTTPError as e:
-            return {"error": f"Failed to publish media: {e.read().decode('utf-8')}"}
-
-    def publish_ig_carousel(self, image_urls: list, caption: str) -> dict:
-        """
-        Publish a multi-image Carousel (2-10 slides) to Instagram.
-        image_urls must be a list of publicly accessible HTTPS URLs.
-        """
+    def publish_ig_single_image(self, image_url: str, caption: str) -> dict[str, Any]:
+        """Publish a single image post to Instagram."""
         if not self.ig_token or not self.ig_user_id:
-            return {"error": "Missing Instagram credentials"}
+            return {"success": False, "error": "Missing Instagram credentials"}
 
+        validation_error = self._validate_public_https_urls([image_url])
+        if validation_error:
+            return validation_error
+
+        container = self._ig_post(
+            f"{self.ig_user_id}/media",
+            {"image_url": image_url, "caption": caption},
+        )
+        if not container.get("success"):
+            return {"success": False, "stage": "create_media_container", "details": container}
+
+        container_id = container.get("id")
+        if not container_id:
+            return {"success": False, "stage": "create_media_container", "details": container}
+
+        self.wait_for_ig_container(container_id)
+        publish_result = self._ig_post(
+            f"{self.ig_user_id}/media_publish",
+            {"creation_id": container_id},
+        )
+        if not publish_result.get("success"):
+            return {
+                "success": False,
+                "stage": "media_publish",
+                "container_id": container_id,
+                "details": publish_result,
+            }
+
+        media_id = publish_result.get("id")
+        return {
+            "success": True,
+            "media_id": media_id,
+            "container_id": container_id,
+            "media": self.get_ig_media(media_id) if media_id else None,
+        }
+
+    def publish_ig_carousel(self, image_urls: list[str], caption: str) -> dict[str, Any]:
+        """Publish a multi-image Instagram carousel (2-10 images)."""
+        if not self.ig_token or not self.ig_user_id:
+            return {"success": False, "error": "Missing Instagram credentials"}
         if len(image_urls) < 2 or len(image_urls) > 10:
-            return {"error": f"Carousel requires between 2 and 10 images. Given: {len(image_urls)}"}
+            return {"success": False, "error": f"Carousel requires between 2 and 10 images. Given: {len(image_urls)}"}
 
-        # Step 1: Create item containers for each slide
-        item_container_ids = []
-        for idx, img_url in enumerate(image_urls):
-            url = f"{IG_BASE_URL}/{self.ig_user_id}/media"
-            payload = urllib.parse.urlencode({
-                "image_url": img_url,
-                "is_carousel_item": "true",
-                "access_token": self.ig_token
-            }).encode("utf-8")
+        validation_error = self._validate_public_https_urls(image_urls)
+        if validation_error:
+            return validation_error
 
-            req = urllib.request.Request(url, data=payload, method="POST")
-            try:
-                with urllib.request.urlopen(req) as resp:
-                    res = json.loads(resp.read().decode("utf-8"))
-                    item_id = res.get("id")
-                    if not item_id:
-                        return {"error": f"No container ID returned for slide {idx+1}"}
-                    item_container_ids.append(item_id)
-            except urllib.error.HTTPError as e:
-                return {"error": f"Failed creating container for slide {idx+1}: {e.read().decode('utf-8')}"}
-            
+        item_container_ids: list[str] = []
+        for idx, image_url in enumerate(image_urls, start=1):
+            item = self._ig_post(
+                f"{self.ig_user_id}/media",
+                {
+                    "image_url": image_url,
+                    "is_carousel_item": "true",
+                },
+            )
+            if not item.get("success") or not item.get("id"):
+                return {
+                    "success": False,
+                    "stage": "create_carousel_item",
+                    "slide": idx,
+                    "created_item_containers": item_container_ids,
+                    "details": item,
+                }
+            item_container_ids.append(item["id"])
+            item_status = self.wait_for_ig_container(item["id"], max_attempts=6, delay_seconds=5)
+            if item_status.get("status_code") in {"ERROR", "EXPIRED"}:
+                return {
+                    "success": False,
+                    "stage": "carousel_item_status",
+                    "slide": idx,
+                    "item_containers": item_container_ids,
+                    "details": item_status,
+                }
             time.sleep(1)
 
-        # Step 2: Create the parent Carousel Container
-        carousel_url = f"{IG_BASE_URL}/{self.ig_user_id}/media"
-        carousel_payload = urllib.parse.urlencode({
-            "media_type": "CAROUSEL",
-            "children": ",".join(item_container_ids),
-            "caption": caption,
-            "access_token": self.ig_token
-        }).encode("utf-8")
+        carousel = self._ig_post(
+            f"{self.ig_user_id}/media",
+            {
+                "media_type": "CAROUSEL",
+                "children": ",".join(item_container_ids),
+                "caption": caption,
+            },
+        )
+        if not carousel.get("success") or not carousel.get("id"):
+            return {
+                "success": False,
+                "stage": "create_carousel_container",
+                "item_containers": item_container_ids,
+                "details": carousel,
+            }
 
-        req_car = urllib.request.Request(carousel_url, data=carousel_payload, method="POST")
-        try:
-            with urllib.request.urlopen(req_car) as resp:
-                car_res = json.loads(resp.read().decode("utf-8"))
-                carousel_container_id = car_res.get("id")
-        except urllib.error.HTTPError as e:
-            return {"error": f"Failed creating carousel container: {e.read().decode('utf-8')}"}
+        carousel_container_id = carousel["id"]
+        container_status = self.wait_for_ig_container(carousel_container_id)
+        if container_status.get("status_code") in {"ERROR", "EXPIRED"}:
+            return {
+                "success": False,
+                "stage": "carousel_container_status",
+                "carousel_container_id": carousel_container_id,
+                "item_containers": item_container_ids,
+                "details": container_status,
+            }
 
-        time.sleep(5)
+        publish_result = self._ig_post(
+            f"{self.ig_user_id}/media_publish",
+            {"creation_id": carousel_container_id},
+        )
+        if not publish_result.get("success"):
+            return {
+                "success": False,
+                "stage": "media_publish",
+                "carousel_container_id": carousel_container_id,
+                "item_containers": item_container_ids,
+                "details": publish_result,
+            }
 
-        # Step 3: Publish the Carousel
-        pub_url = f"{IG_BASE_URL}/{self.ig_user_id}/media_publish"
-        pub_payload = urllib.parse.urlencode({
-            "creation_id": carousel_container_id,
-            "access_token": self.ig_token
-        }).encode("utf-8")
-
-        req_pub = urllib.request.Request(pub_url, data=pub_payload, method="POST")
-        try:
-            with urllib.request.urlopen(req_pub) as resp:
-                publish_res = json.loads(resp.read().decode("utf-8"))
-                return {
-                    "success": True,
-                    "media_id": publish_res.get("id"),
-                    "carousel_container_id": carousel_container_id,
-                    "item_containers": item_container_ids,
-                    "total_slides": len(image_urls)
-                }
-        except urllib.error.HTTPError as e:
-            return {"error": f"Failed publishing carousel: {e.read().decode('utf-8')}"}
-
-    def publish_thread(self, text: str, image_url: str = "", topic_tag: str = "") -> dict:
-        """Publish a thread post directly via Meta Threads API."""
-        if not self.threads_token:
-            return {"error": "Missing Threads credentials"}
-
-        url = f"{THREADS_BASE_URL}/me/threads"
-        data = {
-            "access_token": self.threads_token,
-            "text": text
+        media_id = publish_result.get("id")
+        return {
+            "success": True,
+            "media_id": media_id,
+            "carousel_container_id": carousel_container_id,
+            "item_containers": item_container_ids,
+            "total_slides": len(image_urls),
+            "media": self.get_ig_media(media_id) if media_id else None,
         }
-        if image_url:
-            data["media_type"] = "IMAGE"
-            data["image_url"] = image_url
-        else:
-            data["media_type"] = "TEXT"
 
+    def publish_thread(self, text: str, image_url: str = "", topic_tag: str = "") -> dict[str, Any]:
+        """Publish a Threads post directly via the official Threads API."""
+        if not self.threads_token:
+            return {"success": False, "error": "Missing Threads credentials"}
+
+        data: dict[str, Any] = {"text": text, "media_type": "TEXT"}
+        if image_url:
+            validation_error = self._validate_public_https_urls([image_url])
+            if validation_error:
+                return validation_error
+            data.update({"media_type": "IMAGE", "image_url": image_url})
         if topic_tag:
             data["topic_tag"] = topic_tag.replace("#", "").strip()
 
-        payload = urllib.parse.urlencode(data).encode("utf-8")
-        req = urllib.request.Request(url, data=payload, method="POST")
+        container = self._threads_post("me/threads", data)
+        if not container.get("success") or not container.get("id"):
+            return {"success": False, "stage": "create_thread_container", "details": container}
 
-        try:
-            with urllib.request.urlopen(req) as resp:
-                res = json.loads(resp.read().decode("utf-8"))
-                container_id = res.get("id")
-        except urllib.error.HTTPError as e:
-            return {"error": f"Failed to create thread container: {e.read().decode('utf-8')}"}
-
+        container_id = container["id"]
         time.sleep(4)
+        publish_result = self._threads_post("me/threads_publish", {"creation_id": container_id})
+        if not publish_result.get("success"):
+            return {
+                "success": False,
+                "stage": "threads_publish",
+                "container_id": container_id,
+                "details": publish_result,
+            }
 
-        pub_url = f"{THREADS_BASE_URL}/me/threads_publish"
-        pub_payload = urllib.parse.urlencode({
-            "creation_id": container_id,
-            "access_token": self.threads_token
-        }).encode("utf-8")
+        return {
+            "success": True,
+            "thread_id": publish_result.get("id"),
+            "container_id": container_id,
+        }
 
-        req_pub = urllib.request.Request(pub_url, data=pub_payload, method="POST")
-        try:
-            with urllib.request.urlopen(req_pub) as resp:
-                pub_res = json.loads(resp.read().decode("utf-8"))
-                return {
-                    "success": True,
-                    "thread_id": pub_res.get("id"),
-                    "container_id": container_id
-                }
-        except urllib.error.HTTPError as e:
-            return {"error": f"Failed to publish thread: {e.read().decode('utf-8')}"}
+
+def main() -> None:
+    publisher = MetaDirectPublisher()
+    print("=== Meta Direct API Connection Status ===")
+    print(json.dumps(publisher.check_status(), indent=2))
+    print("\n=== Instagram Content Publishing Quota ===")
+    print(json.dumps(publisher.check_ig_publishing_limit(), indent=2))
+
 
 if __name__ == "__main__":
-    publisher = MetaDirectPublisher()
-    status = publisher.check_status()
-    print("=== Meta Direct API Connection Status ===")
-    print(json.dumps(status, indent=2))
-    
-    limits = publisher.check_ig_publishing_limit()
-    print("\n=== Instagram Content Publishing Quota ===")
-    print(json.dumps(limits, indent=2))
+    main()
