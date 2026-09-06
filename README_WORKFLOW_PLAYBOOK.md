@@ -37,7 +37,7 @@ Semua topik konten bermula dari sini sebelum desain dibuat.
 Tidak ada editing manual (drag & drop) di Canva. Seluruh visual dirender pixel-perfect melalui skrip Python (PIL/Pillow).
 
 1. **Eksekusi Generator**:  
-   Menjalankan skrip spesifik seperti `generate_carousel_production.py` untuk merender 5 slide PNG.
+   Menjalankan skrip spesifik seperti `generate_carousel_production.py` untuk merender 5 slide JPEG langsung (Meta-ready).
 2. **Aturan Desain (Locked Template V2)**:
    - *Slide 1 (Cover)*: Background Cream, teks ExtraBold, kata kunci di-highlight dengan marker oval (capsule).
    - *Slide 2 (Formula)*: Background Orange, 3 baris *pill badge* (`[ teks ]`).
@@ -50,10 +50,10 @@ Tidak ada editing manual (drag & drop) di Canva. Seluruh visual dirender pixel-p
 ---
 
 ## 4. GITHUB CDN PREPARATION PHASE
-Meta Graph API mewajibkan aset gambar yang diupload ke Instagram menggunakan URL HTTPS publik (bukan PNG lokal atau Google Drive biasa). 
+Meta Graph API mewajibkan aset gambar yang diupload ke Instagram menggunakan URL HTTPS publik dan format JPEG yang stabil untuk feed carousel.
 
-1. **Konversi ke JPEG**:  
-   File PNG dari `03_APPROVED` dikonversi ke JPEG beresolusi tinggi (karena Meta lebih stabil dengan JPEG untuk feed carousel).
+1. **Direct JPEG Output**:  
+   File slide dari `03_APPROVED` sudah berbentuk JPEG beresolusi tinggi sejak awal render. Tidak ada tahap PNG → JPEG lagi.
 2. **Push ke GitHub Public Repo**:  
    Gambar JPEG didorong (git push) ke repository publik `https://github.com/tebakkasus/Naskah`.
 3. **Generate CDN URL**:  
@@ -96,9 +96,9 @@ Karena database manajemen proyek dan Notion tracking berada di ranah profil Herm
 ## RINGKASAN CEKLIST OPERASIONAL (Day-to-Day)
 
 Kapanpun TM berkata: *"Eksekusi Post #2"*, alur robotiknya adalah:
-1. `publish_post02.py --convert-only` (Ubah 5 PNG → JPEG).
+1. Render/cek aset JPEG langsung dari generator (`post02_01_cover.jpg` sampai `post02_05_cta.jpg`).
 2. `git add & git commit & git push` (Naikkan JPEG ke GitHub CDN).
-3. `publish_post02.py` (Buat Carousel Container → Publish Instagram → Publish Threads).
+3. Jalankan publisher direct Meta API (Buat Carousel Container → Publish Instagram → Publish Threads).
 4. Update `SYNC_STATUS.json` dengan Media ID / Permalink.
 5. Panggil/minta `@default` untuk meng-update Notion Command Center.
 

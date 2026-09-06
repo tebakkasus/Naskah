@@ -7,11 +7,11 @@
 ---
 
 ## 📸 1. MATRIKS SLIDE CAROUSEL (5 SLIDE)
-* **Slide 01 (Cover)**: `post01_01_cover.png` — Hook: *"5 KESALAHAN FATAL SITASI DI MICROSOFT WORD"* + Marker Capsule `[FATAL SITASI]`
-* **Slide 02 (Formula)**: `post01_02_formula.png` — Solid Orange: `[ Native Source XML ]` `[ + Auto-Update F9 ]` `[ = Bebas dari Revisi Format Dosen ]`
-* **Slide 03 (Editorial)**: `post01_03_editorial.png` — Navy Deep: Masalah Copy-Paste Google Scholar & Quote *"Ini format APA atau Vancouver sebenarnya?"*
-* **Slide 04 (Callout)**: `post01_04_callout.png` — Checklist: *"Semua sitasi in-text ada di daftar pustaka"*
-* **Slide 05 (CTA Outro)**: `post01_05_cta.png` — Penutup: Amankan Naskah Sebelum Sempro + Soft Offer Pendampingan
+* **Slide 01 (Cover)**: `post01_01_cover.jpg` — Hook: *"5 KESALAHAN FATAL SITASI DI MICROSOFT WORD"* + Marker Capsule `[FATAL SITASI]`
+* **Slide 02 (Formula)**: `post01_02_formula.jpg` — Solid Orange: `[ Native Source XML ]` `[ + Auto-Update F9 ]` `[ = Bebas dari Revisi Format Dosen ]`
+* **Slide 03 (Editorial)**: `post01_03_editorial.jpg` — Navy Deep: Masalah Copy-Paste Google Scholar & Quote *"Ini format APA atau Vancouver sebenarnya?"*
+* **Slide 04 (Callout)**: `post01_04_callout.jpg` — Checklist: *"Semua sitasi in-text ada di daftar pustaka"*
+* **Slide 05 (CTA Outro)**: `post01_05_cta.jpg` — Penutup: Amankan Naskah Sebelum Sempro + Soft Offer Pendampingan
 
 ---
 

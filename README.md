@@ -9,7 +9,7 @@ Welcome to the central command hub for Naskah Social Media Content. This departm
 | `02_BRAND_ASSETS/` | Official logos, cutouts, typography assets |
 | `03_DESIGN_SYSTEM/` | Visual rulebook, carousel template system, JSON baselines |
 | `04_GENERATORS/` | Python scripts to render carousels and visual graphics |
-| `05_OUTPUTS/` | Generated JPGs/PNGs, concept boards, and final assets |
+| `05_OUTPUTS/` | Generated JPG carousel files, concept boards, and final assets |
 | `06_CONTENT_PIPELINE/` | Idea → Draft → Approved → Published workflow |
 | `SKILLS/` | Agent skills tailored for social media visual design |
 

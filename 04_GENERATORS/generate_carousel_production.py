@@ -286,7 +286,7 @@ def render(cfg, out_dir, name="carousel"):
         "05_cta": render_cta(raw_logo, white_logo, cfg),
     }
     for k, im in slides.items():
-        im.save(out_dir / f"{name}_{k}.png")
+        im.convert("RGB").save(out_dir / f"{name}_{k}.jpg", "JPEG", quality=92, optimize=True)
     return out_dir, slides
 
 

@@ -23,7 +23,7 @@ import requests
 ROOT_DIR = pathlib.Path(__file__).resolve().parent.parent
 IG_BASE_URL = "https://graph.instagram.com/v21.0"
 THREADS_BASE_URL = "https://graph.threads.net/v1.0"
-DEFAULT_TIMEOUT = 60
+DEFAULT_TIMEOUT = 120
 
 
 def load_env() -> None:

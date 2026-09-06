@@ -8,11 +8,11 @@ def make_preview_sheet(src_dir, title, subtitle, out_file, name_prefix="post"):
     font_dir = Path(r"D:/tm/06_Content/02_BRAND_ASSETS/fonts/Poppins")
     
     files = [
-        f"{name_prefix}_01_cover.png",
-        f"{name_prefix}_02_formula.png",
-        f"{name_prefix}_03_editorial.png",
-        f"{name_prefix}_04_callout.png",
-        f"{name_prefix}_05_cta.png",
+        f"{name_prefix}_01_cover.jpg",
+        f"{name_prefix}_02_formula.jpg",
+        f"{name_prefix}_03_editorial.jpg",
+        f"{name_prefix}_04_callout.jpg",
+        f"{name_prefix}_05_cta.jpg",
     ]
     
     thumb_w, thumb_h = 300, 375
