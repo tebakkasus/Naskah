@@ -1,0 +1,59 @@
+{
+  "cover": {
+    "headline": [
+      "PROGRESS",
+      "LEBIH PENTING",
+      "DARI SEMPURNA"
+    ],
+    "mark_word_line": 0,
+    "body": "Satu paragraf yang kamu tulis hari ini lebih berharga daripada 10 halaman rencana yang terus ditunda.",
+    "pill": "Swipe buat reset"
+  },
+  "formula": {
+    "headline": [
+      "SUNDAY RESET",
+      "AKADEMIK"
+    ],
+    "body": "Akhir minggu bukan buat menghukum diri karena target belum semua tercapai. Pakai waktu ini untuk mengatur langkah kecil berikutnya.",
+    "pills": [
+      "Evaluasi Minggu Ini",
+      "+ Target Mini Besok",
+      "= Naskah Lebih Jalan"
+    ]
+  },
+  "editorial": {
+    "headline": [
+      "JANGAN NUNGGU",
+      "MOOD BARU",
+      "NULIS"
+    ],
+    "body": "Mood sering datang setelah kamu mulai, bukan sebelum. Mulai dari bagian paling kecil yang bisa kamu selesaikan malam ini.",
+    "lead": "Target yang lebih realistis:",
+    "quote": [
+      "“20 menit membaca jurnal,",
+      "bukan langsung 20 halaman.”"
+    ]
+  },
+  "callout": {
+    "headline": [
+      "RITUAL",
+      "15 MENIT",
+      "MALAM INI"
+    ],
+    "mark_word_line": 0,
+    "lead": "Sebelum tidur, tulis tiga hal kecil ini:",
+    "quote": "“1 paragraf, 1 jurnal, 1 revisi kecil untuk besok”",
+    "foot": "Kecil, tapi cukup untuk membuat kamu tidak mulai dari nol lagi besok pagi."
+  },
+  "cta": {
+    "headline": [
+      "MINGGU DEPAN",
+      "MULAI DENGAN",
+      "LANGKAH KECIL"
+    ],
+    "mark_word_line": 2,
+    "body": "Naskah yang selesai biasanya bukan ditulis sekali duduk, tapi dirapikan sedikit demi sedikit dengan ritme yang konsisten.",
+    "pill": "Simpan reset akademik ini",
+    "foot": "Kalau kamu stuck di struktur naskah, naskah.fk bisa bantu pecah alurnya."
+  }
+}

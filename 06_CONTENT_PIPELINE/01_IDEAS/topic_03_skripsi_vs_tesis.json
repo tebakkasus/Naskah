@@ -1,0 +1,59 @@
+{
+  "cover": {
+    "headline": [
+      "SKRIPSI VS TESIS",
+      "KEDOKTERAN:",
+      "JANGAN SAMAKAN"
+    ],
+    "mark_word_line": 2,
+    "body": "Gaya penulisan skripsi kalau dibawa mentah-mentah ke tesis bakal langsung dirombak total sama penguji. Ini perbedaannya.",
+    "pill": "Swipe buat bedah"
+  },
+  "formula": {
+    "headline": [
+      "LEVEL SINTESIS",
+      "JAUH BERBEDA"
+    ],
+    "body": "Skripsi cukup mendeskripsikan fenomena, sedangkan tesis menuntut argumen, kedalaman metodologis, dan sintesis dari literatur yang relevan.",
+    "pills": [
+      "Deskripsi Data",
+      "+ Sintesis Kritis",
+      "= Argumen Riset Lebih Kuat"
+    ]
+  },
+  "editorial": {
+    "headline": [
+      "BAB 4 BUKAN",
+      "SEKADAR REKAP",
+      "ANGKA"
+    ],
+    "body": "Di level tesis, penguji tidak hanya mencari p-value. Mereka juga ingin tahu apa arti temuanmu, bagaimana membandingkannya dengan studi lain, dan apa batasannya.",
+    "lead": "Pertanyaan penguji tesis:",
+    "quote": [
+      "“Apa novelty dan mekanisme",
+      "di balik temuan ini?”"
+    ]
+  },
+  "callout": {
+    "headline": [
+      "LITERATURE REVIEW",
+      "HARUS",
+      "RELEVAN"
+    ],
+    "mark_word_line": 0,
+    "lead": "Standar referensi bisa berbeda tiap kampus dan program studi:",
+    "quote": "“Prioritaskan jurnal terbaru, relevan, dan berkualitas”",
+    "foot": "Cek pedoman institusi untuk batas tahun, proporsi sumber, dan jenis referensi yang diwajibkan."
+  },
+  "cta": {
+    "headline": [
+      "NAIKKAN STANDAR",
+      "PENULISAN",
+      "KARYA ILMIAH"
+    ],
+    "mark_word_line": 2,
+    "body": "Bangun argumen riset yang solid dan terstruktur sejak penyusunan proposal tesis kamu.",
+    "pill": "Simpan panduan tesis ini",
+    "foot": "Sedang stuck di analisis tesis? Tim naskah.fk siap dampingi."
+  }
+}

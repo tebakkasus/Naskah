@@ -1,0 +1,59 @@
+{
+  "cover": {
+    "headline": [
+      "CARA AKTIFKAN",
+      "SITASI NATIVE WORD",
+      "BIAR AUTO-UPDATE"
+    ],
+    "mark_word_line": 1,
+    "body": "Naskah panjang sering crash kalau pakai plugin berat? Pakai fitur References bawaan Word biar daftar pustaka update instan.",
+    "pill": "Swipe buat bedah"
+  },
+  "formula": {
+    "headline": [
+      "ALUR SITASI",
+      "BAWAAN WORD"
+    ],
+    "body": "Cukup input sumber sekali di Manage Sources, lalu sisipkan sitasi dan generate daftar pustaka tanpa plugin tambahan.",
+    "pills": [
+      "References > Sources",
+      "+ Insert Citation",
+      "= Tekan F9 Langsung Rapi"
+    ]
+  },
+  "editorial": {
+    "headline": [
+      "DOKUMEN LEBIH",
+      "RINGAN DAN",
+      "STABIL"
+    ],
+    "body": "Saat dokumen mencapai ratusan halaman, sitasi bawaan Word tidak membebani memori kerja laptop dan minim risiko crash.",
+    "lead": "Keuntungan utamanya:",
+    "quote": [
+      "“File tetap aman dibuka",
+      "di laptop penguji manapun”"
+    ]
+  },
+  "callout": {
+    "headline": [
+      "KUNCI GAYA",
+      "SITASI DARI",
+      "AWAL"
+    ],
+    "mark_word_line": 0,
+    "lead": "Pilih format sebelum mulai menulis naskah:",
+    "quote": "“Pilih APA, Vancouver, atau IEEE di dropdown Style”",
+    "foot": "Word akan otomatis menyesuaikan format in-text dan daftar pustaka secara seragam."
+  },
+  "cta": {
+    "headline": [
+      "PRAKTIKKAN SEKARANG",
+      "UNTUK NASKAH",
+      "SKRIPSI KAMU"
+    ],
+    "mark_word_line": 2,
+    "body": "Coba input 3 referensi hari ini agar kamu terbiasa sebelum naskah masuk bab pembahasan.",
+    "pill": "Simpan tutorial Word ini",
+    "foot": "Perlu template Word siap pakai? naskah.fk siap bantu."
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "cover": {
+    "headline": [
+      "MANUSKRIP JURNAL",
+      "KEDOKTERAN",
+      "SERING DITOLAK?"
+    ],
+    "mark_word_line": 2,
+    "body": "Banyak naskah bagus gugur di tahap screening awal bukan karena isi risetnya, tapi karena format tabel dan heading yang salah.",
+    "pill": "Swipe buat bedah"
+  },
+  "formula": {
+    "headline": [
+      "STANDAR TABEL",
+      "JURNAL MEDIS"
+    ],
+    "body": "Jurnal kesehatan menggunakan Open Table (tiga garis horizontal tanpa garis vertikal) dan penomoran Romawi/Arab sesuai panduan.",
+    "pills": [
+      "Tabel Terbuka",
+      "+ Format Header Tepat",
+      "= Lolos Screening Reviewer"
+    ]
+  },
+  "editorial": {
+    "headline": [
+      "TABEL TERTUTUP",
+      "JADI JEBAKAN",
+      "KLASIK"
+    ],
+    "body": "Jangan gunakan tabel default Excel yang kotak-kotak penuh garis vertikal. Reviewer jurnal kedokteran langsung tahu kamu belum baca Author Guidelines.",
+    "lead": "Catatan editor pertama biasanya:",
+    "quote": [
+      "“Please reformat all tables",
+      "into standard three-line format”"
+    ]
+  },
+  "callout": {
+    "headline": [
+      "STRUKTUR ABSTRAK",
+      "WAJIB",
+      "PRESISI"
+    ],
+    "mark_word_line": 0,
+    "lead": "Sebelum submit ke portal OJS, cek bagian ini:",
+    "quote": "“Background, Methods, Results, Conclusion terstruktur”",
+    "foot": "Pastikan kata kunci (Keywords) memakai istilah standar MeSH (Medical Subject Headings)."
+  },
+  "cta": {
+    "headline": [
+      "CEK GUIDELINES",
+      "SEBELUM",
+      "SUBMIT NASKAH"
+    ],
+    "mark_word_line": 2,
+    "body": "Hemat waktu revisi berbulan-bulan dengan memastikan format naskahmu sudah 100% compliant sejak hari pertama.",
+    "pill": "Simpan checklist jurnal ini",
+    "foot": "Perlu bantuan formatting naskah jurnal? naskah.fk siap dampingi."
+  }
+}

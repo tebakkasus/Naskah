@@ -1,0 +1,59 @@
+{
+  "cover": {
+    "headline": [
+      "7 LAYOUT",
+      "CAROUSEL EDUKASI",
+      "KESEHATAN"
+    ],
+    "mark_word_line": 1,
+    "body": "Bikin konten edukasi kesehatan tidak harus kaku seperti slide kuliah. Yang penting: jelas, mudah discan, dan punya alur baca.",
+    "pill": "Swipe buat bedah"
+  },
+  "formula": {
+    "headline": [
+      "DESAIN EDUKASI",
+      "HARUS MUDAH DISCAN"
+    ],
+    "body": "Konten edukasi gagal bukan karena informasinya sedikit, tapi karena audiens tidak tahu harus membaca bagian mana dulu.",
+    "pills": [
+      "Hook Jelas",
+      "+ Hierarki Visual",
+      "= Lebih Mudah Disimpan"
+    ]
+  },
+  "editorial": {
+    "headline": [
+      "JANGAN SEMUA",
+      "SLIDE JADI",
+      "TABEL"
+    ],
+    "body": "Carousel yang baik memecah ide besar menjadi beberapa peran slide: hook, konteks, framework, contoh, dan action step.",
+    "lead": "Prinsip desainnya sederhana:",
+    "quote": [
+      "“Kalau semua terlihat penting,",
+      "tidak ada yang benar-benar terbaca.”"
+    ]
+  },
+  "callout": {
+    "headline": [
+      "PILIH LAYOUT",
+      "SESUAI",
+      "TUJUAN"
+    ],
+    "mark_word_line": 0,
+    "lead": "7 layout yang bisa dipakai bergantian:",
+    "quote": "“Hook, Formula, Checklist, Myth-Fact, Case Flow, Quote, CTA”",
+    "foot": "Jangan pakai satu template untuk semua jenis konten. Fungsi slide harus menentukan bentuknya."
+  },
+  "cta": {
+    "headline": [
+      "DESAIN UNTUK",
+      "MEMBANTU ORANG",
+      "PAHAM"
+    ],
+    "mark_word_line": 2,
+    "body": "Visual yang kuat bukan cuma terlihat rapi, tapi membuat materi akademik terasa lebih mudah dimengerti.",
+    "pill": "Simpan ide layout ini",
+    "foot": "Mau lihat breakdown konten akademik lain? Follow naskah.fk."
+  }
+}

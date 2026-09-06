@@ -1,0 +1,59 @@
+{
+  "cover": {
+    "headline": [
+      "ANATOMI NASKAH",
+      "YANG CEPAT ACC",
+      "DI SEMINAR HASIL"
+    ],
+    "mark_word_line": 1,
+    "body": "Naskah yang cepat disetujui penguji biasanya punya 3 kesamaan: alur logika kuat, data konsisten, dan pembahasan tajam.",
+    "pill": "Swipe buat bedah"
+  },
+  "formula": {
+    "headline": [
+      "TRIAD KUNCI",
+      "NASKAH ACC"
+    ],
+    "body": "Penguji menilai apakah data di Bab 4 menjawab pertanyaan di Bab 1 dan dibahas tuntas dengan literatur pendukung.",
+    "pills": [
+      "Latar Belakang Kuat",
+      "+ Data Sinkron",
+      "= Lolos Ujian Semhas"
+    ]
+  },
+  "editorial": {
+    "headline": [
+      "PEMBAHASAN BUKAN",
+      "MENGULANG",
+      "TABEL"
+    ],
+    "body": "Banyak mahasiswa salah di Bab 5 karena cuma menarasikan ulang angka tabel, bukan menjelaskan mengapa hasil itu terjadi.",
+    "lead": "Pertanyaan dosen penguji:",
+    "quote": [
+      "“Bagaimana mekanisme biologis",
+      "atau klinis di balik temuan ini?”"
+    ]
+  },
+  "callout": {
+    "headline": [
+      "BENANG MERAH",
+      "HARUS",
+      "SAMBUNG"
+    ],
+    "mark_word_line": 0,
+    "lead": "Checklist sebelum kirim draft semhas:",
+    "quote": "“Tujuan, hasil, dan kesimpulan harus saling menjawab”",
+    "foot": "Jangan ada kesimpulan baru yang datanya tidak pernah muncul di bab hasil."
+  },
+  "cta": {
+    "headline": [
+      "PERSIAPKAN SEMHAS",
+      "DENGAN NASKAH",
+      "YANG SOLID"
+    ],
+    "mark_word_line": 2,
+    "body": "Review kembali alur bab pembahasanmu sebelum maju ke meja sidang.",
+    "pill": "Simpan checklist semhas ini",
+    "foot": "Butuh simulasi review naskah? Tim naskah.fk siap dampingi."
+  }
+}

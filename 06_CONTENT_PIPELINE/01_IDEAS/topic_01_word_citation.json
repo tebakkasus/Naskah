@@ -1,0 +1,59 @@
+{
+  "cover": {
+    "headline": [
+      "5 KESALAHAN",
+      "FATAL SITASI",
+      "DI MICROSOFT WORD"
+    ],
+    "mark_word_line": 1,
+    "body": "Naskah kamu sering ditolak dosen cuma gara-gara daftar pustaka berantakan? Ini 5 hal sepele yang sering terlewat.",
+    "pill": "Swipe buat bedah"
+  },
+  "formula": {
+    "headline": [
+      "SITASI OTOMATIS",
+      "LEBIH AMAN"
+    ],
+    "body": "Menulis sitasi manual di Word rawan kelupaan nomor halaman dan format in-text yang beda dengan daftar pustaka.",
+    "pills": [
+      "Native Source XML",
+      "+ Auto-Update F9",
+      "= Bebas dari Revisi Format Dosen"
+    ]
+  },
+  "editorial": {
+    "headline": [
+      "FORMAT",
+      "TIDAK",
+      "KONSISTEN"
+    ],
+    "body": "Kesalahan paling sering: Mengandalkan copy-paste dari Google Scholar tanpa cek DOI dan urutan nama belakang penulis.",
+    "lead": "Dosen penguji langsung tanya:",
+    "quote": [
+      "“Ini format APA atau",
+      "Vancouver sebenarnya?”"
+    ]
+  },
+  "callout": {
+    "headline": [
+      "CEK ULANG",
+      "SEBELUM",
+      "SUBMIT"
+    ],
+    "mark_word_line": 0,
+    "lead": "Sebelum kirim ke pembimbing, pastikan hal ini:",
+    "quote": "“Semua sitasi in-text ada di daftar pustaka”",
+    "foot": "Jangan sampai ada nama yang muncul di bab 2 tapi hilang di daftar pustaka belakang."
+  },
+  "cta": {
+    "headline": [
+      "PASTIKAN NASKAH",
+      "KAMU AMAN",
+      "SEBELUM SEMPRO"
+    ],
+    "mark_word_line": 2,
+    "body": "Luangkan 10 menit untuk cek relasi sitasi agar tidak kena revisi mayor di ruang sidang.",
+    "pill": "Simpan tips sitasi ini",
+    "foot": "Butuh bantuan review format naskah? naskah.fk siap dampingi."
+  }
+}
