@@ -1,5 +1,5 @@
 {
-  "last_sync": "2026-09-06 04:53:20 WIB",
+  "last_sync": "2026-09-06 17:30:00 WIB",
   "environment": "Hermes Content OS",
   "sync_targets": [
     "Hermes Desktop",
@@ -8,6 +8,33 @@
     "Instagram Graph API"
   ],
   "recent_events": [
+    {
+      "timestamp": "2026-09-06 17:30:00 WIB",
+      "type": "POST_PUBLISHED_META_DIRECT",
+      "details": {
+        "post_number": 1,
+        "topic": "5 Kesalahan Fatal Sitasi di Microsoft Word",
+        "instagram": {
+          "status": "PUBLISHED",
+          "media_id": "17994913101008682",
+          "permalink": "https://www.instagram.com/p/Dc8ThgdE8AX/",
+          "media_type": "CAROUSEL_ALBUM",
+          "slides_count": 5
+        },
+        "threads": [
+          {
+            "slot": "Problem Awareness",
+            "thread_id": "18027196754899708",
+            "status": "PUBLISHED"
+          },
+          {
+            "slot": "Practical Insight",
+            "thread_id": "18096573902173563",
+            "status": "PUBLISHED"
+          }
+        ]
+      }
+    },
     {
       "timestamp": "2026-09-06 04:53:20 WIB",
       "type": "INITIAL_NOTION_SYNC",
