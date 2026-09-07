@@ -16,7 +16,7 @@
 
 ## 🗓️ JADWAL HARIAN (7 HARI - DETAIL POSTING)
 
-### 🔴 SENIN (7 SEP 2026) [STATUS: PLANNED & ASSETS READY]
+### 🔴 SENIN (7 SEP 2026) [STATUS: READY TO PUBLISH / TODAY'S ACTIVE POST]
 * **Slot 10:00 WIB — Instagram Carousel [Post #1]**
   * **Topik**: "5 Kesalahan Fatal Sitasi Word Manual yang Bikin Dosen Pembimbing Marah Besar"
   * **Hook Slide 1**: "Masih nulis daftar pustaka manual di Word? Ini alasan naskah kamu sering ditolak dalam 5 detik!"
@@ -59,44 +59,48 @@
 
 ---
 
-### 🔴 RABU (9 SEP 2026)
-* **Slot 10:00 WIB — Instagram Single Post [Post #3]**
+### 🔴 SENIN (7 SEP 2026) — DIMAJUKAN
+* **Slot 10:00 WIB — Instagram Carousel [Post #3]**
   * **Topik**: "Skripsi vs Tesis Kedokteran: 3 Kebiasaan Penulisan yang Harus Kamu Ubah"
-  * **Hook**: "Gaya nulis Skripsi bawa ke Tesis? Siap-siap dirombak habis sama penguji."
-  * **Caption**: "Di tingkat Tesis, kedalaman analisis metodologis dan sintesis sosiomedis jauh lebih berbobot daripada sekadar deskripsi statistik..."
-  * **Hashtag Set**: `#TesisKedokteran #Pascasarjana #RisetKesehatan #Akademik`
-
-* **Slot 10:00 WIB — Threads [Thread #5]**
-  * **Hook**: "Teman seangkatan udah Seminar Hasil, kamu masih bingung tentuin judul? Baca thread ini."
-  * **Content**: Langkah praktis menemukan research gap dari literature review 3 tahun terakhir.
-
-* **Slot 19:00 WIB — Threads [Thread #6]**
-  * **Hook**: "Metode statistik apa yang paling sering dipakai di karya ilmiah kesehatan masyarakat? Simak listnya."
-  * **Content**: Kapan pakai Chi-Square, Regresi Logistik, vs Mann-Whitney.
+  * **Status**: APPROVED & RENDERED (5 Slide)
+  * **Slot 10:00 WIB — Threads [Thread #5]**: Research gap dari literature review
+  * **Slot 19:00 WIB — Threads [Thread #6]**: Metode statistik kesehatan masyarakat
 
 ---
 
-### 🔴 KAMIS (10 SEP 2026)
-* **Slot 10:00 WIB — Threads [Thread #7]**
-  * **Hook**: "Jangan pernah kirim naskah ke jurnal sebelum kamu lakukan 5 langkah QC mandiri ini."
-  * **Content**: QC Margin, Checksum Sitasi, Format Gambar 300 DPI, Cek Plagiarisme, & Typos.
-
-* **Slot 19:00 WIB — Instagram Carousel [Post #4]**
+### 🔴 SELASA (8 SEP 2026) — DIMAJUKAN
+* **Slot 10:00 WIB — Instagram Carousel [Post #4]**
   * **Topik**: "Step-by-step: Cara Aktifkan Native Word Citation Biar F9 Auto-Update"
-  * **Hook**: "Tekan F9 di Word langsung rapi semua sitasinya? Ini rahasianya!"
-  * **Outline Slide 1-7**: Panduan visual memasukkan source XML, UUID, dan generate ADDIN CITATION fields secara native tanpa plugin pihak ketiga.
-  * **CTA**: "Save ini kalau kamu gamau ribet pakai Mendeley tapi tetap rapi."
-  * **Hashtag Set**: `#WordHack #NativeCitation #SkripsiKedokteran #TesisKesehatan`
-
-* **Slot 19:00 WIB — Threads [Thread #8]**
-  * **Hook**: "Kenapa Mendeley / Zotero suka bikin Word lemot pas dokumen udah > 100 halaman?"
-  * **Content**: Perbandingan performa plugin eksternal vs Native Word Citation.
+  * **Status**: APPROVED & RENDERED (5 Slide)
+  * **Slot 10:00 WIB — Threads [Thread #7]**: Technical relief Word native
+  * **Slot 19:00 WIB — Threads [Thread #8]**: Trik F9 1 detik
 
 ---
 
-### 🔴 JUMAT (11 SEP 2026)
-* **Slot 10:00 WIB — Instagram Infografis [Post #5]**
-  * **Topik**: "Anatomi Naskah ACC: Kasus Depresi pada Kanker Serviks (NF-260902-001)"
+### 🔴 RABU (9 SEP 2026) — DIMAJUKAN
+* **Slot 10:00 WIB — Instagram Carousel [Post #5]**
+  * **Topik**: "Anatomi Naskah ACC: Kasus Depresi pada Kanker Serviks"
+  * **Status**: APPROVED & RENDERED (5 Slide)
+  * **Slot 10:00 WIB — Threads [Thread #9]**: Examination mindset & benang merah
+  * **Slot 19:00 WIB — Threads [Thread #10]**: Rumus 3 paragraf per temuan Bab 5
+
+---
+
+### 🔴 KAMIS (10 SEP 2026) — DIMAJUKAN
+* **Slot 10:00 WIB — Instagram Carousel [Post #6]**
+  * **Topik**: "7 Layout Carousel Edukasi Kesehatan"
+  * **Status**: APPROVED & RENDERED (5 Slide)
+  * **Slot 10:00 WIB — Threads [Thread #11]**: Weekend study habit
+  * **Slot 19:00 WIB — Threads [Thread #12]**: Hierarki visual konten medis
+
+---
+
+### 🔴 JUMAT (11 SEP 2026) — DIMAJUKAN
+* **Slot 10:00 WIB — Instagram Carousel [Post #7]**
+  * **Topik**: "Sunday Academic Reset"
+  * **Status**: APPROVED & RENDERED (5 Slide)
+  * **Slot 10:00 WIB — Threads [Thread #13]**: Audience check-in mingguan
+  * **Slot 19:00 WIB — Threads [Thread #14]**: Q&A interaktif naskah stuck
   * **Hook**: "Studi Kasus: Bagaimana naskah riset depresi kanker serviks lolos ACC tanpa revisi mayor!"
   * **Outline**: Latar belakang kuat, sintesis instrumen BDI-II, & struktur pembahasan tajam.
   * **Hashtag Set**: `#CaseStudy #KankerServiks #KesehatanMental #RisetKedokteran`

@@ -1,0 +1,61 @@
+{
+  "cover": {
+    "headline": [
+      "Ternyata",
+      "carousel ini",
+      "dibuat begini."
+    ],
+    "mark_word_line": 2,
+    "body": "Naskah Inside — EP.1. Kita buka dapur. Bukan mau pamer, tapi karena lo berhak tau.",
+    "pill": "Swipe →"
+  },
+  "formula": {
+    "headline": [
+      "Dapur",
+      "Naskah:",
+      "Production Line"
+    ],
+    "body": "Dari ide sampai publish, semua lewat sistem — bukan feeling:",
+    "pills": [
+      "1. Konsep → riset masalah",
+      "2. Copy → nulis pakai hati",
+      "3. Desain + QC + Publish"
+    ]
+  },
+  "editorial": {
+    "headline": [
+      "Ini bukan",
+      "ide dadakan",
+      "jam 11",
+      "malam."
+    ],
+    "body": "Konsep — cari problem nyata mahasiswa FK, bukan yang lagi trending. Copy — nulis dengan voice santai, bukan bahasa textbook. Desain — template dikunci biar orang langsung kenal.",
+    "lead": "Terakhir:",
+    "quote": [
+      "QC — cek fakta, cek etika.",
+      "Publish — langsung ke API.",
+      "Tanpa copy-paste ke HP."
+    ]
+  },
+  "callout": {
+    "headline": [
+      "Kata",
+      "Tim Naskah"
+    ],
+    "mark_word_line": 1,
+    "lead": "Di balik layar, tanpa filter:",
+    "quote": "Kami nggak ngejar viral. Kami ngejar: kalau lo save, lo beneran terbantu seminggu kemudian.",
+    "foot": "Trust dibangun dari transparansi, bukan cuma dari konten yang bagus."
+  },
+  "cta": {
+    "headline": [
+      "Penasaran?",
+      "Kita baru",
+      "mulai."
+    ],
+    "mark_word_line": 0,
+    "body": "Save buat tau standar Naskah. Episode berikutnya: Racikan Tools Naskah.",
+    "pill": "Follow @naskah.fk",
+    "foot": "Seri Naskah Inside — tiap Sabtu 19:00 WIB di feed lo."
+  }
+}

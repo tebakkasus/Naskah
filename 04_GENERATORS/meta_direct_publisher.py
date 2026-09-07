@@ -339,7 +339,7 @@ class MetaDirectPublisher:
             "media": self.get_ig_media(media_id) if media_id else None,
         }
 
-    def publish_thread(self, text: str, image_url: str = "", topic_tag: str = "") -> dict[str, Any]:
+    def publish_thread(self, text: str, image_url: str = "", topic_tag: str = "", reply_to_id: str | None = None) -> dict[str, Any]:
         """Publish a Threads post directly via the official Threads API."""
         if not self.threads_token:
             return {"success": False, "error": "Missing Threads credentials"}
@@ -352,6 +352,8 @@ class MetaDirectPublisher:
             data.update({"media_type": "IMAGE", "image_url": image_url})
         if topic_tag:
             data["topic_tag"] = topic_tag.replace("#", "").strip()
+        if reply_to_id:
+            data["reply_to_id"] = reply_to_id
 
         container = self._threads_post("me/threads", data)
         if not container.get("success") or not container.get("id"):
@@ -374,6 +376,80 @@ class MetaDirectPublisher:
             "container_id": container_id,
         }
 
+
+
+    def publish_threads_carousel(self, image_urls: list[str], text: str, topic_tag: str = "", reply_to_id: str | None = None) -> dict[str, Any]:
+        """Publish a multi-image carousel to Threads via the official API (2-10 images)."""
+        if not self.threads_token:
+            return {"success": False, "error": "Missing Threads credentials"}
+        if len(image_urls) < 2 or len(image_urls) > 10:
+            return {"success": False, "error": f"Threads carousel requires 2-10 images. Given: {len(image_urls)}"}
+
+        validation_error = self._validate_public_https_urls(image_urls)
+        if validation_error:
+            return validation_error
+
+        # 1. Create containers for each image item
+        item_container_ids: list[str] = []
+        for idx, img_url in enumerate(image_urls, start=1):
+            item = self._threads_post(
+                "me/threads",
+                {
+                    "media_type": "IMAGE",
+                    "image_url": img_url,
+                    "is_carousel_item": "true",
+                },
+            )
+            if not item.get("success") or not item.get("id"):
+                return {
+                    "success": False,
+                    "stage": "create_threads_carousel_item",
+                    "slide": idx,
+                    "created_item_containers": item_container_ids,
+                    "details": item,
+                }
+            item_container_ids.append(item["id"])
+            time.sleep(2)
+
+        # 2. Create the carousel container with text caption
+        data: dict[str, Any] = {
+            "media_type": "CAROUSEL",
+            "children": ",".join(item_container_ids),
+            "text": text,
+        }
+        if topic_tag:
+            data["topic_tag"] = topic_tag.replace("#", "").strip()
+        if reply_to_id:
+            data["reply_to_id"] = reply_to_id
+
+        carousel = self._threads_post("me/threads", data)
+        if not carousel.get("success") or not carousel.get("id"):
+            return {
+                "success": False,
+                "stage": "create_threads_carousel_container",
+                "item_containers": item_container_ids,
+                "details": carousel,
+            }
+
+        carousel_id = carousel["id"]
+        time.sleep(5)
+
+        # 3. Publish the carousel container
+        publish_result = self._threads_post("me/threads_publish", {"creation_id": carousel_id})
+        if not publish_result.get("success"):
+            return {
+                "success": False,
+                "stage": "threads_carousel_publish",
+                "container_id": carousel_id,
+                "details": publish_result,
+            }
+
+        return {
+            "success": True,
+            "thread_id": publish_result.get("id"),
+            "container_id": carousel_id,
+            "total_slides": len(image_urls),
+        }
 
 def main() -> None:
     publisher = MetaDirectPublisher()

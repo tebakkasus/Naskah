@@ -1,0 +1,33 @@
+{
+  "post_number": 2,
+  "topic": "Format Manuskrip Jurnal Kedokteran",
+  "published_at_wib": "2026-09-06 18:43 WIB",
+  "instagram": {
+    "status": "PUBLISHED",
+    "media_id": "18126512455769453",
+    "permalink": "https://www.instagram.com/p/Dc8dJyfD9PV/",
+    "media_type": "CAROUSEL_ALBUM",
+    "slides_count": 5
+  },
+  "threads": [
+    {
+      "slot": "#3 (Open Table)",
+      "status": "PUBLISHED",
+      "thread_id": "18100461041018557",
+      "permalink": "https://www.threads.com/@naskah.efka/post/Dc8dK-9D9EE",
+      "timestamp": "2026-09-06T11:43:11+0000"
+    },
+    {
+      "slot": "#4 (Screening awal)",
+      "status": "PUBLISHED",
+      "thread_id": "17945104290301761",
+      "permalink": "https://www.threads.com/@naskah.efka/post/Dc8dMmLDw45",
+      "timestamp": "2026-09-06T11:43:24+0000"
+    }
+  ],
+  "evidence": {
+    "caption_source": "D:\\tm\\06_Content\\06_CONTENT_PIPELINE\\03_APPROVED\\post_02_jurnal_kedokteran\\CAPTION_DAN_THREADS_POST02.md",
+    "asset_base": "https://raw.githubusercontent.com/tebakkasus/Naskah/main/06_CONTENT_PIPELINE/03_APPROVED/post_02_jurnal_kedokteran",
+    "api_verified": true
+  }
+}

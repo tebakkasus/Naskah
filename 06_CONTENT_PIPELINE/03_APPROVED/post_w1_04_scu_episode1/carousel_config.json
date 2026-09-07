@@ -1,0 +1,60 @@
+{
+  "cover": {
+    "headline": [
+      "Kenalan dulu",
+      "sama",
+      "3 orang ini."
+    ],
+    "mark_word_line": 2,
+    "body": "Naskah Cinematic Universe — EP.1. Tiga karakter fiksi yang mungkin terasa terlalu nyata.",
+    "pill": "Swipe →"
+  },
+  "formula": {
+    "headline": [
+      "Naskah",
+      "Cinematic",
+      "Universe"
+    ],
+    "body": "Season 1 — The Cast. Tiga mahasiswa, tiga struggle, satu tujuan: lulus.",
+    "pills": [
+      "Rini — The Procrastinator",
+      "Budi — The Panic Machine",
+      "Sari — The Survivor"
+    ]
+  },
+  "editorial": {
+    "headline": [
+      "Mereka",
+      "fiksi.",
+      "Tapi ceritanya",
+      "nyata."
+    ],
+    "body": "Rini punya 47 tab Chrome terbuka. Nol yang relevan. Budi pikir ANOVA itu nama band. Sari udah revisi Bab 3 sebanyak 4 kali.",
+    "lead": "Setiap kali, feedback-nya sama:",
+    "quote": [
+      "Bagus, tapi...",
+      "Air matanya udah habis.",
+      "Tapi dia masih ngetik."
+    ]
+  },
+  "callout": {
+    "headline": [
+      "Kata",
+      "Sari"
+    ],
+    "mark_word_line": 1,
+    "lead": "Semester 10, revisi ke-4, masih bertahan:",
+    "quote": "Gue udah revisi 4 kali. Setiap revisi, gue pikir ini yang terakhir. Setiap kali, gue salah. Tapi lo tau apa? Gue masih di sini. Dan gue masih ngetik.",
+    "foot": "Itu cukup buat hari ini."
+  },
+  "cta": {
+    "headline": [
+      "Lo yang",
+      "mana?"
+    ],
+    "mark_word_line": 1,
+    "body": "Rini yang nunda? Budi yang panik? Atau Sari yang capek tapi masih jalan?",
+    "pill": "Follow @naskah.fk",
+    "foot": "Cerita mereka baru mulai. Drop nama lo di komentar."
+  }
+}

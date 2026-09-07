@@ -1,0 +1,33 @@
+{
+  "post_number": 3,
+  "topic": "Skripsi vs Tesis Kedokteran",
+  "published_at_wib": "2026-09-07 17:41 WIB",
+  "instagram": {
+    "status": "PUBLISHED",
+    "media_id": "18152019592470467",
+    "permalink": "https://www.instagram.com/p/Dc-66XGGui8/",
+    "media_type": "CAROUSEL_ALBUM",
+    "slides_count": 5
+  },
+  "threads": [
+    {
+      "slot": "#5 (Research Gap)",
+      "status": "PUBLISHED",
+      "thread_id": "18062717825786389",
+      "permalink": "https://www.threads.net/@naskah.efka/post/18062717825786389",
+      "timestamp": "2026-09-07T10:41:34+0000"
+    },
+    {
+      "slot": "#6 (Statistical Methods)",
+      "status": "PUBLISHED",
+      "thread_id": "18628012051002148",
+      "permalink": "https://www.threads.net/@naskah.efka/post/18628012051002148",
+      "timestamp": "2026-09-07T10:49:00+0000"
+    }
+  ],
+  "evidence": {
+    "caption_source": "D:\\\\tm\\\\06_Content\\\\06_CONTENT_PIPELINE\\\\03_APPROVED\\\\post_03_skripsi_vs_tesis\\\\CAPTION_DAN_THREADS_POST03.md",
+    "asset_base": "https://raw.githubusercontent.com/tebakkasus/Naskah/main/06_CONTENT_PIPELINE/03_APPROVED/post_03_skripsi_vs_tesis/",
+    "api_verified": true
+  }
+}

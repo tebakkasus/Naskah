@@ -49,3 +49,16 @@ Buka workspace Notion Naskah dan perbarui baris database:
 | **Post #5** | Anatomi Naskah ACC Semhas | APPROVED & RENDERED | ⏳ READY TO PUBLISH |
 | **Post #6** | 7 Layout Carousel Edukasi Kesehatan | APPROVED & RENDERED | ⏳ READY TO PUBLISH |
 | **Post #7** | Sunday Academic Reset | APPROVED & RENDERED | ⏳ READY TO PUBLISH |
+
+---
+
+## 🚀 Status Pipeline Week 1 — "Introduction to Madness" (14 - 20 Sep 2026):
+| Post | Topik | Platform | Status Pipeline | Notion Sync |
+| :--- | :--- | :--- | :---: | :---: |
+| **W1-01** | Diagnosis Penyakit Skripsi (ICD-10) | IG Carousel (5s) | ✅ APPROVED & RENDERED | ✅ SYNCED TO NOTION |
+| **W1-02** | 2 Kebenaran 1 Bohong (Metpen) | Threads | ✅ DRAFTED (Auto-Split) | ✅ SYNCED TO NOTION |
+| **W1-03** | UGC Call: Autopsi Abstrak | Threads | ✅ DRAFTED | ✅ SYNCED TO NOTION |
+| **W1-04** | SCU Ep.1 (Rini, Budi, Sari) | IG Carousel (5s) | ✅ APPROVED & RENDERED | ✅ SYNCED TO NOTION |
+| **W1-05** | Revisi Bingo | IG Single/Story | ✅ DRAFTED | ✅ SYNCED TO NOTION |
+| **W1-06** | 3AM Thoughts vol.1 | Threads (03:00) | ✅ DRAFTED (Auto-Split) | ✅ SYNCED TO NOTION |
+| **W1-NI** | Naskah Inside EP.1: Di Balik Layar | IG Carousel (5s) | ✅ APPROVED & RENDERED | ✅ SYNCED TO NOTION |
