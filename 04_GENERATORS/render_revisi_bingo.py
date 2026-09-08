@@ -5,9 +5,14 @@ Follows Naskah Locked V2 Template System:
 - Logo in top-left
 - 5x5 Bingo Grid with Free Space in the center
 - Clean Poppins typography
+- Emoji rendered as downloaded PNG assets (never tofu)
 """
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
+
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from emoji_assets import paste_emoji, strip_emojis
 
 BASE_DIR = Path(r"D:/tm/06_Content")
 LOGO_TRANSPARENT = BASE_DIR / "02_BRAND_ASSETS/logos/logo_cutouts_clean/official_logo_transparent.png"
@@ -61,9 +66,10 @@ def render_bingo():
         mark = raw_logo.resize((w_logo, h_logo), Image.Resampling.LANCZOS)
         im.paste(mark, (90, 75), mark)
 
-    # Header Text
-    d.text((90, 150), "🎯 REVISI BINGO", font=F["title_main"], fill=INK)
-    d.text((90, 220), "Edisi Dosen Pembimbing • Screenshot & Tandain!", font=F["subtitle"], fill=ORANGE)
+    # Header Text — paste 🎯 PNG on the left, then title text
+    paste_emoji(im, "🎯", (90, 152), size=58, anchor="la")
+    d.text((165, 150), "REVISI BINGO", font=F["title_main"], fill=INK)
+    d.text((90, 222), "Edisi Dosen Pembimbing • Screenshot & Tandain!", font=F["subtitle"], fill=ORANGE)
 
     # Grid Setup (5x5)
     margin_x = 90
@@ -89,8 +95,8 @@ def render_bingo():
             if content == 'FREE_SPACE':
                 # Center Free Space
                 d.rounded_rectangle((box_x1, box_y1, box_x2, box_y2), radius=16, fill=FREE_BG, outline=ORANGE, width=3)
-                d.text(((box_x1 + box_x2)/2, (box_y1 + box_y2)/2 - 22), "★ FREE ★", font=F["free_title"], fill=ORANGE, anchor="mm")
-                d.text(((box_x1 + box_x2)/2, (box_y1 + box_y2)/2 + 14), '"Bagus, tapi..."', font=F["free_sub"], fill=INK, anchor="mm")
+                d.text(((box_x1 + box_x2)/2, (box_y1 + box_y2)/2 - 20), "FREE SPACE", font=F["free_title"], fill=ORANGE, anchor="mm")
+                d.text(((box_x1 + box_x2)/2, (box_y1 + box_y2)/2 + 16), '"Bagus, tapi..."', font=F["free_sub"], fill=INK, anchor="mm")
             else:
                 # Normal Cell
                 d.rounded_rectangle((box_x1, box_y1, box_x2, box_y2), radius=16, fill=WHITE, outline=NAVY, width=2)
@@ -103,7 +109,8 @@ def render_bingo():
 
     # Instruction Bar / Soft CTA
     d.rounded_rectangle((90, 1180, 990, 1235), radius=28, fill=NAVY)
-    d.text((540, 1208), "Tag @naskah.fk di Story lo kalau lo dapet 5 berturut-turut! 🔥", font=F["subtitle"], fill=WHITE, anchor="mm")
+    d.text((500, 1208), "Tag @naskah.fk di Story lo kalau lo dapet 5 berturut-turut!", font=F["subtitle"], fill=WHITE, anchor="mm")
+    paste_emoji(im, "🔥", (890, 1208), size=34, anchor="mm")
 
     # Footer
     d.text((90, 1280), "naskah.fk", font=F["footer_brand"], fill=INK)
