@@ -202,18 +202,26 @@ def slide_cover():
     # Badge pill top-right — aligned right with 90px margin, vertical center with logo
     pill(d, (W - 90, 75), "Mindset Akademik", ORANGE, WHITE, align_right=True)
 
-    # Hero — bigger, full-width
-    y = 240
-    for ln in ["PROGRESS", "LEBIH PENTING", "DARI SEMPURNA"]:
+    # Hero lines
+    lines = ["PROGRESS", "LEBIH PENTING", "DARI SEMPURNA"]
+    y = 230
+    line_h = 92
+    for i, ln in enumerate(lines):
+        if i == 2:
+            # Measure bounding box of "DARI SEMPURNA"
+            bb = d.textbbox((90, y), ln, font=F["hero"])
+            text_bottom = bb[3]
+            # Place highlight bar cleanly BELOW the letters (no overlapping/cutting)
+            bar_y = text_bottom + 6
+            bar_h = 10
+            highlight_bar(d, 90, bar_y, bb[2] - 90, bar_h, ORANGE)
         d.text((90, y), ln, font=F["hero"], fill=INK)
-        y += 96
-    # highlight under DARI SEMPURNA
-    bb = d.textbbox((90, y - 96), "DARI SEMPURNA", font=F["hero"])
-    highlight_bar(d, 90, y - 20, bb[2] - 90, 14, ORANGE)
+        y += line_h
 
-    # Body (bigger)
+    # Body (bigger, balanced spacing)
+    body_y = y + 24
     body = "Satu paragraf yang kamu tulis hari ini lebih berharga daripada 10 halaman rencana yang terus ditunda."
-    text_box(d, 90, y + 16, body, F["body_m"], MUTED, width=820)
+    text_box(d, 90, body_y, body, F["body_m"], MUTED, width=860)
 
     # 3 stat cards — full-width row, vertically centered content
     cards = [
@@ -221,7 +229,7 @@ def slide_cover():
         ("1 paragraf", "Target Besok"),
         ("3 langkah", "Checklist Malam"),
     ]
-    cy = 730
+    cy = 760
     cw = 280
     gap = 30
     for i, (val, label) in enumerate(cards):
@@ -236,12 +244,16 @@ def slide_cover():
         bbl = d.textbbox((0, 0), label, font=F["caption"])
         d.text((x + (cw - bbl[2] + bbl[0]) // 2, cy + 104), label, font=F["caption"], fill=MUTED)
 
-    # CTA pill — centered, hug content
+    # CTA pill card container at bottom to eliminate dead space
+    cta_box = (90, 990, 990, 1140)
+    im = soft_shadow(im, cta_box, radius=22, alpha=28, blur=14, offset=(0, 5))
     d = ImageDraw.Draw(im)
-    pill(d, (90, 1000), "Swipe buat reset", NAVY, WHITE, bold=False, pad_x=48, pad_y=20)
-
-    # small tag line under CTA
-    d.text((90, 1080), "Minggu malam = reset, bukan panik.", font=F["caption"], fill=MUTED_LIGHT)
+    rounded_rect_grad(im, cta_box, 22, NAVY, NAVY_LIGHT)
+    d = ImageDraw.Draw(im)
+    d.text((130, 1025), "Swipe untuk mulai ritual reset", font=F["card_t"], fill=WHITE)
+    d.text((130, 1075), "Minggu malam = reset tenang, bukan panik.", font=F["body_r"], fill=MUTED_LIGHT)
+    # Right arrow pill inside CTA card
+    pill(d, (990 - 40, 1030), "Swipe", ORANGE, WHITE, bold=True, pad_x=22, pad_y=12, im=im, emoji_prefix="👉", align_right=True)
 
     footer(im, "01/05")
     return im
