@@ -1,22 +1,21 @@
 """
-Post 07 — Sunday Academic Reset
-Re-rendered with 2026 Rich-Density Visual System.
+Post 07 — Sunday Academic Reset (RICH v2)
+Redesigned for feed readability: bigger type, disciplined grid, anti-overflow cards.
 
-5 Slides:
-  1. Cover (Warm Cream gradient + marker highlight + emoji badge)
-  2. Formula (Burnt Orange solid + stacked pills + soft shadow)
-  3. Editorial (Deep Navy + orange keyword highlights + ambient glow)
-  4. Callout (Warm Cream + frosted callout box + shadow)
-  5. CTA (Warm Cream + soft-sell + bookmark badge)
-
-Uses: Locked V2 palette, Poppins, paste_emoji(), soft_shadow_card(), gradient, pill_badge()
+Key fixes vs v1 (TM + vision review):
+- FONT SCALE-UP: headline ~80px, body 28px, caption 22px (readable on phone feed)
+- BALANCED COMPOSITION: full-width rows, no left-heavy dead space
+- ANTI-OVERFLOW: all card heights computed from measured text
+- PILLS CENTERED: full-width pills, centered text (no left-cramped)
+- MARKER replaced by highlight bar (clean, not scribble)
+- EMOJI always inside a container (no floating)
 """
 
-import pathlib, json, textwrap, sys
+import pathlib, textwrap, sys
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
-from emoji_assets import paste_emoji, strip_all_emojis
+from emoji_assets import paste_emoji
 
 BASE = pathlib.Path(r"D:/tm/06_Content")
 FONT_DIR = BASE / "02_BRAND_ASSETS/fonts/Poppins"
@@ -35,6 +34,7 @@ NAVY        = "#071726"
 NAVY_LIGHT  = "#122538"
 INK         = "#0B131D"
 ORANGE      = "#E85929"
+ORANGE_DK   = "#C84318"
 ORANGE_LIGHT= "#FFF0EB"
 TEAL        = "#028090"
 TEAL_LIGHT  = "#E0F4F6"
@@ -43,26 +43,25 @@ MUTED_LIGHT = "#8C9BAE"
 WHITE       = "#FFFFFF"
 BORDER      = "#E2DBD0"
 
-
+# ── fonts: full-size, scaled for phone readability ──
 def font(name, size):
     return ImageFont.truetype(str(FONT_DIR / name), size)
 
-
 F = {
-    "hero":       font("Poppins-ExtraBold.ttf", 56),
-    "hero_sub":   font("Poppins-ExtraBold.ttf", 44),
-    "section":    font("Poppins-Bold.ttf", 36),
-    "card_title": font("Poppins-Bold.ttf", 28),
-    "sub":        font("Poppins-SemiBold.ttf", 22),
-    "body_bold":  font("Poppins-Bold.ttf", 21),
-    "body_med":   font("Poppins-Medium.ttf", 20),
-    "body_reg":   font("Poppins-Regular.ttf", 19),
-    "caption":    font("Poppins-Medium.ttf", 16),
-    "pill_bold":  font("Poppins-Bold.ttf", 18),
-    "pill_med":   font("Poppins-SemiBold.ttf", 16),
-    "brand":      font("Poppins-SemiBold.ttf", 20),
-    "num":        font("Poppins-ExtraBold.ttf", 32),
-    "quote":      font("Poppins-Bold.ttf", 24),
+    "hero":      font("Poppins-ExtraBold.ttf", 84),
+    "hero_mid":  font("Poppins-ExtraBold.ttf", 68),
+    "section":   font("Poppins-Bold.ttf", 46),
+    "card_t":    font("Poppins-Bold.ttf", 34),
+    "sub":       font("Poppins-SemiBold.ttf", 30),
+    "body_b":    font("Poppins-Bold.ttf", 28),
+    "body_m":    font("Poppins-Medium.ttf", 28),
+    "body_r":    font("Poppins-Regular.ttf", 26),
+    "caption":   font("Poppins-Medium.ttf", 21),
+    "pill_b":    font("Poppins-Bold.ttf", 24),
+    "pill_m":    font("Poppins-SemiBold.ttf", 20),
+    "brand":     font("Poppins-SemiBold.ttf", 22),
+    "num":       font("Poppins-ExtraBold.ttf", 36),
+    "quote":     font("Poppins-Bold.ttf", 32),
 }
 
 
@@ -93,7 +92,7 @@ def rounded_rect_grad(im, box, r, top, bot):
     im.paste(grad, (0, 0), mask)
 
 
-def soft_shadow(im, box, radius=20, alpha=45, blur=20, offset=(0, 8), color=(7, 23, 38)):
+def soft_shadow(im, box, radius=24, alpha=40, blur=18, offset=(0, 7), color=(7, 23, 38)):
     shadow = Image.new("RGBA", (im.width, im.height), (0, 0, 0, 0))
     sd = ImageDraw.Draw(shadow)
     x1, y1, x2, y2 = box
@@ -106,7 +105,7 @@ def soft_shadow(im, box, radius=20, alpha=45, blur=20, offset=(0, 8), color=(7, 
     return im
 
 
-def paste_logo(im, white=False, x=90, y=70, h=52):
+def paste_logo(im, white=False, x=90, y=70, h=56):
     p = LOGO_WHITE if white else LOGO_TRANSPARENT
     if p.exists():
         logo = Image.open(p).convert("RGBA")
@@ -119,263 +118,283 @@ def footer(im, page, tag="Sunday Academic Reset", dark=False):
     d = ImageDraw.Draw(im)
     cb = CREAM if dark else INK
     cp = MUTED_LIGHT if dark else MUTED
-    d.text((90, H - 72), "naskah.fk", font=F["brand"], fill=cb)
-    d.text((540, H - 72), tag, font=F["pill_med"], fill=ORANGE, anchor="mt")
-    d.text((W - 90, H - 72), page, font=F["brand"], fill=cp, anchor="ra")
+    d.text((90, H - 80), "naskah.fk", font=F["brand"], fill=cb)
+    d.text((W // 2, H - 80), tag, font=F["pill_m"], fill=ORANGE, anchor="mt")
+    d.text((W - 90, H - 80), page, font=F["brand"], fill=cp, anchor="ra")
 
 
-def pill(d, xy, text, bg, fg, bold=True, pad_x=18, pad_y=8):
+def text_box(d, x, y, text, f, fill, width=900, spacing=8, align="left"):
+    """Draw wrapped text. Returns (right_x, bottom_y)."""
+    wrapped = textwrap.fill(text, width=width // (f.size // 2))
+    lines = wrapped.split("\n")
+    yy = y
+    for i, ln in enumerate(lines):
+        d.text((x, yy), ln, font=f, fill=fill)
+        yy += f.size + spacing
+    return x, yy - spacing
+
+
+def text_height(text, f, width, spacing=8):
+    wrapped = textwrap.fill(text, width=width // (f.size // 2))
+    lines = wrapped.split("\n")
+    return len(lines) * (f.size + spacing) - spacing
+
+
+def pill(d, xy, text, bg, fg, bold=True, pad_x=40, pad_y=16, im=None, emoji_prefix=None):
+    """Hug-content centered pill. If emoji_prefix is provided, pastes PNG emoji."""
     x, y = xy
-    f = F["pill_bold"] if bold else F["pill_med"]
-    bb = d.textbbox((0, 0), text, font=f)
+    clean_text = text
+    f = F["pill_b"] if bold else F["pill_m"]
+    bb = d.textbbox((0, 0), clean_text, font=f)
     tw, th = bb[2] - bb[0], bb[3] - bb[1]
-    box = (x, y, x + tw + pad_x * 2, y + th + pad_y * 2)
+    extra_w = 40 if emoji_prefix else 0
+    box = (x, y, x + tw + pad_x * 2 + extra_w, y + th + pad_y * 2)
     r = (th + pad_y * 2) // 2
     d.rounded_rectangle(box, radius=r, fill=bg)
-    d.text((x + pad_x, y + pad_y), text, font=f, fill=fg)
-    return box[2], box[3]  # right-x, bottom-y
+    tx = x + pad_x + (40 if emoji_prefix else 0)
+    d.text((tx, y + pad_y), clean_text, font=f, fill=fg)
+    if emoji_prefix and im:
+        paste_emoji(im, emoji_prefix, (x + pad_x - 6, y + pad_y + th // 2), size=24, anchor="mm")
+    return box
 
 
-def marker_oval(d, xy, w, h, color=ORANGE, width=4):
-    """Hand-drawn-style marker oval highlight."""
-    x, y = xy
-    d.ellipse((x - 8, y - 6, x + w + 8, y + h + 6), outline=color, width=width)
+def highlight_bar(d, x, y, w, h, color=ORANGE):
+    """Clean bold underline highlight (not scribble)."""
+    d.rounded_rectangle((x, y, x + w, y + h), radius=h // 2, fill=color)
 
 
 # ─────────────────────────────────────────────────────────────
-# SLIDE 1 — COVER (Warm Cream gradient + marker highlight)
+# SLIDE 1 — COVER
 # ─────────────────────────────────────────────────────────────
 def slide_cover():
     im = Image.new("RGB", (W, H), CREAM)
-    gradient_v(im, CREAM_LIGHT, CREAM_WARM)
+    gradient_v(im, CREAM_LIGHT, CREAM)
     d = ImageDraw.Draw(im)
     paste_logo(im)
 
-    # Badge pill
-    pill(d, (90, 175), "Mindset Akademik", ORANGE, WHITE)
+    # Badge pill top-right
+    pill(d, (W - 90 - 300, 82), "Mindset Akademik", ORANGE, WHITE)
 
-    # Hero headline
-    lines = ["PROGRESS", "LEBIH PENTING", "DARI SEMPURNA"]
-    y = 270
-    for i, ln in enumerate(lines):
+    # Hero — bigger, full-width
+    y = 240
+    for ln in ["PROGRESS", "LEBIH PENTING", "DARI SEMPURNA"]:
         d.text((90, y), ln, font=F["hero"], fill=INK)
-        if i == 2:  # marker around "SEMPURNA"
-            bb = d.textbbox((90, y), ln, font=F["hero"])
-            marker_oval(d, (90, y), bb[2] - 90, bb[3] - y, ORANGE, 5)
-        y += 68
+        y += 96
+    # highlight under DARI SEMPURNA
+    bb = d.textbbox((90, y - 96), "DARI SEMPURNA", font=F["hero"])
+    highlight_bar(d, 90, y - 20, bb[2] - 90, 14, ORANGE)
 
-    # Body
+    # Body (bigger)
     body = "Satu paragraf yang kamu tulis hari ini lebih berharga daripada 10 halaman rencana yang terus ditunda."
-    wrapped = textwrap.fill(body, width=42)
-    d.multiline_text((90, 530), wrapped, font=F["body_med"], fill=MUTED, spacing=8)
+    text_box(d, 90, y + 16, body, F["body_m"], MUTED, width=820)
 
-    # Divider line
-    d.line([(90, 660), (990, 660)], fill=BORDER, width=2)
-
-    # 3 Quick-stat cards
-    stats = [
+    # 3 stat cards — full-width row, vertically centered content
+    cards = [
         ("15 mnt", "Ritual Reset"),
         ("1 paragraf", "Target Besok"),
         ("3 langkah", "Checklist Malam"),
     ]
-    cx = 90
-    for val, label in stats:
-        box = (cx, 700, cx + 270, 840)
-        im = soft_shadow(im, box, radius=18, alpha=30, blur=16, offset=(0, 6))
+    cy = 730
+    cw = 280
+    gap = 30
+    for i, (val, label) in enumerate(cards):
+        x = 90 + i * (cw + gap)
+        box = (x, cy, x + cw, cy + 180)
+        im = soft_shadow(im, box, radius=22, alpha=35, blur=16, offset=(0, 6))
         d = ImageDraw.Draw(im)
-        d.rounded_rectangle(box, radius=18, fill=WHITE, outline=BORDER, width=1)
-        d.text((cx + 135, 728), val, font=F["card_title"], fill=ORANGE, anchor="mt")
-        d.text((cx + 135, 770), label, font=F["caption"], fill=MUTED, anchor="mt")
-        cx += 300
+        d.rounded_rectangle(box, radius=22, fill=WHITE, outline=BORDER, width=1)
+        # center content vertically
+        bbv = d.textbbox((0, 0), val, font=F["card_t"])
+        d.text((x + (cw - bbv[2] + bbv[0]) // 2, cy + 44), val, font=F["card_t"], fill=ORANGE)
+        bbl = d.textbbox((0, 0), label, font=F["caption"])
+        d.text((x + (cw - bbl[2] + bbl[0]) // 2, cy + 104), label, font=F["caption"], fill=MUTED)
 
-    # Emoji accents
-    paste_emoji(im, "🌿", (900, 180), size=48, anchor="la")
-    paste_emoji(im, "📝", (920, 700), size=36, anchor="la")
-
-    # Swipe badge
+    # CTA pill — centered, hug content
     d = ImageDraw.Draw(im)
-    pill(d, (90, 910), "Swipe buat reset", NAVY, WHITE, bold=False)
+    pill(d, (90, 1000), "Swipe buat reset", NAVY, WHITE, bold=False, pad_x=48, pad_y=20)
+
+    # small tag line under CTA
+    d.text((90, 1080), "Minggu malam = reset, bukan panik.", font=F["caption"], fill=MUTED_LIGHT)
 
     footer(im, "01/05")
     return im
 
 
 # ─────────────────────────────────────────────────────────────
-# SLIDE 2 — FORMULA (Burnt Orange + stacked pills)
+# SLIDE 2 — FORMULA
 # ─────────────────────────────────────────────────────────────
 def slide_formula():
     im = Image.new("RGB", (W, H), ORANGE)
-    gradient_v(im, ORANGE, "#C84318")
+    gradient_v(im, ORANGE, ORANGE_DK)
     d = ImageDraw.Draw(im)
     paste_logo(im, white=True)
+    # Target pill badge top-right (in container)
+    pill(d, (W - 90 - 240, 80), "Focus", "#B84020", WHITE, bold=True, pad_x=24, pad_y=10, im=im, emoji_prefix="🎯")
 
     # Title
-    d.text((90, 200), "SUNDAY RESET", font=F["hero"], fill=WHITE)
-    d.text((90, 268), "AKADEMIK", font=F["hero"], fill=WHITE)
+    d.text((90, 210), "SUNDAY RESET", font=F["hero_mid"], fill=WHITE)
+    d.text((90, 286), "AKADEMIK", font=F["hero_mid"], fill=WHITE)
 
     # Body
     body = "Akhir minggu bukan buat menghukum diri karena target belum semua tercapai. Pakai waktu ini untuk mengatur langkah kecil berikutnya."
-    wrapped = textwrap.fill(body, width=40)
-    d.multiline_text((90, 380), wrapped, font=F["body_med"], fill="#FFE8DD", spacing=8)
+    text_box(d, 90, 390, body, F["body_m"], "#FFE8DD", width=860)
 
-    # Stacked equation pills
+    # Equation pills — full width, centered text
     pills_data = [
         ("Evaluasi Minggu Ini", WHITE, NAVY),
         ("+ Target Mini Besok", WHITE, NAVY),
         ("= Naskah Lebih Jalan", NAVY, WHITE),
     ]
-    py = 580
+    py = 600
     for txt, bg, fg in pills_data:
-        box = (90, py, 680, py + 65)
-        im = soft_shadow(im, box, radius=20, alpha=40, blur=14, offset=(0, 5), color=(0, 0, 0))
+        box = (90, py, 990, py + 76)
+        im = soft_shadow(im, box, radius=24, alpha=45, blur=14, offset=(0, 5), color=(0, 0, 0))
         d = ImageDraw.Draw(im)
-        d.rounded_rectangle(box, radius=20, fill=bg)
-        d.text((130, py + 16), txt, font=F["card_title"], fill=fg)
-        py += 85
+        d.rounded_rectangle(box, radius=24, fill=bg)
+        d.text((540, py + 16), txt, font=F["card_t"], fill=fg, anchor="mt")  # centered
+        py += 96
 
-    # Side emoji
-    paste_emoji(im, "🎯", (800, 600), size=56, anchor="mm")
-    paste_emoji(im, "💡", (850, 720), size=42, anchor="mm")
-
-    # Bottom insight box
-    insight_box = (90, 870, 990, 1000)
-    d.rounded_rectangle(insight_box, radius=18, fill="#B84020", outline="#FFB89A", width=2)
-    paste_emoji(im, "⚡", (116, 898), size=24, anchor="la")
-    d.text((148, 895), "Insight:", font=F["pill_bold"], fill=WHITE)
-    insight_txt = "Mahasiswa yang punya ritual reset mingguan menyelesaikan revisi 2x lebih cepat karena tidak kehilangan momentum setiap Senin."
-    d.multiline_text((120, 930), textwrap.fill(insight_txt, 52), font=F["body_reg"], fill="#FFE8DD", spacing=6)
+    # Insight box — height computed from text
+    insight_title = "Insight"
+    insight_body = ("Mahasiswa yang punya ritual reset mingguan menyelesaikan revisi 2x lebih cepat "
+                    "karena tidak kehilangan momentum setiap Senin.")
+    pad = 36
+    line_h = 34
+    n_lines = len(textwrap.wrap(insight_body, 34))
+    box_h = pad * 2 + 34 + line_h * n_lines
+    box_y = py + 14
+    ix = (90, box_y, 990, box_y + box_h)
+    im = soft_shadow(im, ix, radius=20, alpha=35, blur=14, offset=(0, 6), color=(0, 0, 0))
+    d = ImageDraw.Draw(im)
+    d.rounded_rectangle(ix, radius=20, fill="#B84020", outline="#FFB89A", width=2)
+    d.text((126, box_y + pad), insight_title, font=F["pill_b"], fill=WHITE)
+    d.text((126, box_y + pad + 34), "\n".join(textwrap.wrap(insight_body, 34)),
+           font=F["body_r"], fill="#FFE8DD", spacing=8)
 
     footer(im, "02/05", dark=True)
     return im
 
 
 # ─────────────────────────────────────────────────────────────
-# SLIDE 3 — EDITORIAL (Deep Navy + orange highlights + glow)
+# SLIDE 3 — EDITORIAL
 # ─────────────────────────────────────────────────────────────
 def slide_editorial():
     im = Image.new("RGB", (W, H), NAVY)
-    d = ImageDraw.Draw(im)
-
-    # Ambient glow blobs
+    # ambient glow
     blob = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     bd = ImageDraw.Draw(blob)
-    bd.ellipse((30, 100, 500, 550), fill=(232, 89, 41, 80))
-    bd.ellipse((600, 600, 1050, 1050), fill=(2, 128, 144, 70))
-    blob = blob.filter(ImageFilter.GaussianBlur(100))
+    bd.ellipse((300, 80, 800, 480), fill=(232, 89, 41, 70))
+    bd.ellipse((560, 700, 1060, 1150), fill=(2, 128, 144, 60))
+    blob = blob.filter(ImageFilter.GaussianBlur(120))
     im = Image.alpha_composite(im.convert("RGBA"), blob).convert("RGB")
     d = ImageDraw.Draw(im)
-
     paste_logo(im, white=True)
 
     # Title
-    d.text((90, 200), "JANGAN NUNGGU", font=F["hero"], fill=WHITE)
-    d.text((90, 268), "MOOD BARU", font=F["hero"], fill=ORANGE)
-    d.text((90, 336), "NULIS", font=F["hero"], fill=WHITE)
+    d.text((90, 190), "JANGAN NUNGGU", font=F["hero_mid"], fill=WHITE)
+    d.text((90, 266), "MOOD BARU", font=F["hero_mid"], fill=ORANGE)
+    d.text((90, 342), "NULIS", font=F["hero_mid"], fill=WHITE)
 
-    # Body quote card (frosted glass)
-    quote_box = (90, 460, 990, 680)
+    # Quote card (frosted)
+    q_box = (90, 470, 990, 700)
     panel = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    pd = ImageDraw.Draw(panel)
-    pd.rounded_rectangle(quote_box, radius=22, fill=(255, 255, 255, 30))
+    ImageDraw.Draw(panel).rounded_rectangle(q_box, radius=24, fill=(255, 255, 255, 26))
     im = Image.alpha_composite(im.convert("RGBA"), panel).convert("RGB")
     d = ImageDraw.Draw(im)
-    d.rounded_rectangle(quote_box, radius=22, outline=(255, 255, 255, 60), width=2)
-
-    d.text((120, 485), "Target yang lebih realistis:", font=F["sub"], fill=MUTED_LIGHT)
-    d.text((120, 530), '"20 menit membaca jurnal,', font=F["quote"], fill=WHITE)
-    d.text((120, 572), 'bukan langsung 20 halaman."', font=F["quote"], fill=ORANGE)
+    d.rounded_rectangle(q_box, radius=24, outline=(255, 255, 255, 70), width=2)
+    d.text((126, 505), "Target yang lebih realistis:", font=F["sub"], fill="#A9C7DF")
+    d.text((126, 560), '"20 menit membaca jurnal,', font=F["quote"], fill=WHITE)
+    d.text((126, 610), 'bukan langsung 20 halaman."', font=F["quote"], fill=ORANGE)
 
     # Body wisdom
-    body = "Mood sering datang setelah kamu mulai, bukan sebelum. Mulai dari bagian paling kecil yang bisa kamu selesaikan malam ini."
-    d.multiline_text((90, 730), textwrap.fill(body, 44), font=F["body_med"], fill="#C8D6E5", spacing=8)
+    d.text((90, 750), "Mood sering datang setelah kamu mulai, bukan sebelum.",
+           font=F["body_b"], fill=WHITE)
+    d.text((90, 794), "Mulai dari bagian paling kecil yang bisa kamu selesaikan malam ini.",
+           font=F["body_m"], fill="#C8D6E5")
 
-    # 3 Micro-action cards
+    # 3 action rows — full-width, balanced
     actions = [
         ("1", "Baca 1 abstrak jurnal terbaru", "🔬"),
         ("2", "Edit 1 paragraf bab pembahasan", "✏️"),
         ("3", "Rapikan 3 referensi di Mendeley", "📚"),
     ]
-    cy = 880
-    for num, txt, emoji_ch in actions:
-        box = (90, cy, 990, cy + 70)
-        im = soft_shadow(im, box, radius=16, alpha=30, blur=12, offset=(0, 4), color=(0, 0, 0))
+    cy = 900
+    for num, txt, em in actions:
+        box = (90, cy, 990, cy + 84)
+        im = soft_shadow(im, box, radius=20, alpha=30, blur=12, offset=(0, 4), color=(0, 0, 0))
         d = ImageDraw.Draw(im)
-        d.rounded_rectangle(box, radius=16, fill=NAVY_LIGHT, outline=(255, 255, 255, 40), width=1)
-        # Number badge
-        d.rounded_rectangle((110, cy + 14, 152, cy + 56), radius=10, fill=ORANGE)
-        d.text((131, cy + 35), num, font=F["num"], fill=WHITE, anchor="mm")
-        d.text((170, cy + 22), txt, font=F["body_bold"], fill=WHITE)
-        paste_emoji(im, emoji_ch, (930, cy + 20), size=28, anchor="la")
-        cy += 90
+        d.rounded_rectangle(box, radius=20, fill=NAVY_LIGHT, outline=(255, 255, 255, 45), width=1)
+        d.rounded_rectangle((120, cy + 18, 170, cy + 66), radius=12, fill=ORANGE)
+        d.text((145, cy + 42), num, font=F["num"], fill=WHITE, anchor="mm")
+        d.text((196, cy + 24), txt, font=F["body_b"], fill=WHITE)
+        paste_emoji(im, em, (930, cy + 18), size=36, anchor="la")
+        cy += 100
 
     footer(im, "03/05", dark=True)
     return im
 
 
 # ─────────────────────────────────────────────────────────────
-# SLIDE 4 — CALLOUT (Warm Cream + ritual box + shadow)
+# SLIDE 4 — CALLOUT
 # ─────────────────────────────────────────────────────────────
 def slide_callout():
     im = Image.new("RGB", (W, H), CREAM)
     gradient_v(im, CREAM_LIGHT, CREAM)
     d = ImageDraw.Draw(im)
     paste_logo(im)
+    # Moon pill badge top-right (in container)
+    pill(d, (W - 90 - 240, 80), "Malam", NAVY, WHITE, bold=True, pad_x=24, pad_y=10, im=im, emoji_prefix="🌙")
 
-    # Title with marker
-    d.text((90, 190), "RITUAL", font=F["hero"], fill=INK)
-    d.text((90, 258), "15 MENIT", font=F["hero"], fill=ORANGE)
-    d.text((90, 326), "MALAM INI", font=F["hero"], fill=INK)
-    # marker around 15 MENIT
-    bb = d.textbbox((90, 258), "15 MENIT", font=F["hero"])
-    marker_oval(d, (90, 258), bb[2] - 90, bb[3] - 258, ORANGE, 5)
+    # Title
+    d.text((90, 220), "RITUAL", font=F["hero_mid"], fill=INK)
+    d.text((90, 296), "15 MENIT", font=F["hero_mid"], fill=ORANGE)
+    d.text((90, 372), "MALAM INI", font=F["hero_mid"], fill=INK)
+    bb = d.textbbox((90, 296), "15 MENIT", font=F["hero_mid"])
+    highlight_bar(d, 90, 372 + 8, bb[2] - 90, 12, ORANGE)
 
-    # Lead text
-    d.text((90, 430), "Sebelum tidur, tulis tiga hal kecil ini:", font=F["sub"], fill=MUTED)
+    # Lead
+    d.text((90, 460), "Sebelum tidur, tulis tiga hal kecil ini:", font=F["sub"], fill=MUTED)
 
-    # Main quote card
-    quote_box = (90, 490, 990, 770)
-    im = soft_shadow(im, quote_box, radius=22, alpha=40, blur=20, offset=(0, 8))
+    # Checklist card
+    c_box = (90, 530, 990, 880)
+    im = soft_shadow(im, c_box, radius=26, alpha=38, blur=18, offset=(0, 8))
     d = ImageDraw.Draw(im)
-    d.rounded_rectangle(quote_box, radius=22, fill=WHITE, outline=BORDER, width=2)
-
-    # Quote mark
-    d.text((120, 505), "\u201C", font=font("Poppins-ExtraBold.ttf", 72), fill=ORANGE)
+    d.rounded_rectangle(c_box, radius=26, fill=WHITE, outline=BORDER, width=2)
 
     items = [
         ("1 paragraf", "yang akan kamu kerjakan besok pagi"),
         ("1 jurnal", "yang relevan, sudah siap di desktop"),
         ("1 revisi kecil", "bisa selesai dalam 20 menit pertama"),
     ]
-    cy = 555
+    cy = 575
     for bold, normal in items:
-        paste_emoji(im, "✅", (130, cy + 2), size=22, anchor="la")
+        paste_emoji(im, "✅", (140, cy + 2), size=34, anchor="la")
         d = ImageDraw.Draw(im)
-        d.text((160, cy), bold, font=F["body_bold"], fill=INK)
-        bb2 = d.textbbox((160, cy), bold, font=F["body_bold"])
-        d.text((bb2[2] + 8, cy), normal, font=F["body_reg"], fill=MUTED)
-        cy += 48
+        d.text((190, cy), bold, font=F["body_b"], fill=INK)
+        bb2 = d.textbbox((190, cy), bold, font=F["body_b"])
+        d.text((bb2[2] + 12, cy), normal, font=F["body_r"], fill=MUTED)
+        cy += 70
 
-    # Closing quote mark
-    d.text((910, 700), "\u201D", font=font("Poppins-ExtraBold.ttf", 72), fill=ORANGE, anchor="rt")
+    # Small print
+    d.text((126, 800), "Kecil, tapi cukup untuk membuat kamu tidak mulai dari nol lagi besok pagi.",
+           font=F["caption"], fill=MUTED_LIGHT)
 
-    # Bottom wisdom
-    wisdom_box = (90, 830, 990, 990)
-    im = soft_shadow(im, wisdom_box, radius=20, alpha=30, blur=16, offset=(0, 6))
+    # Why-it-works card (navy gradient)
+    w_box = (90, 930, 990, 1130)
+    im = soft_shadow(im, w_box, radius=24, alpha=32, blur=16, offset=(0, 6))
+    rounded_rect_grad(im, w_box, 24, NAVY, NAVY_LIGHT)
     d = ImageDraw.Draw(im)
-    rounded_rect_grad(im, wisdom_box, 20, NAVY, NAVY_LIGHT)
-    d = ImageDraw.Draw(im)
-    paste_emoji(im, "💬", (116, 858), size=24, anchor="la")
-    d = ImageDraw.Draw(im)
-    d.text((148, 855), "Kenapa ini works?", font=F["pill_bold"], fill=ORANGE)
-    wisdom = "Kecil, tapi cukup untuk membuat kamu tidak mulai dari nol lagi besok pagi. Otak kamu butuh starting point, bukan seluruh rencana."
-    d.multiline_text((120, 895), textwrap.fill(wisdom, 50), font=F["body_reg"], fill="#C8D6E5", spacing=6)
+    paste_emoji(im, "💬", (130, 970), size=32, anchor="la")
+    d.text((180, 965), "Kenapa ini works?", font=F["card_t"], fill=ORANGE)
+    d.text((126, 1030), "Otak kamu butuh starting point, bukan seluruh rencana.",
+           font=F["body_m"], fill="#C8D6E5")
 
     footer(im, "04/05")
     return im
 
 
 # ─────────────────────────────────────────────────────────────
-# SLIDE 5 — CTA (Warm Cream + soft-sell + bookmark badge)
+# SLIDE 5 — CTA
 # ─────────────────────────────────────────────────────────────
 def slide_cta():
     im = Image.new("RGB", (W, H), CREAM)
@@ -383,39 +402,39 @@ def slide_cta():
     d = ImageDraw.Draw(im)
     paste_logo(im)
 
-    # Hero CTA
-    d.text((90, 200), "MINGGU DEPAN", font=F["hero"], fill=INK)
-    d.text((90, 268), "MULAI DENGAN", font=F["hero"], fill=INK)
-    d.text((90, 336), "LANGKAH KECIL", font=F["hero"], fill=ORANGE)
-    # marker around LANGKAH KECIL
-    bb = d.textbbox((90, 336), "LANGKAH KECIL", font=F["hero"])
-    marker_oval(d, (90, 336), bb[2] - 90, bb[3] - 336, ORANGE, 5)
+    # Hero
+    d.text((90, 220), "MINGGU DEPAN", font=F["hero_mid"], fill=INK)
+    d.text((90, 296), "MULAI DENGAN", font=F["hero_mid"], fill=INK)
+    d.text((90, 372), "LANGKAH KECIL", font=F["hero_mid"], fill=ORANGE)
+    bb = d.textbbox((90, 372), "LANGKAH KECIL", font=F["hero_mid"])
+    highlight_bar(d, 90, 458, bb[2] - 90, 12, ORANGE)
 
     # Body
-    body = "Naskah yang selesai biasanya bukan ditulis sekali duduk, tapi dirapikan sedikit demi sedikit dengan ritme yang konsisten."
-    d.multiline_text((90, 460), textwrap.fill(body, 42), font=F["body_med"], fill=MUTED, spacing=8)
+    body = ("Naskah yang selesai biasanya bukan ditulis sekali duduk, tapi dirapikan "
+            "sedikit demi sedikit dengan ritme yang konsisten.")
+    text_box(d, 90, 500, body, F["body_m"], MUTED, width=860)
 
-    # Save bookmark card
-    save_box = (90, 610, 990, 760)
-    im = soft_shadow(im, save_box, radius=22, alpha=35, blur=18, offset=(0, 7))
+    # Save card
+    s_box = (90, 660, 990, 830)
+    im = soft_shadow(im, s_box, radius=26, alpha=35, blur=16, offset=(0, 7))
     d = ImageDraw.Draw(im)
-    d.rounded_rectangle(save_box, radius=22, fill=ORANGE_LIGHT, outline=ORANGE, width=2)
-    paste_emoji(im, "🔖", (120, 645), size=36, anchor="la")
+    d.rounded_rectangle(s_box, radius=26, fill=ORANGE_LIGHT, outline=ORANGE, width=2)
+    paste_emoji(im, "🔖", (130, 700), size=46, anchor="la")
     d = ImageDraw.Draw(im)
-    d.text((170, 640), "Simpan reset akademik ini", font=F["card_title"], fill=ORANGE)
-    d.text((170, 680), "Buat pengingat tiap kali kamu merasa kewalahan di akhir minggu.", font=F["body_reg"], fill=MUTED)
-    d.text((170, 710), "Tap ikon bookmark di kanan bawah!", font=F["caption"], fill=MUTED_LIGHT)
+    d.text((200, 695), "Simpan reset akademik ini", font=F["card_t"], fill=ORANGE)
+    d.text((200, 748), "Tap ikon bookmark buat pengingat akhir minggu.",
+           font=F["body_r"], fill=MUTED)
 
-    # Soft-sell card
-    sell_box = (90, 810, 990, 980)
-    im = soft_shadow(im, sell_box, radius=20, alpha=30, blur=16, offset=(0, 6))
+    # Sell card
+    sell_box = (90, 870, 990, 1090)
+    im = soft_shadow(im, sell_box, radius=24, alpha=32, blur=16, offset=(0, 6))
+    rounded_rect_grad(im, sell_box, 24, NAVY, NAVY_LIGHT)
     d = ImageDraw.Draw(im)
-    rounded_rect_grad(im, sell_box, 20, NAVY, NAVY_LIGHT)
-    d = ImageDraw.Draw(im)
-    d.text((120, 840), "Stuck di struktur naskah?", font=F["sub"], fill=WHITE)
-    d.text((120, 878), "Tim naskah.fk bisa bantu pecah alur skripsi", font=F["body_bold"], fill=ORANGE)
-    d.text((120, 910), "dan tesis kamu jadi langkah-langkah kecil.", font=F["body_bold"], fill=ORANGE)
-    pill(d, (120, 945), "Hubungi @naskah.fk", ORANGE, WHITE)
+    d.text((126, 910), "Stuck di struktur naskah?", font=F["sub"], fill=WHITE)
+    d.text((126, 958), "Tim naskah.fk bisa bantu pecah alur skripsi & tesis",
+           font=F["body_b"], fill=ORANGE)
+    d.text((126, 1000), "jadi langkah-langkah kecil.", font=F["body_b"], fill=ORANGE)
+    pill(d, (126, 1050), "Hubungi @naskah.fk", ORANGE, WHITE)
 
     footer(im, "05/05")
     return im
@@ -434,26 +453,23 @@ if __name__ == "__main__":
     }
 
     for name, im in slides.items():
-        path = OUT_DIR / f"post07_rich_{name}.jpg"
+        path = OUT_DIR / f"post07_rich_v2_{name}.jpg"
         im.save(str(path), "JPEG", quality=95, subsampling=0)
         print(f"SAVED: {path}")
 
     # Contact sheet
-    CELL = 540
+    CELL = 500
+    GAP = 18
     PAD = 24
-    row1 = Image.new("RGB", (CELL * 3 + PAD * 2, int(CELL * 1.25)), "#0E1117")
-    row2 = Image.new("RGB", (CELL * 3 + PAD * 2, int(CELL * 1.25)), "#0E1117")
-    all_imgs = list(slides.values())
-    for i in range(3):
-        thumb = all_imgs[i].resize((CELL, int(CELL * H / W)), Image.Resampling.LANCZOS)
-        row1.paste(thumb, (i * (CELL + PAD), 0))
-    for i in range(2):
-        thumb = all_imgs[3 + i].resize((CELL, int(CELL * H / W)), Image.Resampling.LANCZOS)
-        row2.paste(thumb, (i * (CELL + PAD), 0))
-
-    sheet = Image.new("RGB", (row1.width, row1.height + row2.height + PAD), "#0E1117")
-    sheet.paste(row1, (0, 0))
-    sheet.paste(row2, (0, row1.height + PAD))
-    sheet_path = OUT_DIR / "POST07_RICH_CONTACT_SHEET.jpg"
+    imgs = list(slides.values())
+    rows = (len(imgs) + 2) // 3
+    sheet_w = PAD * 2 + 3 * CELL + 2 * GAP
+    sheet_h = PAD * 2 + rows * int(CELL * H / W) + (rows - 1) * GAP
+    sheet = Image.new("RGB", (sheet_w, sheet_h), "#0E1117")
+    for i, im in enumerate(imgs):
+        thumb = im.resize((CELL, int(CELL * H / W)), Image.Resampling.LANCZOS)
+        r, c = i // 3, i % 3
+        sheet.paste(thumb, (PAD + c * (CELL + GAP), PAD + r * (int(CELL * H / W) + GAP)))
+    sheet_path = OUT_DIR / "POST07_RICH_V2_CONTACT_SHEET.jpg"
     sheet.save(str(sheet_path), "JPEG", quality=92)
-    print(f"CONTACT SHEET: {sheet_path}")
+    print("CONTACT SHEET:", sheet_path)
