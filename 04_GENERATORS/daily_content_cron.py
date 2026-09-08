@@ -19,11 +19,21 @@ ROOT_DIR = pathlib.Path(__file__).resolve().parent.parent
 GENERATORS_DIR = ROOT_DIR / "04_GENERATORS"
 
 SCHEDULE_MAP = {
-    "2026-09-07": "3",  # Monday: Post #3
-    "2026-09-08": "4",  # Tuesday: Post #4
-    "2026-09-09": "5",  # Wednesday: Post #5
-    "2026-09-10": "6",  # Thursday: Post #6
-    "2026-09-11": "7",  # Friday: Post #7
+    # Week 0 (W36: 7-13 Sep 2026)
+    "2026-09-07": "3",      # Senin: Skripsi vs Tesis
+    "2026-09-08": "4",      # Selasa: Sitasi Native Word
+    "2026-09-09": "5",      # Rabu: Anatomi Naskah ACC
+    "2026-09-10": "6",      # Kamis: 7 Layout Carousel
+    "2026-09-11": "7",      # Jumat: Sunday Academic Reset
+
+    # Week 1 (W37: 14-20 Sep 2026) — "Introduction to Madness"
+    "2026-09-14": "w1_01",  # Senin: ICD-10 Diagnosis Penyakit Skripsi (Carousel)
+    "2026-09-15": "w1_02",  # Selasa: Dua Kebenaran Satu Bohong Metpen (Threads)
+    "2026-09-16": "w1_03",  # Rabu: Autopsi Abstrak UGC Call (Threads)
+    "2026-09-17": "w1_04",  # Kamis: SCU Episode 1 Rini Budi Sari (Carousel)
+    "2026-09-18": "w1_05",  # Jumat: Revisi Bingo Dosen Pembimbing (Single Image)
+    "2026-09-19": "w1_ni",  # Sabtu: Naskah Inside EP.1 Di Balik Layar (Carousel)
+    "2026-09-20": "w1_06",  # Minggu: Jam 3 Pagi Threads 3AM Thoughts (Threads)
 }
 
 

@@ -1,9 +1,11 @@
-"""Publish Post #N — generalized script for Posts #3–#7.
+"""Publish Post #N — generalized script for Week 0 (Posts #3–#7) and Week 1 (Posts w1_01–w1_06, w1_ni).
 
-Reads caption + companion threads from per-post md files, publishes
-Instagram carousel (or single) and two companion Threads via the
-MetaDirectPublisher class, then writes PUBLISH_RESULT_postN.json,
-SYNC_STATUS.json, and updates Notion via the default-profile sync job.
+Supports:
+- IG Carousel + Threads Companion (default)
+- IG Single Image + Threads Companion (e.g. w1_05 Revisi Bingo)
+- Threads Only (e.g. w1_02, w1_03, w1_06)
+
+Writes PUBLISH_RESULT_post{id}.json, appends to SYNC_STATUS.json, and updates NOTION_SYNC_HANDOFF.md.
 """
 from __future__ import annotations
 
@@ -16,8 +18,10 @@ from datetime import datetime, timezone, timedelta
 ROOT_DIR = pathlib.Path(__file__).resolve().parent.parent
 CONTENT_ROOT = ROOT_DIR / "06_CONTENT_PIPELINE"
 CAPTIONS_ROOT = CONTENT_ROOT / "03_APPROVED"
+DRAFTS_ROOT = CONTENT_ROOT / "02_DRAFTS"
 
 POST_CONFIG = {
+    # --- WEEK 0 ---
     "3": {
         "dir": CAPTIONS_ROOT / "post_03_skripsi_vs_tesis",
         "slides": [
@@ -88,6 +92,7 @@ POST_CONFIG = {
         "topic": "Sunday Academic Reset",
         "ig_type": "carousel",
     },
+    # --- WEEK 1: INTRODUCTION TO MADNESS ---
     "w1_01": {
         "dir": CAPTIONS_ROOT / "post_w1_01_diagnosis_skripsi",
         "slides": [
@@ -101,6 +106,18 @@ POST_CONFIG = {
         "threads_file": CAPTIONS_ROOT / "post_w1_01_diagnosis_skripsi" / "CAPTION_DAN_THREADS_W1_01.md",
         "topic": "Diagnosis Penyakit Skripsi (ICD-10)",
         "ig_type": "carousel",
+    },
+    "w1_02": {
+        "topic": "Dua Kebenaran Satu Bohong: Metpen",
+        "ig_type": "none",
+        "threads_source": "draft_json",
+        "draft_key": "w1_02",
+    },
+    "w1_03": {
+        "topic": "Autopsi Abstrak (UGC Call)",
+        "ig_type": "none",
+        "threads_source": "draft_json",
+        "draft_key": "w1_03",
     },
     "w1_04": {
         "dir": CAPTIONS_ROOT / "post_w1_04_scu_episode1",
@@ -116,6 +133,16 @@ POST_CONFIG = {
         "topic": "SCU Episode 1: Rini Budi Sari",
         "ig_type": "carousel",
     },
+    "w1_05": {
+        "dir": CAPTIONS_ROOT / "post_w1_05_revisi_bingo",
+        "slides": [
+            "post_w1_05_revisi_bingo.jpg",
+        ],
+        "ig_caption_file": CAPTIONS_ROOT / "post_w1_05_revisi_bingo" / "CAPTION_DAN_THREADS_W1_05.md",
+        "threads_file": CAPTIONS_ROOT / "post_w1_05_revisi_bingo" / "CAPTION_DAN_THREADS_W1_05.md",
+        "topic": "Revisi Bingo: Dosen Pembimbing",
+        "ig_type": "single",
+    },
     "w1_ni": {
         "dir": CAPTIONS_ROOT / "post_w1_sat_naskah_inside_ep1",
         "slides": [
@@ -130,7 +157,12 @@ POST_CONFIG = {
         "topic": "Naskah Inside EP.1: Di Balik Layar",
         "ig_type": "carousel",
     },
-
+    "w1_06": {
+        "topic": "Jam 3 Pagi Threads (3AM Thoughts)",
+        "ig_type": "none",
+        "threads_source": "draft_json",
+        "draft_key": "w1_06",
+    },
 }
 
 
@@ -138,6 +170,8 @@ def load_caption_text(filepath: pathlib.Path) -> str:
     """Read the Instagram caption from the md file."""
     text = filepath.read_text(encoding="utf-8", errors="replace")
     marker = "CAPTION INSTAGRAM (READY TO POST)"
+    if marker not in text:
+        marker = "CAPTION INSTAGRAM"
     if marker not in text:
         raise ValueError(f"Caption marker not found in {filepath}")
     after = text.split(marker, 1)[1]
@@ -176,6 +210,21 @@ def load_threads_text(filepath: pathlib.Path) -> list[dict]:
     return threads
 
 
+def load_threads_from_json(draft_key: str) -> list[dict]:
+    """Load text-only thread from THREADS_W1_FINAL.json."""
+    json_path = DRAFTS_ROOT / "THREADS_W1_FINAL.json"
+    if not json_path.exists():
+        raise FileNotFoundError(f"Missing {json_path}")
+    data = json.loads(json_path.read_text(encoding="utf-8"))
+    entry = data.get(draft_key)
+    if not entry:
+        raise KeyError(f"Key {draft_key} not in {json_path}")
+    return [{
+        "slot": entry.get("slot", "#1"),
+        "text": entry.get("text", "").strip(),
+    }]
+
+
 def now_wib() -> str:
     return datetime.now(timezone(timedelta(hours=7))).strftime("%Y-%m-%d %H:%M WIB")
 
@@ -191,55 +240,82 @@ def main() -> int:
         return 1
 
     cfg = POST_CONFIG[post_num]
+    ig_type = cfg.get("ig_type", "carousel")
 
-    try:
-        caption_ig = load_caption_text(cfg["ig_caption_file"])
-    except Exception as e:
-        print(f"ERROR reading IG caption: {e}", file=sys.stderr)
-        return 1
+    # 1. Load Captions & Threads
+    caption_ig = ""
+    if ig_type in ("carousel", "single"):
+        try:
+            caption_ig = load_caption_text(cfg["ig_caption_file"])
+        except Exception as e:
+            print(f"ERROR reading IG caption: {e}", file=sys.stderr)
+            return 1
 
-    try:
-        threads_raw = load_threads_text(cfg["threads_file"])
-    except Exception as e:
-        print(f"ERROR reading threads: {e}", file=sys.stderr)
-        return 1
+    threads_raw = []
+    if cfg.get("threads_source") == "draft_json":
+        try:
+            threads_raw = load_threads_from_json(cfg["draft_key"])
+        except Exception as e:
+            print(f"ERROR reading threads JSON: {e}", file=sys.stderr)
+            return 1
+    elif "threads_file" in cfg:
+        try:
+            threads_raw = load_threads_text(cfg["threads_file"])
+        except Exception as e:
+            print(f"ERROR reading threads: {e}", file=sys.stderr)
+            return 1
 
     from meta_direct_publisher import MetaDirectPublisher
     publisher = MetaDirectPublisher()
 
     preflight = publisher.check_status()
-    if preflight.get("instagram", {}).get("status") != "connected":
+    if ig_type != "none" and preflight.get("instagram", {}).get("status") != "connected":
         print("ERROR: Instagram is not connected.", file=sys.stderr)
         return 1
-    if preflight.get("threads", {}).get("status") != "connected":
+    if threads_raw and preflight.get("threads", {}).get("status") != "connected":
         print("ERROR: Threads is not connected.", file=sys.stderr)
         return 1
 
-    image_urls = [
-        f"https://raw.githubusercontent.com/tebakkasus/Naskah/main/06_CONTENT_PIPELINE/03_APPROVED/{cfg['dir'].name}/{slide}"
-        for slide in cfg["slides"]
-    ]
+    image_urls = []
+    if "dir" in cfg and "slides" in cfg:
+        image_urls = [
+            f"https://raw.githubusercontent.com/tebakkasus/Naskah/main/06_CONTENT_PIPELINE/03_APPROVED/{cfg['dir'].name}/{slide}"
+            for slide in cfg["slides"]
+        ]
 
-    print(f"publishing_instagram_carousel post {post_num}")
-    ig_result = publisher.publish_ig_carousel(image_urls, caption_ig)
-    print(json.dumps(ig_result, ensure_ascii=False, indent=2))
-    if not ig_result.get("success"):
-        print("ERROR: Instagram publish failed; Threads not sent.", file=sys.stderr)
-        return 1
+    # 2. Publish Instagram
+    ig_result = {}
+    verified_ig = {}
+    if ig_type == "carousel":
+        print(f"Publishing Instagram Carousel for post {post_num} ({len(image_urls)} slides)...")
+        ig_result = publisher.publish_ig_carousel(image_urls, caption_ig)
+        print(json.dumps(ig_result, ensure_ascii=False, indent=2))
+        if not ig_result.get("success"):
+            print("ERROR: Instagram Carousel publish failed; aborting.", file=sys.stderr)
+            return 1
+        verified_ig = publisher.get_ig_media(ig_result["media_id"])
+        print("Verified Instagram:", json.dumps(verified_ig, ensure_ascii=False, indent=2))
+    elif ig_type == "single":
+        print(f"Publishing Instagram Single Image for post {post_num}...")
+        ig_result = publisher.publish_ig_single_image(image_urls[0], caption_ig)
+        print(json.dumps(ig_result, ensure_ascii=False, indent=2))
+        if not ig_result.get("success"):
+            print("ERROR: Instagram Single Image publish failed; aborting.", file=sys.stderr)
+            return 1
+        verified_ig = publisher.get_ig_media(ig_result["media_id"])
+        print("Verified Instagram:", json.dumps(verified_ig, ensure_ascii=False, indent=2))
+    else:
+        print(f"Post {post_num} is Threads-only (no IG publication needed).")
 
-    verified_ig = publisher.get_ig_media(ig_result["media_id"])
-    print("verified_instagram:")
-    print(json.dumps(verified_ig, ensure_ascii=False, indent=2))
-
+    # 3. Publish Threads
     thread_results = []
     for idx_t, item in enumerate(threads_raw):
         text = item["text"]
-        print(f"publishing_threads: {item['slot']} (len={len(text)})")
-        
-        # If Thread #1 and we have carousel slides, publish as THREADS CAROUSEL!
-        if idx_t == 0 and image_urls and len(image_urls) >= 2:
+        print(f"Publishing Thread {item['slot']} (len={len(text)})...")
+
+        # If Thread #1 of a carousel and we have 2+ slides, publish as Threads Carousel
+        if ig_type == "carousel" and idx_t == 0 and image_urls and len(image_urls) >= 2:
             print(f"Publishing {item['slot']} as Threads Carousel with {len(image_urls)} slides...")
-            # Truncate text for carousel caption if needed (Threads carousel caption limit is 500)
             carousel_text = text[:490] if len(text) > 490 else text
             result = publisher.publish_threads_carousel(image_urls, carousel_text, topic_tag=cfg["topic"])
             print(json.dumps({"slot": item["slot"], "type": "THREADS_CAROUSEL", "result": result}, ensure_ascii=False, indent=2))
@@ -270,14 +346,14 @@ def main() -> int:
                         main_thread_id = prev_id
                 else:
                     print(f"WARNING: Thread part {p_idx+1} failed: {res}", file=sys.stderr)
-            
+
             result = {"success": bool(main_thread_id), "thread_id": main_thread_id}
         else:
             result = publisher.publish_thread(text, topic_tag=cfg["topic"])
             print(json.dumps({"slot": item["slot"], "result": result}, ensure_ascii=False, indent=2))
 
         if not result.get("success"):
-            print(f"WARNING: Thread {item['slot']} failed, but IG is already live. Continuing...", file=sys.stderr)
+            print(f"WARNING: Thread {item['slot']} failed.", file=sys.stderr)
             thread_results.append({
                 "slot": item["slot"],
                 "status": "FAILED",
@@ -306,7 +382,7 @@ def main() -> int:
         "topic": cfg["topic"],
         "published_at_wib": published_at,
         "instagram": {
-            "status": "PUBLISHED",
+            "status": "PUBLISHED" if ig_type != "none" else "SKIPPED",
             "media_id": ig_result.get("media_id"),
             "permalink": verified_ig.get("permalink"),
             "media_type": verified_ig.get("media_type"),
@@ -320,25 +396,32 @@ def main() -> int:
         },
     }
 
-    result_path = CONTENT_ROOT / f"PUBLISH_RESULT_post0{post_num}.json"
+    # Result filename: keep backward-compat zero-padding for numeric posts (post07.json)
+    if post_num.isdigit():
+        result_filename = f"PUBLISH_RESULT_post0{post_num}.json"
+    else:
+        result_filename = f"PUBLISH_RESULT_post{post_num}.json"
+    result_path = CONTENT_ROOT / result_filename
     result_path.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"result written: {result_path}")
 
     status_path = CONTENT_ROOT / "SYNC_STATUS.json"
-    status = json.loads(status_path.read_text(encoding="utf-8"))
-    status["last_sync"] = published_at
-    status.setdefault("recent_events", []).append({
-        "timestamp": published_at,
-        "type": "POST_PUBLISHED_META_DIRECT",
-        "details": result,
-    })
-    status_path.write_text(json.dumps(status, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    if status_path.exists():
+        status = json.loads(status_path.read_text(encoding="utf-8"))
+        status["last_sync"] = published_at
+        status.setdefault("recent_events", []).append({
+            "timestamp": published_at,
+            "type": "POST_PUBLISHED_META_DIRECT",
+            "details": result,
+        })
+        status_path.write_text(json.dumps(status, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     handoff_path = CONTENT_ROOT / "NOTION_SYNC_HANDOFF.md"
-    handoff_text = handoff_path.read_text(encoding="utf-8")
-    update_entry = f"\n## Auto-Sync Post #{post_num} — {published_at}\n- **Status**: PUBLISHED\n- **Topic**: {cfg['topic']}\n- **IG Permalink**: {verified_ig.get('permalink', 'N/A')}\n- **Threads**: {', '.join([item['slot'] for item in thread_results])}\n"
-    if f"Post #{post_num} —" not in handoff_text:
-        handoff_path.write_text(handoff_text.rstrip() + update_entry, encoding="utf-8")
+    if handoff_path.exists():
+        handoff_text = handoff_path.read_text(encoding="utf-8")
+        update_entry = f"\n## Auto-Sync Post #{post_num} — {published_at}\n- **Status**: PUBLISHED\n- **Topic**: {cfg['topic']}\n- **IG Permalink**: {verified_ig.get('permalink', 'N/A')}\n- **Threads**: {', '.join([item['slot'] for item in thread_results])}\n"
+        if f"Post #{post_num} —" not in handoff_text:
+            handoff_path.write_text(handoff_text.rstrip() + update_entry, encoding="utf-8")
 
     quota_after = publisher.check_ig_publishing_limit()
     print(json.dumps({"result": result, "quota_after": quota_after, "result_path": str(result_path)}, ensure_ascii=False, indent=2))
