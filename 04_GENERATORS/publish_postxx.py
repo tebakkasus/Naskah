@@ -87,7 +87,7 @@ POST_CONFIG = {
         "threads_file": CAPTIONS_ROOT / "post_07_sunday_academic_reset" / "CAPTION_DAN_THREADS_POST07.md",
         "topic": "Sunday Academic Reset",
         "ig_type": "carousel",
-    },,
+    },
     "w1_01": {
         "dir": CAPTIONS_ROOT / "post_w1_01_diagnosis_skripsi",
         "slides": [
@@ -302,7 +302,7 @@ def main() -> int:
 
     published_at = now_wib()
     result = {
-        "post_number": int(post_num),
+        "post_number": post_num,
         "topic": cfg["topic"],
         "published_at_wib": published_at,
         "instagram": {
@@ -310,21 +310,12 @@ def main() -> int:
             "media_id": ig_result.get("media_id"),
             "permalink": verified_ig.get("permalink"),
             "media_type": verified_ig.get("media_type"),
-            "slides_count": len(cfg["slides"]),
+            "slides_count": len(cfg.get("slides", [])),
         },
-        "threads": [
-            {
-                "slot": item["slot"],
-                "status": "PUBLISHED",
-                "thread_id": item["result"].get("thread_id"),
-                "permalink": item["verified"].get("permalink"),
-                "timestamp": item["verified"].get("timestamp"),
-            }
-            for item in thread_results
-        ],
+        "threads": thread_results,
         "evidence": {
-            "caption_source": str(cfg["ig_caption_file"]),
-            "asset_base": f"https://raw.githubusercontent.com/tebakkasus/Naskah/main/06_CONTENT_PIPELINE/03_APPROVED/{cfg['dir'].name}/",
+            "caption_source": str(cfg.get("ig_caption_file", "")),
+            "asset_base": f"https://raw.githubusercontent.com/tebakkasus/Naskah/main/06_CONTENT_PIPELINE/03_APPROVED/{cfg.get('dir', 'none').name}/" if "dir" in cfg else "",
             "api_verified": True,
         },
     }

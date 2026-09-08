@@ -196,12 +196,18 @@ def main() -> int:
         thread_links = " | ".join([f'<a href="{t.get("permalink", "")}">{t.get("slot", "")}</a>' for t in threads if t.get("permalink")])
         notion_status = "Synced" if notion_update.get("success") else "Failed"
 
+        next_val = "besok sesuai jadwal"
+        try:
+            next_val = f"Post #{int(post_num)+1}"
+        except Exception:
+            pass
+
         report = (
             f"✅ <b>Post #{post_num}: {published.get('topic', '')}</b>\n\n"
             f"📸 <b>IG:</b> <a href=\"{ig_url}\">Live Post</a>\n"
             f"🧵 <b>Threads:</b> {thread_links}\n"
             f"🗂️ <b>Notion:</b> {notion_status}\n\n"
-            f"⏭️ <b>Next:</b> Post #{int(post_num)+1} (Besok 10:00 WIB)"
+            f"⏭️ <b>Next:</b> {next_val} (Besok 10:00 WIB)"
         )
         print("TELEGRAM REPORT:")
         print(report)
