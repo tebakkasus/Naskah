@@ -507,9 +507,16 @@ def render_slide(slide_type: str, slide_cfg: dict, tag: str) -> Image.Image:
         return render_cover(slide_cfg, tag)
 
 def render_post(post_name: str, out_dir: pathlib.Path) -> pathlib.Path:
+    # Backward-compatible lookup: if post_name is an old-style folder name
+    # without date prefix, try to find the dated folder in APPROVED.
     cfg_path = APPROVED / post_name / "carousel_config.json"
     if not cfg_path.exists():
-        raise FileNotFoundError(f"No carousel_config.json found in {cfg_path}")
+        # Search for a folder under APPROVED whose name ends with post_name
+        candidates = [d for d in APPROVED.iterdir() if d.is_dir() and d.name.endswith(post_name)]
+        if candidates:
+            cfg_path = candidates[0] / "carousel_config.json"
+    if not cfg_path.exists():
+        raise FileNotFoundError(f"No carousel_config.json found for {post_name}")
 
     with open(cfg_path, "r", encoding="utf-8") as f:
         cfg = json.load(f)
@@ -517,15 +524,13 @@ def render_post(post_name: str, out_dir: pathlib.Path) -> pathlib.Path:
     out_dir.mkdir(parents=True, exist_ok=True)
     tag = cfg.get("tag", post_name.replace("_", " ").title())
 
-    prefix = post_name
-    if post_name.startswith("post_07"):
-        prefix = "post07"
-    elif post_name.startswith("post_w1_01"):
-        prefix = "post_w1_01"
-    elif post_name.startswith("post_w1_04"):
-        prefix = "post_w1_04"
-    elif post_name.startswith("post_w1_sat"):
-        prefix = "post_w1_ni"
+    # Derive a stable output filename prefix from the folder name:
+    # strip the leading date YYYY-MM-DD_, then keep the post slug.
+    base = cfg_path.parent.name
+    if base[:10].isdigit() and len(base) > 11 and base[4] == "-" and base[7] == "-":
+        base = base[11:]
+
+    prefix = base
 
     slide_types = ["cover", "formula", "editorial", "callout", "cta"]
     for idx, stype in enumerate(slide_types, start=1):

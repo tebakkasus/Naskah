@@ -16,13 +16,13 @@ OUTPUTS_DIR = ROOT / "05_OUTPUTS"
 APPROVED_DIR = ROOT / "06_CONTENT_PIPELINE" / "03_APPROVED"
 
 POSTS = [
-    ("topic_01_word_citation.json", "post_01_word_citation", "post01", "POST #1: 5 KESALAHAN FATAL SITASI DI WORD", "Slide Format & Auto-Update F9 Protocol"),
-    ("topic_02_jurnal_kedokteran.json", "post_02_jurnal_kedokteran", "post02", "POST #2: FORMAT MANUSKRIP JURNAL KEDOKTERAN", "Standar Tabel Terbuka & Checklist Publikasi"),
-    ("topic_03_skripsi_vs_tesis.json", "post_03_skripsi_vs_tesis", "post03", "POST #3: SKRIPSI VS TESIS KEDOKTERAN", "Perbedaan Mindset, Sintesis & Metodologi Riset"),
-    ("topic_04_native_word_citation.json", "post_04_native_word_citation", "post04", "POST #4: TUTORIAL SITASI NATIVE WORD", "Solusi Ringan & Stabil Tanpa Plugin Lemot"),
-    ("topic_05_anatomi_naskah_acc.json", "post_05_anatomi_naskah_acc", "post05", "POST #5: ANATOMI NASKAH ACC SEMHAS", "Struktur Latar Belakang & Pembahasan Tajam"),
-    ("topic_06_carousel_layout_edukasi.json", "post_06_carousel_layout_edukasi", "post06", "POST #6: 7 LAYOUT CAROUSEL EDUKASI", "Inspirasi Visual Konten Akademik & Kesehatan"),
-    ("topic_07_sunday_academic_reset.json", "post_07_sunday_academic_reset", "post07", "POST #7: SUNDAY ACADEMIC RESET", "Evaluasi Mingguan & Mindset Progress > Perfection"),
+    ("topic_01_word_citation.json", "2026-09-06_post_01_word_citation", "post01", "POST #1: 5 KESALAHAN FATAL SITASI DI WORD", "Slide Format & Auto-Update F9 Protocol"),
+    ("topic_02_jurnal_kedokteran.json", "2026-09-06_post_02_jurnal_kedokteran", "post02", "POST #2: FORMAT MANUSKRIP JURNAL KEDOKTERAN", "Standar Tabel Terbuka & Checklist Publikasi"),
+    ("topic_03_skripsi_vs_tesis.json", "2026-09-07_post_03_skripsi_vs_tesis", "post03", "POST #3: SKRIPSI VS TESIS KEDOKTERAN", "Perbedaan Mindset, Sintesis & Metodologi Riset"),
+    ("topic_04_native_word_citation.json", "2026-09-08_post_04_native_word_citation", "post04", "POST #4: TUTORIAL SITASI NATIVE WORD", "Solusi Ringan & Stabil Tanpa Plugin Lemot"),
+    ("topic_05_anatomi_naskah_acc.json", "2026-09-09_post_05_anatomi_naskah_acc", "post05", "POST #5: ANATOMI NASKAH ACC SEMHAS", "Struktur Latar Belakang & Pembahasan Tajam"),
+    ("topic_06_carousel_layout_edukasi.json", "2026-09-10_post_06_carousel_layout_edukasi", "post06", "POST #6: 7 LAYOUT CAROUSEL EDUKASI", "Inspirasi Visual Konten Akademik & Kesehatan"),
+    ("topic_07_sunday_academic_reset.json", "2026-09-11_post_07_sunday_academic_reset", "post07", "POST #7: SUNDAY ACADEMIC RESET", "Evaluasi Mingguan & Mindset Progress > Perfection"),
 ]
 
 def clean_png_files():

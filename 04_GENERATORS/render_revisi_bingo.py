@@ -17,7 +17,7 @@ from emoji_assets import paste_emoji, strip_all_emojis
 BASE_DIR = Path(r"D:/tm/06_Content")
 LOGO_TRANSPARENT = BASE_DIR / "02_BRAND_ASSETS/logos/logo_cutouts_clean/official_logo_transparent.png"
 FONT_DIR = BASE_DIR / "02_BRAND_ASSETS/fonts/Poppins"
-OUT_DIR = BASE_DIR / "06_CONTENT_PIPELINE/03_APPROVED/post_w1_05_revisi_bingo"
+OUT_DIR = BASE_DIR / "06_CONTENT_PIPELINE/03_APPROVED/2026-09-18_post_w1_05_revisi_bingo"
 
 W, H = 1080, 1350
 

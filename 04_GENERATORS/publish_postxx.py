@@ -23,7 +23,7 @@ DRAFTS_ROOT = CONTENT_ROOT / "02_DRAFTS"
 POST_CONFIG = {
     # --- WEEK 0 ---
     "3": {
-        "dir": CAPTIONS_ROOT / "post_03_skripsi_vs_tesis",
+        "dir": CAPTIONS_ROOT / "2026-09-07_post_03_skripsi_vs_tesis",
         "slides": [
             "post03_01_cover.jpg",
             "post03_02_formula.jpg",
@@ -31,13 +31,13 @@ POST_CONFIG = {
             "post03_04_callout.jpg",
             "post03_05_cta.jpg",
         ],
-        "ig_caption_file": CAPTIONS_ROOT / "post_03_skripsi_vs_tesis" / "CAPTION_DAN_THREADS_POST03.md",
-        "threads_file": CAPTIONS_ROOT / "post_03_skripsi_vs_tesis" / "CAPTION_DAN_THREADS_POST03.md",
+        "ig_caption_file": CAPTIONS_ROOT / "2026-09-07_post_03_skripsi_vs_tesis" / "CAPTION_DAN_THREADS_POST03.md",
+        "threads_file": CAPTIONS_ROOT / "2026-09-07_post_03_skripsi_vs_tesis" / "CAPTION_DAN_THREADS_POST03.md",
         "topic": "Skripsi vs Tesis Kedokteran",
         "ig_type": "carousel",
     },
     "4": {
-        "dir": CAPTIONS_ROOT / "post_04_native_word_citation",
+        "dir": CAPTIONS_ROOT / "2026-09-08_post_04_native_word_citation",
         "slides": [
             "post04_01_cover.jpg",
             "post04_02_formula.jpg",
@@ -45,13 +45,13 @@ POST_CONFIG = {
             "post04_04_callout.jpg",
             "post04_05_cta.jpg",
         ],
-        "ig_caption_file": CAPTIONS_ROOT / "post_04_native_word_citation" / "CAPTION_DAN_THREADS_POST04.md",
-        "threads_file": CAPTIONS_ROOT / "post_04_native_word_citation" / "CAPTION_DAN_THREADS_POST04.md",
+        "ig_caption_file": CAPTIONS_ROOT / "2026-09-08_post_04_native_word_citation" / "CAPTION_DAN_THREADS_POST04.md",
+        "threads_file": CAPTIONS_ROOT / "2026-09-08_post_04_native_word_citation" / "CAPTION_DAN_THREADS_POST04.md",
         "topic": "Tutorial Sitasi Native Word F9",
         "ig_type": "carousel",
     },
     "5": {
-        "dir": CAPTIONS_ROOT / "post_05_anatomi_naskah_acc",
+        "dir": CAPTIONS_ROOT / "2026-09-09_post_05_anatomi_naskah_acc",
         "slides": [
             "post05_01_cover.jpg",
             "post05_02_formula.jpg",
@@ -59,13 +59,13 @@ POST_CONFIG = {
             "post05_04_callout.jpg",
             "post05_05_cta.jpg",
         ],
-        "ig_caption_file": CAPTIONS_ROOT / "post_05_anatomi_naskah_acc" / "CAPTION_DAN_THREADS_POST05.md",
-        "threads_file": CAPTIONS_ROOT / "post_05_anatomi_naskah_acc" / "CAPTION_DAN_THREADS_POST05.md",
+        "ig_caption_file": CAPTIONS_ROOT / "2026-09-09_post_05_anatomi_naskah_acc" / "CAPTION_DAN_THREADS_POST05.md",
+        "threads_file": CAPTIONS_ROOT / "2026-09-09_post_05_anatomi_naskah_acc" / "CAPTION_DAN_THREADS_POST05.md",
         "topic": "Anatomi Naskah ACC Semhas",
         "ig_type": "carousel",
     },
     "6": {
-        "dir": CAPTIONS_ROOT / "post_06_carousel_layout_edukasi",
+        "dir": CAPTIONS_ROOT / "2026-09-10_post_06_carousel_layout_edukasi",
         "slides": [
             "post06_01_cover.jpg",
             "post06_02_formula.jpg",
@@ -73,13 +73,13 @@ POST_CONFIG = {
             "post06_04_callout.jpg",
             "post06_05_cta.jpg",
         ],
-        "ig_caption_file": CAPTIONS_ROOT / "post_06_carousel_layout_edukasi" / "CAPTION_DAN_THREADS_POST06.md",
-        "threads_file": CAPTIONS_ROOT / "post_06_carousel_layout_edukasi" / "CAPTION_DAN_THREADS_POST06.md",
+        "ig_caption_file": CAPTIONS_ROOT / "2026-09-10_post_06_carousel_layout_edukasi" / "CAPTION_DAN_THREADS_POST06.md",
+        "threads_file": CAPTIONS_ROOT / "2026-09-10_post_06_carousel_layout_edukasi" / "CAPTION_DAN_THREADS_POST06.md",
         "topic": "7 Layout Carousel Edukasi Kesehatan",
         "ig_type": "carousel",
     },
     "7": {
-        "dir": CAPTIONS_ROOT / "post_07_sunday_academic_reset",
+        "dir": CAPTIONS_ROOT / "2026-09-11_post_07_sunday_academic_reset",
         "slides": [
             "post07_01_cover.jpg",
             "post07_02_formula.jpg",
@@ -87,14 +87,14 @@ POST_CONFIG = {
             "post07_04_callout.jpg",
             "post07_05_cta.jpg",
         ],
-        "ig_caption_file": CAPTIONS_ROOT / "post_07_sunday_academic_reset" / "CAPTION_DAN_THREADS_POST07.md",
-        "threads_file": CAPTIONS_ROOT / "post_07_sunday_academic_reset" / "CAPTION_DAN_THREADS_POST07.md",
+        "ig_caption_file": CAPTIONS_ROOT / "2026-09-11_post_07_sunday_academic_reset" / "CAPTION_DAN_THREADS_POST07.md",
+        "threads_file": CAPTIONS_ROOT / "2026-09-11_post_07_sunday_academic_reset" / "CAPTION_DAN_THREADS_POST07.md",
         "topic": "Sunday Academic Reset",
         "ig_type": "carousel",
     },
     # --- WEEK 1: INTRODUCTION TO MADNESS ---
     "w1_01": {
-        "dir": CAPTIONS_ROOT / "post_w1_01_diagnosis_skripsi",
+        "dir": CAPTIONS_ROOT / "2026-09-14_post_w1_01_diagnosis_skripsi",
         "slides": [
             "post_w1_01_01_cover.jpg",
             "post_w1_01_02_formula.jpg",
@@ -102,8 +102,8 @@ POST_CONFIG = {
             "post_w1_01_04_callout.jpg",
             "post_w1_01_05_cta.jpg",
         ],
-        "ig_caption_file": CAPTIONS_ROOT / "post_w1_01_diagnosis_skripsi" / "CAPTION_DAN_THREADS_W1_01.md",
-        "threads_file": CAPTIONS_ROOT / "post_w1_01_diagnosis_skripsi" / "CAPTION_DAN_THREADS_W1_01.md",
+        "ig_caption_file": CAPTIONS_ROOT / "2026-09-14_post_w1_01_diagnosis_skripsi" / "CAPTION_DAN_THREADS_W1_01.md",
+        "threads_file": CAPTIONS_ROOT / "2026-09-14_post_w1_01_diagnosis_skripsi" / "CAPTION_DAN_THREADS_W1_01.md",
         "topic": "Diagnosis Penyakit Skripsi (ICD-10)",
         "ig_type": "carousel",
     },
@@ -120,7 +120,7 @@ POST_CONFIG = {
         "draft_key": "w1_03",
     },
     "w1_04": {
-        "dir": CAPTIONS_ROOT / "post_w1_04_scu_episode1",
+        "dir": CAPTIONS_ROOT / "2026-09-17_post_w1_04_scu_episode1",
         "slides": [
             "post_w1_04_01_cover.jpg",
             "post_w1_04_02_formula.jpg",
@@ -128,23 +128,23 @@ POST_CONFIG = {
             "post_w1_04_04_callout.jpg",
             "post_w1_04_05_cta.jpg",
         ],
-        "ig_caption_file": CAPTIONS_ROOT / "post_w1_04_scu_episode1" / "CAPTION_DAN_THREADS_W1_04.md",
-        "threads_file": CAPTIONS_ROOT / "post_w1_04_scu_episode1" / "CAPTION_DAN_THREADS_W1_04.md",
+        "ig_caption_file": CAPTIONS_ROOT / "2026-09-17_post_w1_04_scu_episode1" / "CAPTION_DAN_THREADS_W1_04.md",
+        "threads_file": CAPTIONS_ROOT / "2026-09-17_post_w1_04_scu_episode1" / "CAPTION_DAN_THREADS_W1_04.md",
         "topic": "SCU Episode 1: Rini Budi Sari",
         "ig_type": "carousel",
     },
     "w1_05": {
-        "dir": CAPTIONS_ROOT / "post_w1_05_revisi_bingo",
+        "dir": CAPTIONS_ROOT / "2026-09-18_post_w1_05_revisi_bingo",
         "slides": [
             "post_w1_05_revisi_bingo.jpg",
         ],
-        "ig_caption_file": CAPTIONS_ROOT / "post_w1_05_revisi_bingo" / "CAPTION_DAN_THREADS_W1_05.md",
-        "threads_file": CAPTIONS_ROOT / "post_w1_05_revisi_bingo" / "CAPTION_DAN_THREADS_W1_05.md",
+        "ig_caption_file": CAPTIONS_ROOT / "2026-09-18_post_w1_05_revisi_bingo" / "CAPTION_DAN_THREADS_W1_05.md",
+        "threads_file": CAPTIONS_ROOT / "2026-09-18_post_w1_05_revisi_bingo" / "CAPTION_DAN_THREADS_W1_05.md",
         "topic": "Revisi Bingo: Dosen Pembimbing",
         "ig_type": "single",
     },
     "w1_ni": {
-        "dir": CAPTIONS_ROOT / "post_w1_sat_naskah_inside_ep1",
+        "dir": CAPTIONS_ROOT / "2026-09-19_post_w1_sat_naskah_inside_ep1",
         "slides": [
             "post_w1_ni_01_cover.jpg",
             "post_w1_ni_02_formula.jpg",
@@ -152,8 +152,8 @@ POST_CONFIG = {
             "post_w1_ni_04_callout.jpg",
             "post_w1_ni_05_cta.jpg",
         ],
-        "ig_caption_file": CAPTIONS_ROOT / "post_w1_sat_naskah_inside_ep1" / "CAPTION_DAN_THREADS_W1_NI.md",
-        "threads_file": CAPTIONS_ROOT / "post_w1_sat_naskah_inside_ep1" / "CAPTION_DAN_THREADS_W1_NI.md",
+        "ig_caption_file": CAPTIONS_ROOT / "2026-09-19_post_w1_sat_naskah_inside_ep1" / "CAPTION_DAN_THREADS_W1_NI.md",
+        "threads_file": CAPTIONS_ROOT / "2026-09-19_post_w1_sat_naskah_inside_ep1" / "CAPTION_DAN_THREADS_W1_NI.md",
         "topic": "Naskah Inside EP.1: Di Balik Layar",
         "ig_type": "carousel",
     },
