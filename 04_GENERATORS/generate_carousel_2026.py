@@ -131,7 +131,12 @@ def header(im: Image.Image, tag: str, light_mode: bool = True, on_orange: bool =
     d = ImageDraw.Draw(im)
     logo_w, logo_h = 44, 44
     lx, ly = 90, 80
-    logo_path = ASSETS / "logos" / "naskah_logo.png"
+
+    if light_mode and not on_orange:
+        logo_path = ASSETS / "logos" / "logo_cutouts_clean" / "official_logo_transparent.png"
+    else:
+        logo_path = ASSETS / "logos" / "logo_cutouts_clean" / "official_logo_white.png"
+
     if logo_path.exists():
         try:
             lg = Image.open(logo_path).convert("RGBA")
@@ -527,10 +532,23 @@ def render_post(post_name: str, out_dir: pathlib.Path) -> pathlib.Path:
     # Derive a stable output filename prefix from the folder name:
     # strip the leading date YYYY-MM-DD_, then keep the post slug.
     base = cfg_path.parent.name
-    if base[:10].isdigit() and len(base) > 11 and base[4] == "-" and base[7] == "-":
+    if base[:4].isdigit() and len(base) > 11 and base[4] == "-" and base[7] == "-":
         base = base[11:]
 
-    prefix = base
+    # Map folder slug to the publisher-compatible filename prefix
+    PREFIX_MAP = {
+        "post_01_word_citation": "post01",
+        "post_02_jurnal_kedokteran": "post02",
+        "post_03_skripsi_vs_tesis": "post03",
+        "post_04_native_word_citation": "post04",
+        "post_05_anatomi_naskah_acc": "post05",
+        "post_06_carousel_layout_edukasi": "post06",
+        "post_07_sunday_academic_reset": "post07",
+        "post_w1_01_diagnosis_skripsi": "post_w1_01",
+        "post_w1_04_scu_episode1": "post_w1_04",
+        "post_w1_sat_naskah_inside_ep1": "post_w1_ni",
+    }
+    prefix = PREFIX_MAP.get(base, base)
 
     slide_types = ["cover", "formula", "editorial", "callout", "cta"]
     for idx, stype in enumerate(slide_types, start=1):
