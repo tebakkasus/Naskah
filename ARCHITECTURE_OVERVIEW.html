@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+  body { padding: 16px; background: transparent; color: var(--foreground, #222); }
+  .canvas { display: flex; flex-direction: column; gap: 20px; max-width: 820px; }
+  
+  .card {
+    background: var(--card, rgba(255,255,255,0.04));
+    border: 1px solid var(--border, rgba(255,255,255,0.12));
+    border-radius: 12px;
+    padding: 16px;
+  }
+  
+  .header-tag {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+  .tag-local { background: #3b82f6; color: white; }
+  .tag-vps { background: #10b981; color: white; }
+  .tag-hub { background: #8b5cf6; color: white; }
+  .tag-output { background: #f59e0b; color: white; }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+  
+  .node {
+    background: rgba(125,125,125,0.06);
+    border: 1px dashed var(--border, rgba(255,255,255,0.18));
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+  .node-title { font-weight: 600; font-size: 13px; display: flex; align-items: center; justify-content: space-between; }
+  .node-sub { font-size: 11px; opacity: 0.75; margin-top: 3px; }
+  .badge-ok { color: #10b981; font-weight: bold; font-size: 11px; }
+
+  .flow-arrow {
+    text-align: center;
+    font-size: 18px;
+    color: var(--muted-foreground, #888);
+    margin: -6px 0;
+  }
+</style>
+</head>
+<body>
+
+<div class="canvas">
+
+  <!-- TOP ROW: LAPTOP VS VPS -->
+  <div class="grid-2">
+    <!-- LAPTOP -->
+    <div class="card">
+      <span class="header-tag tag-local">💻 LAPTOP LOCAL (Windows 11)</span>
+      <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 6px;">
+        <div class="node">
+          <div class="node-title"><span>@default (Tacii / Main Chat)</span> <span class="badge-ok">ACTIVE</span></div>
+          <div class="node-sub">Notion MCP Owner • Interactive Dev • Orchestrator</div>
+        </div>
+        <div class="node">
+          <div class="node-title"><span>9Router Local (Port 20128)</span> <span class="badge-ok">ACTIVE</span></div>
+          <div class="node-sub">Model Combo: hermess / monet (117 models)</div>
+        </div>
+        <div class="node">
+          <div class="node-title"><span>D:\tm Pipeline Workspaces</span></div>
+          <div class="node-sub">06_Content • naskah.fk • 05_Research • Git sync</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VPS -->
+    <div class="card">
+      <span class="header-tag tag-vps">☁️ VPS (103.93.134.118 - 24/7 LIVE)</span>
+      <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 6px;">
+        <div class="node" style="border-color: #10b981;">
+          <div class="node-title"><span>9Router VPS (Port 20128)</span> <span class="badge-ok">BARU RUNNING ✅</span></div>
+          <div class="node-sub">Same API Key + Same Combos (Otonom tanpa laptop)</div>
+        </div>
+        <div class="node">
+          <div class="node-title"><span>Hermes Profiles (PM2)</span> <span class="badge-ok">3 ONLINE</span></div>
+          <div class="node-sub">hermes-content • hermes-naskah • hermes-research</div>
+        </div>
+        <div class="node">
+          <div class="node-title"><span>Cron Jobs Autonomy</span></div>
+          <div class="node-sub">Eksekusi jadwal posting & report pagi 07:00 / 10:00 WIB</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flow-arrow">⬇️ <i>Sinkronisasi Data & Perutean Output</i> ⬇️</div>
+
+  <!-- MIDDLE ROW: CENTRAL HUBS -->
+  <div class="card">
+    <span class="header-tag tag-hub">🗄️ CENTRAL STATE & STORAGE</span>
+    <div class="grid-3" style="margin-top: 6px;">
+      <div class="node">
+        <div class="node-title"><span>🐙 GitHub Repo</span></div>
+        <div class="node-sub">`tebakkasus/Naskah` (Jembatan Git Laptop ↔ VPS)</div>
+      </div>
+      <div class="node">
+        <div class="node-title"><span>📑 Notion Hub</span></div>
+        <div class="node-sub">Command Center: Status, Proof, & Jadwal Kalender</div>
+      </div>
+      <div class="node">
+        <div class="node-title"><span>🔑 9Router Credentials</span></div>
+        <div class="node-sub">Antigravity, Codex, Kimi, Gemini, GitHub Copilot</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flow-arrow">⬇️ <i>Delivery Endpoints</i> ⬇️</div>
+
+  <!-- BOTTOM ROW: DELIVERIES -->
+  <div class="grid-2">
+    <div class="card">
+      <span class="header-tag tag-output">📢 SOSIAL MEDIA AUTO-PUBLISH</span>
+      <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 6px;">
+        <div class="node">
+          <div class="node-title"><span>📸 Instagram (@naskah.efka)</span></div>
+          <div class="node-sub">Carousel Postingan Edukasi Naskah & Tesis</div>
+        </div>
+        <div class="node">
+          <div class="node-title"><span>🧵 Threads (@naskah.efka)</span></div>
+          <div class="node-sub">Slot Pagi & Malam (Problem Hook & Practical Insight)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="header-tag tag-output">📱 NOTIFIKASI & CHAT TM</span>
+      <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 6px;">
+        <div class="node" style="border-color: #f59e0b;">
+          <div class="node-title"><span>💬 Telegram (DM TM: 8557883180)</span> <span class="badge-ok">ACTIVE</span></div>
+          <div class="node-sub">Laporan Harian Konten, Notifikasi Cron, & Remote Chat</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
