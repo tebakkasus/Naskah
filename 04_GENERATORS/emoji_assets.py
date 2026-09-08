@@ -110,9 +110,13 @@ def paste_emoji(im: Image.Image, char: str, xy: tuple[float, float], size: int,
             if anchor == "mm":
                 px, py = int(x - w / 2), int(y - h / 2)
             elif anchor == "la":
-                px, py = int(x), int(y - h * 0.82)
+                # Legacy: left-ascender (biased because emoji art extends above text)
+                px, py = int(x), int(y)
+            elif anchor == "top_left":
+                # True top-left of the emoji asset box
+                px, py = int(x), int(y)
             elif anchor == "ra":
-                px, py = int(x - w), int(y - h * 0.82)
+                px, py = int(x - w), int(y)
             else:
                 px, py = int(x), int(y)
             im.paste(emoji, (px, py), emoji)
@@ -126,16 +130,45 @@ def paste_emoji(im: Image.Image, char: str, xy: tuple[float, float], size: int,
     if anchor == "mm":
         pass
     elif anchor == "la":
-        cy = y - size * 0.4
+        cy = y + size * 0.5
+        cx = x + size * 0.5
     else:
-        cy = y - size * 0.4
+        cy = y + size * 0.5
+        cx = x - size * 0.5
     d.ellipse((cx - r, cy - r, cx + r, cy + r), fill="#E85929")
     return (int(r * 2), int(r * 2))
 
 
-def strip_emojis(text: str) -> str:
-    """Remove emoji chars from a text string (for font-only renders)."""
-    return "".join(ch for ch in text if ch not in EMOJI_CODEPOINTS)
+def paste_emoji_with_text(im: Image.Image, char: str, xy: tuple[float, float],
+                           text: str, font: ImageFont.FreeTypeFont, fill: str,
+                           emoji_size: int = None, spacing: int = 12) -> tuple[int, int]:
+    """
+    Draw an emoji followed by text, perfectly aligned vertically (center-to-center).
+    xy: (x, y) starting coordinate (top-left of text line).
+    Returns (total_width, line_height).
+    """
+    x, y = xy
+    d = ImageDraw.Draw(im)
+    bb = d.textbbox((0, 0), text, font=font)
+    text_w = bb[2] - bb[0]
+    text_h = bb[3] - bb[1]
+
+    # If emoji_size not specified, scale proportionally to font size
+    if emoji_size is None:
+        emoji_size = int(font.size * 0.95)
+
+    # Vertical centering: text midpoint matches emoji midpoint
+    text_mid_y = y + text_h / 2
+    emoji_y = int(text_mid_y - emoji_size / 2)
+
+    # Paste emoji
+    paste_emoji(im, char, (x, emoji_y), size=emoji_size, anchor="top_left")
+
+    # Draw text beside it
+    text_x = x + emoji_size + spacing
+    d.text((text_x, y), text, font=font, fill=fill)
+
+    return (emoji_size + spacing + text_w, max(text_h, emoji_size))
 
 
 # Broad Unicode emoji range — catches emoji NOT in EMOJI_CODEPOINTS map too.

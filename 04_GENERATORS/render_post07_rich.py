@@ -327,7 +327,8 @@ def slide_editorial():
         d.rounded_rectangle((120, cy + 18, 170, cy + 66), radius=12, fill=ORANGE)
         d.text((145, cy + 42), num, font=F["num"], fill=WHITE, anchor="mm")
         d.text((196, cy + 24), txt, font=F["body_b"], fill=WHITE)
-        paste_emoji(im, em, (930, cy + 18), size=36, anchor="la")
+        # Center emoji vertically relative to the box (height 84)
+        paste_emoji(im, em, (910, cy + (84 - 36) // 2), size=36, anchor="top_left")
         cy += 100
 
     footer(im, "03/05", dark=True)
@@ -368,8 +369,10 @@ def slide_callout():
     ]
     cy = 575
     for bold, normal in items:
-        paste_emoji(im, "✅", (140, cy + 2), size=34, anchor="la")
+        paste_emoji(im, "✅", (140, cy + (48 - 34) // 2), size=34, anchor="top_left")
         d = ImageDraw.Draw(im)
+        bb_bold = d.textbbox((0, 0), bold, font=F["body_b"])
+        text_mid_y = cy + (bb_bold[3] - bb_bold[1]) / 2
         d.text((190, cy), bold, font=F["body_b"], fill=INK)
         bb2 = d.textbbox((190, cy), bold, font=F["body_b"])
         d.text((bb2[2] + 12, cy), normal, font=F["body_r"], fill=MUTED)
@@ -384,7 +387,7 @@ def slide_callout():
     im = soft_shadow(im, w_box, radius=24, alpha=32, blur=16, offset=(0, 6))
     rounded_rect_grad(im, w_box, 24, NAVY, NAVY_LIGHT)
     d = ImageDraw.Draw(im)
-    paste_emoji(im, "💬", (130, 970), size=32, anchor="la")
+    paste_emoji(im, "💬", (130, 970 + (48 - 32) // 2), size=32, anchor="top_left")
     d.text((180, 965), "Kenapa ini works?", font=F["card_t"], fill=ORANGE)
     d.text((126, 1030), "Otak kamu butuh starting point, bukan seluruh rencana.",
            font=F["body_m"], fill="#C8D6E5")
@@ -419,7 +422,7 @@ def slide_cta():
     im = soft_shadow(im, s_box, radius=26, alpha=35, blur=16, offset=(0, 7))
     d = ImageDraw.Draw(im)
     d.rounded_rectangle(s_box, radius=26, fill=ORANGE_LIGHT, outline=ORANGE, width=2)
-    paste_emoji(im, "🔖", (130, 700), size=46, anchor="la")
+    paste_emoji(im, "🔖", (130, 700 + (46 - 46) // 2), size=46, anchor="top_left")
     d = ImageDraw.Draw(im)
     d.text((200, 695), "Simpan reset akademik ini", font=F["card_t"], fill=ORANGE)
     d.text((200, 748), "Tap ikon bookmark buat pengingat akhir minggu.",
