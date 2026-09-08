@@ -140,21 +140,48 @@ def text_height(text, f, width, spacing=8):
     return len(lines) * (f.size + spacing) - spacing
 
 
-def pill(d, xy, text, bg, fg, bold=True, pad_x=40, pad_y=16, im=None, emoji_prefix=None):
-    """Hug-content centered pill. If emoji_prefix is provided, pastes PNG emoji."""
-    x, y = xy
-    clean_text = text
+def pill(d, xy, text, bg, fg, bold=True, pad_x=26, pad_y=14, im=None, emoji_prefix=None, emoji_size=24, spacing=10, align_right=False):
+    """
+    Hug-content perfectly centered pill.
+    If align_right=True, xy=(right_edge_x, top_y), and box automatically expands to the left.
+    """
+    rx, y = xy
     f = F["pill_b"] if bold else F["pill_m"]
-    bb = d.textbbox((0, 0), clean_text, font=f)
-    tw, th = bb[2] - bb[0], bb[3] - bb[1]
-    extra_w = 40 if emoji_prefix else 0
-    box = (x, y, x + tw + pad_x * 2 + extra_w, y + th + pad_y * 2)
-    r = (th + pad_y * 2) // 2
+    bb = d.textbbox((0, 0), text, font=f)
+    tw = bb[2] - bb[0]
+    th = bb[3] - bb[1]
+
+    # Total content width inside pill
+    emoji_w = (emoji_size + spacing) if emoji_prefix else 0
+    content_w = emoji_w + tw
+    
+    # Pill box dimensions
+    pill_w = content_w + pad_x * 2
+    pill_h = th + pad_y * 2
+    
+    # If align_right, start X is (rx - pill_w)
+    x = (rx - pill_w) if align_right else rx
+    
+    box = (x, y, x + pill_w, y + pill_h)
+    r = pill_h // 2
+
+    # Draw rounded rectangle background
     d.rounded_rectangle(box, radius=r, fill=bg)
-    tx = x + pad_x + (40 if emoji_prefix else 0)
-    d.text((tx, y + pad_y), clean_text, font=f, fill=fg)
+
+    # Vertical center of the pill
+    mid_y = y + pill_h / 2
+
+    # If emoji exists, draw it centered
     if emoji_prefix and im:
-        paste_emoji(im, emoji_prefix, (x + pad_x - 6, y + pad_y + th // 2), size=24, anchor="mm")
+        emoji_center_x = x + pad_x + emoji_size / 2
+        paste_emoji(im, emoji_prefix, (emoji_center_x, mid_y), size=emoji_size, anchor="mm")
+        text_x = x + pad_x + emoji_size + spacing
+    else:
+        text_x = x + pad_x
+
+    # Draw text vertically centered beside emoji
+    d.text((text_x, mid_y), text, font=f, fill=fg, anchor="lm")
+
     return box
 
 
@@ -172,8 +199,8 @@ def slide_cover():
     d = ImageDraw.Draw(im)
     paste_logo(im)
 
-    # Badge pill top-right
-    pill(d, (W - 90 - 300, 82), "Mindset Akademik", ORANGE, WHITE)
+    # Badge pill top-right — aligned right with 90px margin, vertical center with logo
+    pill(d, (W - 90, 75), "Mindset Akademik", ORANGE, WHITE, align_right=True)
 
     # Hero — bigger, full-width
     y = 240
@@ -228,8 +255,8 @@ def slide_formula():
     gradient_v(im, ORANGE, ORANGE_DK)
     d = ImageDraw.Draw(im)
     paste_logo(im, white=True)
-    # Target pill badge top-right (in container)
-    pill(d, (W - 90 - 240, 80), "Focus", "#B84020", WHITE, bold=True, pad_x=24, pad_y=10, im=im, emoji_prefix="🎯")
+    # Target pill badge top-right — aligned right with 90px margin, center-aligned with logo
+    pill(d, (W - 90, 75), "Focus", "#B84020", WHITE, bold=True, pad_x=22, pad_y=12, im=im, emoji_prefix="🎯", align_right=True)
 
     # Title
     d.text((90, 210), "SUNDAY RESET", font=F["hero_mid"], fill=WHITE)
@@ -289,6 +316,8 @@ def slide_editorial():
     im = Image.alpha_composite(im.convert("RGBA"), blob).convert("RGB")
     d = ImageDraw.Draw(im)
     paste_logo(im, white=True)
+    # Tips pill badge top-right — aligned right with 90px margin
+    pill(d, (W - 90, 75), "Tips", NAVY_LIGHT, WHITE, bold=True, pad_x=22, pad_y=12, im=im, emoji_prefix="💡", align_right=True)
 
     # Title
     d.text((90, 190), "JANGAN NUNGGU", font=F["hero_mid"], fill=WHITE)
@@ -343,8 +372,8 @@ def slide_callout():
     gradient_v(im, CREAM_LIGHT, CREAM)
     d = ImageDraw.Draw(im)
     paste_logo(im)
-    # Moon pill badge top-right (in container)
-    pill(d, (W - 90 - 240, 80), "Malam", NAVY, WHITE, bold=True, pad_x=24, pad_y=10, im=im, emoji_prefix="🌙")
+    # Moon pill badge top-right — aligned right with 90px margin, center-aligned with logo
+    pill(d, (W - 90, 75), "Malam", NAVY, WHITE, bold=True, pad_x=22, pad_y=12, im=im, emoji_prefix="🌙", align_right=True)
 
     # Title
     d.text((90, 220), "RITUAL", font=F["hero_mid"], fill=INK)
@@ -404,6 +433,8 @@ def slide_cta():
     gradient_v(im, CREAM_LIGHT, CREAM)
     d = ImageDraw.Draw(im)
     paste_logo(im)
+    # Action pill badge top-right — aligned right with 90px margin
+    pill(d, (W - 90, 75), "Action", ORANGE, WHITE, bold=True, pad_x=22, pad_y=12, im=im, emoji_prefix="⚡", align_right=True)
 
     # Hero
     d.text((90, 220), "MINGGU DEPAN", font=F["hero_mid"], fill=INK)
