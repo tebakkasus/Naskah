@@ -1,0 +1,60 @@
+{
+  "cover": {
+    "headline": [
+      "Skripsi lo",
+      "sakit.",
+      "Ini diagnosisnya."
+    ],
+    "mark_word_line": 1,
+    "body": "ICD-10 Edisi Akademik — klasifikasi penyakit skripsi yang hampir semua mahasiswa kedokteran pernah kena.",
+    "pill": "Swipe →"
+  },
+  "formula": {
+    "headline": [
+      "ICD-S10:",
+      "Klasifikasi",
+      "Penyakit Skripsi"
+    ],
+    "body": "5 diagnosis yang mungkin menjelaskan kenapa skripsi lo nggak kelar-kelar:",
+    "pills": [
+      "S10.1 Prokrastinasi Akut",
+      "S10.2 Revisi Kronis",
+      "S10.3 SPSS Phobia"
+    ]
+  },
+  "editorial": {
+    "headline": [
+      "Setiap",
+      "mahasiswa FK",
+      "punya minimal",
+      "satu."
+    ],
+    "body": "Prokrastinasi Akut — lo tau deadline-nya kapan, tapi Netflix lebih mengerti lo. Revisi Kronis — udah revisi 4x, feedback terbaru: coba ulangi dari Bab 1.",
+    "lead": "Dan klasik favorit semua orang:",
+    "quote": [
+      "SPSS Phobia — buka software,",
+      "error, tutup laptop, besok aja."
+    ]
+  },
+  "callout": {
+    "headline": [
+      "Kata",
+      "Dr. Fiksi,",
+      "Sp.KS"
+    ],
+    "mark_word_line": 1,
+    "lead": "Spesialis Krisis Skripsi (fiktif, bukan dosen lo):",
+    "quote": "Saya sudah baca 200 skripsi. 199 di antaranya pernah mengalami setidaknya satu dari gejala ini. Yang satu lagi? Dia bohong.",
+    "foot": "Kabar baiknya: semua bisa ditangani. Pelan-pelan. Satu bab."
+  },
+  "cta": {
+    "headline": [
+      "Lo kena",
+      "yang mana?"
+    ],
+    "mark_word_line": 1,
+    "body": "Save buat self-diagnosis nanti malam. Tag temen lo yang skripsinya juga sakit.",
+    "pill": "Follow @naskah.fk",
+    "foot": "Terapi mingguan tiap hari di feed lo. Gratis. Tanpa efek samping."
+  }
+}
