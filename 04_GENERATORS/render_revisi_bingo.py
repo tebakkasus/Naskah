@@ -12,7 +12,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 import sys
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from emoji_assets import paste_emoji, strip_emojis
+from emoji_assets import paste_emoji, strip_all_emojis
 
 BASE_DIR = Path(r"D:/tm/06_Content")
 LOGO_TRANSPARENT = BASE_DIR / "02_BRAND_ASSETS/logos/logo_cutouts_clean/official_logo_transparent.png"
