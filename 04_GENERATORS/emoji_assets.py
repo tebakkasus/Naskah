@@ -127,3 +127,31 @@ def paste_emoji(im: Image.Image, char: str, xy: tuple[float, float], size: int,
 def strip_emojis(text: str) -> str:
     """Remove emoji chars from a text string (for font-only renders)."""
     return "".join(ch for ch in text if ch not in EMOJI_CODEPOINTS)
+
+
+# Broad Unicode emoji range — catches emoji NOT in EMOJI_CODEPOINTS map too.
+_EMOJI_REGEX = None
+
+def _get_emoji_regex():
+    global _EMOJI_REGEX
+    if _EMOJI_REGEX is None:
+        import re
+        _EMOJI_REGEX = re.compile(
+            "["
+            "\U0001F000-\U0001FAFF"   # Misc Symbols, Enclosed, Pictographs, Ext
+            "\U0001F900-\U0001F9FF"
+            "\U00002600-\U000027BF"   # Misc symbols, Dingbats (⚠ ✨ ⌛ etc.)
+            "\U00002B00-\U00002BFF"   # Misc Symbols and Arrows
+            "\U0000FE00-\U0000FE0F"   # Variation selectors
+            "\U0001F1E6-\U0001F1FF"   # Regional indicator flags
+            "\u200d"                  # ZWJ
+            "\u20e3"                  # Combining keycap
+            "\ufe0f"                  # VS16
+            "]+"
+        )
+    return _EMOJI_REGEX
+
+
+def strip_all_emojis(text: str) -> str:
+    """Strip every emoji/symbol glyph from text (universal, no map needed)."""
+    return _get_emoji_regex().sub("", text)

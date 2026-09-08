@@ -20,6 +20,10 @@ from __future__ import annotations
 import pathlib
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
+import sys
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from emoji_assets import paste_emoji, strip_all_emojis
+
 BASE_DIR = pathlib.Path(r"D:/tm/06_Content")
 FONT_DIR = BASE_DIR / "02_BRAND_ASSETS/fonts/Poppins"
 LOGO_TRANSPARENT = BASE_DIR / "02_BRAND_ASSETS/logos/logo_cutouts_clean/official_logo_transparent.png"
@@ -244,7 +248,8 @@ def render_concept_1_dense_bento():
         # Pro-Rule pill footer inside card
         rule_box = (box[0] + 16, box[3] - 68, box[2] - 16, box[3] - 18)
         d.rounded_rectangle(rule_box, radius=12, fill=ORANGE_LIGHT if c["accent"] == ORANGE else TEAL_LIGHT)
-        d.text((box[0] + 26, box[3] - 56), "💡 Rule:", font=F["pill_bold"], fill=c["accent"])
+        paste_emoji(im, "💡", (box[0] + 22, box[3] - 56), size=24, anchor="la")
+        d.text((box[0] + 50, box[3] - 56), "Rule:", font=F["pill_bold"], fill=c["accent"])
         d.text((box[0] + 90, box[3] - 56), c["rule"][:36] + "...", font=F["caption"], fill=INK)
 
     # Bottom actionable summary pill
@@ -252,7 +257,8 @@ def render_concept_1_dense_bento():
     im = soft_shadow_card(im, sum_box, radius=20, alpha=35, blur=14, offset=(0, 6))
     rounded_rectangle_gradient(im, sum_box, 20, NAVY, NAVY_LIGHT)
     d = ImageDraw.Draw(im)
-    d.text((120, 1182), "📌 Golden Rule:", font=F["pill_bold"], fill=ORANGE)
+    paste_emoji(im, "📌", (116, 1182), size=22, anchor="la")
+    d.text((142, 1182), "Golden Rule:", font=F["pill_bold"], fill=ORANGE)
     d.text((260, 1182), "Selalu tentukan Skala Variabel & Uji Normalitas sebelum buka SPSS!", font=F["body_med"], fill=WHITE)
     d.text((120, 1208), "Simpan cheatsheet ini untuk panduan analisis data naskah kamu.", font=F["caption"], fill=MUTED_LIGHT)
 
@@ -352,13 +358,15 @@ def render_concept_2_workflow_timeline():
         # Detail Box inner
         detail_box = (box[0] + 18, box[1] + 80, box[2] - 18, box[1] + 144)
         d.rounded_rectangle(detail_box, radius=10, fill="#FFFFFF", outline=BORDER_LIGHT, width=1)
-        d.text((box[0] + 32, box[1] + 96), "👉 " + s["detail"][:105] + ("..." if len(s["detail"]) > 105 else ""), font=F["body_reg"], fill=INK)
+        d.text((box[0] + 48, box[1] + 96), s["detail"][:105] + ("..." if len(s["detail"]) > 105 else ""), font=F["body_reg"], fill=INK)
+        paste_emoji(im, "👉", (box[0] + 22, box[1] + 96), size=20, anchor="la")
 
     # Bottom Tip
     bottom_box = (90, 1165, 990, 1235)
     rounded_rectangle_gradient(im, bottom_box, 18, NAVY, NAVY_LIGHT)
     d = ImageDraw.Draw(im)
-    d.text((120, 1188), "⚡ Output Akhir:", font=F["pill_bold"], fill=ORANGE)
+    paste_emoji(im, "⚡", (116, 1188), size=22, anchor="la")
+    d.text((142, 1188), "Output Akhir:", font=F["pill_bold"], fill=ORANGE)
     d.text((270, 1188), "Bab 2 Tinjauan Pustaka siap diserahkan ke Dosen Pembimbing!", font=F["body_med"], fill=WHITE)
 
     footer(im, "03/05", "Workflow Tinjauan Pustaka")
@@ -449,19 +457,22 @@ def render_concept_3_dark_comparison():
         d.text((box[0] + 142, box[1] + 105), "Rumus: " + m["formula"], font=F["caption"], fill="#E3ECF3")
 
         # Interpretation Box
-        d.text((box[0] + 24, box[1] + 152), "📊 Cara Interpretasi:", font=F["pill_bold"], fill=m["color"])
+        paste_emoji(im, "📊", (box[0] + 20, box[1] + 152), size=20, anchor="la")
+        d.text((box[0] + 46, box[1] + 152), "Cara Interpretasi:", font=F["pill_bold"], fill=m["color"])
         d.text((box[0] + 24, box[1] + 178), m["interpretation"][:98], font=F["body_reg"], fill="#F0F4F8")
         if len(m["interpretation"]) > 98:
             d.text((box[0] + 24, box[1] + 202), m["interpretation"][98:], font=F["body_reg"], fill="#F0F4F8")
 
         # Warning / Pitfall bar at bottom of card
         d.line([(box[0] + 24, box[1] + 228), (box[2] - 24, box[1] + 228)], fill=(255, 255, 255, 30), width=1)
-        d.text((box[0] + 24, box[1] + 234), "⚠️ Jebakan: " + m["pitfall"], font=F["caption"], fill="#FFD1BA" if m["color"] == ORANGE else "#D6F2F5")
+        paste_emoji(im, "⚠️", (box[0] + 20, box[1] + 234), size=18, anchor="la")
+        d.text((box[0] + 44, box[1] + 234), "Jebakan: " + m["pitfall"], font=F["caption"], fill="#FFD1BA" if m["color"] == ORANGE else "#D6F2F5")
 
     # Red Alert Box
     alert_box = (90, 1140, 990, 1225)
     d.rounded_rectangle(alert_box, radius=18, fill="#2A1412", outline=ORANGE, width=2)
-    d.text((120, 1162), "🚫 Kesalahan Fatal Mahasiswa:", font=F["pill_bold"], fill=ORANGE)
+    paste_emoji(im, "🚫", (116, 1162), size=22, anchor="la")
+    d.text((142, 1162), "Kesalahan Fatal Mahasiswa:", font=F["pill_bold"], fill=ORANGE)
     d.text((410, 1162), "Menyebut 'Risk / Risiko' pada penelitian Cross-Sectional.", font=F["body_bold"], fill=WHITE)
     d.text((120, 1192), "Cross-sectional HANYA mengukur prevalensi & odds, bukan insidensi risiko kumulatif.", font=F["caption"], fill="#D9A89C")
 
@@ -547,7 +558,8 @@ def render_concept_4_editorial_anatomy():
     im = soft_shadow_card(im, q_box, radius=18, alpha=35, blur=14, offset=(0, 5))
     rounded_rectangle_gradient(im, q_box, 18, NAVY, NAVY_LIGHT)
     d = ImageDraw.Draw(im)
-    d.text((120, 1168), "💬 Kata Penguji:", font=F["pill_bold"], fill=ORANGE)
+    paste_emoji(im, "💬", (116, 1168), size=22, anchor="la")
+    d.text((142, 1168), "Kata Penguji:", font=F["pill_bold"], fill=ORANGE)
     d.text((270, 1168), '"Mahasiswa yang paham pembahasannya, sidangnya selesai dalam 20 menit."', font=F["body_bold"], fill=WHITE)
     d.text((120, 1198), "Kuasai narasi bab 5, bukan cuma hafalan angka p-value.", font=F["caption"], fill=MUTED_LIGHT)
 
