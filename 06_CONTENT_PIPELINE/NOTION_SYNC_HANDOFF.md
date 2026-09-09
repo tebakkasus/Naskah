@@ -62,3 +62,8 @@ Buka workspace Notion Naskah dan perbarui baris database:
 | **W1-05** | Revisi Bingo | IG Single/Story | ✅ DRAFTED | ✅ SYNCED TO NOTION |
 | **W1-06** | 3AM Thoughts vol.1 | Threads (03:00) | ✅ DRAFTED (Auto-Split) | ✅ SYNCED TO NOTION |
 | **W1-NI** | Naskah Inside EP.1: Di Balik Layar | IG Carousel (5s) | ✅ APPROVED & RENDERED | ✅ SYNCED TO NOTION |
+## Auto-Sync Post #8 — 2026-09-09 19:18 WIB
+- **Status**: PUBLISHED
+- **Topic**: Hard Sell Paket Lengkap 3JT
+- **IG Permalink**: https://www.instagram.com/p/DdEPb6cDwi3/
+- **Threads**: #1, #2

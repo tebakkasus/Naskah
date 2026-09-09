@@ -259,10 +259,19 @@ def now_wib() -> str:
 
 def main() -> int:
     if len(sys.argv) < 2:
-        print("Usage: python publish_postxx.py <post_number>", file=sys.stderr)
+        print("Usage: python publish_postxx.py <post_number> [--slot morning|evening|3am]", file=sys.stderr)
         return 1
 
     post_num = sys.argv[1]
+    slot = "morning"
+    if "--slot" in sys.argv:
+        idx = sys.argv.index("--slot")
+        if idx + 1 < len(sys.argv):
+            slot = sys.argv[idx + 1].lower()
+    if slot not in ("morning", "evening", "3am"):
+        print(f"Invalid slot: {slot}. Use morning|evening|3am", file=sys.stderr)
+        return 1
+
     if post_num not in POST_CONFIG:
         print(f"Post {post_num} not configured. Available: {', '.join(POST_CONFIG.keys())}", file=sys.stderr)
         return 1
@@ -292,6 +301,36 @@ def main() -> int:
         except Exception as e:
             print(f"ERROR reading threads: {e}", file=sys.stderr)
             return 1
+
+    # SLOT-BASED DISPATCH:
+    #   morning (10:00 WIB) -> publish IG (+ Thread #1 if not a standalone threads post,
+    #                          plus Threads-carousel of slides)
+    #   evening (19:00 WIB) -> publish Thread #2 (the "slot malam" companion)
+    #   3am (03:00 WIB)    -> Threads-only post (w1_06 3AM Thoughts)
+    if slot == "morning":
+        threads_slot = "morning"
+        publish_ig = ig_type != "none"
+    elif slot == "evening":
+        threads_slot = "evening"
+        publish_ig = False
+    else:  # 3am
+        threads_slot = "3am"
+        publish_ig = False
+
+    # Filter threads for this slot
+    if threads_raw:
+        if slot == "morning":
+            # Morning: publish Thread #1 only (the first one)
+            selected_threads = threads_raw[:1]
+        elif slot == "evening":
+            # Evening: publish Thread #2 (the second one)
+            selected_threads = threads_raw[1:2] if len(threads_raw) > 1 else []
+        else:
+            # 3am: all (usually single)
+            selected_threads = threads_raw
+        print(f"Slot {slot}: selected {len(selected_threads)} thread(s)")
+    else:
+        selected_threads = []
 
     from meta_direct_publisher import MetaDirectPublisher
     publisher = MetaDirectPublisher()

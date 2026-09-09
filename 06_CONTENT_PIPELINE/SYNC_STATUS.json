@@ -1,5 +1,5 @@
 {
-  "last_sync": "2026-09-07 17:49 WIB",
+  "last_sync": "2026-09-09 19:18 WIB",
   "environment": "Hermes Content OS",
   "sync_targets": [
     "Hermes Desktop",
@@ -120,6 +120,43 @@
         "evidence": {
           "caption_source": "D:\\\\tm\\\\06_Content\\\\06_CONTENT_PIPELINE\\\\03_APPROVED\\\\post_03_skripsi_vs_tesis\\\\CAPTION_DAN_THREADS_POST03.md",
           "asset_base": "https://raw.githubusercontent.com/tebakkasus/Naskah/main/06_CONTENT_PIPELINE/03_APPROVED/post_03_skripsi_vs_tesis/",
+          "api_verified": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-09-09 19:18 WIB",
+      "type": "POST_PUBLISHED_META_DIRECT",
+      "details": {
+        "post_number": "8",
+        "topic": "Hard Sell Paket Lengkap 3JT",
+        "published_at_wib": "2026-09-09 19:18 WIB",
+        "instagram": {
+          "status": "PUBLISHED",
+          "media_id": "18118376227733577",
+          "permalink": "https://www.instagram.com/p/DdEPb6cDwi3/",
+          "media_type": "CAROUSEL_ALBUM",
+          "slides_count": 5
+        },
+        "threads": [
+          {
+            "slot": "#1",
+            "status": "PUBLISHED",
+            "thread_id": "18088889036202033",
+            "permalink": "https://www.threads.com/@naskah.efka/post/DdEPgetD7Zx",
+            "timestamp": "2026-09-09T12:17:44+0000"
+          },
+          {
+            "slot": "#2",
+            "status": "PUBLISHED",
+            "thread_id": "17942218431344149",
+            "permalink": "https://www.threads.com/@naskah.efka/post/DdEPiYejx2B",
+            "timestamp": "2026-09-09T12:17:58+0000"
+          }
+        ],
+        "evidence": {
+          "caption_source": "D:\\tm\\06_Content\\06_CONTENT_PIPELINE\\03_APPROVED\\2026-09-12_post_08_hard_sell_3jt_lengkap\\CAPTION_DAN_THREADS_POST08.md",
+          "asset_base": "https://raw.githubusercontent.com/tebakkasus/Naskah/main/06_CONTENT_PIPELINE/03_APPROVED/2026-09-12_post_08_hard_sell_3jt_lengkap/",
           "api_verified": true
         }
       }

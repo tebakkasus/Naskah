@@ -150,32 +150,33 @@ def update_notion_via_api(result: dict) -> dict:
 
 
 def main() -> int:
-    current_date = datetime.now(timezone(timedelta(hours=7))).strftime("%Y-%m-%d")
-    print(f"=== VPS Daily Runner: {current_date} {now_wib()} ===")
+    now_dt = datetime.now(timezone(timedelta(hours=7)))
+    current_date = now_dt.strftime("%Y-%m-%d")
+    current_hour = now_dt.hour
+    
+    # Auto-detect slot based on current hour in WIB
+    if 2 <= current_hour <= 5:
+        slot = "3am"
+    elif 17 <= current_hour <= 23:
+        slot = "evening"
+    else:
+        slot = "morning"
+
+    print(f"=== VPS Daily Runner: {current_date} {now_wib()} (Slot: {slot.upper()}) ===")
 
     post_num = SCHEDULE_MAP.get(current_date)
     if not post_num:
         print(f"No scheduled post for today ({current_date}). Standby.")
         return 0
 
-    print(f"Scheduled Post #{post_num} for today.")
-
-    # Anti-double-publish: if a PUBLISH_RESULT already exists for this post, skip.
-    if post_num.isdigit():
-        existing_name = f"PUBLISH_RESULT_post0{post_num}.json"
-    else:
-        existing_name = f"PUBLISH_RESULT_post{post_num}.json"
-    existing_result = CONTENT_PIPELINE / "06_CONTENT_PIPELINE" / existing_name
-    if existing_result.exists():
-        print(f"SKIP: {existing_result.name} already exists — post #{post_num} already published. No double-publish.")
-        return 0
+    print(f"Scheduled Post #{post_num} for today (Target Slot: {slot}).")
 
     script = GENERATORS / "publish_postxx.py"
     if not script.exists():
         print(f"ERROR: publish_postxx.py not found at {script}", file=sys.stderr)
         return 1
 
-    cmd = [sys.executable, str(script), post_num]
+    cmd = [sys.executable, str(script), post_num, "--slot", slot]
     result = subprocess.run(cmd, capture_output=True, text=True, cwd=str(CONTENT_PIPELINE))
 
     print("STDOUT:", result.stdout[-3000:])
@@ -183,9 +184,9 @@ def main() -> int:
         print("STDERR:", result.stderr[-1500:], file=sys.stderr)
 
     if result.returncode == 0:
-        print(f"Post #{post_num} published successfully.")
+        print(f"Post #{post_num} slot '{slot}' published successfully.")
     else:
-        print(f"ERROR: Post #{post_num} publish failed rc={result.returncode}", file=sys.stderr)
+        print(f"ERROR: Post #{post_num} slot '{slot}' publish failed rc={result.returncode}", file=sys.stderr)
 
     # Load latest PUBLISH_RESULT for reporting / Notion update
     if post_num.isdigit():
@@ -218,18 +219,18 @@ def main() -> int:
             pass
 
         report = (
-            f"✅ <b>Post #{post_num}: {published.get('topic', '')}</b>\n\n"
-            f"📸 <b>IG:</b> <a href=\"{ig_url}\">Live Post</a>\n"
-            f"🧵 <b>Threads:</b> {thread_links}\n"
+            f"✅ <b>Post #{post_num} [{slot.upper()}]: {published.get('topic', '')}</b>\n\n"
+            f"📸 <b>IG:</b> " + (f'<a href="{ig_url}">Live Post</a>\n' if ig_url else "N/A (Threads Slot)\n") +
+            f"🧵 <b>Threads:</b> {thread_links if thread_links else 'Published'}\n"
             f"🗂️ <b>Notion:</b> {notion_status}\n\n"
-            f"⏭️ <b>Next:</b> {next_val} (Besok 10:00 WIB)"
+            f"⏭️ <b>Next Slot:</b> {'19:00 WIB' if slot == 'morning' else ('03:00 WIB' if slot == 'evening' else '10:00 WIB')}"
         )
         print("TELEGRAM REPORT:")
         print(report)
         tg = send_telegram(report)
         print("Telegram result:", json.dumps(tg, ensure_ascii=False))
     else:
-        print("No PUBLISH_RESULT found for today's post.")
+        print(f"No PUBLISH_RESULT found for post #{post_num}.")
 
     return result.returncode if result.returncode != 0 else 0
 
