@@ -1,19 +1,17 @@
 {
   "tag": "Paket Lengkap 3JT",
   "cover": {
-    "headline": ["KAPAN LAGI", "3 JUTA DAPET", "SKRIPSI LENGKAP", "ANAK FK?"],
+    "headline": ["KAPAN LAGI", "3 JUTA DAPET", "PENDAMPINGAN", "SKRIPSI LENGKAP?"],
     "mark_word_line": 1,
-    "body": "Paket Lengkap Naskah.fk — bukan cuma nulis. Satu ekosistem bimbingan utuh buat naskah skripsi anak kedokteran.",
+    "body": "Paket Lengkap Naskah.fk: pendampingan utuh buat naskah skripsi anak kedokteran — lo tetap pemilik & paham isinya.",
     "pill": "Swipe buat lihat isi paket",
     "items": [
-      {"num": "01", "title": "Naskah Bab 1-5",
-       "desc": "Bab 1-5 lengkap dengan QC berlapis standar Academic OS"},
+      {"num": "01", "title": "Bab 1-5 + QC Berlapis",
+       "desc": "Struktur penulisan rapi standar Academic OS"},
       {"num": "02", "title": "Bimbingan 1-on-1",
-       "desc": "Sesi konsultasi privat bareng tim akademik Naskah.fk"},
+       "desc": "Sesi privat bareng tim akademik Naskah.fk"},
       {"num": "03", "title": "Audio & Video Walkthrough",
-       "desc": "Voice note penjelas isi + screen record olah data"},
-      {"num": "04", "title": "Garansi 3x Revisi",
-       "desc": "Revisi sesuai masukan dosen pembimbing, sampai ACC"}
+       "desc": "Voice note tiap bab + screen record olah data"}
     ]
   },
   "formula": {
@@ -29,25 +27,25 @@
   "editorial": {
     "headline": ["JOKI LIAR", "VS", "NASKAH.FK"],
     "mark_word_line": 2,
-    "lead": "Bedanya bukan di harga, tapi di apa yang lo pegang pas sidang.",
+    "lead": "Bedanya bukan di harga, tapi di apa yang lo pegang pas sidang. Di Naskah.fk, lo tetap pemilik naskah dan bisa jelasin ulang isinya.",
     "items": [
-      {"num": "X", "title": "Joki Liar", "desc": "Plagiasi, kabur saat revisi, gak ngerti EBM, blank pas sidang", "emoji": "🚫"},
-      {"num": "✓", "title": "Naskah.fk", "desc": "Standar Academic OS, garansi revisi, paham klinis, audio/video, lulus terhormat", "emoji": "✅"}
+      {"num": "01", "title": "Joki Liar", "desc": "Plagiasi, kabur saat revisi, gak ngerti EBM, blank pas sidang", "emoji": "🚫"},
+      {"num": "02", "title": "Naskah.fk", "desc": "Standar Academic OS, garansi revisi, paham klinis, audio/video", "emoji": "✅"}
     ],
     "takeaway": "Kamu nggak nyari dokumen doang — kamu nyari ketenangan pas ditanya dosen."
   },
   "callout": {
     "headline": ["KENAPA ADA", "MEDIA AUDIO", "& VIDEO?"],
     "mark_word_line": 0,
-    "lead": "Ini bukan bonus pelengkap.",
+    "lead": "Ini bukan bonus pelengkap — ini bukti kamu paham isi naskahmu.",
     "quote": "\"Naskah ada di depan mata, tapi gak bisa jelasin pas ditanya dosen.\"",
-    "body": "Karena ilmu harus bisa diceritakan ulang, bukan cuma ditempel di bab. Lo dapet voice note walkthrough tiap bab + video screen record alur olah data."
+    "body": "Karena ilmu harus bisa diceritakan ulang, bukan cuma ditempel di bab. Lo dapet voice note walkthrough tiap bab + video screen record alur olah data — jadi pas ditanya penguji, lo siap jawab."
   },
   "cta": {
     "headline": ["SATU KEPUTUSAN", "UNTUK KETENANGAN", "SEMESTER INI"],
     "mark_word_line": 1,
     "body": "Rp 3.000.000 — Bab 1-5 + bimbingan 1-on-1 + audio/video walkthrough + garansi 3x revisi + PPT sidang.",
     "pill": "DM kata LENGKAP",
-    "foot": "Batch September terbuka untuk 5 mahasiswa FK aja. DM @naskah.fk sekarang, slot abis tinggal nunggu batch berikutnya."
+    "foot": "Batch September terbuka untuk 5 mahasiswa FK aja. DM @naskah.fk sekarang — lo tetap pemegang kendali, kami damping sampai ACC."
   }
 }

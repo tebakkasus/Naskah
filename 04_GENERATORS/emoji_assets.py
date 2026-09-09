@@ -1,61 +1,24 @@
 """
 Naskah Emoji Asset Helper — download & paste emoji PNG onto renders.
 
-Why: Pillow cannot render color emoji from Poppins (they show as tofu/missing glyph).
-Download official Twemoji-style PNGs into 02_BRAND_ASSETS/emojis/ and paste them
-as raster images onto the canvas at the requested position/size.
+Loads Twemoji-style PNGs from 02_BRAND_ASSETS/emojis/ (350+ library assets)
+and pastes them as raster images on the canvas at requested position/size.
 
-If an emoji PNG is missing, fall back safely to a small branded dot/star so we
-NEVER render tofu (missing glyph) again.
+Never renders tofu (missing glyphs).
 """
 from __future__ import annotations
 
 import json
 import pathlib
 import urllib.request
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageFont
 
 BASE_DIR = pathlib.Path(r"D:/tm/06_Content")
 EMOJI_DIR = BASE_DIR / "02_BRAND_ASSETS/emojis"
 EMOJI_MAP_FILE = EMOJI_DIR / "emojis.json"
 
-# Known emoji codepoints used by Naskah content
-EMOJI_CODEPOINTS = {
-    "🎯": "1f3af",
-    "📸": "1f4f8",
-    "🔥": "1f525",
-    "💛": "1f49b",
-    "🌿": "1f33f",
-    "📝": "1f4dd",
-    "🔬": "1f52c",
-    "✏️": "270f",
-    "✏": "270f",
-    "📚": "1f4da",
-    "✅": "2705",
-    "🔖": "1f516",
-    "🌙": "1f319",
-    "🏆": "1f3c6",
-    "🫠": "1fae0",
-    "🏥": "1f3e5",
-    "🎬": "1f3ac",
-    "🧰": "1f9f0",
-    "🧵": "1f9f5",
-    "⏭️": "23ed",
-    "⚠️": "26a0",
-    "🏢": "1f3e2",
-    "💻": "1f4bb",
-    "📚": "1f4da",
-    "🧠": "1f9e0",
-    "✍️": "270d",
-    "⏰": "23f0",
-    "📅": "1f4c5",
-    "🎓": "1f393",
-    "⭐": "2b50",
-    "✅": "2705",
-    "❌": "274c",
-    "💾": "1f4be",
-    "💬": "1f4ac",
-}
+# Extensive codepoint mapping (300+ items)
+from download_emoji_library import WISHLIST as EMOJI_CODEPOINTS
 
 CDN_TEMPLATES = [
     "https://cdn.jsdelivr.net/gh/realityripple/emoji@latest/twemoji/{codepoint}.png",
@@ -69,7 +32,7 @@ def _ensure_emoji_map():
 
 
 def get_emoji_path(char: str) -> pathlib.Path | None:
-    """Return local path for an emoji, downloading it if missing."""
+    """Return local path for an emoji, downloading on demand if missing."""
     if not char or char not in EMOJI_CODEPOINTS:
         return None
     cp = EMOJI_CODEPOINTS[char]
@@ -82,14 +45,13 @@ def get_emoji_path(char: str) -> pathlib.Path | None:
         url = template.format(codepoint=cp)
         try:
             req = urllib.request.Request(url, headers={"User-Agent": "NaskahSocialOS/1.0"})
-            with urllib.request.urlopen(req, timeout=20) as resp:
+            with urllib.request.urlopen(req, timeout=15) as resp:
                 data = resp.read()
             if len(data) > 500:
                 local.write_bytes(data)
-                print(f"[emoji] Downloaded {char} -> {local.name}")
                 return local
-        except Exception as exc:
-            print(f"[emoji] Download failed for {char} via {url}: {exc}")
+        except Exception:
+            continue
     return None
 
 
@@ -97,9 +59,8 @@ def paste_emoji(im: Image.Image, char: str, xy: tuple[float, float], size: int,
                 anchor: str = "la", fallback: str = "●") -> tuple[int, int] | None:
     """
     Paste an emoji PNG onto image at xy with given size.
-    anchor: 'la' = left-ascender (like text anchor), 'mm' = middle-middle.
+    anchor: 'la', 'mm' (middle-middle), 'top_left', 'ra'.
     Fallback: if PNG missing, draw a small branded dot instead of tofu.
-    Returns pasted (width, height) extent, or None if nothing drawn.
     """
     path = get_emoji_path(char)
     x, y = xy
@@ -109,11 +70,7 @@ def paste_emoji(im: Image.Image, char: str, xy: tuple[float, float], size: int,
             w, h = emoji.size
             if anchor == "mm":
                 px, py = int(x - w / 2), int(y - h / 2)
-            elif anchor == "la":
-                # Legacy: left-ascender (biased because emoji art extends above text)
-                px, py = int(x), int(y)
-            elif anchor == "top_left":
-                # True top-left of the emoji asset box
+            elif anchor in ("la", "top_left"):
                 px, py = int(x), int(y)
             elif anchor == "ra":
                 px, py = int(x - w), int(y)
@@ -123,29 +80,24 @@ def paste_emoji(im: Image.Image, char: str, xy: tuple[float, float], size: int,
             return (w, h)
         except Exception as exc:
             print(f"[emoji] Paste failed for {char}: {exc}")
-    # Fallback: branded dot (never tofu)
+
+    # Fallback: small branded dot (never tofu)
     d = ImageDraw.Draw(im)
     r = size * 0.28
-    cx, cy = x, y
     if anchor == "mm":
-        pass
-    elif anchor == "la":
-        cy = y + size * 0.5
-        cx = x + size * 0.5
+        cx, cy = x, y
     else:
         cy = y + size * 0.5
-        cx = x - size * 0.5
+        cx = x + size * 0.5
     d.ellipse((cx - r, cy - r, cx + r, cy + r), fill="#E85929")
     return (int(r * 2), int(r * 2))
 
 
 def paste_emoji_with_text(im: Image.Image, char: str, xy: tuple[float, float],
-                           text: str, font: ImageFont.FreeTypeFont, fill: str,
-                           emoji_size: int = None, spacing: int = 12) -> tuple[int, int]:
+                          text: str, font: ImageFont.FreeTypeFont, fill: str,
+                          emoji_size: int = None, spacing: int = 12) -> tuple[int, int]:
     """
     Draw an emoji followed by text, perfectly aligned vertically (center-to-center).
-    xy: (x, y) starting coordinate (top-left of text line).
-    Returns (total_width, line_height).
     """
     x, y = xy
     d = ImageDraw.Draw(im)
@@ -153,25 +105,21 @@ def paste_emoji_with_text(im: Image.Image, char: str, xy: tuple[float, float],
     text_w = bb[2] - bb[0]
     text_h = bb[3] - bb[1]
 
-    # If emoji_size not specified, scale proportionally to font size
     if emoji_size is None:
         emoji_size = int(font.size * 0.95)
 
-    # Vertical centering: text midpoint matches emoji midpoint
     text_mid_y = y + text_h / 2
     emoji_y = int(text_mid_y - emoji_size / 2)
 
-    # Paste emoji
     paste_emoji(im, char, (x, emoji_y), size=emoji_size, anchor="top_left")
 
-    # Draw text beside it
     text_x = x + emoji_size + spacing
     d.text((text_x, y), text, font=font, fill=fill)
 
     return (emoji_size + spacing + text_w, max(text_h, emoji_size))
 
 
-# Broad Unicode emoji range — catches emoji NOT in EMOJI_CODEPOINTS map too.
+# Broad Unicode emoji range
 _EMOJI_REGEX = None
 
 def _get_emoji_regex():
@@ -180,15 +128,15 @@ def _get_emoji_regex():
         import re
         _EMOJI_REGEX = re.compile(
             "["
-            "\U0001F000-\U0001FAFF"   # Misc Symbols, Enclosed, Pictographs, Ext
+            "\U0001F000-\U0001FAFF"
             "\U0001F900-\U0001F9FF"
-            "\U00002600-\U000027BF"   # Misc symbols, Dingbats (⚠ ✨ ⌛ etc.)
-            "\U00002B00-\U00002BFF"   # Misc Symbols and Arrows
-            "\U0000FE00-\U0000FE0F"   # Variation selectors
-            "\U0001F1E6-\U0001F1FF"   # Regional indicator flags
-            "\u200d"                  # ZWJ
-            "\u20e3"                  # Combining keycap
-            "\ufe0f"                  # VS16
+            "\U00002600-\U000027BF"
+            "\U00002B00-\U00002BFF"
+            "\U0000FE00-\U0000FE0F"
+            "\U0001F1E6-\U0001F1FF"
+            "\u200d"
+            "\u20e3"
+            "\ufe0f"
             "]+"
         )
     return _EMOJI_REGEX

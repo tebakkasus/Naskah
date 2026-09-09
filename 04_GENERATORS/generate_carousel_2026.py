@@ -356,21 +356,31 @@ def render_editorial(c: dict, tag: str) -> Image.Image:
         {"num": "3", "title": "Tulis 3 Kalimat", "desc": "Masukkan ke Bab 2 skripsi", "emoji": "📚"}
     ])
 
-    card_h = 100
-    gap = 14
-    for it in items[:3]:
+    # Dynamic card height and count (supports 2, 3, or 4 items without overflow)
+    n_items = min(len(items), 4)
+    if n_items == 4:
+        card_h = 82
+        gap = 10
+    else:
+        card_h = 100
+        gap = 14
+
+    for it in items[:n_items]:
         box = (90, y, 990, y + card_h)
-        im = soft_shadow(im, box, radius=20, alpha=25, blur=12, offset=(0, 4))
+        im = soft_shadow(im, box, radius=18, alpha=25, blur=12, offset=(0, 4))
         d = ImageDraw.Draw(im)
-        d.rounded_rectangle(box, radius=20, fill=NAVY_LIGHT, outline=BORDER_DARK, width=2)
-        d.rounded_rectangle((114, y + 20, 174, y + 80), radius=14, fill=ORANGE)
-        d.text((144, y + 50), it.get("num", "1"), font=F["num"], fill=WHITE, anchor="mm")
-        d.text((196, y + 22), it.get("title", ""), font=F["card_t"], fill=WHITE)
-        d.text((196, y + 58), it.get("desc", ""), font=F["body_r"], fill=MUTED_LIGHT)
+        d.rounded_rectangle(box, radius=18, fill=NAVY_LIGHT, outline=BORDER_DARK, width=2)
+        pad_num = 14 if n_items == 4 else 20
+        d.rounded_rectangle((114, y + pad_num, 174, y + card_h - pad_num), radius=12, fill=ORANGE)
+        d.text((144, y + card_h // 2), it.get("num", "1"), font=F["num"], fill=WHITE, anchor="mm")
+
+        t_font = F["body_b"] if n_items == 4 else F["card_t"]
+        d.text((196, y + (12 if n_items == 4 else 22)), it.get("title", ""), font=t_font, fill=WHITE)
+        d.text((196, y + (44 if n_items == 4 else 58)), it.get("desc", ""), font=F["body_r"], fill=MUTED_LIGHT)
 
         em = it.get("emoji")
         if em:
-            paste_emoji(im, em, (930, y + 50), size=36, anchor="mm")
+            paste_emoji(im, em, (930, y + card_h // 2), size=(30 if n_items == 4 else 36), anchor="mm")
         y += card_h + gap
 
     footer(im, "03/05", tag, light_mode=False)
@@ -404,9 +414,10 @@ def render_callout(c: dict, tag: str) -> Image.Image:
     else:
         q_lines_raw = list(q_raw)
     quote_text = " ".join(str(x).strip() for x in q_lines_raw if str(x).strip())
-    # Clean accidental character-spacing artifacts from config
+    # Clean accidental character-spacing artifacts and unsupported arrows from config
     quote_text = quote_text.replace(" ", " ")
     quote_text = quote_text.replace("G u e", "Gue").replace("u d a h", "udah").replace("r e v i s i", "revisi")
+    quote_text = quote_text.replace("→", "->").replace("➡", "->").replace("➡️", "->").replace("←", "<-")
     q_wrapped = wrap_text_clean(quote_text, 740, F["body_b"], d)
     q_h = 100 + len(q_wrapped) * 44
     quote_box = (90, y, 990, y + q_h)

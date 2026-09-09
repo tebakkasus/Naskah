@@ -3,13 +3,13 @@
   "cover": {
     "headline": ["MENU &", "TRANSPARANSI", "BIAYA 2026"],
     "mark_word_line": 2,
-    "body": "Gak ada biaya siluman. Daftar harga resmi Naskah.fk untuk layanan akademik anak kedokteran.",
+    "body": "Gak ada biaya siluman. Daftar harga resmi Naskah.fk untuk layanan akademik anak kedokteran — semua prosesnya lo ikut terlibat.",
     "pill": "Swipe buat lihat rincian",
     "items": [
-      {"num": "01", "title": "SEMPRO", "desc": "Bab 1-3 + Metpen standar kampus — Rp 1.500.000"},
-      {"num": "02", "title": "SEMHAS", "desc": "Bab 4-5 + SPSS & interpretasi — Rp 1.500.000"},
+      {"num": "01", "title": "SEMPRO", "desc": "Pendampingan Bab 1-3 + Metpen — Rp 1.500.000"},
+      {"num": "02", "title": "SEMHAS", "desc": "Pendampingan Bab 4-5 + SPSS — Rp 1.500.000"},
       {"num": "03", "title": "Bimbingan 1-on-1", "desc": "Sesi privat per jam — Rp 400.000"},
-      {"num": "04", "title": "Ethical Clearance", "desc": "Bantuan dokumen etik lengkap — Rp 200.000"},
+      {"num": "04", "title": "Pendampingan Etik", "desc": "Dokumen ethical clearance — Rp 200.000"},
       {"num": "⭐", "title": "PAKET LENGKAP", "desc": "All-inclusive Bab 1-5 + Audio/Video + Revisi — Rp 3.000.000"}
     ]
   },
@@ -17,10 +17,10 @@
     "headline": ["PILIHAN", "A LA CARTE"],
     "body": "Kamu bisa ambil per layanan, tapi kalkulasi totalnya: beli satuan = Rp 4.600.000 vs Paket Lengkap = Rp 3.000.000.",
     "steps": [
-      {"pill": "01", "text": "SEMPRO (Bab 1-3 + Metpen) — Rp 1.500.000"},
-      {"pill": "02", "text": "SEMHAS (Bab 4-5 + SPSS) — Rp 1.500.000"},
-      {"pill": "03", "text": "Bimbingan 1-on-1 (per jam) — Rp 400.000"},
-      {"pill": "04", "text": "Ethical Clearance (dokumen lengkap) — Rp 200.000"}
+      {"pill": "01", "text": "Pendampingan SEMPRO (Bab 1-3 + Metpen) — Rp 1.500.000"},
+      {"pill": "02", "text": "Pendampingan SEMHAS (Bab 4-5 + SPSS) — Rp 1.500.000"},
+      {"pill": "03", "text": "Bimbingan 1-on-1 (per sesi) — Rp 400.000"},
+      {"pill": "04", "text": "Pendampingan dokumen etik — Rp 200.000"}
     ],
     "insight": "Ambil Paket Lengkap lebih hemat Rp 1.600.000 dan dapet audio/video walkthrough + garansi 3x revisi + PPT sidang."
   },
@@ -29,7 +29,7 @@
     "mark_word_line": 1,
     "lead": "Setiap layanan Naskah.fk dibangun di atas empat fondasi kerja ini:",
     "items": [
-      {"num": "1", "title": "Academic Document", "desc": "Bab 1-5, Proposal, Jurnal, Laporan PKM, Artikel SINTA", "emoji": "📄"},
+      {"num": "1", "title": "Academic Document", "desc": "Pendampingan Bab 1-5, Proposal, Jurnal, Laporan PKM, Artikel SINTA", "emoji": "📄"},
       {"num": "2", "title": "Research & Stats", "desc": "Desain penelitian, SPSS/STATA, Power Analysis, Meta-analisis", "emoji": "📊"},
       {"num": "3", "title": "Presentation Deck", "desc": "Slide Sempro/Semhas, Poster Ilmiah, Defending Script", "emoji": "🎯"},
       {"num": "4", "title": "Publication & SINTA", "desc": "Manuskrip jurnal, Reviewer Response, Scopus/WoS/Scimago", "emoji": "📚"}
@@ -41,13 +41,13 @@
     "mark_word_line": 2,
     "lead": "Hitung-hitungnya gampang:",
     "quote": "Beli Satuan: Rp 4.600.000 → Paket Lengkap: Rp 3.000.000 = HEMAT Rp 1.600.000",
-    "body": "Paket Lengkap termasuk: Bab 1-5 utuh + bimbingan 1-on-1 + audio walkthrough Bab 1-5 + video screen record SPSS/STATA + garansi 3x revisi + PPT Sempro/Semhas + Ethical Clearance."
+    "body": "Paket Lengkap termasuk: pendampingan Bab 1-5 utuh + bimbingan 1-on-1 + audio walkthrough Bab 1-5 + video screen record SPSS/STATA + garansi 3x revisi + PPT Sempro/Semhas + pendampingan dokumen etik."
   },
   "cta": {
     "headline": ["KONSULTASIKAN", "JUDUL & MASALAH", "SKRIPSI LO SEKARANG"],
     "mark_word_line": 1,
     "body": "Dua channel, satu tim yang sama:",
     "pill": "DM @naskah.fk",
-    "foot": "Garansi privasi 100% sesuai standar kode etik kedokteran. Ceritain kendala skripsi lo, kami bantu cari jalan keluarnya."
+    "foot": "Garansi privasi 100% sesuai standar kode etik kedokteran. Ceritain kendala skripsi lo, kami damping sampai nemu jalan keluarnya."
   }
 }
