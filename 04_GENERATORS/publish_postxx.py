@@ -259,7 +259,7 @@ def now_wib() -> str:
 
 def main() -> int:
     if len(sys.argv) < 2:
-        print("Usage: python publish_postxx.py <post_number> [--slot morning|evening|3am]", file=sys.stderr)
+        print("Usage: python publish_postxx.py <post_number> [--slot morning|afternoon|evening|3am]", file=sys.stderr)
         return 1
 
     post_num = sys.argv[1]
@@ -268,8 +268,8 @@ def main() -> int:
         idx = sys.argv.index("--slot")
         if idx + 1 < len(sys.argv):
             slot = sys.argv[idx + 1].lower()
-    if slot not in ("morning", "evening", "3am"):
-        print(f"Invalid slot: {slot}. Use morning|evening|3am", file=sys.stderr)
+    if slot not in ("morning", "afternoon", "evening", "3am"):
+        print(f"Invalid slot: {slot}. Use morning|afternoon|evening|3am", file=sys.stderr)
         return 1
 
     if post_num not in POST_CONFIG:
@@ -303,34 +303,28 @@ def main() -> int:
             return 1
 
     # SLOT-BASED DISPATCH:
-    #   morning (10:00 WIB) -> publish IG (+ Thread #1 if not a standalone threads post,
-    #                          plus Threads-carousel of slides)
-    #   evening (19:00 WIB) -> publish Thread #2 (the "slot malam" companion)
-    #   3am (03:00 WIB)    -> Threads-only post (w1_06 3AM Thoughts)
+    #   morning (10:00 WIB)   -> publish IG + Thread #1 (Text/Hook)
+    #   afternoon (14:00 WIB) -> publish Threads Carousel / Visual Mirror (Gambar dari IG biar gak suntuk bacaan)
+    #   evening (19:00 WIB)   -> publish Thread #2 (Storytelling / Relatable / Hard Sell)
+    #   3am (03:00 WIB)       -> Threads-only post (3AM Thoughts)
     if slot == "morning":
-        threads_slot = "morning"
         publish_ig = ig_type != "none"
+        publish_threads_visual = False
+        selected_threads = threads_raw[:1] if threads_raw else []
+    elif slot == "afternoon":
+        publish_ig = False
+        publish_threads_visual = True if image_urls else False
+        selected_threads = []  # Visual thread
     elif slot == "evening":
-        threads_slot = "evening"
         publish_ig = False
+        publish_threads_visual = False
+        selected_threads = threads_raw[1:2] if len(threads_raw) > 1 else []
     else:  # 3am
-        threads_slot = "3am"
         publish_ig = False
+        publish_threads_visual = False
+        selected_threads = threads_raw
 
-    # Filter threads for this slot
-    if threads_raw:
-        if slot == "morning":
-            # Morning: publish Thread #1 only (the first one)
-            selected_threads = threads_raw[:1]
-        elif slot == "evening":
-            # Evening: publish Thread #2 (the second one)
-            selected_threads = threads_raw[1:2] if len(threads_raw) > 1 else []
-        else:
-            # 3am: all (usually single)
-            selected_threads = threads_raw
-        print(f"Slot {slot}: selected {len(selected_threads)} thread(s)")
-    else:
-        selected_threads = []
+    print(f"Slot {slot.upper()}: IG={publish_ig}, Threads Visual={publish_threads_visual}, Threads Text={len(selected_threads)}")
 
     from meta_direct_publisher import MetaDirectPublisher
     publisher = MetaDirectPublisher()
@@ -376,17 +370,35 @@ def main() -> int:
 
     # 3. Publish Threads
     thread_results = []
-    for idx_t, item in enumerate(threads_raw):
+    
+    # 3a. Afternoon Slot: Publish Carousel / Visual Image to Threads
+    if publish_threads_visual and image_urls:
+        print(f"Publishing Visual Carousel to Threads ({len(image_urls)} slides)...")
+        hook_text = caption_ig.split("\n\n")[0] if caption_ig else f"Slide visual: {cfg['topic']}"
+        if len(hook_text) > 480:
+            hook_text = hook_text[:475] + "..."
+        if len(image_urls) >= 2:
+            res = publisher.publish_threads_carousel(image_urls, hook_text, topic_tag=cfg["topic"])
+        else:
+            res = publisher.publish_thread(hook_text, image_url=image_urls[0], topic_tag=cfg["topic"])
+        
+        print(json.dumps({"slot": "#visual_afternoon", "result": res}, ensure_ascii=False, indent=2))
+        if res.get("success"):
+            thread_id = res.get("thread_id")
+            thread_verify = publisher._threads_get(thread_id, {"fields": "id,permalink,timestamp"})
+            thread_results.append({
+                "slot": "#visual_afternoon",
+                "status": "PUBLISHED",
+                "thread_id": thread_id,
+                "permalink": thread_verify.get("permalink", f"https://www.threads.net/@naskah.efka/post/{thread_id}"),
+                "timestamp": thread_verify.get("timestamp", now_wib()),
+            })
+
+    # 3b. Text Threads
+    for idx_t, item in enumerate(selected_threads):
         text = item["text"]
         print(f"Publishing Thread {item['slot']} (len={len(text)})...")
-
-        # If Thread #1 of a carousel and we have 2+ slides, publish as Threads Carousel
-        if ig_type == "carousel" and idx_t == 0 and image_urls and len(image_urls) >= 2:
-            print(f"Publishing {item['slot']} as Threads Carousel with {len(image_urls)} slides...")
-            carousel_text = text[:490] if len(text) > 490 else text
-            result = publisher.publish_threads_carousel(image_urls, carousel_text, topic_tag=cfg["topic"])
-            print(json.dumps({"slot": item["slot"], "type": "THREADS_CAROUSEL", "result": result}, ensure_ascii=False, indent=2))
-        elif len(text) > 500:
+        if len(text) > 500:
             parts = []
             paragraphs = text.split("\n\n")
             current_part = ""

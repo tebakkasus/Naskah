@@ -157,6 +157,8 @@ def main() -> int:
     # Auto-detect slot based on current hour in WIB
     if 2 <= current_hour <= 5:
         slot = "3am"
+    elif 13 <= current_hour <= 16:
+        slot = "afternoon"
     elif 17 <= current_hour <= 23:
         slot = "evening"
     else:
@@ -218,12 +220,14 @@ def main() -> int:
         except Exception:
             pass
 
+        next_slot_str = "14:00 WIB (Threads Visual)" if slot == "morning" else ("19:00 WIB (Thread #2)" if slot == "afternoon" else ("03:00 WIB (3AM)" if slot == "evening" else "10:00 WIB (IG + Thread #1)"))
+
         report = (
             f"✅ <b>Post #{post_num} [{slot.upper()}]: {published.get('topic', '')}</b>\n\n"
             f"📸 <b>IG:</b> " + (f'<a href="{ig_url}">Live Post</a>\n' if ig_url else "N/A (Threads Slot)\n") +
             f"🧵 <b>Threads:</b> {thread_links if thread_links else 'Published'}\n"
             f"🗂️ <b>Notion:</b> {notion_status}\n\n"
-            f"⏭️ <b>Next Slot:</b> {'19:00 WIB' if slot == 'morning' else ('03:00 WIB' if slot == 'evening' else '10:00 WIB')}"
+            f"⏭️ <b>Next Slot:</b> {next_slot_str}"
         )
         print("TELEGRAM REPORT:")
         print(report)
