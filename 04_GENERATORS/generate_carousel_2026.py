@@ -544,6 +544,8 @@ def render_post(post_name: str, out_dir: pathlib.Path) -> pathlib.Path:
         "post_05_anatomi_naskah_acc": "post05",
         "post_06_carousel_layout_edukasi": "post06",
         "post_07_sunday_academic_reset": "post07",
+        "post_08_hard_sell_3jt_lengkap": "post08",
+        "post_09_hard_sell_price_list": "post09",
         "post_w1_01_diagnosis_skripsi": "post_w1_01",
         "post_w1_04_scu_episode1": "post_w1_04",
         "post_w1_sat_naskah_inside_ep1": "post_w1_ni",

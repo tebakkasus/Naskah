@@ -92,6 +92,34 @@ POST_CONFIG = {
         "topic": "Sunday Academic Reset",
         "ig_type": "carousel",
     },
+    "8": {
+        "dir": CAPTIONS_ROOT / "2026-09-12_post_08_hard_sell_3jt_lengkap",
+        "slides": [
+            "post08_01_cover.jpg",
+            "post08_02_formula.jpg",
+            "post08_03_editorial.jpg",
+            "post08_04_callout.jpg",
+            "post08_05_cta.jpg",
+        ],
+        "ig_caption_file": CAPTIONS_ROOT / "2026-09-12_post_08_hard_sell_3jt_lengkap" / "CAPTION_DAN_THREADS_POST08.md",
+        "threads_file": CAPTIONS_ROOT / "2026-09-12_post_08_hard_sell_3jt_lengkap" / "CAPTION_DAN_THREADS_POST08.md",
+        "topic": "Hard Sell Paket Lengkap 3JT",
+        "ig_type": "carousel",
+    },
+    "9": {
+        "dir": CAPTIONS_ROOT / "2026-09-13_post_09_hard_sell_price_list",
+        "slides": [
+            "post09_01_cover.jpg",
+            "post09_02_formula.jpg",
+            "post09_03_editorial.jpg",
+            "post09_04_callout.jpg",
+            "post09_05_cta.jpg",
+        ],
+        "ig_caption_file": CAPTIONS_ROOT / "2026-09-13_post_09_hard_sell_price_list" / "CAPTION_DAN_THREADS_POST09.md",
+        "threads_file": CAPTIONS_ROOT / "2026-09-13_post_09_hard_sell_price_list" / "CAPTION_DAN_THREADS_POST09.md",
+        "topic": "Menu & Transparansi Biaya 2026",
+        "ig_type": "carousel",
+    },
     # --- WEEK 1: INTRODUCTION TO MADNESS ---
     "w1_01": {
         "dir": CAPTIONS_ROOT / "2026-09-14_post_w1_01_diagnosis_skripsi",

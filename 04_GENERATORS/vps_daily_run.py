@@ -32,6 +32,8 @@ SCHEDULE_MAP = {
     "2026-09-09": "5",      # Rabu: Anatomi Naskah ACC
     "2026-09-10": "6",      # Kamis: 7 Layout Carousel
     "2026-09-11": "7",      # Jumat: Sunday Academic Reset
+    "2026-09-12": "8",      # Sabtu: Kapan Lagi 3 Juta Skripsi Lengkap Anak FK
+    "2026-09-13": "9",      # Minggu: Menu & Transparansi Biaya 2026
 
     # Week 1 (W37: 14-20 Sep 2026) — "Introduction to Madness"
     "2026-09-14": "w1_01",  # Senin: ICD-10 Diagnosis Penyakit Skripsi (Carousel)
