@@ -47,12 +47,15 @@ SCHEDULE_MAP = {
 
 def load_env_file():
     env_path = CONTENT_PIPELINE / ".env"
+    if not env_path.exists():
+        env_path = CONTENT_PIPELINE / "06_CONTENT_PIPELINE" / ".env"
     if env_path.exists():
         with open(env_path, "r", encoding="utf-8") as f:
             for line in f:
-                if line.strip() and not line.startswith("#"):
-                    key, val = line.strip().split("=", 1)
-                    os.environ[key] = val
+                line_str = line.strip()
+                if line_str and not line_str.startswith("#") and "=" in line_str:
+                    key, val = line_str.split("=", 1)
+                    os.environ[key.strip()] = val.strip().strip("\"'")
 
 load_env_file()
 TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
