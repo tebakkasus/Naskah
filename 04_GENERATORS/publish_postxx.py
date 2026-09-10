@@ -302,11 +302,18 @@ def main() -> int:
             print(f"ERROR reading threads: {e}", file=sys.stderr)
             return 1
 
+    image_urls = []
+    if "dir" in cfg and "slides" in cfg:
+        image_urls = [
+            f"https://raw.githubusercontent.com/tebakkasus/Naskah/main/06_CONTENT_PIPELINE/03_APPROVED/{cfg['dir'].name}/{slide}"
+            for slide in cfg["slides"]
+        ]
+
     # SLOT-BASED DISPATCH:
     #   morning (10:00 WIB)   -> publish IG + Thread #1 (Text/Hook)
     #   afternoon (14:00 WIB) -> publish Threads Carousel / Visual Mirror (Gambar dari IG biar gak suntuk bacaan)
     #   evening (19:00 WIB)   -> publish Thread #2 (Storytelling / Relatable / Hard Sell)
-    #   3am (03:00 WIB)       -> Threads-only post (3AM Thoughts)
+    #   3am (03:00 WIB)       -> Threads-only post (3AM Thoughts — ONLY for w1_06)
     if slot == "morning":
         publish_ig = ig_type != "none"
         publish_threads_visual = False
@@ -322,7 +329,13 @@ def main() -> int:
     else:  # 3am
         publish_ig = False
         publish_threads_visual = False
-        selected_threads = threads_raw
+        # 3am slot is ONLY valid for dedicated 3am posts (w1_06). All other posts MUST skip 3am.
+        if post_num == "w1_06":
+            selected_threads = threads_raw
+        else:
+            print(f"🛡️ Post #{post_num} has NO 3am content. Skipping 3am publication.", file=sys.stderr)
+            selected_threads = []
+            return 0
 
     print(f"Slot {slot.upper()}: IG={publish_ig}, Threads Visual={publish_threads_visual}, Threads Text={len(selected_threads)}")
 
@@ -336,13 +349,6 @@ def main() -> int:
     if threads_raw and preflight.get("threads", {}).get("status") != "connected":
         print("ERROR: Threads is not connected.", file=sys.stderr)
         return 1
-
-    image_urls = []
-    if "dir" in cfg and "slides" in cfg:
-        image_urls = [
-            f"https://raw.githubusercontent.com/tebakkasus/Naskah/main/06_CONTENT_PIPELINE/03_APPROVED/{cfg['dir'].name}/{slide}"
-            for slide in cfg["slides"]
-        ]
 
     # 2. Publish Instagram
     ig_result = {}

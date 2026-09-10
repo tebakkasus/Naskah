@@ -25,24 +25,34 @@ CONTENT_PIPELINE = ROOT_DIR.parent
 GENERATORS = ROOT_DIR
 
 # Date -> post number mapping (Week 0 + Week 1 Full Schedule)
+# ============================================================
+# SCHEDULE MAP — Single Source of Truth for Daily Publisher
+# ============================================================
+# Format: "YYYY-MM-DD": {"post": "POST_NUM", "slots": {"morning": true, "afternoon": true, "evening": true, "3am": false}}
+#   - morning (10:00)   = IG Carousel/Single + Thread #1
+#   - afternoon (14:00) = Threads Visual Mirror (images only)
+#   - evening (19:00)   = Thread #2 (storytelling/relatable/hard-sell)
+#   - 3am (03:00)       = 3AM Thoughts (Week 1 only: w1_06)
+#   - "skip_3am": true  = Week 0 posts do NOT have 3am content; skip entirely
+# ============================================================
 SCHEDULE_MAP = {
-    # Week 0 (W36: 7-13 Sep 2026)
-    "2026-09-07": "3",      # Senin: Skripsi vs Tesis
-    "2026-09-08": "4",      # Selasa: Sitasi Native Word
-    "2026-09-09": "5",      # Rabu: Anatomi Naskah ACC
-    "2026-09-10": "6",      # Kamis: 7 Layout Carousel
-    "2026-09-11": "7",      # Jumat: Sunday Academic Reset
-    "2026-09-12": "8",      # Sabtu: Kapan Lagi 3 Juta Skripsi Lengkap Anak FK
-    "2026-09-13": "9",      # Minggu: Menu & Transparansi Biaya 2026
+    # Week 0 (W36: 7-13 Sep 2026) — NO 3am slot
+    "2026-09-07": {"post": "3",  "skip_3am": True},   # Senin: Skripsi vs Tesis
+    "2026-09-08": {"post": "4",  "skip_3am": True},   # Selasa: Sitasi Native Word
+    "2026-09-09": {"post": "5",  "skip_3am": True},   # Rabu: Anatomi Naskah ACC
+    "2026-09-10": {"post": "6",  "skip_3am": True},   # Kamis: 7 Layout Carousel
+    "2026-09-11": {"post": "7",  "skip_3am": True},   # Jumat: Sunday Academic Reset
+    "2026-09-12": {"post": "8",  "skip_3am": True},   # Sabtu: Hard Sell 3JT
+    "2026-09-13": {"post": "9",  "skip_3am": True},   # Minggu: Menu & Harga
 
-    # Week 1 (W37: 14-20 Sep 2026) — "Introduction to Madness"
-    "2026-09-14": "w1_01",  # Senin: ICD-10 Diagnosis Penyakit Skripsi (Carousel)
-    "2026-09-15": "w1_02",  # Selasa: Dua Kebenaran Satu Bohong Metpen (Threads)
-    "2026-09-16": "w1_03",  # Rabu: Autopsi Abstrak UGC Call (Threads)
-    "2026-09-17": "w1_04",  # Kamis: SCU Episode 1 Rini Budi Sari (Carousel)
-    "2026-09-18": "w1_05",  # Jumat: Revisi Bingo Dosen Pembimbing (Single Image)
-    "2026-09-19": "w1_ni",  # Sabtu: Naskah Inside EP.1 Di Balik Layar (Carousel)
-    "2026-09-20": "w1_06",  # Minggu: Jam 3 Pagi Threads 3AM Thoughts (Threads)
+    # Week 1 (W37: 14-20 Sep 2026) — "Introduction to Madness" — HAS 3am for w1_06
+    "2026-09-14": {"post": "w1_01", "skip_3am": True},  # Senin: ICD-10 Diagnosis
+    "2026-09-15": {"post": "w1_02", "skip_3am": True},  # Selasa: 2 Kebenaran (Threads-only)
+    "2026-09-16": {"post": "w1_03", "skip_3am": True},  # Rabu: Autopsi Abstrak (Threads-only)
+    "2026-09-17": {"post": "w1_04", "skip_3am": True},  # Kamis: SCU Ep.1
+    "2026-09-18": {"post": "w1_05", "skip_3am": True},  # Jumat: Revisi Bingo
+    "2026-09-19": {"post": "w1_ni",  "skip_3am": True},  # Sabtu: Naskah Inside
+    "2026-09-20": {"post": "w1_06", "skip_3am": False},  # Minggu: 3AM Thoughts — ONLY day with 3am
 }
 
 def load_env_file():
@@ -166,9 +176,60 @@ def main() -> int:
 
     print(f"=== VPS Daily Runner: {current_date} {now_wib()} (Slot: {slot.upper()}) ===")
 
-    post_num = SCHEDULE_MAP.get(current_date)
-    if not post_num:
+    schedule = SCHEDULE_MAP.get(current_date)
+    if not schedule:
         print(f"No scheduled post for today ({current_date}). Standby.")
+        return 0
+
+    post_num = schedule["post"]
+    skip_3am = schedule.get("skip_3am", True)
+
+    # === NEW: Idempotency Guard ===
+    import json
+    from datetime import date
+    today_str = date.today().strftime("%Y-%m-%d")
+    result_path = CONTENT_PIPELINE / f"PUBLISH_RESULT_post{post_num}.json"
+    already_published_today = result_path.exists()
+
+    # Jika slot 3am dan skip_3am=True (Week 0), power skip total
+    if slot == "3am" and skip_3am:
+        print(f"🛡️ SKIP 3am untuk post {post_num} (Week 0: no 3am content scheduled). Standby.")
+        return 0
+
+    # Jika slot 3am tapi ini post dari Week 1 (w1_06) yang DOYAN 3am
+    if slot == "3am" and not skip_3am and post_num == "w1_06":
+        print(f"🟢 3am publish untuk post {post_num} — Ini minggu 1 dengan 3AM Thoughts.")
+    elif slot == "3am" and not skip_3am:
+        print(f"⚠️ 3am slot requested but post {post_num} has skip_3am=True. Overriding to standby.")
+        return 0
+
+    # Jika post sudah dipublish hari ini — ABORT untuk mencegah double-publish
+    if already_published_today:
+        published = json.loads(result_path.read_text(encoding="utf-8"))
+        ig_status = published.get("instagram", {}).get("status", "UNKNOWN")
+        print(f"🛡️ IDENTIKASI: Post #{post_num} sudah dipublish tadi hari ini (status IG: {ig_status}). Skip publish, melanjutkan ke laporan TG.")
+        
+        published_at = now_wib()
+        notion_update = {"success": True, "updated": [], "ig_permalink": published.get("instagram", {}).get("permalink", "")}
+        
+        ig = published.get("instagram", {})
+        ig_url = ig.get("permalink", "")
+        threads = published.get("threads", [])
+        thread_links = " | ".join([f'<a href="{t.get("permalink", "")}">{t.get("slot", "")}</a>' for t in threads if t.get("permalink")])
+        notion_status = "Synced" if notion_update.get("success") else "Failed"
+        next_slot_str = "14:00 WIB (Threads Visual)" if slot == "morning" else ("19:00 WIB (Thread #2)" if slot == "afternoon" else ("03:00 WIB (3AM)" if slot == "evening" else "10:00 WIB (IG + Thread #1)"))
+        
+        report = (
+            f"✅ <b>Post #{post_num} [{slot.upper()}]: {published.get('topic', '')}</b>\n\n"
+            f"📸 <b>IG:</b> " + (f'<a href="{ig_url}">Live Post</a>\n' if ig_url else "N/A (Threads Slot)\n") +
+            f"🧵 <b>Threads:</b> {thread_links if thread_links else 'Published'}\n"
+            f"🗂️ <b>Notion:</b> {notion_status}\n\n"
+            f"⏭️ <b>Next Slot:</b> {next_slot_str}"
+        )
+        print("TELEGRAM REPORT (REUSE EXISTING):")
+        print(report)
+        tg = send_telegram(report)
+        print("Telegram result:", json.dumps(tg, ensure_ascii=False))
         return 0
 
     print(f"Scheduled Post #{post_num} for today (Target Slot: {slot}).")
