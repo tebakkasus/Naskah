@@ -188,7 +188,14 @@ def main() -> int:
     import json
     from datetime import date
     today_str = date.today().strftime("%Y-%m-%d")
-    result_path = CONTENT_PIPELINE / f"PUBLISH_RESULT_post{post_num}.json"
+        
+    # Backward compat for zero-padded numeric posts (e.g. 06)
+    if post_num.isdigit():
+        result_name = f"PUBLISH_RESULT_post0{post_num}.json"
+    else:
+        result_name = f"PUBLISH_RESULT_post{post_num}.json"
+            
+    result_path = CONTENT_PIPELINE / "06_CONTENT_PIPELINE" / result_name
     already_published_today = result_path.exists()
 
     # Jika slot 3am dan skip_3am=True (Week 0), power skip total
