@@ -99,8 +99,15 @@ def rounded_rect_grad(im: Image.Image, box: tuple, radius: int, c_top: str, c_bo
 def pill(draw: ImageDraw.ImageDraw, pos: tuple, text: str, bg: str, fg: str,
          bold: bool = True, pad_x: int = 24, pad_y: int = 12, im: Image.Image = None,
          emoji_prefix: str = None, align_right: bool = False):
+    import re
+    # Remove any unrenderable unicode emojis or symbols that cause tofu boxes
     clean_text = strip_all_emojis(text).strip()
     clean_text = clean_text.replace("→", "").replace("➡", "").replace("➡️", "").replace("←", "").strip()
+    # Aggressively remove symbols outside ASCII and basic punctuation that cause boxes
+    # Keep standard Indonesian characters, punctuation, and common typographic marks
+    clean_text = re.sub(r'[^\x00-\x7F\xA0-\xFF\u2010-\u2027\u201C-\u201D]', '', clean_text)
+    clean_text = clean_text.replace(' ', ' ').strip() # cleanup double spaces
+    
     fnt = F["pill"]
     bb = draw.textbbox((0, 0), clean_text, font=fnt)
     tw = bb[2] - bb[0]
@@ -448,45 +455,46 @@ def render_callout(c: dict, tag: str) -> Image.Image:
     return im
 
 # ==============================================================================
-# SLIDE 5: CTA / ACTION (Clean non-overlapping layout)
+# SLIDE 5: CTA / ACTION (Vibrant Orange Background)
 # ==============================================================================
 def render_cta(c: dict, tag: str) -> Image.Image:
-    im = Image.new("RGB", (W, H), CREAM)
-    header(im, c.get("pill", "Action"), light_mode=True)
+    # Use ORANGE background for high-conversion hook
+    im = Image.new("RGB", (W, H), ORANGE)
+    header(im, c.get("pill", "Action"), light_mode=False, on_orange=True)
     d = ImageDraw.Draw(im)
 
     lines = c.get("headline", ["MINGGU DEPAN MULAI", "LANGKAH KECIL"])
     y = 200
     line_h = 76
     for line in lines:
-        d.text((90, y), strip_all_emojis(line), font=F["headline"], fill=NAVY)
+        d.text((90, y), strip_all_emojis(line), font=F["headline"], fill=WHITE)
         y += line_h
 
     y += 14
     body = c.get("body", "Jangan biarkan hari Minggu berakhir tanpa satu langkah persiapan.")
     body_wrapped = wrap_text_clean(body, 820, F["body_m"], d)
     for bl in body_wrapped[:2]:
-        d.text((90, y), bl, font=F["body_m"], fill=MUTED)
+        d.text((90, y), bl, font=F["body_m"], fill=CREAM_LIGHT)
         y += 36
 
     y += 24
-    # Save Card
+    # Save Card (White background to pop on Orange)
     s_box = (90, y, 990, y + 140)
-    im = soft_shadow(im, s_box, radius=24, alpha=32, blur=14, offset=(0, 6))
+    im = soft_shadow(im, s_box, radius=24, alpha=45, blur=18, offset=(0, 7))
     d = ImageDraw.Draw(im)
-    d.rounded_rectangle(s_box, radius=24, fill=ORANGE_LIGHT, outline=ORANGE, width=2)
+    d.rounded_rectangle(s_box, radius=24, fill=WHITE, outline=BORDER, width=2)
     paste_emoji(im, "🔖", (130, y + 36), size=44, anchor="top_left")
     d = ImageDraw.Draw(im)
     d.text((200, y + 30), "Simpan buat nanti", font=F["card_t"], fill=ORANGE)
     d.text((200, y + 78), "Save dulu, baca pas lagi butuh booster.", font=F["body_r"], fill=MUTED)
 
     y += 140 + 24
-    # Sell Card (Solid Navy, spacious — dynamic height, no clipping)
+    # Sell Card (Solid Navy, spacious)
     foot_text = c.get("foot", "Follow @naskah.fk untuk konten akademik mingguan.")
     foot_wrapped = wrap_text_clean(foot_text, 760, F["sub"], d)
     sell_h = 220 + len(foot_wrapped) * 46
     sell_box = (90, y, 990, y + sell_h)
-    im = soft_shadow(im, sell_box, radius=24, alpha=35, blur=16, offset=(0, 6))
+    im = soft_shadow(im, sell_box, radius=24, alpha=40, blur=16, offset=(0, 6))
     rounded_rect_grad(im, sell_box, 24, NAVY, NAVY_LIGHT)
     d = ImageDraw.Draw(im)
 
@@ -500,9 +508,10 @@ def render_cta(c: dict, tag: str) -> Image.Image:
     d.text((130, fy2), "Dapatkan template & tips metodologi setiap minggu.", font=F["body_r"], fill=MUTED_LIGHT)
 
     pill_y = fy2 + 44
-    pill(d, (130, pill_y), "Follow @naskah.fk", ORANGE, WHITE, bold=True, pad_x=28, pad_y=14)
+    # CTA Button inside the Navy Card (White pill with Navy text to pop)
+    pill(d, (130, pill_y), c.get("button", "Follow @naskah.fk"), WHITE, NAVY, bold=True, pad_x=28, pad_y=14)
 
-    footer(im, "05/05", tag, light_mode=True)
+    footer(im, "05/05", tag, light_mode=False, on_orange=True)
     return im
 
 # ==============================================================================

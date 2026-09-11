@@ -1,5 +1,6 @@
 {
-  "last_sync": "2026-09-09 19:18 WIB",
+  "last_sync": "2026-09-09 21:10 WIB",
+  "synced_by": "Tacii (Hermes Desktop, @default profile)",
   "environment": "Hermes Content OS",
   "sync_targets": [
     "Hermes Desktop",
@@ -9,119 +10,32 @@
   ],
   "recent_events": [
     {
-      "timestamp": "2026-09-06 17:30:00 WIB",
-      "type": "POST_PUBLISHED_META_DIRECT",
+      "timestamp": "2026-09-09 21:10 WIB",
+      "type": "NOTION_SYNC_BATCH_UPDATE",
       "details": {
-        "post_number": 1,
-        "topic": "5 Kesalahan Fatal Sitasi di Microsoft Word",
-        "instagram": {
-          "status": "PUBLISHED",
-          "media_id": "17994913101008682",
-          "permalink": "https://www.instagram.com/p/Dc8ThgdE8AX/",
-          "media_type": "CAROUSEL_ALBUM",
-          "slides_count": 5
-        },
-        "threads": [
-          {
-            "slot": "Problem Awareness",
-            "thread_id": "18027196754899708",
-            "status": "PUBLISHED"
-          },
-          {
-            "slot": "Practical Insight",
-            "thread_id": "18096573902173563",
-            "status": "PUBLISHED"
-          }
-        ]
-      }
-    },
-    {
-      "timestamp": "2026-09-06 04:53:20 WIB",
-      "type": "INITIAL_NOTION_SYNC",
-      "details": {
-        "status": "SUCCESS",
-        "notion_hub": "Naskah Social OS — Command Center",
+        "action": "Full pipeline sync to Notion Command Center",
         "database_id": "3d2b044d-7011-81f9-b249-ca8e17dfc8f0",
-        "total_posts_synced": 21,
-        "week_range": "2026-09-06 to 2026-09-13",
-        "platforms": [
-          "Instagram",
-          "Threads"
-        ]
-      }
-    },
-    {
-      "timestamp": "2026-09-06 18:43 WIB",
-      "type": "POST_PUBLISHED_META_DIRECT",
-      "details": {
-        "post_number": 2,
-        "topic": "Format Manuskrip Jurnal Kedokteran",
-        "published_at_wib": "2026-09-06 18:43 WIB",
-        "instagram": {
-          "status": "PUBLISHED",
-          "media_id": "18126512455769453",
-          "permalink": "https://www.instagram.com/p/Dc8dJyfD9PV/",
-          "media_type": "CAROUSEL_ALBUM",
-          "slides_count": 5
-        },
-        "threads": [
-          {
-            "slot": "#3 (Open Table)",
-            "status": "PUBLISHED",
-            "thread_id": "18100461041018557",
-            "permalink": "https://www.threads.com/@naskah.efka/post/Dc8dK-9D9EE",
-            "timestamp": "2026-09-06T11:43:11+0000"
-          },
-          {
-            "slot": "#4 (Screening awal)",
-            "status": "PUBLISHED",
-            "thread_id": "17945104290301761",
-            "permalink": "https://www.threads.com/@naskah.efka/post/Dc8dMmLDw45",
-            "timestamp": "2026-09-06T11:43:24+0000"
-          }
+        "updates": [
+          {"title": "Perdana: Launching @naskah.fk", "field": "Status", "from": "Ready to Publish", "to": "Published"},
+          {"title": "Mengapa Nilai P < 0.05...", "field": "Status", "from": "Planned", "to": "Ready to Publish"},
+          {"title": "Behind The Scenes: Standar QC 5-Lapis", "field": "Status", "from": "Planned", "to": "Ready to Publish"},
+          {"title": "Sunday Academic Reset", "field": "Status", "from": "Planned", "to": "Ready to Publish"},
+          {"title": "Weekly Reflection & Research Q&A", "field": "Status", "from": "Planned", "to": "Ready to Publish"},
+          {"title": "Post W1-01: Diagnosis Penyakit Skripsi", "field": "Status", "from": "Approved", "to": "Ready to Publish"},
+          {"title": "Thread W1-02: Dua Kebenaran Satu Bohong", "field": "Status", "from": "Draft", "to": "Ready to Publish"},
+          {"title": "Thread W1-03: UGC Call", "field": "Status", "from": "Draft", "to": "Ready to Publish"},
+          {"title": "Post W1-04: SCU Episode 1", "field": "Status", "from": "Approved", "to": "Ready to Publish"},
+          {"title": "Post W1-05: Revisi Bingo", "field": "Status", "from": "Draft", "to": "Ready to Publish"},
+          {"title": "Thread W1-06: Jam 3 Pagi Threads", "field": "Status", "from": "Draft", "to": "Ready to Publish"},
+          {"title": "Post W1-NI: Naskah Inside EP.1", "field": "Status", "from": "Approved", "to": "Ready to Publish"}
         ],
-        "evidence": {
-          "caption_source": "D:\\tm\\06_Content\\06_CONTENT_PIPELINE\\03_APPROVED\\post_02_jurnal_kedokteran\\CAPTION_DAN_THREADS_POST02.md",
-          "asset_base": "https://raw.githubusercontent.com/tebakkasus/Naskah/main/06_CONTENT_PIPELINE/03_APPROVED/post_02_jurnal_kedokteran",
-          "api_verified": true
-        }
-      }
-    },
-    {
-      "timestamp": "2026-09-07 17:49 WIB",
-      "type": "POST_PUBLISHED_META_DIRECT",
-      "details": {
-        "post_number": 3,
-        "topic": "Skripsi vs Tesis Kedokteran",
-        "published_at_wib": "2026-09-07 17:41 WIB",
-        "instagram": {
-          "status": "PUBLISHED",
-          "media_id": "18152019592470467",
-          "permalink": "https://www.instagram.com/p/Dc-66XGGui8/",
-          "media_type": "CAROUSEL_ALBUM",
-          "slides_count": 5
-        },
-        "threads": [
-          {
-            "slot": "#5 (Research Gap)",
-            "status": "PUBLISHED",
-            "thread_id": "18062717825786389",
-            "permalink": "https://www.threads.net/@naskah.efka/post/18062717825786389",
-            "timestamp": "2026-09-07T10:41:34+0000"
-          },
-          {
-            "slot": "#6 (Statistical Methods)",
-            "status": "PUBLISHED",
-            "thread_id": "18628012051002148",
-            "permalink": "https://www.threads.net/@naskah.efka/post/18628012051002148",
-            "timestamp": "2026-09-07T10:49:00+0000"
-          }
+        "new_entries_created": [
+          {"title": "Hard Sell: Kapan Lagi 3 Juta Skripsi Lengkap", "status": "Published", "ig_link": "https://www.instagram.com/p/DdEPb6cDwi3/", "date": "2026-09-12"},
+          {"title": "7 Layout Carousel Edukasi Kesehatan", "status": "Ready to Publish", "date": "2026-09-10"},
+          {"title": "Menu & Transparansi Biaya Naskah.fk 2026", "status": "Ready to Publish", "date": "2026-09-13"}
         ],
-        "evidence": {
-          "caption_source": "D:\\\\tm\\\\06_Content\\\\06_CONTENT_PIPELINE\\\\03_APPROVED\\\\post_03_skripsi_vs_tesis\\\\CAPTION_DAN_THREADS_POST03.md",
-          "asset_base": "https://raw.githubusercontent.com/tebakkasus/Naskah/main/06_CONTENT_PIPELINE/03_APPROVED/post_03_skripsi_vs_tesis/",
-          "api_verified": true
-        }
+        "total_pages_updated": 12,
+        "total_pages_created": 3
       }
     },
     {
@@ -143,22 +57,27 @@
             "slot": "#1",
             "status": "PUBLISHED",
             "thread_id": "18088889036202033",
-            "permalink": "https://www.threads.com/@naskah.efka/post/DdEPgetD7Zx",
-            "timestamp": "2026-09-09T12:17:44+0000"
+            "permalink": "https://www.threads.com/@naskah.efka/post/DdEPgetD7Zx"
           },
           {
             "slot": "#2",
             "status": "PUBLISHED",
             "thread_id": "17942218431344149",
-            "permalink": "https://www.threads.com/@naskah.efka/post/DdEPiYejx2B",
-            "timestamp": "2026-09-09T12:17:58+0000"
+            "permalink": "https://www.threads.com/@naskah.efka/post/DdEPiYejx2B"
           }
-        ],
-        "evidence": {
-          "caption_source": "D:\\tm\\06_Content\\06_CONTENT_PIPELINE\\03_APPROVED\\2026-09-12_post_08_hard_sell_3jt_lengkap\\CAPTION_DAN_THREADS_POST08.md",
-          "asset_base": "https://raw.githubusercontent.com/tebakkasus/Naskah/main/06_CONTENT_PIPELINE/03_APPROVED/2026-09-12_post_08_hard_sell_3jt_lengkap/",
-          "api_verified": true
-        }
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-09-06 04:53:20 WIB",
+      "type": "INITIAL_NOTION_SYNC",
+      "details": {
+        "status": "SUCCESS",
+        "notion_hub": "Naskah Social OS — Command Center",
+        "database_id": "3d2b044d-7011-81f9-b249-ca8e17dfc8f0",
+        "total_posts_synced": 21,
+        "week_range": "2026-09-06 to 2026-09-13",
+        "platforms": ["Instagram", "Threads"]
       }
     }
   ]
