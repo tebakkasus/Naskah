@@ -231,7 +231,8 @@ def main() -> int:
             f"📸 <b>IG:</b> " + (f'<a href="{ig_url}">Live Post</a>\n' if ig_url else "N/A (Threads Slot)\n") +
             f"🧵 <b>Threads:</b> {thread_links if thread_links else 'Published'}\n"
             f"🗂️ <b>Notion:</b> {notion_status}\n\n"
-            f"⏭️ <b>Next Slot:</b> {next_slot_str}"
+            f"⏭️ <b>Next Slot:</b> {next_slot_str}\n\n"
+            f"📣 <b>Action 30 detik:</b> Quote-share ke <b>Science Threads</b> (76K) + <b>Study Threads</b> (38K) buat panen engagement!"
         )
         print("TELEGRAM REPORT (REUSE EXISTING):")
         print(report)
@@ -295,7 +296,8 @@ def main() -> int:
             f"📸 <b>IG:</b> " + (f'<a href="{ig_url}">Live Post</a>\n' if ig_url else "N/A (Threads Slot)\n") +
             f"🧵 <b>Threads:</b> {thread_links if thread_links else 'Published'}\n"
             f"🗂️ <b>Notion:</b> {notion_status}\n\n"
-            f"⏭️ <b>Next Slot:</b> {next_slot_str}"
+            f"⏭️ <b>Next Slot:</b> {next_slot_str}\n\n"
+            f"📣 <b>Action 30 detik:</b> Quote-share ke <b>Science Threads</b> (76K) + <b>Study Threads</b> (38K) buat panen engagement!"
         )
         print("TELEGRAM REPORT:")
         print(report)
