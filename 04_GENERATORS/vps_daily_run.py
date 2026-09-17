@@ -184,10 +184,22 @@ def main() -> int:
     post_num = schedule["post"]
     skip_3am = schedule.get("skip_3am", True)
 
-    # === NEW: Idempotency Guard ===
+    # === NEW: Idempotency Guard (Per-date & per-slot) ===
     import json
     from datetime import date
-    today_str = date.today().strftime("%Y-%m-%d")
+    
+    # State tracking file to prevent same slot running twice in a day
+    SLOT_TRACK_FILE = CONTENT_PIPELINE / "06_CONTENT_PIPELINE" / f"RUN_STATE_{current_date}.json"
+    run_state = {}
+    if SLOT_TRACK_FILE.exists():
+        try:
+            run_state = json.loads(SLOT_TRACK_FILE.read_text(encoding="utf-8"))
+        except Exception:
+            run_state = {}
+
+    if slot in run_state.get("completed_slots", []):
+        print(f"🛡️ SLOT GUARD: Slot '{slot}' for {current_date} already executed. Aborting duplicate run.")
+        return 0
         
     # Backward compat for zero-padded numeric posts (e.g. 06)
     if post_num.isdigit():
@@ -305,6 +317,14 @@ def main() -> int:
         print("Telegram result:", json.dumps(tg, ensure_ascii=False))
     else:
         print(f"No PUBLISH_RESULT found for post #{post_num}.")
+
+    # Record slot execution to prevent duplicate
+    completed = run_state.get("completed_slots", [])
+    if slot not in completed:
+        completed.append(slot)
+    run_state["completed_slots"] = completed
+    run_state["last_updated"] = now_wib()
+    SLOT_TRACK_FILE.write_text(json.dumps(run_state, indent=2), encoding="utf-8")
 
     return result.returncode if result.returncode != 0 else 0
 
