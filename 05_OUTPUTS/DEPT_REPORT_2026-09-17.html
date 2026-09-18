@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Naskah Content Department — Progress Report</title>
+<style>
+  :root {
+    --navy: #071726;
+    --cream: #F5F2EB;
+    --orange: #E85929;
+    --teal: #2BBFBF;
+    --green: #27AE60;
+    --yellow: #F2C94C;
+    --red: #EB5757;
+    --muted: #7A8A9E;
+    --card-bg: #0D2236;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', 'Poppins', sans-serif;
+    background: var(--navy);
+    color: var(--cream);
+    padding: 24px;
+    line-height: 1.5;
+  }
+  .header {
+    text-align: center;
+    margin-bottom: 32px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--orange);
+  }
+  .header h1 { font-size: 28px; color: var(--orange); letter-spacing: 1px; }
+  .header p { color: var(--muted); font-size: 13px; margin-top: 4px; }
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .kpi {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .kpi .number { font-size: 36px; font-weight: 800; color: var(--orange); }
+  .kpi .label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px; }
+  .section { margin-bottom: 28px; }
+  .section h2 {
+    font-size: 16px;
+    color: var(--teal);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section h2::before {
+    content: '';
+    width: 4px;
+    height: 18px;
+    background: var(--teal);
+    border-radius: 2px;
+    display: inline-block;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    background: var(--card-bg);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  th {
+    background: rgba(232,89,41,0.15);
+    color: var(--orange);
+    text-transform: uppercase;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+    padding: 10px 8px;
+    text-align: left;
+  }
+  td {
+    padding: 8px;
+    border-top: 1px solid rgba(255,255,255,0.04);
+    vertical-align: top;
+  }
+  tr:hover { background: rgba(43,191,191,0.05); }
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 10px;
+    font-weight: 600;
+  }
+  .badge-published { background: rgba(39,174,96,0.2); color: var(--green); }
+  .badge-approved { background: rgba(43,191,191,0.2); color: var(--teal); }
+  .badge-ready { background: rgba(242,201,76,0.2); color: var(--yellow); }
+  .badge-draft { background: rgba(122,138,158,0.2); color: var(--muted); }
+  .badge-pillar {
+    background: rgba(232,89,41,0.12);
+    color: var(--orange);
+    font-size: 9px;
+  }
+  .infra-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .infra-card {
+    background: var(--card-bg);
+    border-radius: 10px;
+    padding: 14px;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .infra-card h3 {
+    font-size: 13px;
+    color: var(--cream);
+    margin-bottom: 8px;
+  }
+  .infra-card ul {
+    list-style: none;
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .infra-card li {
+    padding: 3px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+  }
+  .infra-card li::before {
+    content: '✓ ';
+    color: var(--green);
+  }
+  .incident { background: rgba(235,87,87,0.08); border-left: 3px solid var(--red); padding: 12px; border-radius: 0 8px 8px 0; margin-bottom: 12px; font-size: 11px; }
+  .incident strong { color: var(--red); }
+  .lesson { background: rgba(39,174,96,0.08); border-left: 3px solid var(--green); padding: 12px; border-radius: 0 8px 8px 0; margin-bottom: 12px; font-size: 11px; }
+  .lesson strong { color: var(--green); }
+  .pillar-bar {
+    display: flex;
+    gap: 2px;
+    height: 18px;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 6px;
+  }
+  .pillar-bar > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .pillar-legend { display: flex; flex-wrap: wrap; gap: 8px; font-size: 10px; color: var(--muted); }
+  .pillar-legend span::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+  .timeline-line { position: relative; padding-left: 20px; }
+  .timeline-line::before {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: rgba(255,255,255,0.08);
+  }
+  .tl-item {
+    position: relative;
+    margin-bottom: 10px;
+    font-size: 11px;
+  }
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -18px;
+    top: 5px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--orange);
+  }
+  .tl-date { color: var(--muted); font-size: 10px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>NASKAH CONTENT DEPARTMENT</h1>
+  <p>Full Progress Report — Audit Date: 17 September 2026</p>
+  <p style="color:var(--orange);font-size:11px;margin-top:6px;">Periode: 6 Sep 2026 (Launch) → 19 Sep 2026 (Today +2)</p>
+</div>
+
+<!-- KPI CARDS -->
+<div class="kpi-grid">
+  <div class="kpi"><div class="number">17</div><div class="label">Total Content Pieces</div></div>
+  <div class="kpi"><div class="number" style="color:var(--green)">5</div><div class="label">Published Live</div></div>
+  <div class="kpi"><div class="number" style="color:var(--teal)">8</div><div class="label">Approved / Rendered</div></div>
+  <div class="kpi"><div class="number" style="color:var(--yellow)">3</div><div class="label">Ready to Publish</div></div>
+  <div class="kpi"><div class="number" style="color:var(--muted)">1</div><div class="label">Draft Stage</div></div>
+  <div class="kpi"><div class="number">13</div><div class="label">Approved Folders</div></div>
+  <div class="kpi"><div class="number">15</div><div class="label">Rendered Outputs</div></div>
+  <div class="kpi"><div class="number">17+</div><div class="label">Generator Scripts</div></div>
+</div>
+
+<!-- PILLAR DISTRIBUTION -->
+<div class="section">
+  <h2>Content Pillar Distribution</h2>
+  <div class="pillar-bar">
+    <div style="flex:7;background:#2BBFBF;">EDU 7</div>
+    <div style="flex:2;background:#F2C94C;">REL 2</div>
+    <div style="flex:2;background:#E85929;">PROD 2</div>
+    <div style="flex:2;background:#27AE60;">ENG 2</div>
+    <div style="flex:2;background:#BB6BD9;">PROOF 2</div>
+    <div style="flex:1;background:#9B51E0;">NI 1</div>
+    <div style="flex:1;background:#56CCF2;">CMTY 1</div>
+  </div>
+  <div class="pillar-legend">
+    <span style="--dot:#2BBFBF">EDU = Academic Education (7)</span>
+    <span>REL = Relatability/Humor (2)</span>
+    <span>PROD = Product/Offer (2)</span>
+    <span>ENG = Engagement (2)</span>
+    <span>PROOF = Proof/Case (2)</span>
+    <span>NI = Naskah Inside (1)</span>
+    <span>CMTY = Community (1)</span>
+  </div>
+</div>
+
+<!-- WEEK 0 TABLE -->
+<div class="section">
+  <h2>Week 0 — Launch Week (6–13 Sep)</h2>
+  <table>
+    <tr><th>#</th><th>Topik</th><th>Tanggal</th><th>Platform</th><th>Format</th><th>Pillar</th><th>Status</th></tr>
+    <tr>
+      <td>01</td><td>Perdana: Word Citation</td><td>6 Sep</td><td>IG + Threads</td><td>Carousel 5</td>
+      <td><span class="badge badge-pillar">Education</span></td>
+      <td><span class="badge badge-published">Published</span></td>
+    </tr>
+    <tr>
+      <td>02</td><td>Format Manuskrip Jurnal Kedokteran</td><td>6 Sep</td><td>IG + Threads</td><td>Carousel 5</td>
+      <td><span class="badge badge-pillar">Education</span></td>
+      <td><span class="badge badge-published">Published</span></td>
+    </tr>
+    <tr>
+      <td>03</td><td>Skripsi vs Tesis Kedokteran</td><td>7 Sep</td><td>IG + Threads</td><td>Carousel 5</td>
+      <td><span class="badge badge-pillar">Education</span></td>
+      <td><span class="badge badge-published">Published</span></td>
+    </tr>
+    <tr>
+      <td>04</td><td>Native Word Citation Manager</td><td>8 Sep</td><td>IG + Threads</td><td>Carousel 5</td>
+      <td><span class="badge badge-pillar">Practical</span></td>
+      <td><span class="badge badge-approved">Approved</span></td>
+    </tr>
+    <tr>
+      <td>05</td><td>Anatomi Naskah ACC</td><td>9 Sep</td><td>IG + Threads</td><td>Carousel 5</td>
+      <td><span class="badge badge-pillar">Education</span></td>
+      <td><span class="badge badge-approved">Approved</span></td>
+    </tr>
+    <tr>
+      <td>06</td><td>7 Layout Carousel Edukasi</td><td>10 Sep</td><td>IG + Threads</td><td>Carousel 5</td>
+      <td><span class="badge badge-pillar">Education</span></td>
+      <td><span class="badge badge-published">Published</span></td>
+    </tr>
+    <tr>
+      <td>07</td><td>Sunday Academic Reset</td><td>11 Sep</td><td>IG + Threads</td><td>Carousel 5</td>
+      <td><span class="badge badge-pillar">Relatability</span></td>
+      <td><span class="badge badge-approved">Approved</span></td>
+    </tr>
+    <tr>
+      <td>08</td><td>Hard Sell 3JT Skripsi Lengkap</td><td>12 Sep</td><td>IG + Threads</td><td>Carousel 5</td>
+      <td><span class="badge badge-pillar">Product</span></td>
+      <td><span class="badge badge-published">Published</span></td>
+    </tr>
+    <tr>
+      <td>09</td><td>Menu & Transparansi Biaya</td><td>13 Sep</td><td>IG + Threads</td><td>Carousel 5</td>
+      <td><span class="badge badge-pillar">Product</span></td>
+      <td><span class="badge badge-approved">Approved</span></td>
+    </tr>
+    <tr>
+      <td>10</td><td>Before-After Bedah Naskah</td><td>—</td><td>IG</td><td>Carousel 5</td>
+      <td><span class="badge badge-pillar">Proof/Case</span></td>
+      <td><span class="badge badge-draft">Draft</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- WEEK 1 TABLE -->
+<div class="section">
+  <h2>Week 1 — "Introduction to Madness" (14–19 Sep)</h2>
+  <table>
+    <tr><th>#</th><th>Topik</th><th>Tanggal</th><th>Platform</th><th>Format</th><th>Pillar</th><th>Status</th></tr>
+    <tr>
+      <td>W1-01</td><td>Diagnosis Penyakit Skripsi (ICD-10)</td><td>14 Sep</td><td>Instagram</td><td>Carousel 5</td>
+      <td><span class="badge badge-pillar">Edu + Humor</span></td>
+      <td><span class="badge badge-ready">Ready</span></td>
+    </tr>
+    <tr>
+      <td>W1-02</td><td>Dua Kebenaran Satu Bohong</td><td>15 Sep</td><td>Threads</td><td>Text Post</td>
+      <td><span class="badge badge-pillar">Engagement</span></td>
+      <td><span class="badge badge-ready">Ready</span></td>
+    </tr>
+    <tr>
+      <td>W1-03</td><td>UGC Call — Drop Abstrak lo</td><td>16 Sep</td><td>Threads</td><td>Text Post</td>
+      <td><span class="badge badge-pillar">Community</span></td>
+      <td><span class="badge badge-ready">Ready</span></td>
+    </tr>
+    <tr>
+      <td>W1-04</td><td>SCU Episode 1 — Rini, Budi, Sari</td><td>17 Sep</td><td>Instagram</td><td>Carousel 5</td>
+      <td><span class="badge badge-pillar">Education</span></td>
+      <td><span class="badge badge-approved">Approved</span></td>
+    </tr>
+    <tr>
+      <td>W1-05</td><td>Revisi Bingo</td><td>18 Sep</td><td>Instagram</td><td>Single Post</td>
+      <td><span class="badge badge-pillar">Humor</span></td>
+      <td><span class="badge badge-approved">Approved</span></td>
+    </tr>
+    <tr>
+      <td>W1-06</td><td>3AM Thoughts vol.1</td><td>19 Sep 03:00</td><td>Threads</td><td>Text Post</td>
+      <td><span class="badge badge-pillar">Personality</span></td>
+      <td><span class="badge badge-ready">Ready</span></td>
+    </tr>
+    <tr>
+      <td>W1-NI</td><td>Naskah Inside EP.1 — QC 5-Lapis</td><td>19 Sep</td><td>Instagram</td><td>Carousel 5</td>
+      <td><span class="badge badge-pillar">Naskah Inside</span></td>
+      <td><span class="badge badge-approved">Approved</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- INFRASTRUCTURE -->
+<div class="section">
+  <h2>Infrastructure & Systems Built</h2>
+  <div class="infra-grid">
+    <div class="infra-card">
+      <h3>Strategy Foundation</h3>
+      <ul>
+        <li>SOUL v1.0 — Brand Identity & Constitution</li>
+        <li>Social Strategy v1.0 — Full content plan</li>
+        <li>Lead Magnet Funnel v1.0 (DM keywords: DIAGNOSIS, BENANG MERAH, CEK JUDUL, REVISI)</li>
+        <li>3 Proprietary Frameworks (Benang Merah 1-4-5, 3-Tier Discussion Loop, Free Diagnosis Hook)</li>
+      </ul>
+    </div>
+    <div class="infra-card">
+      <h3>Design System</h3>
+      <ul>
+        <li>Carousel Template V2 (Locked)</li>
+        <li>Editorial Template V2 (split-screen, pyramid, callout)</li>
+        <li>2026 Visual Upgrade (soft shadows, gradients, glassmorphism)</li>
+        <li>Twemoji PNG library (350+ emojis)</li>
+        <li>Poppins font scale system (68-84px headline)</li>
+        <li>8 zero-error rendering standards</li>
+      </ul>
+    </div>
+    <div class="infra-card">
+      <h3>Automation Pipeline</h3>
+      <ul>
+        <li>VPS Auto-Publisher (103.93.134.118)</li>
+        <li>4-slot daily schedule (10:00 / 14:00 / 19:00 / 03:00)</li>
+        <li>Meta Graph API direct publishing (IG + Threads)</li>
+        <li>R2/GitHub image hosting</li>
+        <li>Anti-duplicate guard (idempotency)</li>
+        <li>Notion Command Center sync (21 posts tracked)</li>
+        <li>Telegram reporting bot</li>
+      </ul>
+    </div>
+    <div class="infra-card">
+      <h3>Visual Rendering Engine</h3>
+      <ul>
+        <li>Python/PIL carousel generator</li>
+        <li>17+ generator scripts (production, preview, batch)</li>
+        <li>Dynamic card height (line count + padding)</li>
+        <li>Baseline highlight bars (no character cutting)</li>
+        <li>Pill centering (hug-content + vertical anchor)</li>
+        <li>Contact sheet preview generation</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- INCIDENT & LESSON -->
+<div class="section">
+  <h2>Incidents & Lessons Learned</h2>
+  <div class="incident">
+    <strong>INCIDENT: Double-Publish Bug (10 Sep 2026)</strong><br>
+    3 Threads posts duplicated. Root causes: zero-padding mismatch in idempotency guard, <code>image_urls</code> ordering bug, 3AM slot dumping ALL threads. <strong>Fixed:</strong> zero-padding guard, image_urls reorder, 3AM hard block, git stash workflow on VPS. Full postmortem documented.
+  </div>
+  <div class="lesson">
+    <strong>LESSON: "Pahami dulu timelinenya, jangan sampai salah lagi."</strong><br>
+    Timeline slots are sacred. Always read SCHEDULE_MAP + NOTION_SYNC_HANDOFF before touching the pipeline. Anti-duplicate guards verified on every deployment.
+  </div>
+</div>
+
+<!-- TIMELINE -->
+<div class="section">
+  <h2>Key Milestones Timeline</h2>
+  <div class="timeline-line">
+    <div class="tl-item">
+      <div class="tl-date">6 Sep 2026</div>
+      <div>Launch Day — Post 01 & 02 published (IG + Threads). Notion sync established (21 posts).</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">7 Sep 2026</div>
+      <div>Post 03 published. VPS auto-publisher activated.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">8–9 Sep 2026</div>
+      <div>Post 04–05 rendered & approved. Lead Magnet funnel finalized.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">10 Sep 2026</div>
+      <div>Post 06 published. Double-publish incident detected & fixed same day. Postmortem written.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">11–13 Sep 2026</div>
+      <div>Post 07 (Sunday Reset), Post 08 (Hard Sell), Post 09 (Price List) rendered. 2026 visual upgrade system locked.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">12 Sep 2026</div>
+      <div>Post 08 published live — "Kapan Lagi 3 Juta Skripsi Lengkap".</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">14 Sep 2026</div>
+      <div>Week 1 "Introduction to Madness" begins. W1-01 rendered & approved.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">15–19 Sep 2026</div>
+      <div>W1-02 through W1-NI all drafted, rendered, and marked ready. Full week package complete.</div>
+    </div>
+  </div>
+</div>
+
+<!-- SCOREBOARD -->
+<div class="section">
+  <h2>Department Scoreboard</h2>
+  <table>
+    <tr><th>Area</th><th>Deliverable</th><th>Status</th></tr>
+    <tr><td>Strategy</td><td>SOUL + Social Strategy + Funnel + Frameworks</td><td><span class="badge badge-published">Complete</span></td></tr>
+    <tr><td>Brand Identity</td><td>Logo, fonts, color system, emoji library</td><td><span class="badge badge-published">Locked</span></td></tr>
+    <tr><td>Design System</td><td>3 templates + 2026 upgrade + 8 render rules</td><td><span class="badge badge-published">Locked</span></td></tr>
+    <tr><td>Rendering Engine</td><td>Python PIL generators (17+ scripts)</td><td><span class="badge badge-published">Production</span></td></tr>
+    <tr><td>Publishing Pipeline</td><td>VPS cron + Meta API + R2 + Notion + Telegram</td><td><span class="badge badge-published">Live</span></td></tr>
+    <tr><td>Week 0 Content</td><td>10 posts (5 published, 4 approved, 1 draft)</td><td><span class="badge badge-approved">90% Complete</span></td></tr>
+    <tr><td>Week 1 Content</td><td>7 posts (all approved/ready)</td><td><span class="badge badge-published">100% Complete</span></td></tr>
+    <tr><td>Notion Command Center</td><td>21 posts tracked, full status sync</td><td><span class="badge badge-published">Synced</span></td></tr>
+    <tr><td>Bug & Incident Mgmt</td><td>Double-publish fix + postmortem</td><td><span class="badge badge-published">Resolved</span></td></tr>
+  </table>
+</div>
+
+<div style="text-align:center;color:var(--muted);font-size:10px;margin-top:32px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.06);">
+  Naskah Social OS — Content Department Report<br>
+  Generated: 17 September 2026 • Hermes Agent (Content Profile)
+</div>
+
+</body>
+</html>

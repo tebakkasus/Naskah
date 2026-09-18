@@ -170,11 +170,12 @@ def footer(im: Image.Image, page: str, tag: str, light_mode: bool = True, on_ora
     y = 1260
     c = WHITE if (not light_mode or on_orange) else MUTED
     d.text((90, y), "naskah.fk", font=F["tag"], fill=c)
-    if tag:
-        d.text((540, y), strip_all_emojis(tag)[:30], font=F["tag"], fill=c, anchor="mt")
+    # TAG REMOVED - Center bottom left completely blank
     d.text((990, y), page, font=F["tag"], fill=c, anchor="rt")
 
 def wrap_text_clean(text: str, max_width_px: int, font_obj: ImageFont.FreeTypeFont, draw: ImageDraw.ImageDraw) -> list:
+    text = strip_all_emojis(str(text))
+    text = text.replace("→", "->").replace("➡", "->").replace("➡️", "->").replace("←", "<-")
     words = text.split()
     lines = []
     curr = []
@@ -220,14 +221,15 @@ def render_cover(c: dict, tag: str) -> Image.Image:
         d.text((90, y), clean_l, font=F["headline"], fill=NAVY)
         y += line_h
 
-    y = max(y, max_bottom_y) + 24
+    # Generous breathing space below headline
+    y = max(y, max_bottom_y) + 36
     body_text = c.get("body", "Satu paragraf hari ini lebih baik dari 10 halaman rencana.")
     wrapped_body = wrap_text_clean(body_text, 860, F["body_m"], d)
     for bline in wrapped_body[:3]:
         d.text((90, y), bline, font=F["body_m"], fill=MUTED)
-        y += 36
+        y += 38
 
-    y += 24
+    y += 32
     items = c.get("items", [
         {"num": "01", "title": "Langkah Pertama", "desc": "Buka file skripsi hari ini"},
         {"num": "02", "title": "Pelan Tapi Jalan", "desc": "Tulis 1-2 kalimat dulu"},
@@ -248,9 +250,9 @@ def render_cover(c: dict, tag: str) -> Image.Image:
         d.text((196, card_y + 60), it.get("desc", ""), font=F["body_r"], fill=MUTED)
         card_y += card_h + gap
 
-    # Bottom CTA Box
-    cta_y = 1010
-    cta_box = (90, cta_y, 990, 1170)
+    # Bottom CTA Box pushed lower
+    cta_y = 1040
+    cta_box = (90, cta_y, 990, 1200)
     im = soft_shadow(im, cta_box, radius=22, alpha=32, blur=16, offset=(0, 6))
     rounded_rect_grad(im, cta_box, 22, NAVY, NAVY_LIGHT)
     d = ImageDraw.Draw(im)
@@ -276,14 +278,15 @@ def render_formula(c: dict, tag: str) -> Image.Image:
         d.text((90, y), strip_all_emojis(line), font=F["headline"], fill=WHITE)
         y += line_h
 
-    y += 10
+    # Generous breathing space below headline
+    y += 28
     body_lead = c.get("body", "")
     if body_lead:
         wrapped_lead = wrap_text_clean(body_lead, 860, F["body_b"], d)
         for wline in wrapped_lead[:2]:
             d.text((90, y), wline, font=F["body_b"], fill=CREAM_LIGHT)
-            y += 34
-        y += 14
+            y += 36
+        y += 28
 
     steps = c.get("steps", None)
     if not steps:
@@ -300,20 +303,20 @@ def render_formula(c: dict, tag: str) -> Image.Image:
         d.rounded_rectangle((114, y + 18, 174, y + 78), radius=16, fill=ORANGE_LIGHT)
         d.text((144, y + 48), st.get("pill", "+"), font=F["num"], fill=ORANGE, anchor="mm")
         d.text((196, y + 48), st.get("text", ""), font=F["body_b"], fill=NAVY, anchor="lm")
-        y += pill_h + 16
+        y += pill_h + 20
 
     # Bottom Insight Card (Solid Navy Glass, distinct & informative)
     ins_text = c.get("insight", "Kuncinya bukan durasi belajar, tapi konsistensi ritual kecil.")
     ins_wrapped = wrap_text_clean(ins_text, 760, F["body_r"], d)
     ins_h = 90 + len(ins_wrapped) * 32
-    ins_box = (90, y + 8, 990, y + 8 + ins_h)
+    ins_box = (90, y + 16, 990, y + 16 + ins_h)
     im = soft_shadow(im, ins_box, radius=24, alpha=40, blur=16, offset=(0, 6))
     rounded_rect_grad(im, ins_box, 24, NAVY, NAVY_LIGHT)
     d = ImageDraw.Draw(im)
-    paste_emoji(im, "⚡", (124, y + 30), size=36, anchor="top_left")
+    paste_emoji(im, "⚡", (124, y + 38), size=36, anchor="top_left")
     d = ImageDraw.Draw(im)
-    d.text((176, y + 30), "Insight Penting", font=F["card_t"], fill=ORANGE)
-    iy = y + 76
+    d.text((176, y + 38), "Insight Penting", font=F["card_t"], fill=ORANGE)
+    iy = y + 84
     for iline in ins_wrapped:
         d.text((126, iy), iline, font=F["body_r"], fill=WHITE)
         iy += 32
@@ -342,7 +345,8 @@ def render_editorial(c: dict, tag: str) -> Image.Image:
         d.text((90, y), clean_l, font=F["headline"], fill=WHITE)
         y += line_h
 
-    y += 18
+    # Generous breathing space below headline
+    y += 32
     # Dynamic top quote box
     lead_text = c.get("lead", "Mood itu datang setelah kamu mulai, bukan sebelumnya.")
     lead_wrapped = wrap_text_clean(lead_text, 780, F["body_m"], d)
@@ -356,7 +360,7 @@ def render_editorial(c: dict, tag: str) -> Image.Image:
         d.text((126, ly), lline, font=F["body_m"], fill=MUTED_LIGHT)
         ly += 36
 
-    y += lead_h + 24
+    y += lead_h + 32
     items = c.get("items", [
         {"num": "1", "title": "Buka Mendeley", "desc": "Cari 1 jurnal yang relevan", "emoji": "🔬"},
         {"num": "2", "title": "Baca Abstrak", "desc": "Ambil poin kunci saja", "emoji": "✏️"},
@@ -366,11 +370,11 @@ def render_editorial(c: dict, tag: str) -> Image.Image:
     # Dynamic card height and count (supports 2, 3, or 4 items without overflow)
     n_items = min(len(items), 4)
     if n_items == 4:
-        card_h = 82
-        gap = 10
+        card_h = 88
+        gap = 12
     else:
-        card_h = 100
-        gap = 14
+        card_h = 108
+        gap = 16
 
     for it in items[:n_items]:
         box = (90, y, 990, y + card_h)
@@ -382,12 +386,12 @@ def render_editorial(c: dict, tag: str) -> Image.Image:
         d.text((144, y + card_h // 2), it.get("num", "1"), font=F["num"], fill=WHITE, anchor="mm")
 
         t_font = F["body_b"] if n_items == 4 else F["card_t"]
-        d.text((196, y + (12 if n_items == 4 else 22)), it.get("title", ""), font=t_font, fill=WHITE)
-        d.text((196, y + (44 if n_items == 4 else 58)), it.get("desc", ""), font=F["body_r"], fill=MUTED_LIGHT)
+        d.text((196, y + (14 if n_items == 4 else 24)), it.get("title", ""), font=t_font, fill=WHITE)
+        d.text((196, y + (48 if n_items == 4 else 62)), it.get("desc", ""), font=F["body_r"], fill=MUTED_LIGHT)
 
         em = it.get("emoji")
         if em:
-            paste_emoji(im, em, (930, y + card_h // 2), size=(30 if n_items == 4 else 36), anchor="mm")
+            paste_emoji(im, em, (930, y + card_h // 2), size=(32 if n_items == 4 else 38), anchor="mm")
         y += card_h + gap
 
     footer(im, "03/05", tag, light_mode=False)
@@ -408,48 +412,49 @@ def render_callout(c: dict, tag: str) -> Image.Image:
         d.text((90, y), strip_all_emojis(line), font=F["headline"], fill=NAVY)
         y += line_h
 
-    y += 12
+    # Generous breathing space below headline
+    y += 28
     lead = c.get("lead", "")
     if lead:
         d.text((90, y), lead, font=F["sub"], fill=MUTED)
-        y += 48
+        y += 52
 
-    # Dynamic Quote Card
+    # Dynamic Quote Card (Generous padding & well-distributed space)
     q_raw = c.get("quote", ["Konsistensi kecil mengalahkan ambisi besar yang tertunda."])
     if isinstance(q_raw, str):
         q_lines_raw = [q_raw]
     else:
         q_lines_raw = list(q_raw)
     quote_text = " ".join(str(x).strip() for x in q_lines_raw if str(x).strip())
-    # Clean accidental character-spacing artifacts and unsupported arrows from config
+    quote_text = strip_all_emojis(quote_text)
     quote_text = quote_text.replace(" ", " ")
     quote_text = quote_text.replace("G u e", "Gue").replace("u d a h", "udah").replace("r e v i s i", "revisi")
     quote_text = quote_text.replace("→", "->").replace("➡", "->").replace("➡️", "->").replace("←", "<-")
     q_wrapped = wrap_text_clean(quote_text, 740, F["body_b"], d)
-    q_h = 100 + len(q_wrapped) * 44
+    q_h = 110 + len(q_wrapped) * 46
     quote_box = (90, y, 990, y + q_h)
     im = soft_shadow(im, quote_box, radius=24, alpha=38, blur=18, offset=(0, 8))
     d = ImageDraw.Draw(im)
     d.rounded_rectangle(quote_box, radius=24, fill=WHITE, outline=BORDER, width=2)
     d.text((120, quote_box[1] + 16), "\u201C", font=font("Poppins-ExtraBold.ttf", 64), fill=ORANGE)
-    qy = quote_box[1] + 82
+    qy = quote_box[1] + 86
     for line in q_wrapped:
         d.text((126, qy), line, font=F["body_b"], fill=INK)
-        qy += 44
+        qy += 46
 
-    y += q_h + 24
+    y += q_h + 32
     # Takeaway Dark Card
-    take_box = (90, y, 990, y + 170)
+    take_box = (90, y, 990, y + 180)
     im = soft_shadow(im, take_box, radius=24, alpha=35, blur=16, offset=(0, 6))
     rounded_rect_grad(im, take_box, 24, NAVY, NAVY_LIGHT)
-    paste_emoji(im, "💬", (130, y + 36), size=44, anchor="top_left")
+    paste_emoji(im, "💬", (130, y + 40), size=44, anchor="top_left")
     d = ImageDraw.Draw(im)
-    d.text((196, y + 36), "Inti pesannya:", font=F["card_t"], fill=ORANGE)
+    d.text((196, y + 40), "Inti pesannya:", font=F["card_t"], fill=ORANGE)
     body_wrapped = wrap_text_clean(c.get("body", "Naskah jalan ketika lo mulai, bukan pas lo ngerasa siap."), 720, F["body_r"], d)
-    by = y + 80
+    by = y + 86
     for bl in body_wrapped[:2]:
         d.text((196, by), bl, font=F["body_r"], fill=MUTED_LIGHT)
-        by += 32
+        by += 34
 
     footer(im, "04/05", tag, light_mode=True)
     return im
@@ -470,25 +475,26 @@ def render_cta(c: dict, tag: str) -> Image.Image:
         d.text((90, y), strip_all_emojis(line), font=F["headline"], fill=WHITE)
         y += line_h
 
-    y += 14
+    # Generous breathing space below headline
+    y += 28
     body = c.get("body", "Jangan biarkan hari Minggu berakhir tanpa satu langkah persiapan.")
     body_wrapped = wrap_text_clean(body, 820, F["body_m"], d)
     for bl in body_wrapped[:2]:
         d.text((90, y), bl, font=F["body_m"], fill=CREAM_LIGHT)
-        y += 36
+        y += 38
 
-    y += 24
+    y += 32
     # Save Card (White background to pop on Orange)
-    s_box = (90, y, 990, y + 140)
+    s_box = (90, y, 990, y + 144)
     im = soft_shadow(im, s_box, radius=24, alpha=45, blur=18, offset=(0, 7))
     d = ImageDraw.Draw(im)
     d.rounded_rectangle(s_box, radius=24, fill=WHITE, outline=BORDER, width=2)
-    paste_emoji(im, "🔖", (130, y + 36), size=44, anchor="top_left")
+    paste_emoji(im, "🔖", (130, y + 38), size=44, anchor="top_left")
     d = ImageDraw.Draw(im)
-    d.text((200, y + 30), "Simpan buat nanti", font=F["card_t"], fill=ORANGE)
-    d.text((200, y + 78), "Save dulu, baca pas lagi butuh booster.", font=F["body_r"], fill=MUTED)
+    d.text((200, y + 32), "Simpan buat nanti", font=F["card_t"], fill=ORANGE)
+    d.text((200, y + 80), "Save dulu, baca pas lagi butuh booster.", font=F["body_r"], fill=MUTED)
 
-    y += 140 + 24
+    y += 144 + 32
     # Sell Card (Solid Navy, spacious)
     foot_text = c.get("foot", "Follow @naskah.fk untuk konten akademik mingguan.")
     foot_wrapped = wrap_text_clean(foot_text, 760, F["sub"], d)
@@ -498,16 +504,16 @@ def render_cta(c: dict, tag: str) -> Image.Image:
     rounded_rect_grad(im, sell_box, 24, NAVY, NAVY_LIGHT)
     d = ImageDraw.Draw(im)
 
-    fy = y + 34
+    fy = y + 36
     for fl in foot_wrapped[:3]:
         d.text((130, fy), fl, font=F["sub"], fill=WHITE)
         fy += 46
     d.text((130, fy + 6), c.get("pill_b", "Pelan, konsisten, dan naskah lo jalan."),
            font=F["body_b"], fill=ORANGE)
-    fy2 = fy + 50
+    fy2 = fy + 52
     d.text((130, fy2), "Dapatkan template & tips metodologi setiap minggu.", font=F["body_r"], fill=MUTED_LIGHT)
 
-    pill_y = fy2 + 44
+    pill_y = fy2 + 46
     # CTA Button inside the Navy Card (White pill with Navy text to pop)
     pill(d, (130, pill_y), c.get("button", "Follow @naskah.fk"), WHITE, NAVY, bold=True, pad_x=28, pad_y=14)
 

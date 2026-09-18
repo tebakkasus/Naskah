@@ -1,0 +1,112 @@
+{
+  "tag": "Resep Anti-Revisi",
+  "cover": {
+    "pill": "Pemeriksaan Mandiri",
+    "headline": [
+      "RESEP OBAT",
+      "ANTI-REVISI",
+      "SKRIPSI FK 💊"
+    ],
+    "mark_word_line": 2,
+    "body": "Poin evaluasi mandiri sebelum mengirimkan naskah kepada dosen pembimbing.",
+    "items": [
+      {
+        "num": "R/1",
+        "title": "Konsistensi Bab 1-4-5",
+        "desc": "Pertanyaan riset terjawab runtut di Bab 5"
+      },
+      {
+        "num": "R/2",
+        "title": "3-Tier Discussion",
+        "desc": "Bab 5 memuat penjelasan mekanisme patofisiologi"
+      },
+      {
+        "num": "R/3",
+        "title": "Kualitas Referensi",
+        "desc": "Utamakan jurnal bereputasi 5 tahun terakhir"
+      }
+    ]
+  },
+  "formula": {
+    "pill": "Poin Verifikasi",
+    "headline": [
+      "3 HAL PENTING",
+      "SEBELUM SUBMIT"
+    ],
+    "body": "Periksa tiga elemen teknis ini untuk mencegah revisi berulang.",
+    "steps": [
+      {
+        "pill": "01",
+        "text": "Pastikan jumlah sampel di Bab 3 sinkron dengan tabel Bab 4"
+      },
+      {
+        "pill": "02",
+        "text": "Lengkapi semua tabel dengan keterangan singkatan dan sumber"
+      },
+      {
+        "pill": "03",
+        "text": "Tuliskan nilai P-value secara eksak (misalnya P = 0,034)"
+      }
+    ],
+    "insight": "Standar Sitasi: Pastikan gaya penulisan sitasi (Vancouver atau APA) seragam dari awal naskah hingga daftar pustaka."
+  },
+  "editorial": {
+    "pill": "Struktur Pembahasan",
+    "headline": [
+      "ANATOMI BAB 5",
+      "YANG TERSTRUKTUR"
+    ],
+    "mark_word_line": 1,
+    "lead": "Empat tingkatan pembahasan yang memperkuat argumentasi ilmiah.",
+    "items": [
+      {
+        "num": "1",
+        "title": "Temuan Utama",
+        "desc": "Sampaikan hasil pokok penelitian secara lugas",
+        "emoji": "📌"
+      },
+      {
+        "num": "2",
+        "title": "Mekanisme Klinis",
+        "desc": "Uraikan jalur patofisiologi yang mendasarinya",
+        "emoji": "⚙️"
+      },
+      {
+        "num": "3",
+        "title": "Konteks Literatur",
+        "desc": "Bandingkan dengan studi terdahulu yang relevan",
+        "emoji": "🌍"
+      },
+      {
+        "num": "4",
+        "title": "Keterbatasan Studi",
+        "desc": "Sampaikan limitasi penelitian secara objektif",
+        "emoji": "🛡️"
+      }
+    ]
+  },
+  "callout": {
+    "pill": "Evaluasi Kesiapan",
+    "headline": [
+      "SEBERAPA SIAP",
+      "NASKAH KAMU?"
+    ],
+    "lead": "Skala 1 sampai 10:",
+    "quote": [
+      "Jika jadwal seminar hasil dimajukan minggu depan,",
+      "seberapa siap kelengkapan naskahmu saat ini?"
+    ],
+    "body": "Tuliskan angka kesiapanmu di komentar. Admin bagikan langkah prioritas yang perlu kamu kerjakan akhir pekan ini."
+  },
+  "cta": {
+    "pill": "Panduan Bab 5",
+    "headline": [
+      "INGIN MENYUSUN",
+      "PEMBAHASAN RUNTUT?"
+    ],
+    "body": "Dapatkan panduan menyusun 3-Tier Discussion Loop Bab 5.",
+    "foot": "DM kata ANTIREVISI ke @naskah.fk buat dapetin template ini.",
+    "pill_b": "Struktur penulisan pembahasan berbasis mekanisme ilmiah.",
+    "button": "DM ANTIREVISI sekarang"
+  }
+}

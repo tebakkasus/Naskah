@@ -1,0 +1,113 @@
+{
+  "tag": "SCU Ep. 2",
+  "cover": {
+    "pill": "Skripsi Cinematic Universe",
+    "headline": [
+      "SCU EPISODE 2",
+      "RINI, BUDI & SARI",
+      "KEMBALI BERULAH"
+    ],
+    "mark_word_line": 2,
+    "body": "Kelanjutan nasib 3 mahasiswa FK menghadapi revisi, stase, dan konsulen.",
+    "items": [
+      {
+        "num": "01",
+        "title": "Rini (Stase Anak)",
+        "desc": "Bimbingan 3 menit di parkiran mobil RS"
+      },
+      {
+        "num": "02",
+        "title": "Budi (Uji Diagnostik)",
+        "desc": "Nyangkut di Komisi Etik (KEPK)"
+      },
+      {
+        "num": "03",
+        "title": "Sari (Case-Control)",
+        "desc": "Pusing cari sampel kelompok kontrol"
+      }
+    ]
+  },
+  "formula": {
+    "pill": "Update Karakter",
+    "headline": [
+      "KONDISI TERKINI",
+      "TRIO FK KITA"
+    ],
+    "body": "Nasib skripsi mereka di tengah padatnya jadwal kepaniteraan klinik.",
+    "steps": [
+      {
+        "pill": "RINI",
+        "text": "Stase Anak + Bab 4: Visite jam 6 pagi, ngetik jam 11 malam"
+      },
+      {
+        "pill": "BUDI",
+        "text": "KEPK minta revisi lembar persetujuan 120 pasien anak"
+      },
+      {
+        "pill": "SARI",
+        "text": "Kriteria matching usia dan jenis kelamin kontrol ambyar"
+      }
+    ],
+    "insight": "Pelajaran: Kunci kelancaran skripsi FK adalah memastikan protokol etik dan kriteria inklusi tuntas sebelum ambil data pertama."
+  },
+  "editorial": {
+    "pill": "Solusi Nyata",
+    "headline": [
+      "CARA MEREKA",
+      "KELUAR DARI MASALAH"
+    ],
+    "mark_word_line": 1,
+    "lead": "Setiap kendala skripsi FK punya solusi teknis yang terukur.",
+    "items": [
+      {
+        "num": "1",
+        "title": "Solusi Rini",
+        "desc": "Terapkan 3-Tier Discussion Loop di Bab 5",
+        "emoji": "📝"
+      },
+      {
+        "num": "2",
+        "title": "Solusi Budi",
+        "desc": "Revisi lembar persetujuan bahasa awam",
+        "emoji": "📑"
+      },
+      {
+        "num": "3",
+        "title": "Solusi Sari",
+        "desc": "Gunakan density sampling untuk kontrol",
+        "emoji": "📊"
+      },
+      {
+        "num": "4",
+        "title": "Hasil Akhir",
+        "desc": "Draft mereka bertiga siap maju semhas",
+        "emoji": "🏆"
+      }
+    ]
+  },
+  "callout": {
+    "pill": "Vote Community",
+    "headline": [
+      "KAMU PALING RELATE",
+      "DENGAN SIAPA?"
+    ],
+    "lead": "Pilih di kolom komentar:",
+    "quote": [
+      "A. Rini -> Bimbingan kilat sambil jalan di lorong RS",
+      "B. Budi -> Berkas tertahan di komisi etik",
+      "C. Sari -> Susah cari sampel yang sesuai kriteria"
+    ],
+    "body": "Ketik A, B, atau C! Karakter dengan suara terbanyak akan kami buatkan panduan khusus di episode berikutnya."
+  },
+  "cta": {
+    "pill": "Lead Magnet",
+    "headline": [
+      "SKRIPSI KAMU JUGA",
+      "BUTUH RESCUE?"
+    ],
+    "body": "Klaim cheatsheet penyelamatan skripsi Bab 4 dan 5.",
+    "foot": "DM kata RESCUE ke @naskah.fk buat dapetin cheatsheet gratis.",
+    "pill_b": "Panduan langkah demi langkah menyelesaikan naskah macet.",
+    "button": "DM RESCUE sekarang"
+  }
+}

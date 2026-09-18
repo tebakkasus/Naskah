@@ -1,0 +1,113 @@
+{
+  "tag": "Biostatistika FK",
+  "cover": {
+    "pill": "Uji Diagnostik",
+    "headline": [
+      "SENSITIVITAS VS",
+      "SPESIFISITAS",
+      "JANGAN KEBALIK"
+    ],
+    "mark_word_line": 2,
+    "body": "Panduan membaca tabel 2x2 uji diagnostik skripsi kedokteran dalam 3 menit.",
+    "items": [
+      {
+        "num": "01",
+        "title": "Sensitivitas (Sn)",
+        "desc": "Kemampuan deteksi orang yang benar sakit"
+      },
+      {
+        "num": "02",
+        "title": "Spesifisitas (Sp)",
+        "desc": "Kemampuan deteksi orang yang benar sehat"
+      },
+      {
+        "num": "03",
+        "title": "Jebakan Penguji",
+        "desc": "False positive vs False negative di Bab 4"
+      }
+    ]
+  },
+  "formula": {
+    "pill": "Tabel 2x2",
+    "headline": [
+      "RUMUS CEPAT",
+      "TABEL KONTINGENSI"
+    ],
+    "body": "Hafalkan posisi kuadran ini sebelum maju seminar proposal.",
+    "steps": [
+      {
+        "pill": "Sn",
+        "text": "TP / (TP + FN) -> Fokus pada kolom orang sakit"
+      },
+      {
+        "pill": "Sp",
+        "text": "TN / (TN + FP) -> Fokus pada kolom orang sehat"
+      },
+      {
+        "pill": "PPV",
+        "text": "TP / (TP + FP) -> Nilai prediksi positif baris 1"
+      }
+    ],
+    "insight": "Tips Klinis: Screening massal butuh sensitivitas tinggi (SnNOut). Uji konfirmasi definitif butuh spesifisitas tinggi (SpPIn)."
+  },
+  "editorial": {
+    "pill": "Skenario Klinis",
+    "headline": [
+      "CONTOH KASUS",
+      "DI RUANG SIDANG"
+    ],
+    "mark_word_line": 1,
+    "lead": "Pertanyaan wajib penguji saat membaca hasil uji diagnostik alat baru.",
+    "items": [
+      {
+        "num": "1",
+        "title": "Rapid Test vs PCR",
+        "desc": "Rapid untuk screening, PCR untuk konfirmasi",
+        "emoji": "🧪"
+      },
+      {
+        "num": "2",
+        "title": "False Positive",
+        "desc": "Orang sehat didiagnosis sakit, bikin panik",
+        "emoji": "⚠️"
+      },
+      {
+        "num": "3",
+        "title": "False Negative",
+        "desc": "Orang sakit lolos deteksi, sangat bahaya",
+        "emoji": "🚨"
+      },
+      {
+        "num": "4",
+        "title": "Gold Standard",
+        "desc": "Bandingkan selalu dengan baku emas resmi",
+        "emoji": "🏆"
+      }
+    ]
+  },
+  "callout": {
+    "pill": "Quiz Time",
+    "headline": [
+      "TES PEMAHAMAN",
+      "DOKTER MUDA 🩺"
+    ],
+    "lead": "Jawab di kolom komentar:",
+    "quote": [
+      "Kalau suatu alat skrining punya Sensitivitas 95%,",
+      "artinya angka False Negative-nya berapa persen?",
+      "A. 5%  |  B. 95%  |  C. Tergantung spesifisitas"
+    ],
+    "body": "Tulis jawabanmu di bawah! Admin spill rumus lengkapnya di reply."
+  },
+  "cta": {
+    "pill": "Free Resource",
+    "headline": [
+      "MAU TEMPLATE",
+      "EXCEL 2X2?"
+    ],
+    "body": "Hitung Sensitivitas, Spesifisitas, PPV, dan NPV otomatis.",
+    "foot": "DM kata DIAGNOSIS ke @naskah.fk buat klaim file Excel gratis.",
+    "pill_b": "Template kalkulator diagnostik otomatis.",
+    "button": "DM DIAGNOSIS sekarang"
+  }
+}

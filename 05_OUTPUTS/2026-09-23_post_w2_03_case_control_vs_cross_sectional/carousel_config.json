@@ -1,0 +1,113 @@
+{
+  "tag": "Metodologi FK",
+  "cover": {
+    "pill": "Desain Penelitian",
+    "headline": [
+      "JANGAN SALAH",
+      "PILIH DESAIN",
+      "RISET KEDOKTERAN"
+    ],
+    "mark_word_line": 0,
+    "body": "Panduan memilih Cross-Sectional, Case-Control, atau Cohort agar aman di sidang.",
+    "items": [
+      {
+        "num": "01",
+        "title": "Cross-Sectional",
+        "desc": "Mengukur prevalensi dalam satu waktu"
+      },
+      {
+        "num": "02",
+        "title": "Case-Control",
+        "desc": "Cocok untuk penyakit jarang, hitung Odds Ratio"
+      },
+      {
+        "num": "03",
+        "title": "Cohort Study",
+        "desc": "Mengikuti faktor risiko ke depan, hitung RR"
+      }
+    ]
+  },
+  "formula": {
+    "pill": "Alur Logika",
+    "headline": [
+      "PANDUAN 3 DETIK",
+      "MENENTUKAN DESAIN"
+    ],
+    "body": "Gunakan alur berpikir ini sebelum menulis metodologi Bab 3.",
+    "steps": [
+      {
+        "pill": "1",
+        "text": "Penyakitnya jarang di populasi? Pilih Case-Control"
+      },
+      {
+        "pill": "2",
+        "text": "Ingin melihat efek paparan ke depan? Gunakan Cohort"
+      },
+      {
+        "pill": "3",
+        "text": "Ingin mengetahui gambaran saat ini? Gunakan Cross-Sectional"
+      }
+    ],
+    "insight": "Jebakan Penguji: Menghitung Relative Risk (RR) pada desain Case-Control. Pada Case-Control hanya boleh melaporkan Odds Ratio (OR)."
+  },
+  "editorial": {
+    "pill": "Perbandingan",
+    "headline": [
+      "PERBANDINGAN",
+      "3 METODE UTAMA"
+    ],
+    "mark_word_line": 1,
+    "lead": "Karakteristik penting yang wajib dipahami sebelum seminar proposal.",
+    "items": [
+      {
+        "num": "1",
+        "title": "Waktu Riset",
+        "desc": "Cross-Sectional cepat, Cohort butuh waktu lama",
+        "emoji": "⏳"
+      },
+      {
+        "num": "2",
+        "title": "Kekuatan Bukti",
+        "desc": "Cohort lebih kuat dibanding Cross-Sectional",
+        "emoji": "📈"
+      },
+      {
+        "num": "3",
+        "title": "Ukuran Risiko",
+        "desc": "OR untuk Case-Control, RR untuk Cohort",
+        "emoji": "📐"
+      },
+      {
+        "num": "4",
+        "title": "Tantangan Utama",
+        "desc": "Recall bias sering terjadi di Case-Control",
+        "emoji": "⚠️"
+      }
+    ]
+  },
+  "callout": {
+    "pill": "Uji Sidang",
+    "headline": [
+      "APA DESAIN",
+      "SKRIPSI KAMU?"
+    ],
+    "lead": "Tulis di kolom komentar:",
+    "quote": [
+      "Ketik 'A' jika Cross-Sectional",
+      "Ketik 'B' jika Case-Control",
+      "Ketik 'C' jika Cohort atau Eksperimental"
+    ],
+    "body": "Admin akan membalas dengan satu pertanyaan kritis yang sering diajukan penguji pada desain pilihanmu."
+  },
+  "cta": {
+    "pill": "E-Book Gratis",
+    "headline": [
+      "INGIN KONSISTENSI",
+      "BAB 1 HINGGA 3?"
+    ],
+    "body": "Dapatkan PDF Decision Tree Metodologi Penelitian Kedokteran.",
+    "foot": "DM kata BENANG MERAH ke @naskah.fk buat dapetin filenya.",
+    "pill_b": "Panduan ringkas menyusun bab metodologi bebas revisi.",
+    "button": "DM BENANG MERAH sekarang"
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "tag": "Naskah Inside Ep. 2",
+  "cover": {
+    "pill": "Pencarian Literatur",
+    "headline": [
+      "CARA KAMI MENCARI",
+      "20 JURNAL PUBMED",
+      "DALAM 15 MENIT"
+    ],
+    "mark_word_line": 2,
+    "body": "Alur kerja menemukan referensi kedokteran bereputasi secara sistematis.",
+    "items": [
+      {
+        "num": "01",
+        "title": "MeSH Terms",
+        "desc": "Gunakan Medical Subject Headings resmi PubMed"
+      },
+      {
+        "num": "02",
+        "title": "Boolean Operator",
+        "desc": "Kombinasikan operator AND, OR, dan NOT"
+      },
+      {
+        "num": "03",
+        "title": "Filter EBM",
+        "desc": "Fokus pada Systematic Review dan RCT terkini"
+      }
+    ]
+  },
+  "formula": {
+    "pill": "Formula Pencarian",
+    "headline": [
+      "STRUKTUR QUERY",
+      "PADA SEARCH BAR"
+    ],
+    "body": "Terapkan kerangka PICO dalam pencarian di basis data PubMed.",
+    "steps": [
+      {
+        "pill": "P",
+        "text": "Population: [Preeclampsia/etiology] AND [Pregnant Women]"
+      },
+      {
+        "pill": "I",
+        "text": "Intervention: [Magnesium Sulfate] OR [Calcium Supplementation]"
+      },
+      {
+        "pill": "O",
+        "text": "Outcome: [Maternal Mortality] OR [Blood Pressure Control]"
+      }
+    ],
+    "insight": "Tips Pencarian: Manfaatkan fitur 'Clinical Queries' di PubMed untuk langsung mengakses literatur berbasis bukti (EBM) level tinggi."
+  },
+  "editorial": {
+    "pill": "Piramida Bukti",
+    "headline": [
+      "HIERARKI BUKTI",
+      "KEDOKTERAN (EBM)"
+    ],
+    "mark_word_line": 0,
+    "lead": "Urutan kekuatan metodologi referensi ilmiah dalam tinjauan pustaka.",
+    "items": [
+      {
+        "num": "1",
+        "title": "Tingkat 1",
+        "desc": "Systematic Review & Meta-Analysis (Cochrane)",
+        "emoji": "👑"
+      },
+      {
+        "num": "2",
+        "title": "Tingkat 2",
+        "desc": "Randomized Controlled Trials (RCT)",
+        "emoji": "🔬"
+      },
+      {
+        "num": "3",
+        "title": "Tingkat 3",
+        "desc": "Cohort & Case-Control Studies",
+        "emoji": "📊"
+      },
+      {
+        "num": "4",
+        "title": "Tingkat 4",
+        "desc": "Cross-Sectional & Case Series",
+        "emoji": "📄"
+      }
+    ]
+  },
+  "callout": {
+    "pill": "Bantuan MeSH",
+    "headline": [
+      "TULISKAN TOPIK",
+      "PENELITIAN KAMU"
+    ],
+    "lead": "Sampaikan variabel penelitianmu di kolom komentar:",
+    "quote": [
+      "Contoh: 'Diabetes Melitus tipe 2 dan neuropati perifer'",
+      "Admin akan menyusunkan formula kata kunci MeSH resmi",
+      "yang siap kamu salin ke mesin pencari PubMed."
+    ],
+    "body": "Tuliskan topikmu sekarang untuk mendapatkan query pencarian yang relevan."
+  },
+  "cta": {
+    "pill": "Cheatsheet MeSH",
+    "headline": [
+      "BUTUH DAFTAR QUERY",
+      "PUBMED LENGKAP?"
+    ],
+    "body": "Dapatkan cheatsheet pencarian literatur PubMed dan Scopus.",
+    "foot": "DM kata PUBMED ke @naskah.fk untuk klaim cheatsheet ini.",
+    "pill_b": "Panduan praktis menemukan literatur Q1 terindeks.",
+    "button": "DM PUBMED sekarang"
+  }
+}

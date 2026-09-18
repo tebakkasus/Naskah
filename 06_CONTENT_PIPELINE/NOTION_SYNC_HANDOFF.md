@@ -75,6 +75,24 @@ Sini kita bedah pelan-pelan sampai ACC.
 
 ---
 
+## 🩺 Status Pipeline — Week 2: "Survival Guide Anak FK" (21–27 Sep 2026)
+
+| Post | Tanggal | Topik / Series | Format | CTA Keyword | Status Visual | Status Copy & Threads |
+|:---:|:---:|:---|:---:|:---:|:---:|:---:|
+| **W2-01** | 21 Sep | Uji Diagnostik: Sensitivitas vs Spesifisitas (2x2 Matrix) | IG Carousel + 3 Threads | `DIAGNOSIS` | ✅ RENDERED (Clean) | ✅ APPROVED (Humanized) |
+| **W2-02** | 22 Sep | SCU Ep. 2: Rini, Budi & Sari (Stase & KEPK Rescue) | IG Carousel + 3 Threads | `RESCUE` | ✅ RENDERED (Clean) | ✅ APPROVED (Humanized) |
+| **W2-03** | 23 Sep | Decision Tree: Cross-Sec vs Case-Control vs Cohort | IG Carousel + 3 Threads | `BENANG MERAH` | ✅ RENDERED (Clean) | ✅ APPROVED (Humanized) |
+| **W2-04** | 24 Sep | 5 Tipe Dosen Pembimbing FK (Relatable Survival) | IG Carousel + 3 Threads | `DOSPEM` | ✅ RENDERED (Clean) | ✅ APPROVED (Humanized) |
+| **W2-05** | 25 Sep | 3 Kata Terlarang Judul Skripsi FK (KEPK Checklist) | IG Carousel + 3 Threads | `KEPK` | ✅ RENDERED (Clean) | ✅ APPROVED (Humanized) |
+| **W2-06** | 26 Sep | Resep Anti-Revisi Skripsi FK (3-Tier Discussion Loop) | IG Carousel + 3 Threads | `ANTIREVISI` | ✅ RENDERED (Clean) | ✅ APPROVED (Humanized) |
+| **W2-07** | 27 Sep | Naskah Inside Ep. 2: Workflow PubMed & MeSH Screening | IG Carousel + 3 Threads | `PUBMED` | ✅ RENDERED (Clean) | ✅ APPROVED (Humanized) |
+
+*Total Output Week 2: 7 IG Carousels (35 Slides HD) + 21 Threads Copy = 28 Konten Siap Publish.*
+*Pembaruan Kualitas: Bebas dari pola AI klise (Humanizer v3.0), auto-strip emoji glyphs (Zero Tofu), CTA Direct Message 100% spesifik per topik.*
+
+
+---
+
 ## 🎯 Instruksi untuk @default (Notion Engine)
 
 ### Database Target

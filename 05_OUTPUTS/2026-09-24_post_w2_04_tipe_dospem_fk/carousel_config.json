@@ -1,0 +1,110 @@
+{
+  "tag": "Dospem Archetypes",
+  "cover": {
+    "pill": "Karakter Dospem",
+    "headline": [
+      "5 TIPE DOSEN",
+      "PEMBIMBING FK",
+      "DAPAT YANG MANA?"
+    ],
+    "mark_word_line": 2,
+    "body": "Mulai dari yang membalas singkat hingga yang mengoreksi tanda baca secara detail.",
+    "items": [
+      {
+        "num": "01",
+        "title": "The Ghost",
+        "desc": "Balas pesan sebulan sekali, draft sering tertunda"
+      },
+      {
+        "num": "02",
+        "title": "The Perfectionist",
+        "desc": "Format tabel dan spasi diperiksa teliti"
+      },
+      {
+        "num": "03",
+        "title": "The Busy Clinician",
+        "desc": "Bimbingan singkat di sela jadwal operasi"
+      }
+    ]
+  },
+  "formula": {
+    "pill": "Dua Tipe Lain",
+    "headline": [
+      "KARAKTER LAIN",
+      "YANG SERING DITEMUI"
+    ],
+    "body": "Dinamika bimbingan bersama dokter pendidik klinis.",
+    "steps": [
+      {
+        "pill": "04",
+        "text": "The Fast-Approver: Memberi ACC cepat, mahasiswa wajib mandiri"
+      },
+      {
+        "pill": "05",
+        "text": "The Mentor: Kritis, berorientasi diskusi, dan solutif"
+      }
+    ],
+    "insight": "Tips Komunikasi: Hadapi dospem yang padat jadwal dengan mengirimkan ringkasan revisi satu halaman di awal dokumen."
+  },
+  "editorial": {
+    "pill": "Strategi Komunikasi",
+    "headline": [
+      "CARA MENGHADAPI",
+      "SETIAP KARAKTER"
+    ],
+    "mark_word_line": 0,
+    "lead": "Jadikan proses bimbingan sebagai sarana menyelaraskan ekspektasi ilmiah.",
+    "items": [
+      {
+        "num": "1",
+        "title": "Tipe Perfeksionis",
+        "desc": "Sertakan matriks revisi sebelum dan sesudah",
+        "emoji": "🎯"
+      },
+      {
+        "num": "2",
+        "title": "Tipe Padat Jadwal",
+        "desc": "Siapkan 3 pertanyaan inti saat bertemu",
+        "emoji": "⏱️"
+      },
+      {
+        "num": "3",
+        "title": "Tipe Lambat Balas",
+        "desc": "Kirim pesan tindak lanjut berkala secara sopan",
+        "emoji": "📄"
+      },
+      {
+        "num": "4",
+        "title": "Tipe Cepat ACC",
+        "desc": "Minta masukan rekan sejawat sebelum sidang",
+        "emoji": "🛡️"
+      }
+    ]
+  },
+  "callout": {
+    "pill": "Polling Komentar",
+    "headline": [
+      "BAGIKAN PENGALAMAN",
+      "BIMBINGAN KAMU"
+    ],
+    "lead": "Pilih emoji yang sesuai:",
+    "quote": [
+      "👻 = Jarang membalas pesan",
+      "🔬 = Sangat teliti hingga detail teknis",
+      "🏃 = Jadwal sangat padat di RS",
+      "👑 = Selalu memberi arahan jelas"
+    ],
+    "body": "Tuliskan pengalaman bimbingan paling berkesan di kolom komentar!"
+  },
+  "cta": {
+    "pill": "Template Gratis",
+    "headline": [
+      "BINGUNG CARA CHAT",
+      "DOSEN PEMBIMBING?"
+    ],
+    "body": "Dapatkan 5 template pesan dan email follow-up dospem.",
+    "foot": "DM kata DOSPEM ke @naskah.fk untuk mendapatkan template ini.",
+    "pill_b": "Format chat sopan, ringkas, dan profesional.",
+    "button": "DM DOSPEM sekarang"
+  }
+}

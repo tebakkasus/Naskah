@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root {
+    --navy: #071726;
+    --cream: #F5F2EB;
+    --orange: #E85929;
+    --teal: #2BBFBF;
+    --green: #27AE60;
+    --yellow: #F2C94C;
+    --red: #EB5757;
+    --muted: #7A8A9E;
+    --card: #0D2236;
+    --purple: #BB6BD9;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: var(--navy);
+    color: var(--cream);
+    padding: 20px;
+    line-height: 1.5;
+  }
+  .hdr { text-align: center; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 2px solid var(--orange); }
+  .hdr h1 { font-size: 22px; color: var(--orange); letter-spacing: 1px; }
+  .hdr .sub { color: var(--muted); font-size: 11px; margin-top: 4px; }
+  .hdr .tag { display: inline-block; background: rgba(232,89,41,0.15); color: var(--orange); padding: 3px 10px; border-radius: 12px; font-size: 10px; font-weight: 700; margin-top: 6px; }
+  .kpi-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 20px; }
+  .kpi { background: var(--card); border-radius: 10px; padding: 12px; text-align: center; border: 1px solid rgba(255,255,255,0.05); }
+  .kpi .n { font-size: 30px; font-weight: 800; }
+  .kpi .l { font-size: 9px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.4px; margin-top: 2px; }
+  .sec { margin-bottom: 20px; }
+  .sec h2 { font-size: 14px; color: var(--teal); margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+  .sec h2::before { content: ''; width: 3px; height: 16px; background: var(--teal); border-radius: 2px; }
+  .day-card { background: var(--card); border-radius: 10px; padding: 14px; margin-bottom: 10px; border-left: 3px solid var(--orange); }
+  .day-card .day-hdr { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+  .day-card .day-name { font-size: 13px; font-weight: 700; color: var(--orange); }
+  .day-card .day-date { font-size: 10px; color: var(--muted); }
+  .slot { display: grid; grid-template-columns: 60px 1fr; gap: 6px; margin-bottom: 6px; font-size: 11px; }
+  .slot .time { color: var(--muted); font-weight: 600; font-size: 10px; padding-top: 2px; }
+  .slot .content { background: rgba(255,255,255,0.03); border-radius: 6px; padding: 6px 8px; }
+  .slot .content .plat { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px; }
+  .p-ig { color: var(--orange); }
+  .p-t7 { color: var(--teal); }
+  .p-t14 { color: var(--yellow); }
+  .p-t19 { color: var(--purple); }
+  .slot .content .title { font-weight: 600; font-size: 11px; }
+  .slot .content .hook { color: var(--muted); font-size: 10px; font-style: italic; margin-top: 2px; }
+  .slot .content .interact { color: var(--green); font-size: 9px; margin-top: 3px; }
+  .badge { display: inline-block; padding: 1px 6px; border-radius: 8px; font-size: 8px; font-weight: 600; margin-left: 4px; }
+  .b-edu { background: rgba(43,191,191,0.2); color: var(--teal); }
+  .b-rel { background: rgba(242,201,76,0.2); color: var(--yellow); }
+  .b-pra { background: rgba(39,174,96,0.2); color: var(--green); }
+  .b-ni { background: rgba(187,107,217,0.2); color: var(--purple); }
+  .b-eng { background: rgba(232,89,41,0.15); color: var(--orange); }
+  .pillar-bar { display: flex; gap: 2px; height: 16px; border-radius: 6px; overflow: hidden; margin-bottom: 6px; }
+  .pillar-bar > div { display: flex; align-items: center; justify-content: center; font-size: 7px; font-weight: 700; color: var(--navy); }
+  .proto { background: var(--card); border-radius: 10px; padding: 12px; font-size: 11px; border: 1px solid rgba(255,255,255,0.05); }
+  .proto h3 { font-size: 12px; color: var(--cream); margin-bottom: 6px; }
+  .proto li { padding: 2px 0; color: var(--muted); }
+  .proto li::before { content: '› '; color: var(--orange); }
+  .proto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .footer { text-align: center; color: var(--muted); font-size: 9px; margin-top: 24px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.05); }
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <h1>🩺 WEEK 2 — SURVIVAL GUIDE ANAK FK</h1>
+  <div class="sub">Senin 21 Sep – Minggu 27 Sep 2026 • @naskah.fk</div>
+  <div class="tag">28 KONTEN: 7 IG + 21 THREADS (3x/hari)</div>
+</div>
+
+<div class="kpi-row">
+  <div class="kpi"><div class="n" style="color:var(--orange)">7</div><div class="l">IG Posts/Week</div></div>
+  <div class="kpi"><div class="n" style="color:var(--teal)">21</div><div class="l">Threads/Week</div></div>
+  <div class="kpi"><div class="n" style="color:var(--green)">3x</div><div class="l">Threads/Day</div></div>
+  <div class="kpi"><div class="n" style="color:var(--yellow)">28</div><div class="l">Total Konten</div></div>
+</div>
+
+<div class="sec">
+  <h2>Pillar Distribution</h2>
+  <div class="pillar-bar">
+    <div style="flex:29;background:var(--teal)">EDU 29%</div>
+    <div style="flex:25;background:var(--yellow)">REL 25%</div>
+    <div style="flex:18;background:var(--green)">PRACT 18%</div>
+    <div style="flex:18;background:var(--orange)">COMM 18%</div>
+    <div style="flex:11;background:var(--purple)">NI 11%</div>
+  </div>
+  <div style="font-size:9px;color:var(--muted)">0% hard sell week ini — 100% value-first, trust building</div>
+</div>
+
+<div class="sec">
+  <h2>Daily Schedule</h2>
+
+  <!-- SENIN -->
+  <div class="day-card">
+    <div class="day-hdr"><span class="day-name">SENIN, 21 SEP</span><span class="day-date">Day 1/7</span></div>
+    <div class="slot"><div class="time">IG</div><div class="content"><div class="plat p-ig">INSTAGRAM CAROUSEL <span class="badge b-edu">EDU</span></div><div class="title">🧪 Sensitivitas vs Spesifisitas — Tabel 2x2 Cheat Sheet</div><div class="hook">"Beda Sensitivitas & Spesifisitas yang dosen FK ga sempet jelasin"</div><div class="interact">💬 Quiz: False Positive apa False Negative? → Admin kirim template Excel</div></div></div>
+    <div class="slot"><div class="time">07:00</div><div class="content"><div class="plat p-t7">THREAD PAGI — QUICK INSIGHT</div><div class="title">Sensitivitas tinggi ≠ tes bagus. Dua-duanya harus balance + prevalensi.</div></div></div>
+    <div class="slot"><div class="time">14:00</div><div class="content"><div class="plat p-t14">THREAD SIANG — MIRROR CAROUSEL</div><div class="title">Re-upload 5 slide Tabel 2x2 ke Threads</div></div></div>
+    <div class="slot"><div class="time">19:00</div><div class="content"><div class="plat p-t19">THREAD MALAM — MINI CASE</div><div class="title">Cerita sidang gagal: Sensitivitas 95% tapi Spesifisitas 40% → "Alat overcalling"</div><div class="interact">💬 "Pernah ngalamin kejadian sidang kayak gini? Drop di reply"</div></div></div>
+  </div>
+
+  <!-- SELASA -->
+  <div class="day-card">
+    <div class="day-hdr"><span class="day-name">SELASA, 22 SEP</span><span class="day-date">Day 2/7</span></div>
+    <div class="slot"><div class="time">IG</div><div class="content"><div class="plat p-ig">INSTAGRAM BENTO <span class="badge b-rel">RELATABLE</span></div><div class="title">☕ Stase Survival Kit vs Skripsi Survival Kit</div><div class="hook">"Packing jaga malam bangsal vs marathon nulis Bab 4"</div><div class="interact">💬 Komen '🏥' atau '📝' — admin tally hasilnya</div></div></div>
+    <div class="slot"><div class="time">07:00</div><div class="content"><div class="plat p-t7">THREAD PAGI — HOT TAKE</div><div class="title">"Unpopular opinion: Skripsi lebih susah dari koas"</div></div></div>
+    <div class="slot"><div class="time">14:00</div><div class="content"><div class="plat p-t14">THREAD SIANG — MIRROR BENTO</div><div class="title">Re-upload Stase vs Skripsi infographic</div></div></div>
+    <div class="slot"><div class="time">19:00</div><div class="content"><div class="plat p-t19">THREAD MALAM — CONFESSION BOX</div><div class="title">Sesi curhat: Drop stase mana yg bikin skripsi mandek</div><div class="interact">💬 Admin kasih 1 saran survival per reply</div></div></div>
+  </div>
+
+  <!-- RABU -->
+  <div class="day-card">
+    <div class="day-hdr"><span class="day-name">RABU, 23 SEP</span><span class="day-date">Day 3/7</span></div>
+    <div class="slot"><div class="time">IG</div><div class="content"><div class="plat p-ig">INSTAGRAM CAROUSEL <span class="badge b-edu">EDU</span></div><div class="title">⚔️ Case-Control vs Cross-Sectional vs Cohort — Decision Tree</div><div class="hook">"Kenapa dosen FK cemberut kalau lo pakai Cross-Sectional buat semua?"</div><div class="interact">💬 Ketik A/B/C sesuai desain riset → admin review jebakan penguji</div></div></div>
+    <div class="slot"><div class="time">07:00</div><div class="content"><div class="plat p-t7">THREAD PAGI — MYTH-BUST</div><div class="title">"Cross-Sectional itu desain paling aman" = MITOS</div></div></div>
+    <div class="slot"><div class="time">14:00</div><div class="content"><div class="plat p-t14">THREAD SIANG — MIRROR CAROUSEL</div><div class="title">Re-upload Decision Tree ke Threads</div></div></div>
+    <div class="slot"><div class="time">19:00</div><div class="content"><div class="plat p-t19">THREAD MALAM — THIS OR THAT</div><div class="title">"Pilih desain karena riset question? Atau karena biar cepet kelar?"</div><div class="interact">💬 Reply A atau B — admin judge (dikit)</div></div></div>
+  </div>
+
+  <!-- KAMIS -->
+  <div class="day-card">
+    <div class="day-hdr"><span class="day-name">KAMIS, 24 SEP</span><span class="day-date">Day 4/7</span></div>
+    <div class="slot"><div class="time">IG</div><div class="content"><div class="plat p-ig">INSTAGRAM CAROUSEL <span class="badge b-rel">RELATABLE</span></div><div class="title">🩺 5 Tipe Dospem FK — Lo Dapet yang Mana?</div><div class="hook">"Dari yg bales 'Y' jam 3 pagi sampai yang coret 1 bab tanpa alasan"</div><div class="interact">💬 Tag dospem pake emoji: 👻🔬🏃 → viral bait</div></div></div>
+    <div class="slot"><div class="time">07:00</div><div class="content"><div class="plat p-t7">THREAD PAGI — CONFESSION</div><div class="title">"Pernah dospem ACC tanpa baca, terus lo dibantai penguji?"</div></div></div>
+    <div class="slot"><div class="time">14:00</div><div class="content"><div class="plat p-t14">THREAD SIANG — MIRROR CAROUSEL</div><div class="title">Re-upload 5 Tipe Dospem carousel</div></div></div>
+    <div class="slot"><div class="time">19:00</div><div class="content"><div class="plat p-t19">THREAD MALAM — UGC VIRAL</div><div class="title">"Gelar + Tipe + Quote Legendaris" format</div><div class="interact">💬 Admin mulai duluan → trigger chain reply</div></div></div>
+  </div>
+
+  <!-- JUMAT -->
+  <div class="day-card">
+    <div class="day-hdr"><span class="day-name">JUMAT, 25 SEP</span><span class="day-date">Day 5/7</span></div>
+    <div class="slot"><div class="time">IG</div><div class="content"><div class="plat p-ig">INSTAGRAM CAROUSEL <span class="badge b-pra">PRACTICAL</span></div><div class="title">📑 3 Kata Terlarang di Judul Skripsi FK — Auto-revisi KEPK</div><div class="hook">"Sebelum submit KEPK, cek judul lo dari 3 red flag ini"</div><div class="interact">💬 "Tulis judul lo, admin rating 1-10 lolos KEPK"</div></div></div>
+    <div class="slot"><div class="time">07:00</div><div class="content"><div class="plat p-t7">THREAD PAGI — QUICK TIP</div><div class="title">Jangan tulis "Pengaruh pemberian X" kalau desain observasional</div></div></div>
+    <div class="slot"><div class="time">14:00</div><div class="content"><div class="plat p-t14">THREAD SIANG — MIRROR CAROUSEL</div><div class="title">Re-upload KEPK Red Flags carousel</div></div></div>
+    <div class="slot"><div class="time">19:00</div><div class="content"><div class="plat p-t19">THREAD MALAM — ROAST MY TITLE 🔥</div><div class="title">Drop judul → admin review kelayakan KEPK + potensi jebakan penguji</div><div class="interact">💬 Yang berani duluan dapet review paling detail</div></div></div>
+  </div>
+
+  <!-- SABTU -->
+  <div class="day-card">
+    <div class="day-hdr"><span class="day-name">SABTU, 26 SEP</span><span class="day-date">Day 6/7</span></div>
+    <div class="slot"><div class="time">IG</div><div class="content"><div class="plat p-ig">INSTAGRAM CAROUSEL <span class="badge b-pra">PRACTICAL</span> <span class="badge b-rel">HUMOR</span></div><div class="title">💊 Resep Anti-Revisi — Checklist Sebelum Kirim Draft ke Dospem</div><div class="hook">"R/ Diminum sebelum kirim draft — visual kertas resep RS"</div><div class="interact">💬 "3/3 lolos = aman. Ga lolos? DM 'DIAGNOSIS'"</div></div></div>
+    <div class="slot"><div class="time">07:00</div><div class="content"><div class="plat p-t7">THREAD PAGI — WEEKEND VIBES</div><div class="title">"Buka laptop, lihat draft 11 hari lalu, tutup, buka lagi, ketik 3 kata, hapus 2"</div></div></div>
+    <div class="slot"><div class="time">14:00</div><div class="content"><div class="plat p-t14">THREAD SIANG — MIRROR CAROUSEL</div><div class="title">Re-upload Resep Anti-Revisi carousel</div></div></div>
+    <div class="slot"><div class="time">19:00</div><div class="content"><div class="plat p-t19">THREAD MALAM — SCALE CHECK</div><div class="title">"Scale 1-10 seberapa siap kalau besok tiba-tiba sidang?"</div><div class="interact">💬 Admin reply reality check gratis per skor</div></div></div>
+  </div>
+
+  <!-- MINGGU -->
+  <div class="day-card">
+    <div class="day-hdr"><span class="day-name">MINGGU, 27 SEP</span><span class="day-date">Day 7/7</span></div>
+    <div class="slot"><div class="time">IG</div><div class="content"><div class="plat p-ig">INSTAGRAM CAROUSEL <span class="badge b-ni">NASKAH INSIDE</span></div><div class="title">🔬 Ep.2: Cara Naskah Cari 20 Jurnal PubMed/Scopus dalam 15 Menit</div><div class="hook">"Behind the scenes workflow MeSH + Boolean operators"</div><div class="interact">💬 "Komen topik FK lo → admin drop 1 query MeSH gratis"</div></div></div>
+    <div class="slot"><div class="time">07:00</div><div class="content"><div class="plat p-t7">THREAD PAGI — OPINION</div><div class="title">"Google Scholar doang ≠ cukup buat tinpus FK. PubMed + Scopus = minimum."</div></div></div>
+    <div class="slot"><div class="time">14:00</div><div class="content"><div class="plat p-t14">THREAD SIANG — MIRROR CAROUSEL</div><div class="title">Re-upload Naskah Inside PubMed/MeSH carousel</div></div></div>
+    <div class="slot"><div class="time">19:00</div><div class="content"><div class="plat p-t19">THREAD MALAM — WEEKLY CHECK-IN</div><div class="title">"Cerita 1 progress skripsi minggu ini — sekecil apapun"</div><div class="interact">💬 Admin hype setiap progress. Besok Senin mulai lagi 🫡</div></div></div>
+  </div>
+
+</div>
+
+<div class="sec">
+  <h2>Admin Protocol & Interactive Mechanics</h2>
+  <div class="proto-grid">
+    <div class="proto">
+      <h3>🎭 Admin Persona</h3>
+      <ul style="list-style:none">
+        <li>Smart tapi capek — ngerti A-Z FK</li>
+        <li>Sapaan: "Halo Dok!", "Valid bgt 😭", "Sini mimin spill..."</li>
+        <li>Emoji: 🩺 😭 ☕ 💊 💀 🫡 🔬 🧠</li>
+        <li>Inside joke: stase, konsulen, SOCA, OSCE, blok, visite, referat</li>
+        <li>Reply = insight + humor (bukan cuma "semangat!")</li>
+      </ul>
+    </div>
+    <div class="proto">
+      <h3>💬 Interactive Mechanics Used</h3>
+      <ul style="list-style:none">
+        <li>🧪 Quiz di slide → jawab di komen → freebie via DM</li>
+        <li>📊 A/B/C vote → admin reply spesifik</li>
+        <li>🔥 "Roast My Title" → admin review judul gratis</li>
+        <li>📝 "Gelar + Tipe + Quote" UGC format</li>
+        <li>📏 Scale 1-10 → admin reality check</li>
+        <li>🏥 vs 📝 emoji poll</li>
+        <li>🫡 Weekly progress check-in</li>
+      </ul>
+    </div>
+    <div class="proto">
+      <h3>🔄 Comment-to-DM Funnel</h3>
+      <ul style="list-style:none">
+        <li>User curhat di komen → admin reply helpful</li>
+        <li>→ "Mau admin cek draftnya? DM 'DIAGNOSIS'"</li>
+        <li>Keywords: DIAGNOSIS / BENANG MERAH / CEK JUDUL / REVISI</li>
+        <li>Golden Hour: 30 menit pertama = wajib aktif</li>
+      </ul>
+    </div>
+    <div class="proto">
+      <h3>📊 KPI Targets</h3>
+      <ul style="list-style:none">
+        <li>Comments/IG post: 25-50</li>
+        <li>Replies/Thread: 15-40</li>
+        <li>DM Leads: 20+/week</li>
+        <li>IG Saves/post: 50+</li>
+        <li>Threads follows: 30+/week</li>
+        <li>Admin reply rate (1h): 100%</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  Naskah Social OS — Week 2 Plan v2 • Gen Z FK Admin Edition<br>
+  28 konten/minggu: 7 IG + 21 Threads (07:00 / 14:00 / 19:00)
+</div>
+
+</body>
+</html>

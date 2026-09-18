@@ -1,0 +1,113 @@
+{
+  "tag": "Panduan KEPK",
+  "cover": {
+    "pill": "Komisi Etik",
+    "headline": [
+      "3 KATA TERLARANG",
+      "DI JUDUL SKRIPSI",
+      "KEDOKTERAN"
+    ],
+    "mark_word_line": 0,
+    "body": "Hindari kata ini pada penelitian observasional agar protokol etik cepat disetujui.",
+    "items": [
+      {
+        "num": "01",
+        "title": "'Pengaruh Pemberian'",
+        "desc": "Mengindikasikan uji klinis tanpa izin resmi"
+      },
+      {
+        "num": "02",
+        "title": "'Efektivitas Terapi'",
+        "desc": "Memerlukan desain uji klinis teracak (RCT)"
+      },
+      {
+        "num": "03",
+        "title": "'Menyembuhkan X'",
+        "desc": "Klaim terapeutik definitif tanpa bukti cukup"
+      }
+    ]
+  },
+  "formula": {
+    "pill": "Pilihan Frasa",
+    "headline": [
+      "GUNAKAN KATA",
+      "YANG LEBIH TEPAT"
+    ],
+    "body": "Pilih padanan kata operasional agar judul lolos telaah etik.",
+    "steps": [
+      {
+        "pill": "✅",
+        "text": "Ganti 'Pengaruh' menjadi 'Hubungan antara X dan Y'"
+      },
+      {
+        "pill": "✅",
+        "text": "Ganti 'Efektivitas' menjadi 'Perbedaan luaran klinis pada A dan B'"
+      },
+      {
+        "pill": "✅",
+        "text": "Sertakan batasan populasi dan periode penelitian secara jelas"
+      }
+    ],
+    "insight": "Subjek Rentan: Penelitian pada anak, ibu hamil, atau data rekam medis memerlukan lembar persetujuan yang disesuaikan (Assent Form)."
+  },
+  "editorial": {
+    "pill": "Pilar KEPK",
+    "headline": [
+      "4 PRINSIP UTAMA",
+      "PERSETUJUAN ETIK"
+    ],
+    "mark_word_line": 1,
+    "lead": "Komisi Etik Penelitian Kesehatan memeriksa 4 komponen utama berikut.",
+    "items": [
+      {
+        "num": "1",
+        "title": "Informed Consent",
+        "desc": "Ditulis dengan bahasa awam yang mudah dipahami",
+        "emoji": "📝"
+      },
+      {
+        "num": "2",
+        "title": "Kerahasiaan Data",
+        "desc": "Identitas subjek menggunakan kode rahasia",
+        "emoji": "🔒"
+      },
+      {
+        "num": "3",
+        "title": "Prinsip 3R (Hewan)",
+        "desc": "Replacement, Reduction, dan Refinement",
+        "emoji": "🐭"
+      },
+      {
+        "num": "4",
+        "title": "Keseimbangan Risiko",
+        "desc": "Manfaat penelitian harus melampaui risiko",
+        "emoji": "⚖️"
+      }
+    ]
+  },
+  "callout": {
+    "pill": "Review Judul",
+    "headline": [
+      "BEDAH JUDUL",
+      "SKRIPSI FK 🔥"
+    ],
+    "lead": "Tuliskan judul skripsi kamu di kolom komentar:",
+    "quote": [
+      "Admin akan memeriksa:",
+      "1. Kelayakan telaah etik KEPK",
+      "2. Kejelasan hubungan variabel penelitian"
+    ],
+    "body": "Tuliskan judulmu sekarang untuk mendapatkan masukan awal."
+  },
+  "cta": {
+    "pill": "Checklist KEPK",
+    "headline": [
+      "BUTUH DOKUMEN",
+      "ETIK LENGKAP?"
+    ],
+    "body": "Dapatkan Checklist Persiapan Dokumen Komisi Etik (KEPK).",
+    "foot": "DM kata KEPK ke @naskah.fk untuk klaim panduan ini.",
+    "pill_b": "Checklist berkas agar lolos telaah etik dalam sekali pengajuan.",
+    "button": "DM KEPK sekarang"
+  }
+}
