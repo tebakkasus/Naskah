@@ -222,36 +222,6 @@ def main() -> int:
         print(f"⚠️ 3am slot requested but post {post_num} has skip_3am=True. Overriding to standby.")
         return 0
 
-    # Jika post sudah dipublish hari ini — ABORT untuk mencegah double-publish
-    if already_published_today:
-        published = json.loads(result_path.read_text(encoding="utf-8"))
-        ig_status = published.get("instagram", {}).get("status", "UNKNOWN")
-        print(f"🛡️ IDENTIKASI: Post #{post_num} sudah dipublish tadi hari ini (status IG: {ig_status}). Skip publish, melanjutkan ke laporan TG.")
-        
-        published_at = now_wib()
-        notion_update = {"success": True, "updated": [], "ig_permalink": published.get("instagram", {}).get("permalink", "")}
-        
-        ig = published.get("instagram", {})
-        ig_url = ig.get("permalink", "")
-        threads = published.get("threads", [])
-        thread_links = " | ".join([f'<a href="{t.get("permalink", "")}">{t.get("slot", "")}</a>' for t in threads if t.get("permalink")])
-        notion_status = "Synced" if notion_update.get("success") else "Failed"
-        next_slot_str = "14:00 WIB (Threads Visual)" if slot == "morning" else ("19:00 WIB (Thread #2)" if slot == "afternoon" else ("03:00 WIB (3AM)" if slot == "evening" else "10:00 WIB (IG + Thread #1)"))
-        
-        report = (
-            f"✅ <b>Post #{post_num} [{slot.upper()}]: {published.get('topic', '')}</b>\n\n"
-            f"📸 <b>IG:</b> " + (f'<a href="{ig_url}">Live Post</a>\n' if ig_url else "N/A (Threads Slot)\n") +
-            f"🧵 <b>Threads:</b> {thread_links if thread_links else 'Published'}\n"
-            f"🗂️ <b>Notion:</b> {notion_status}\n\n"
-            f"⏭️ <b>Next Slot:</b> {next_slot_str}\n\n"
-            f"📣 <b>Action 30 detik:</b> Quote-share ke <b>Science Threads</b> (76K) + <b>Study Threads</b> (38K) buat panen engagement!"
-        )
-        print("TELEGRAM REPORT (REUSE EXISTING):")
-        print(report)
-        tg = send_telegram(report)
-        print("Telegram result:", json.dumps(tg, ensure_ascii=False))
-        return 0
-
     print(f"Scheduled Post #{post_num} for today (Target Slot: {slot}).")
 
     script = GENERATORS / "publish_postxx.py"
