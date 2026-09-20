@@ -193,10 +193,22 @@ def main() -> int:
     post_num = schedule["post"]
     skip_3am = schedule.get("skip_3am", True)
 
-    # === NEW: Idempotency Guard ===
+    # === NEW: Idempotency Guard (Per-date & per-slot) ===
     import json
     from datetime import date
-    today_str = date.today().strftime("%Y-%m-%d")
+    
+    # State tracking file to prevent same slot running twice in a day
+    SLOT_TRACK_FILE = CONTENT_PIPELINE / "06_CONTENT_PIPELINE" / f"RUN_STATE_{current_date}.json"
+    run_state = {}
+    if SLOT_TRACK_FILE.exists():
+        try:
+            run_state = json.loads(SLOT_TRACK_FILE.read_text(encoding="utf-8"))
+        except Exception:
+            run_state = {}
+
+    if slot in run_state.get("completed_slots", []):
+        print(f"🛡️ SLOT GUARD: Slot '{slot}' for {current_date} already executed. Aborting duplicate run.")
+        return 0
         
     # Backward compat for zero-padded numeric posts (e.g. 06)
     if post_num.isdigit():
@@ -217,35 +229,6 @@ def main() -> int:
         print(f"🟢 3am publish untuk post {post_num} — Ini minggu 1 dengan 3AM Thoughts.")
     elif slot == "3am" and not skip_3am:
         print(f"⚠️ 3am slot requested but post {post_num} has skip_3am=True. Overriding to standby.")
-        return 0
-
-    # Jika post sudah dipublish hari ini — ABORT untuk mencegah double-publish
-    if already_published_today:
-        published = json.loads(result_path.read_text(encoding="utf-8"))
-        ig_status = published.get("instagram", {}).get("status", "UNKNOWN")
-        print(f"🛡️ IDENTIKASI: Post #{post_num} sudah dipublish tadi hari ini (status IG: {ig_status}). Skip publish, melanjutkan ke laporan TG.")
-        
-        published_at = now_wib()
-        notion_update = {"success": True, "updated": [], "ig_permalink": published.get("instagram", {}).get("permalink", "")}
-        
-        ig = published.get("instagram", {})
-        ig_url = ig.get("permalink", "")
-        threads = published.get("threads", [])
-        thread_links = " | ".join([f'<a href="{t.get("permalink", "")}">{t.get("slot", "")}</a>' for t in threads if t.get("permalink")])
-        notion_status = "Synced" if notion_update.get("success") else "Failed"
-        next_slot_str = "14:00 WIB (Threads Visual)" if slot == "morning" else ("19:00 WIB (Thread #2)" if slot == "afternoon" else ("03:00 WIB (3AM)" if slot == "evening" else "10:00 WIB (IG + Thread #1)"))
-        
-        report = (
-            f"✅ <b>Post #{post_num} [{slot.upper()}]: {published.get('topic', '')}</b>\n\n"
-            f"📸 <b>IG:</b> " + (f'<a href="{ig_url}">Live Post</a>\n' if ig_url else "N/A (Threads Slot)\n") +
-            f"🧵 <b>Threads:</b> {thread_links if thread_links else 'Published'}\n"
-            f"🗂️ <b>Notion:</b> {notion_status}\n\n"
-            f"⏭️ <b>Next Slot:</b> {next_slot_str}"
-        )
-        print("TELEGRAM REPORT (REUSE EXISTING):")
-        print(report)
-        tg = send_telegram(report)
-        print("Telegram result:", json.dumps(tg, ensure_ascii=False))
         return 0
 
     print(f"Scheduled Post #{post_num} for today (Target Slot: {slot}).")
@@ -304,7 +287,8 @@ def main() -> int:
             f"📸 <b>IG:</b> " + (f'<a href="{ig_url}">Live Post</a>\n' if ig_url else "N/A (Threads Slot)\n") +
             f"🧵 <b>Threads:</b> {thread_links if thread_links else 'Published'}\n"
             f"🗂️ <b>Notion:</b> {notion_status}\n\n"
-            f"⏭️ <b>Next Slot:</b> {next_slot_str}"
+            f"⏭️ <b>Next Slot:</b> {next_slot_str}\n\n"
+            f"📣 <b>Action 30 detik:</b> Quote-share ke <b>Science Threads</b> (76K) + <b>Study Threads</b> (38K) buat panen engagement!"
         )
         print("TELEGRAM REPORT:")
         print(report)
@@ -312,6 +296,14 @@ def main() -> int:
         print("Telegram result:", json.dumps(tg, ensure_ascii=False))
     else:
         print(f"No PUBLISH_RESULT found for post #{post_num}.")
+
+    # Record slot execution to prevent duplicate
+    completed = run_state.get("completed_slots", [])
+    if slot not in completed:
+        completed.append(slot)
+    run_state["completed_slots"] = completed
+    run_state["last_updated"] = now_wib()
+    SLOT_TRACK_FILE.write_text(json.dumps(run_state, indent=2), encoding="utf-8")
 
     return result.returncode if result.returncode != 0 else 0
 

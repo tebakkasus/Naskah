@@ -494,29 +494,30 @@ def main() -> int:
         print("ERROR: Threads is not connected.", file=sys.stderr)
         return 1
 
-    # 2. Publish Instagram
+    # 2. Publish Instagram (ONLY in morning slot or when publish_ig=True)
     ig_result = {}
     verified_ig = {}
-    if ig_type == "carousel":
-        print(f"Publishing Instagram Carousel for post {post_num} ({len(image_urls)} slides)...")
-        ig_result = publisher.publish_ig_carousel(image_urls, caption_ig)
-        print(json.dumps(ig_result, ensure_ascii=False, indent=2))
-        if not ig_result.get("success"):
-            print("ERROR: Instagram Carousel publish failed; aborting.", file=sys.stderr)
-            return 1
-        verified_ig = publisher.get_ig_media(ig_result["media_id"])
-        print("Verified Instagram:", json.dumps(verified_ig, ensure_ascii=False, indent=2))
-    elif ig_type == "single":
-        print(f"Publishing Instagram Single Image for post {post_num}...")
-        ig_result = publisher.publish_ig_single_image(image_urls[0], caption_ig)
-        print(json.dumps(ig_result, ensure_ascii=False, indent=2))
-        if not ig_result.get("success"):
-            print("ERROR: Instagram Single Image publish failed; aborting.", file=sys.stderr)
-            return 1
-        verified_ig = publisher.get_ig_media(ig_result["media_id"])
-        print("Verified Instagram:", json.dumps(verified_ig, ensure_ascii=False, indent=2))
+    if publish_ig:
+        if ig_type == "carousel":
+            print(f"Publishing Instagram Carousel for post {post_num} ({len(image_urls)} slides)...")
+            ig_result = publisher.publish_ig_carousel(image_urls, caption_ig)
+            print(json.dumps(ig_result, ensure_ascii=False, indent=2))
+            if not ig_result.get("success"):
+                print("ERROR: Instagram Carousel publish failed; aborting.", file=sys.stderr)
+                return 1
+            verified_ig = publisher.get_ig_media(ig_result["media_id"])
+            print("Verified Instagram:", json.dumps(verified_ig, ensure_ascii=False, indent=2))
+        elif ig_type == "single":
+            print(f"Publishing Instagram Single Image for post {post_num}...")
+            ig_result = publisher.publish_ig_single_image(image_urls[0], caption_ig)
+            print(json.dumps(ig_result, ensure_ascii=False, indent=2))
+            if not ig_result.get("success"):
+                print("ERROR: Instagram Single Image publish failed; aborting.", file=sys.stderr)
+                return 1
+            verified_ig = publisher.get_ig_media(ig_result["media_id"])
+            print("Verified Instagram:", json.dumps(verified_ig, ensure_ascii=False, indent=2))
     else:
-        print(f"Post {post_num} is Threads-only (no IG publication needed).")
+        print(f"IG publication skipped for slot '{slot}' (publish_ig=False).")
 
     # 3. Publish Threads
     thread_results = []
@@ -631,6 +632,22 @@ def main() -> int:
     else:
         result_filename = f"PUBLISH_RESULT_post{post_num}.json"
     result_path = CONTENT_ROOT / result_filename
+
+    # Smart merge with existing result from earlier slots today (preserves IG permalink & threads)
+    if result_path.exists():
+        try:
+            prev_data = json.loads(result_path.read_text(encoding="utf-8"))
+            if not publish_ig and prev_data.get("instagram", {}).get("permalink"):
+                result["instagram"] = prev_data["instagram"]
+            prev_threads = prev_data.get("threads", [])
+            merged_threads = {t["slot"]: t for t in prev_threads if isinstance(t, dict) and "slot" in t}
+            for t in thread_results:
+                if isinstance(t, dict) and "slot" in t:
+                    merged_threads[t["slot"]] = t
+            result["threads"] = list(merged_threads.values())
+        except Exception as err:
+            print(f"Note: Could not merge with existing result: {err}")
+
     result_path.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"result written: {result_path}")
 

@@ -1,0 +1,26 @@
+{
+  "post_number": "w1_ni",
+  "topic": "Naskah Inside EP.1: Di Balik Layar",
+  "published_at_wib": "2026-09-19 19:00 WIB",
+  "instagram": {
+    "status": "PUBLISHED",
+    "media_id": null,
+    "permalink": null,
+    "media_type": null,
+    "slides_count": 5
+  },
+  "threads": [
+    {
+      "slot": "#2",
+      "status": "FAILED",
+      "thread_id": "",
+      "permalink": "",
+      "timestamp": ""
+    }
+  ],
+  "evidence": {
+    "caption_source": "/home/hermes.taci/workspaces/content/06_CONTENT_PIPELINE/03_APPROVED/2026-09-19_post_w1_sat_naskah_inside_ep1/CAPTION_DAN_THREADS_W1_NI.md",
+    "asset_base": "https://raw.githubusercontent.com/tebakkasus/Naskah/main/06_CONTENT_PIPELINE/03_APPROVED/2026-09-19_post_w1_sat_naskah_inside_ep1/",
+    "api_verified": true
+  }
+}

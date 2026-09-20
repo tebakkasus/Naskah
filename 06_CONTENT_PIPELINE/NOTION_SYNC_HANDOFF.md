@@ -146,3 +146,35 @@ Sini kita bedah pelan-pelan sampai ACC.
 
 *File ini di-update otomatis oleh Hermes Profile Content setiap ada perubahan pipeline.*
 *Untuk Notion auto-sync, tambahkan `NOTION_API_KEY` ke `06_CONTENT_PIPELINE/.env`.*
+## Auto-Sync Post #w1_02 — 2026-09-15 10:03 WIB
+- **Status**: PUBLISHED
+- **Topic**: Dua Kebenaran Satu Bohong: Metpen
+- **IG Permalink**: N/A
+- **Threads**: #1
+## Auto-Sync Post #w1_03 — 2026-09-16 10:00 WIB
+- **Status**: PUBLISHED
+- **Topic**: Autopsi Abstrak (UGC Call)
+- **IG Permalink**: N/A
+- **Threads**: #2
+## Auto-Sync Post #w1_ni — 2026-09-19 14:00 WIB
+- **Status**: PUBLISHED
+- **Topic**: Naskah Inside EP.1: Di Balik Layar
+- **IG Permalink**: N/A
+- **Threads**: 
+## Auto-Sync Post #w1_ni — 2026-09-19 19:00 WIB
+- **Status**: PUBLISHED (IG) / READY (Threads)
+- **Topic**: Naskah Inside EP.1: Di Balik Layar
+- **IG Permalink**: Available on @naskah.efka
+- **Threads**: Pending retry / manual verify
+
+## Auto-Sync Post #w1_06 — 2026-09-20 19:00 WIB
+- **Status**: PUBLISHED
+- **Topic**: Jam 3 Pagi Threads (3AM Thoughts)
+- **IG Permalink**: N/A
+- **Threads**: [https://www.threads.com/@naskah.efka/post/DdfkcnTmkIx](https://www.threads.com/@naskah.efka/post/DdfkcnTmkIx) (Slot #3)
+
+## Auto-Sync Post #w1_06 — 2026-09-20 03:00 WIB
+- **Status**: PUBLISHED
+- **Topic**: Jam 3 Pagi Threads (3AM Thoughts)
+- **IG Permalink**: N/A
+- **Threads**: #3
