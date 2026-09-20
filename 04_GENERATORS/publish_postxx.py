@@ -191,28 +191,172 @@ POST_CONFIG = {
         "threads_source": "draft_json",
         "draft_key": "w1_06",
     },
+    # --- WEEK 2: SURVIVAL GUIDE ANAK FK ---
+    "w2_01": {
+        "dir": CAPTIONS_ROOT / "2026-09-21_post_w2_01_sensitivitas_spesifisitas",
+        "slides": [
+            "post_w2_01_sensitivitas_spesifisitas_01_cover.jpg",
+            "post_w2_01_sensitivitas_spesifisitas_02_formula.jpg",
+            "post_w2_01_sensitivitas_spesifisitas_03_editorial.jpg",
+            "post_w2_01_sensitivitas_spesifisitas_04_callout.jpg",
+            "post_w2_01_sensitivitas_spesifisitas_05_cta.jpg",
+        ],
+        "ig_caption_file": CAPTIONS_ROOT / "2026-09-21_post_w2_01_sensitivitas_spesifisitas" / "CAPTION_DAN_THREADS_2026-09-21_POST_W2_01_SENSITIVITAS_SPESIFISITAS.md",
+        "threads_file": CAPTIONS_ROOT / "2026-09-21_post_w2_01_sensitivitas_spesifisitas" / "CAPTION_DAN_THREADS_2026-09-21_POST_W2_01_SENSITIVITAS_SPESIFISITAS.md",
+        "topic": "Uji Diagnostik: Sensitivitas vs Spesifisitas",
+        "ig_type": "carousel",
+    },
+    "w2_02": {
+        "dir": CAPTIONS_ROOT / "2026-09-22_post_w2_02_scu_episode2",
+        "slides": [
+            "post_w2_02_scu_episode2_01_cover.jpg",
+            "post_w2_02_scu_episode2_02_formula.jpg",
+            "post_w2_02_scu_episode2_03_editorial.jpg",
+            "post_w2_02_scu_episode2_04_callout.jpg",
+            "post_w2_02_scu_episode2_05_cta.jpg",
+        ],
+        "ig_caption_file": CAPTIONS_ROOT / "2026-09-22_post_w2_02_scu_episode2" / "CAPTION_DAN_THREADS_2026-09-22_POST_W2_02_SCU_EPISODE2.md",
+        "threads_file": CAPTIONS_ROOT / "2026-09-22_post_w2_02_scu_episode2" / "CAPTION_DAN_THREADS_2026-09-22_POST_W2_02_SCU_EPISODE2.md",
+        "topic": "SCU Ep. 2: Bimbingan Kilat & KEPK",
+        "ig_type": "carousel",
+    },
+    "w2_03": {
+        "dir": CAPTIONS_ROOT / "2026-09-23_post_w2_03_case_control_vs_cross_sectional",
+        "slides": [
+            "post_w2_03_case_control_vs_cross_sectional_01_cover.jpg",
+            "post_w2_03_case_control_vs_cross_sectional_02_formula.jpg",
+            "post_w2_03_case_control_vs_cross_sectional_03_editorial.jpg",
+            "post_w2_03_case_control_vs_cross_sectional_04_callout.jpg",
+            "post_w2_03_case_control_vs_cross_sectional_05_cta.jpg",
+        ],
+        "ig_caption_file": CAPTIONS_ROOT / "2026-09-23_post_w2_03_case_control_vs_cross_sectional" / "CAPTION_DAN_THREADS_2026-09-23_POST_W2_03_CASE_CONTROL_VS_CROSS_SECTIONAL.md",
+        "threads_file": CAPTIONS_ROOT / "2026-09-23_post_w2_03_case_control_vs_cross_sectional" / "CAPTION_DAN_THREADS_2026-09-23_POST_W2_03_CASE_CONTROL_VS_CROSS_SECTIONAL.md",
+        "topic": "Cross-Sectional vs Case-Control vs Cohort",
+        "ig_type": "carousel",
+    },
+    "w2_04": {
+        "dir": CAPTIONS_ROOT / "2026-09-24_post_w2_04_tipe_dospem_fk",
+        "slides": [
+            "post_w2_04_tipe_dospem_fk_01_cover.jpg",
+            "post_w2_04_tipe_dospem_fk_02_formula.jpg",
+            "post_w2_04_tipe_dospem_fk_03_editorial.jpg",
+            "post_w2_04_tipe_dospem_fk_04_callout.jpg",
+            "post_w2_04_tipe_dospem_fk_05_cta.jpg",
+        ],
+        "ig_caption_file": CAPTIONS_ROOT / "2026-09-24_post_w2_04_tipe_dospem_fk" / "CAPTION_DAN_THREADS_2026-09-24_POST_W2_04_TIPE_DOSPEM_FK.md",
+        "threads_file": CAPTIONS_ROOT / "2026-09-24_post_w2_04_tipe_dospem_fk" / "CAPTION_DAN_THREADS_2026-09-24_POST_W2_04_TIPE_DOSPEM_FK.md",
+        "topic": "5 Tipe Dosen Pembimbing FK",
+        "ig_type": "carousel",
+    },
+    "w2_05": {
+        "dir": CAPTIONS_ROOT / "2026-09-25_post_w2_05_judul_skripsi_kepk_red_flags",
+        "slides": [
+            "post_w2_05_judul_skripsi_kepk_red_flags_01_cover.jpg",
+            "post_w2_05_judul_skripsi_kepk_red_flags_02_formula.jpg",
+            "post_w2_05_judul_skripsi_kepk_red_flags_03_editorial.jpg",
+            "post_w2_05_judul_skripsi_kepk_red_flags_04_callout.jpg",
+            "post_w2_05_judul_skripsi_kepk_red_flags_05_cta.jpg",
+        ],
+        "ig_caption_file": CAPTIONS_ROOT / "2026-09-25_post_w2_05_judul_skripsi_kepk_red_flags" / "CAPTION_DAN_THREADS_2026-09-25_POST_W2_05_JUDUL_SKRIPSI_KEPK_RED_FLAGS.md",
+        "threads_file": CAPTIONS_ROOT / "2026-09-25_post_w2_05_judul_skripsi_kepk_red_flags" / "CAPTION_DAN_THREADS_2026-09-25_POST_W2_05_JUDUL_SKRIPSI_KEPK_RED_FLAGS.md",
+        "topic": "3 Kata Terlarang Judul Skripsi FK (KEPK)",
+        "ig_type": "carousel",
+    },
+    "w2_06": {
+        "dir": CAPTIONS_ROOT / "2026-09-26_post_w2_06_resep_anti_revisi_fk",
+        "slides": [
+            "post_w2_06_resep_anti_revisi_fk_01_cover.jpg",
+            "post_w2_06_resep_anti_revisi_fk_02_formula.jpg",
+            "post_w2_06_resep_anti_revisi_fk_03_editorial.jpg",
+            "post_w2_06_resep_anti_revisi_fk_04_callout.jpg",
+            "post_w2_06_resep_anti_revisi_fk_05_cta.jpg",
+        ],
+        "ig_caption_file": CAPTIONS_ROOT / "2026-09-26_post_w2_06_resep_anti_revisi_fk" / "CAPTION_DAN_THREADS_2026-09-26_POST_W2_06_RESEP_ANTI_REVISI_FK.md",
+        "threads_file": CAPTIONS_ROOT / "2026-09-26_post_w2_06_resep_anti_revisi_fk" / "CAPTION_DAN_THREADS_2026-09-26_POST_W2_06_RESEP_ANTI_REVISI_FK.md",
+        "topic": "Resep Anti-Revisi Skripsi FK",
+        "ig_type": "carousel",
+    },
+    "w2_07": {
+        "dir": CAPTIONS_ROOT / "2026-09-27_post_w2_07_naskah_inside_pubmed_mesh",
+        "slides": [
+            "post_w2_07_naskah_inside_pubmed_mesh_01_cover.jpg",
+            "post_w2_07_naskah_inside_pubmed_mesh_02_formula.jpg",
+            "post_w2_07_naskah_inside_pubmed_mesh_03_editorial.jpg",
+            "post_w2_07_naskah_inside_pubmed_mesh_04_callout.jpg",
+            "post_w2_07_naskah_inside_pubmed_mesh_05_cta.jpg",
+        ],
+        "ig_caption_file": CAPTIONS_ROOT / "2026-09-27_post_w2_07_naskah_inside_pubmed_mesh" / "CAPTION_DAN_THREADS_2026-09-27_POST_W2_07_NASKAH_INSIDE_PUBMED_MESH.md",
+        "threads_file": CAPTIONS_ROOT / "2026-09-27_post_w2_07_naskah_inside_pubmed_mesh" / "CAPTION_DAN_THREADS_2026-09-27_POST_W2_07_NASKAH_INSIDE_PUBMED_MESH.md",
+        "topic": "Naskah Inside Ep. 2: PubMed & Scopus MeSH",
+        "ig_type": "carousel",
+    },
 }
 
 
 def load_caption_text(filepath: pathlib.Path) -> str:
     """Read the Instagram caption from the md file."""
     text = filepath.read_text(encoding="utf-8", errors="replace")
-    marker = "CAPTION INSTAGRAM (READY TO POST)"
-    if marker not in text:
-        marker = "CAPTION INSTAGRAM"
-    if marker not in text:
+    markers = [
+        "CAPTION INSTAGRAM (READY TO POST)",
+        "CAPTION INSTAGRAM",
+        "INSTAGRAM CAPTION",
+    ]
+    marker_found = None
+    for m in markers:
+        if m in text:
+            marker_found = m
+            break
+    if not marker_found:
         raise ValueError(f"Caption marker not found in {filepath}")
-    after = text.split(marker, 1)[1]
+    after = text.split(marker_found, 1)[1]
     lines = after.split("```")
     if len(lines) < 3:
         raise ValueError(f"No code block found after caption marker in {filepath}")
     caption = lines[1].strip()
+    if caption.startswith("markdown"):
+        caption = caption[8:].strip()
     return caption.replace("```", "").strip()
 
 
 def load_threads_text(filepath: pathlib.Path) -> list[dict]:
     """Read Threads companion texts from the md file."""
     text = filepath.read_text(encoding="utf-8", errors="replace")
+    
+    # Check Week 2 format first (## 🧵 THREADS N — ...)
+    w2_markers = list(re.finditer(r"## 🧵 THREADS (\d+)\s*—\s*([^\n]+)", text))
+    if w2_markers:
+        threads = []
+        for idx, m in enumerate(w2_markers):
+            num = m.group(1)
+            slot_name = m.group(2).strip()
+            start = m.end()
+            end = w2_markers[idx + 1].start() if idx + 1 < len(w2_markers) else len(text)
+            chunk = text[start:end].strip()
+            # Extract from code block if present
+            if "```" in chunk:
+                parts = chunk.split("```")
+                if len(parts) >= 3:
+                    body = parts[1].strip()
+                    if body.startswith("markdown"):
+                        body = body[8:].strip()
+                else:
+                    body = chunk
+            else:
+                body = chunk
+            # Clean blockquotes or markdown headers inside body if any
+            cleaned_lines = []
+            for line in body.splitlines():
+                l = line.strip()
+                if l and not l.startswith("**Slot:**") and not l.startswith("**Media:**") and not l.startswith("**Copy:**"):
+                    cleaned_lines.append(line.lstrip("> ").strip())
+            content = "\n\n".join([c for c in cleaned_lines if c])
+            threads.append({
+                "slot": f"#{num} ({slot_name})",
+                "text": content,
+            })
+        return threads
+
+    # Week 0 / Week 1 format
     marker = "COMPANION THREADS"
     if marker not in text:
         raise ValueError(f"Threads marker not found in {filepath}")

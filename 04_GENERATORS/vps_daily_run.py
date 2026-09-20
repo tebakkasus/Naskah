@@ -53,6 +53,15 @@ SCHEDULE_MAP = {
     "2026-09-18": {"post": "w1_05", "skip_3am": True},  # Jumat: Revisi Bingo
     "2026-09-19": {"post": "w1_ni",  "skip_3am": True},  # Sabtu: Naskah Inside
     "2026-09-20": {"post": "w1_06", "skip_3am": False},  # Minggu: 3AM Thoughts — ONLY day with 3am
+
+    # Week 2 (W38: 21-27 Sep 2026) — "Survival Guide Anak FK" — (1 IG + 3 Threads/day = 28 posts)
+    "2026-09-21": {"post": "w2_01", "skip_3am": True},  # Senin: Uji Diagnostik: Sensitivitas vs Spesifisitas
+    "2026-09-22": {"post": "w2_02", "skip_3am": True},  # Selasa: SCU Ep.2 (Bimbingan Kilat & KEPK)
+    "2026-09-23": {"post": "w2_03", "skip_3am": True},  # Rabu: Cross-Sectional vs Case-Control vs Cohort
+    "2026-09-24": {"post": "w2_04", "skip_3am": True},  # Kamis: 5 Tipe Dosen Pembimbing FK
+    "2026-09-25": {"post": "w2_05", "skip_3am": True},  # Jumat: 3 Kata Terlarang Judul Skripsi FK (KEPK)
+    "2026-09-26": {"post": "w2_06", "skip_3am": True},  # Sabtu: Resep Anti-Revisi Skripsi FK
+    "2026-09-27": {"post": "w2_07", "skip_3am": True},  # Minggu: Naskah Inside Ep. 2 (PubMed & Scopus MeSH)
 }
 
 def load_env_file():
