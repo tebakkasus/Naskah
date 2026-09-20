@@ -294,29 +294,53 @@ def render_formula(c: dict, tag: str) -> Image.Image:
         steps = [{"pill": str(i + 1).zfill(2), "text": p} for i, p in enumerate(pills_raw)]
 
     for st in steps[:3]:
+        raw_text = st.get("text", "")
+        # Clean wrap text inside the white card (max width 740px to leave generous padding)
+        wrapped_text = wrap_text_clean(raw_text, 740, F["body_b"], d)
+        n_lines = max(1, len(wrapped_text))
+        
+        # Dynamic card height based on text lines
+        if n_lines == 1:
+            pill_h = 88
+        elif n_lines == 2:
+            pill_h = 104
+        else:
+            pill_h = 80 + n_lines * 30
+
         pill_w = 900
-        pill_h = 96
         pbox = (90, y, 90 + pill_w, y + pill_h)
         im = soft_shadow(im, pbox, radius=24, alpha=45, blur=18, offset=(0, 7))
         d = ImageDraw.Draw(im)
         d.rounded_rectangle(pbox, radius=24, fill=WHITE)
-        d.rounded_rectangle((114, y + 18, 174, y + 78), radius=16, fill=ORANGE_LIGHT)
-        d.text((144, y + 48), st.get("pill", "+"), font=F["num"], fill=ORANGE, anchor="mm")
-        d.text((196, y + 48), st.get("text", ""), font=F["body_b"], fill=NAVY, anchor="lm")
-        y += pill_h + 20
+        
+        # Centered orange number badge
+        badge_y = y + (pill_h - 60) // 2
+        d.rounded_rectangle((114, badge_y, 174, badge_y + 60), radius=16, fill=ORANGE_LIGHT)
+        d.text((144, badge_y + 30), st.get("pill", "+"), font=F["num"], fill=ORANGE, anchor="mm")
+        
+        # Text rendering: vertically centered for 1 line, stacked for 2+ lines
+        if n_lines == 1:
+            d.text((196, y + pill_h // 2), wrapped_text[0], font=F["body_b"], fill=NAVY, anchor="lm")
+        else:
+            ty = y + (pill_h - (n_lines * 34)) // 2 + 2
+            for wline in wrapped_text:
+                d.text((196, ty), wline, font=F["body_b"], fill=NAVY)
+                ty += 34
+                
+        y += pill_h + 16
 
     # Bottom Insight Card (Solid Navy Glass, distinct & informative)
     ins_text = c.get("insight", "Kuncinya bukan durasi belajar, tapi konsistensi ritual kecil.")
     ins_wrapped = wrap_text_clean(ins_text, 760, F["body_r"], d)
-    ins_h = 90 + len(ins_wrapped) * 32
-    ins_box = (90, y + 16, 990, y + 16 + ins_h)
+    ins_h = 84 + len(ins_wrapped) * 32
+    ins_box = (90, y + 12, 990, y + 12 + ins_h)
     im = soft_shadow(im, ins_box, radius=24, alpha=40, blur=16, offset=(0, 6))
     rounded_rect_grad(im, ins_box, 24, NAVY, NAVY_LIGHT)
     d = ImageDraw.Draw(im)
-    paste_emoji(im, "⚡", (124, y + 38), size=36, anchor="top_left")
+    paste_emoji(im, "⚡", (124, y + 34), size=36, anchor="top_left")
     d = ImageDraw.Draw(im)
-    d.text((176, y + 38), "Insight Penting", font=F["card_t"], fill=ORANGE)
-    iy = y + 84
+    d.text((176, y + 34), "Insight Penting", font=F["card_t"], fill=ORANGE)
+    iy = y + 80
     for iline in ins_wrapped:
         d.text((126, iy), iline, font=F["body_r"], fill=WHITE)
         iy += 32
