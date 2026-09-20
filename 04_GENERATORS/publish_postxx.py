@@ -456,7 +456,7 @@ def main() -> int:
     # SLOT-BASED DISPATCH:
     #   morning (10:00 WIB)   -> publish IG + Thread #1 (Text/Hook)
     #   afternoon (14:00 WIB) -> publish Threads Carousel / Visual Mirror (Gambar dari IG biar gak suntuk bacaan)
-    #   evening (19:00 WIB)   -> publish Thread #2 (Storytelling / Relatable / Hard Sell)
+    #   evening (19:00 WIB)   -> publish Thread #2/#3 (Storytelling / Relatable / Hard Sell / Quiz)
     #   3am (03:00 WIB)       -> Threads-only post (3AM Thoughts — ONLY for w1_06)
     if slot == "morning":
         publish_ig = ig_type != "none"
@@ -469,7 +469,12 @@ def main() -> int:
     elif slot == "evening":
         publish_ig = False
         publish_threads_visual = False
-        selected_threads = threads_raw[1:2] if len(threads_raw) > 1 else []
+        if len(threads_raw) >= 3:
+            selected_threads = [threads_raw[2]]
+        elif len(threads_raw) >= 2:
+            selected_threads = [threads_raw[1]]
+        else:
+            selected_threads = []
     else:  # 3am
         publish_ig = False
         publish_threads_visual = False
@@ -525,7 +530,10 @@ def main() -> int:
     # 3a. Afternoon Slot: Publish Carousel / Visual Image to Threads
     if publish_threads_visual and image_urls:
         print(f"Publishing Visual Carousel to Threads ({len(image_urls)} slides)...")
-        hook_text = caption_ig.split("\n\n")[0] if caption_ig else f"Slide visual: {cfg['topic']}"
+        if len(threads_raw) >= 3 and threads_raw[1].get("text"):
+            hook_text = threads_raw[1]["text"]
+        else:
+            hook_text = caption_ig.split("\n\n")[0] if caption_ig else f"Slide visual: {cfg['topic']}"
         if len(hook_text) > 480:
             hook_text = hook_text[:475] + "..."
         if len(image_urls) >= 2:
