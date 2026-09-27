@@ -1,0 +1,33 @@
+{
+  "post_number": "w2_06",
+  "topic": "Resep Anti-Revisi Skripsi FK",
+  "published_at_wib": "2026-09-26 19:00 WIB",
+  "instagram": {
+    "status": "PUBLISHED",
+    "media_id": null,
+    "permalink": null,
+    "media_type": null,
+    "slides_count": 5
+  },
+  "threads": [
+    {
+      "slot": "#visual_afternoon",
+      "status": "PUBLISHED",
+      "thread_id": "17885074854653289",
+      "permalink": "https://www.threads.com/@naskah.efka/post/DdvcvbMGsm7",
+      "timestamp": "2026-09-26T07:00:43+0000"
+    },
+    {
+      "slot": "#3 (MALAM (19:00 WIB))",
+      "status": "PUBLISHED",
+      "thread_id": "17892158040613556",
+      "permalink": "https://www.threads.com/@naskah.efka/post/Ddv_A6nGvZD",
+      "timestamp": "2026-09-26T12:00:10+0000"
+    }
+  ],
+  "evidence": {
+    "caption_source": "/home/hermes.taci/workspaces/content/06_CONTENT_PIPELINE/03_APPROVED/2026-09-26_post_w2_06_resep_anti_revisi_fk/CAPTION_DAN_THREADS_2026-09-26_POST_W2_06_RESEP_ANTI_REVISI_FK.md",
+    "asset_base": "https://raw.githubusercontent.com/tebakkasus/Naskah/main/06_CONTENT_PIPELINE/03_APPROVED/2026-09-26_post_w2_06_resep_anti_revisi_fk/",
+    "api_verified": true
+  }
+}

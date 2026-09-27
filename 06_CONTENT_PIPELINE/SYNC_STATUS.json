@@ -1,5 +1,5 @@
 {
-  "last_sync": "2026-09-20 21:34 WIB",
+  "last_sync": "2026-09-27 21:31 WIB",
   "synced_by": "Tacii (Hermes Desktop, @default profile)",
   "environment": "Hermes Content OS",
   "sync_targets": [
@@ -10,6 +10,1308 @@
   ],
   "recent_events": [
     {
+      "timestamp": "2026-09-27 21:31 WIB",
+      "type": "TACII_DAILY_NOTION_SYNC",
+      "details": {
+        "action": "Daily Notion Command Center Sync (21:30 WIB)",
+        "database_id": "3d2b044d-7011-81f9-b249-ca8e17dfc8f0",
+        "updates": [
+          {
+            "post": "PUBLISH_RESULT_post01.json",
+            "title": "Perdana: Launching @naskah.fk & Mengapa Penulisan Akademik Perlu Lebih Manusiawi",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/Dc8ThgdE8AX/",
+            "threads_link": "https://www.threads.net/@naskah.efka/post/18096573902173563",
+            "http_code": 200
+          },
+          {
+            "post": "2",
+            "title": "Cheatsheet: Struktur Jurnal Ilmiah Standar JOPS",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/Dc8dJyfD9PV/",
+            "threads_link": "https://www.threads.com/@naskah.efka/post/Dc8dK-9D9EE",
+            "http_code": 200
+          },
+          {
+            "post": "3",
+            "title": "Skripsi vs Tesis Kedokteran: 3 Kebiasaan Penulisan yang Wajib Diubah",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/Dc-66XGGui8/",
+            "threads_link": "https://www.threads.net/@naskah.efka/post/18062717825786389",
+            "http_code": 200
+          },
+          {
+            "post": "6",
+            "title": "7 Layout Carousel Edukasi Kesehatan",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/DdHBMjiGhhC/",
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdHBOIhGggP",
+            "http_code": 200
+          },
+          {
+            "post": "7",
+            "title": "Sunday Academic Reset",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/DdIZXvbGh9L/",
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdIZZq1mucr",
+            "http_code": 200
+          },
+          {
+            "post": "8",
+            "title": "Hard Sell: Kapan Lagi 3 Juta Skripsi Lengkap Anak FK?",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/DdK-LK8Gj2e/",
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdK-M0qmj98",
+            "http_code": 200
+          },
+          {
+            "post": "9",
+            "title": "Menu & Transparansi Biaya Naskah.fk 2026",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/DdN-cIImqN7/",
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdN-hUBGqz5",
+            "http_code": 200
+          },
+          {
+            "post": "w1_01",
+            "title": "Post W1-01: Diagnosis Penyakit Skripsi (ICD-10 Edisi Akademik)",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/DdQHw1PGuwQ/",
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdQHybrmvVI",
+            "http_code": 200
+          },
+          {
+            "post": "w1_02",
+            "title": "Thread W1-02: Dua Kebenaran Satu Bohong: Metode Penelitian",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdSsxzrmlXs",
+            "http_code": 200
+          },
+          {
+            "post": "w1_03",
+            "title": "Thread W1-03: UGC Call — Drop Abstrak/Research Question lo",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdVRRL6mvlS",
+            "http_code": 200
+          },
+          {
+            "post": "w1_06",
+            "title": "Thread W1-06: Jam 3 Pagi Threads — Album: 3AM Thoughts vol.1",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdfkcnTmkIx",
+            "http_code": 200
+          },
+          {
+            "post": "w1_ni",
+            "title": "Post W1-NI: Naskah Inside EP.1 — Gimana Carousel Ini Dibuat?",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "",
+            "http_code": 200
+          },
+          {
+            "post": "w2_01",
+            "title": "Post W2_01: Uji Diagnostik: Sensitivitas vs Spesifisitas",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdikwjbmmjA",
+            "http_code": 200
+          },
+          {
+            "post": "w2_02",
+            "title": "Post W2_02: SCU Ep. 2: Bimbingan Kilat & KEPK",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "",
+            "http_code": 200
+          },
+          {
+            "post": "w2_03",
+            "title": "Post W2_03: Cross-Sectional vs Case-Control vs Cohort",
+            "action": "CREATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdnuWpLmuyS",
+            "http_code": 200
+          },
+          {
+            "post": "w2_04",
+            "title": "Post W2_04: 5 Tipe Dosen Pembimbing FK",
+            "action": "CREATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdqTJi5mmg7",
+            "http_code": 200
+          },
+          {
+            "post": "w2_05",
+            "title": "Post W2_05: 3 Kata Terlarang Judul Skripsi FK (KEPK)",
+            "action": "CREATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "https://www.threads.com/@naskah.efka/post/Dds38heGnBm",
+            "http_code": 200
+          },
+          {
+            "post": "w2_06",
+            "title": "Post W2_06: Resep Anti-Revisi Skripsi FK",
+            "action": "CREATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdvcvbMGsm7",
+            "http_code": 200
+          },
+          {
+            "post": "w2_07",
+            "title": "Post W2_07: Naskah Inside Ep. 2: PubMed & Scopus MeSH",
+            "action": "CREATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "",
+            "http_code": 200
+          }
+        ],
+        "total_updates": 19,
+        "publish_results_checked": [
+          "PUBLISH_RESULT_postw1_01.json",
+          "PUBLISH_RESULT_post07.json",
+          "PUBLISH_RESULT_post08.json",
+          "PUBLISH_RESULT_postw1_02.json",
+          "PUBLISH_RESULT_postw1_03.json",
+          "PUBLISH_RESULT_postw1_ni.json",
+          "PUBLISH_RESULT_post06.json",
+          "PUBLISH_RESULT_post03.json",
+          "PUBLISH_RESULT_postw1_06.json",
+          "PUBLISH_RESULT_post01.json",
+          "PUBLISH_RESULT_post02.json",
+          "PUBLISH_RESULT_post09.json",
+          "PUBLISH_RESULT_postw2_01.json",
+          "PUBLISH_RESULT_postw2_05.json",
+          "PUBLISH_RESULT_postw2_02.json",
+          "PUBLISH_RESULT_postw2_03.json",
+          "PUBLISH_RESULT_postw2_06.json",
+          "PUBLISH_RESULT_postw2_04.json",
+          "PUBLISH_RESULT_postw2_07.json"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-09-26 21:32 WIB",
+      "type": "TACII_DAILY_NOTION_SYNC",
+      "details": {
+        "action": "Daily Notion Command Center Sync (21:30 WIB)",
+        "database_id": "3d2b044d-7011-81f9-b249-ca8e17dfc8f0",
+        "updates": [
+          {
+            "post": "PUBLISH_RESULT_post01.json",
+            "title": "Perdana: Launching @naskah.fk & Mengapa Penulisan Akademik Perlu Lebih Manusiawi",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/Dc8ThgdE8AX/",
+            "threads_link": "https://www.threads.net/@naskah.efka/post/18096573902173563",
+            "http_code": 200
+          },
+          {
+            "post": "2",
+            "title": "Cheatsheet: Struktur Jurnal Ilmiah Standar JOPS",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/Dc8dJyfD9PV/",
+            "threads_link": "https://www.threads.com/@naskah.efka/post/Dc8dK-9D9EE",
+            "http_code": 200
+          },
+          {
+            "post": "3",
+            "title": "Skripsi vs Tesis Kedokteran: 3 Kebiasaan Penulisan yang Wajib Diubah",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/Dc-66XGGui8/",
+            "threads_link": "https://www.threads.net/@naskah.efka/post/18062717825786389",
+            "http_code": 200
+          },
+          {
+            "post": "6",
+            "title": "7 Layout Carousel Edukasi Kesehatan",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/DdHBMjiGhhC/",
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdHBOIhGggP",
+            "http_code": 200
+          },
+          {
+            "post": "7",
+            "title": "Sunday Academic Reset",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/DdIZXvbGh9L/",
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdIZZq1mucr",
+            "http_code": 200
+          },
+          {
+            "post": "8",
+            "title": "Hard Sell: Kapan Lagi 3 Juta Skripsi Lengkap Anak FK?",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/DdK-LK8Gj2e/",
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdK-M0qmj98",
+            "http_code": 200
+          },
+          {
+            "post": "9",
+            "title": "Menu & Transparansi Biaya Naskah.fk 2026",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/DdN-cIImqN7/",
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdN-hUBGqz5",
+            "http_code": 200
+          },
+          {
+            "post": "w1_01",
+            "title": "Post W1-01: Diagnosis Penyakit Skripsi (ICD-10 Edisi Akademik)",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/DdQHw1PGuwQ/",
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdQHybrmvVI",
+            "http_code": 200
+          },
+          {
+            "post": "w1_02",
+            "title": "Thread W1-02: Dua Kebenaran Satu Bohong: Metode Penelitian",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdSsxzrmlXs",
+            "http_code": 200
+          },
+          {
+            "post": "w1_03",
+            "title": "Thread W1-03: UGC Call — Drop Abstrak/Research Question lo",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdVRRL6mvlS",
+            "http_code": 200
+          },
+          {
+            "post": "w1_06",
+            "title": "Thread W1-06: Jam 3 Pagi Threads — Album: 3AM Thoughts vol.1",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdfkcnTmkIx",
+            "http_code": 200
+          },
+          {
+            "post": "w1_ni",
+            "title": "Post W1-NI: Naskah Inside EP.1 — Gimana Carousel Ini Dibuat?",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "",
+            "http_code": 200
+          },
+          {
+            "post": "w2_01",
+            "title": "Post W2_01: Uji Diagnostik: Sensitivitas vs Spesifisitas",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdikwjbmmjA",
+            "http_code": 200
+          },
+          {
+            "post": "w2_02",
+            "title": "Post W2_02: SCU Ep. 2: Bimbingan Kilat & KEPK",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "",
+            "http_code": 200
+          },
+          {
+            "post": "w2_03",
+            "title": "Post W2_03: Cross-Sectional vs Case-Control vs Cohort",
+            "action": "CREATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdnuWpLmuyS",
+            "http_code": 200
+          },
+          {
+            "post": "w2_04",
+            "title": "Post W2_04: 5 Tipe Dosen Pembimbing FK",
+            "action": "CREATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdqTJi5mmg7",
+            "http_code": 200
+          },
+          {
+            "post": "w2_05",
+            "title": "Post W2_05: 3 Kata Terlarang Judul Skripsi FK (KEPK)",
+            "action": "CREATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "https://www.threads.com/@naskah.efka/post/Dds38heGnBm",
+            "http_code": 200
+          },
+          {
+            "post": "w2_06",
+            "title": "Post W2_06: Resep Anti-Revisi Skripsi FK",
+            "action": "CREATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdvcvbMGsm7",
+            "http_code": 200
+          }
+        ],
+        "total_updates": 18,
+        "publish_results_checked": [
+          "PUBLISH_RESULT_postw1_01.json",
+          "PUBLISH_RESULT_post07.json",
+          "PUBLISH_RESULT_post08.json",
+          "PUBLISH_RESULT_postw1_02.json",
+          "PUBLISH_RESULT_postw1_03.json",
+          "PUBLISH_RESULT_postw1_ni.json",
+          "PUBLISH_RESULT_post06.json",
+          "PUBLISH_RESULT_post03.json",
+          "PUBLISH_RESULT_postw1_06.json",
+          "PUBLISH_RESULT_post01.json",
+          "PUBLISH_RESULT_post02.json",
+          "PUBLISH_RESULT_post09.json",
+          "PUBLISH_RESULT_postw2_01.json",
+          "PUBLISH_RESULT_postw2_05.json",
+          "PUBLISH_RESULT_postw2_02.json",
+          "PUBLISH_RESULT_postw2_03.json",
+          "PUBLISH_RESULT_postw2_06.json",
+          "PUBLISH_RESULT_postw2_04.json"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-09-25 21:31 WIB",
+      "type": "TACII_DAILY_NOTION_SYNC",
+      "details": {
+        "action": "Daily Notion Command Center Sync (21:30 WIB)",
+        "database_id": "3d2b044d-7011-81f9-b249-ca8e17dfc8f0",
+        "updates": [
+          {
+            "post": "PUBLISH_RESULT_post01.json",
+            "title": "Perdana: Launching @naskah.fk & Mengapa Penulisan Akademik Perlu Lebih Manusiawi",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/Dc8ThgdE8AX/",
+            "threads_link": "https://www.threads.net/@naskah.efka/post/18096573902173563",
+            "http_code": 200
+          },
+          {
+            "post": "2",
+            "title": "Cheatsheet: Struktur Jurnal Ilmiah Standar JOPS",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/Dc8dJyfD9PV/",
+            "threads_link": "https://www.threads.com/@naskah.efka/post/Dc8dK-9D9EE",
+            "http_code": 200
+          },
+          {
+            "post": "3",
+            "title": "Skripsi vs Tesis Kedokteran: 3 Kebiasaan Penulisan yang Wajib Diubah",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/Dc-66XGGui8/",
+            "threads_link": "https://www.threads.net/@naskah.efka/post/18062717825786389",
+            "http_code": 200
+          },
+          {
+            "post": "6",
+            "title": "7 Layout Carousel Edukasi Kesehatan",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/DdHBMjiGhhC/",
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdHBOIhGggP",
+            "http_code": 200
+          },
+          {
+            "post": "7",
+            "title": "Sunday Academic Reset",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/DdIZXvbGh9L/",
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdIZZq1mucr",
+            "http_code": 200
+          },
+          {
+            "post": "8",
+            "title": "Hard Sell: Kapan Lagi 3 Juta Skripsi Lengkap Anak FK?",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/DdK-LK8Gj2e/",
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdK-M0qmj98",
+            "http_code": 200
+          },
+          {
+            "post": "9",
+            "title": "Menu & Transparansi Biaya Naskah.fk 2026",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/DdN-cIImqN7/",
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdN-hUBGqz5",
+            "http_code": 200
+          },
+          {
+            "post": "w1_01",
+            "title": "Post W1-01: Diagnosis Penyakit Skripsi (ICD-10 Edisi Akademik)",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/DdQHw1PGuwQ/",
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdQHybrmvVI",
+            "http_code": 200
+          },
+          {
+            "post": "w1_02",
+            "title": "Thread W1-02: Dua Kebenaran Satu Bohong: Metode Penelitian",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdSsxzrmlXs",
+            "http_code": 200
+          },
+          {
+            "post": "w1_03",
+            "title": "Thread W1-03: UGC Call — Drop Abstrak/Research Question lo",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdVRRL6mvlS",
+            "http_code": 200
+          },
+          {
+            "post": "w1_06",
+            "title": "Thread W1-06: Jam 3 Pagi Threads — Album: 3AM Thoughts vol.1",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdfkcnTmkIx",
+            "http_code": 200
+          },
+          {
+            "post": "w1_ni",
+            "title": "Post W1-NI: Naskah Inside EP.1 — Gimana Carousel Ini Dibuat?",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "",
+            "http_code": 200
+          },
+          {
+            "post": "w2_01",
+            "title": "Post W2_01: Uji Diagnostik: Sensitivitas vs Spesifisitas",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdikwjbmmjA",
+            "http_code": 200
+          },
+          {
+            "post": "w2_02",
+            "title": "Post W2_02: SCU Ep. 2: Bimbingan Kilat & KEPK",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "",
+            "http_code": 200
+          },
+          {
+            "post": "w2_03",
+            "title": "Post W2_03: Cross-Sectional vs Case-Control vs Cohort",
+            "action": "CREATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdnuWpLmuyS",
+            "http_code": 200
+          },
+          {
+            "post": "w2_04",
+            "title": "Post W2_04: 5 Tipe Dosen Pembimbing FK",
+            "action": "CREATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdqTJi5mmg7",
+            "http_code": 200
+          },
+          {
+            "post": "w2_05",
+            "title": "Post W2_05: 3 Kata Terlarang Judul Skripsi FK (KEPK)",
+            "action": "CREATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "https://www.threads.com/@naskah.efka/post/Dds38heGnBm",
+            "http_code": 200
+          }
+        ],
+        "total_updates": 17,
+        "publish_results_checked": [
+          "PUBLISH_RESULT_postw1_01.json",
+          "PUBLISH_RESULT_post07.json",
+          "PUBLISH_RESULT_post08.json",
+          "PUBLISH_RESULT_postw1_02.json",
+          "PUBLISH_RESULT_postw1_03.json",
+          "PUBLISH_RESULT_postw1_ni.json",
+          "PUBLISH_RESULT_post06.json",
+          "PUBLISH_RESULT_post03.json",
+          "PUBLISH_RESULT_postw1_06.json",
+          "PUBLISH_RESULT_post01.json",
+          "PUBLISH_RESULT_post02.json",
+          "PUBLISH_RESULT_post09.json",
+          "PUBLISH_RESULT_postw2_01.json",
+          "PUBLISH_RESULT_postw2_05.json",
+          "PUBLISH_RESULT_postw2_02.json",
+          "PUBLISH_RESULT_postw2_03.json",
+          "PUBLISH_RESULT_postw2_04.json"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-09-24 21:32 WIB",
+      "type": "TACII_DAILY_NOTION_SYNC",
+      "details": {
+        "action": "Daily Notion Command Center Sync (21:30 WIB)",
+        "database_id": "3d2b044d-7011-81f9-b249-ca8e17dfc8f0",
+        "updates": [
+          {
+            "post": "PUBLISH_RESULT_post01.json",
+            "title": "Perdana: Launching @naskah.fk & Mengapa Penulisan Akademik Perlu Lebih Manusiawi",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/Dc8ThgdE8AX/",
+            "threads_link": "https://www.threads.net/@naskah.efka/post/18096573902173563",
+            "http_code": 200
+          },
+          {
+            "post": "2",
+            "title": "Cheatsheet: Struktur Jurnal Ilmiah Standar JOPS",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/Dc8dJyfD9PV/",
+            "threads_link": "https://www.threads.com/@naskah.efka/post/Dc8dK-9D9EE",
+            "http_code": 200
+          },
+          {
+            "post": "3",
+            "title": "Skripsi vs Tesis Kedokteran: 3 Kebiasaan Penulisan yang Wajib Diubah",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/Dc-66XGGui8/",
+            "threads_link": "https://www.threads.net/@naskah.efka/post/18062717825786389",
+            "http_code": 200
+          },
+          {
+            "post": "6",
+            "title": "7 Layout Carousel Edukasi Kesehatan",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/DdHBMjiGhhC/",
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdHBOIhGggP",
+            "http_code": 200
+          },
+          {
+            "post": "7",
+            "title": "Sunday Academic Reset",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/DdIZXvbGh9L/",
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdIZZq1mucr",
+            "http_code": 200
+          },
+          {
+            "post": "8",
+            "title": "Hard Sell: Kapan Lagi 3 Juta Skripsi Lengkap Anak FK?",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/DdK-LK8Gj2e/",
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdK-M0qmj98",
+            "http_code": 200
+          },
+          {
+            "post": "9",
+            "title": "Menu & Transparansi Biaya Naskah.fk 2026",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/DdN-cIImqN7/",
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdN-hUBGqz5",
+            "http_code": 200
+          },
+          {
+            "post": "w1_01",
+            "title": "Post W1-01: Diagnosis Penyakit Skripsi (ICD-10 Edisi Akademik)",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/DdQHw1PGuwQ/",
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdQHybrmvVI",
+            "http_code": 200
+          },
+          {
+            "post": "w1_02",
+            "title": "Thread W1-02: Dua Kebenaran Satu Bohong: Metode Penelitian",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdSsxzrmlXs",
+            "http_code": 200
+          },
+          {
+            "post": "w1_03",
+            "title": "Thread W1-03: UGC Call — Drop Abstrak/Research Question lo",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdVRRL6mvlS",
+            "http_code": 200
+          },
+          {
+            "post": "w1_06",
+            "title": "Thread W1-06: Jam 3 Pagi Threads — Album: 3AM Thoughts vol.1",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdfkcnTmkIx",
+            "http_code": 200
+          },
+          {
+            "post": "w1_ni",
+            "title": "Post W1-NI: Naskah Inside EP.1 — Gimana Carousel Ini Dibuat?",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "",
+            "http_code": 200
+          },
+          {
+            "post": "w2_01",
+            "title": "Post W2_01: Uji Diagnostik: Sensitivitas vs Spesifisitas",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdikwjbmmjA",
+            "http_code": 200
+          },
+          {
+            "post": "w2_02",
+            "title": "Post W2_02: SCU Ep. 2: Bimbingan Kilat & KEPK",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "",
+            "http_code": 200
+          },
+          {
+            "post": "w2_03",
+            "title": "Post W2_03: Cross-Sectional vs Case-Control vs Cohort",
+            "action": "CREATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdnuWpLmuyS",
+            "http_code": 200
+          },
+          {
+            "post": "w2_04",
+            "title": "Post W2_04: 5 Tipe Dosen Pembimbing FK",
+            "action": "CREATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdqTJi5mmg7",
+            "http_code": 200
+          }
+        ],
+        "total_updates": 16,
+        "publish_results_checked": [
+          "PUBLISH_RESULT_postw1_01.json",
+          "PUBLISH_RESULT_post07.json",
+          "PUBLISH_RESULT_post08.json",
+          "PUBLISH_RESULT_postw1_02.json",
+          "PUBLISH_RESULT_postw1_03.json",
+          "PUBLISH_RESULT_postw1_ni.json",
+          "PUBLISH_RESULT_post06.json",
+          "PUBLISH_RESULT_post03.json",
+          "PUBLISH_RESULT_postw1_06.json",
+          "PUBLISH_RESULT_post01.json",
+          "PUBLISH_RESULT_post02.json",
+          "PUBLISH_RESULT_post09.json",
+          "PUBLISH_RESULT_postw2_01.json",
+          "PUBLISH_RESULT_postw2_02.json",
+          "PUBLISH_RESULT_postw2_03.json",
+          "PUBLISH_RESULT_postw2_04.json"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-09-23 21:30 WIB",
+      "type": "TACII_DAILY_NOTION_SYNC",
+      "details": {
+        "action": "Daily Notion Command Center Sync (21:30 WIB)",
+        "database_id": "3d2b044d-7011-81f9-b249-ca8e17dfc8f0",
+        "updates": [
+          {
+            "post": "PUBLISH_RESULT_post01.json",
+            "title": "Perdana: Launching @naskah.fk & Mengapa Penulisan Akademik Perlu Lebih Manusiawi",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/Dc8ThgdE8AX/",
+            "threads_link": "https://www.threads.net/@naskah.efka/post/18096573902173563",
+            "http_code": 200
+          },
+          {
+            "post": "2",
+            "title": "Cheatsheet: Struktur Jurnal Ilmiah Standar JOPS",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/Dc8dJyfD9PV/",
+            "threads_link": "https://www.threads.com/@naskah.efka/post/Dc8dK-9D9EE",
+            "http_code": 200
+          },
+          {
+            "post": "3",
+            "title": "Skripsi vs Tesis Kedokteran: 3 Kebiasaan Penulisan yang Wajib Diubah",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/Dc-66XGGui8/",
+            "threads_link": "https://www.threads.net/@naskah.efka/post/18062717825786389",
+            "http_code": 200
+          },
+          {
+            "post": "6",
+            "title": "7 Layout Carousel Edukasi Kesehatan",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/DdHBMjiGhhC/",
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdHBOIhGggP",
+            "http_code": 200
+          },
+          {
+            "post": "7",
+            "title": "Sunday Academic Reset",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/DdIZXvbGh9L/",
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdIZZq1mucr",
+            "http_code": 200
+          },
+          {
+            "post": "8",
+            "title": "Hard Sell: Kapan Lagi 3 Juta Skripsi Lengkap Anak FK?",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/DdK-LK8Gj2e/",
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdK-M0qmj98",
+            "http_code": 200
+          },
+          {
+            "post": "9",
+            "title": "Menu & Transparansi Biaya Naskah.fk 2026",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/DdN-cIImqN7/",
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdN-hUBGqz5",
+            "http_code": 200
+          },
+          {
+            "post": "w1_01",
+            "title": "Post W1-01: Diagnosis Penyakit Skripsi (ICD-10 Edisi Akademik)",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/DdQHw1PGuwQ/",
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdQHybrmvVI",
+            "http_code": 200
+          },
+          {
+            "post": "w1_02",
+            "title": "Thread W1-02: Dua Kebenaran Satu Bohong: Metode Penelitian",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdSsxzrmlXs",
+            "http_code": 200
+          },
+          {
+            "post": "w1_03",
+            "title": "Thread W1-03: UGC Call — Drop Abstrak/Research Question lo",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdVRRL6mvlS",
+            "http_code": 200
+          },
+          {
+            "post": "w1_06",
+            "title": "Thread W1-06: Jam 3 Pagi Threads — Album: 3AM Thoughts vol.1",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdfkcnTmkIx",
+            "http_code": 200
+          },
+          {
+            "post": "w1_ni",
+            "title": "Post W1-NI: Naskah Inside EP.1 — Gimana Carousel Ini Dibuat?",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "",
+            "http_code": 200
+          },
+          {
+            "post": "w2_01",
+            "title": "Post W2_01: Uji Diagnostik: Sensitivitas vs Spesifisitas",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdikwjbmmjA",
+            "http_code": 200
+          },
+          {
+            "post": "w2_02",
+            "title": "Post W2_02: SCU Ep. 2: Bimbingan Kilat & KEPK",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "",
+            "http_code": 200
+          },
+          {
+            "post": "w2_03",
+            "title": "Post W2_03: Cross-Sectional vs Case-Control vs Cohort",
+            "action": "CREATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdnuWpLmuyS",
+            "http_code": 200
+          }
+        ],
+        "total_updates": 15,
+        "publish_results_checked": [
+          "PUBLISH_RESULT_postw1_01.json",
+          "PUBLISH_RESULT_post07.json",
+          "PUBLISH_RESULT_post08.json",
+          "PUBLISH_RESULT_postw1_02.json",
+          "PUBLISH_RESULT_postw1_03.json",
+          "PUBLISH_RESULT_postw1_ni.json",
+          "PUBLISH_RESULT_post06.json",
+          "PUBLISH_RESULT_post03.json",
+          "PUBLISH_RESULT_postw1_06.json",
+          "PUBLISH_RESULT_post01.json",
+          "PUBLISH_RESULT_post02.json",
+          "PUBLISH_RESULT_post09.json",
+          "PUBLISH_RESULT_postw2_01.json",
+          "PUBLISH_RESULT_postw2_02.json",
+          "PUBLISH_RESULT_postw2_03.json"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-09-22 21:39 WIB",
+      "type": "TACII_DAILY_NOTION_SYNC",
+      "details": {
+        "action": "Daily Notion Command Center Sync (21:30 WIB)",
+        "database_id": "3d2b044d-7011-81f9-b249-ca8e17dfc8f0",
+        "updates": [
+          {
+            "post": "PUBLISH_RESULT_post01.json",
+            "title": "Perdana: Launching @naskah.fk & Mengapa Penulisan Akademik Perlu Lebih Manusiawi",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/Dc8ThgdE8AX/",
+            "threads_link": "https://www.threads.net/@naskah.efka/post/18096573902173563",
+            "http_code": 200
+          },
+          {
+            "post": "2",
+            "title": "Cheatsheet: Struktur Jurnal Ilmiah Standar JOPS",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/Dc8dJyfD9PV/",
+            "threads_link": "https://www.threads.com/@naskah.efka/post/Dc8dK-9D9EE",
+            "http_code": 200
+          },
+          {
+            "post": "3",
+            "title": "Skripsi vs Tesis Kedokteran: 3 Kebiasaan Penulisan yang Wajib Diubah",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/Dc-66XGGui8/",
+            "threads_link": "https://www.threads.net/@naskah.efka/post/18062717825786389",
+            "http_code": 200
+          },
+          {
+            "post": "6",
+            "title": "7 Layout Carousel Edukasi Kesehatan",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/DdHBMjiGhhC/",
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdHBOIhGggP",
+            "http_code": 200
+          },
+          {
+            "post": "7",
+            "title": "Sunday Academic Reset",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/DdIZXvbGh9L/",
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdIZZq1mucr",
+            "http_code": 200
+          },
+          {
+            "post": "8",
+            "title": "Hard Sell: Kapan Lagi 3 Juta Skripsi Lengkap Anak FK?",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/DdK-LK8Gj2e/",
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdK-M0qmj98",
+            "http_code": 200
+          },
+          {
+            "post": "9",
+            "title": "Menu & Transparansi Biaya Naskah.fk 2026",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/DdN-cIImqN7/",
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdN-hUBGqz5",
+            "http_code": 200
+          },
+          {
+            "post": "w1_01",
+            "title": "Post W1-01: Diagnosis Penyakit Skripsi (ICD-10 Edisi Akademik)",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/DdQHw1PGuwQ/",
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdQHybrmvVI",
+            "http_code": 200
+          },
+          {
+            "post": "w1_02",
+            "title": "Thread W1-02: Dua Kebenaran Satu Bohong: Metode Penelitian",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdSsxzrmlXs",
+            "http_code": 200
+          },
+          {
+            "post": "w1_03",
+            "title": "Thread W1-03: UGC Call — Drop Abstrak/Research Question lo",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdVRRL6mvlS",
+            "http_code": 200
+          },
+          {
+            "post": "w1_06",
+            "title": "Thread W1-06: Jam 3 Pagi Threads — Album: 3AM Thoughts vol.1",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdfkcnTmkIx",
+            "http_code": 200
+          },
+          {
+            "post": "w1_ni",
+            "title": "Post W1-NI: Naskah Inside EP.1 — Gimana Carousel Ini Dibuat?",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "",
+            "http_code": 200
+          },
+          {
+            "post": "w2_01",
+            "title": "Post W2_01: Uji Diagnostik: Sensitivitas vs Spesifisitas",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdikwjbmmjA",
+            "http_code": 200
+          },
+          {
+            "post": "w2_02",
+            "title": "Post W2_02: SCU Ep. 2: Bimbingan Kilat & KEPK",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "",
+            "http_code": 200
+          }
+        ],
+        "total_updates": 14,
+        "publish_results_checked": [
+          "PUBLISH_RESULT_postw1_01.json",
+          "PUBLISH_RESULT_post07.json",
+          "PUBLISH_RESULT_post08.json",
+          "PUBLISH_RESULT_postw1_02.json",
+          "PUBLISH_RESULT_postw1_03.json",
+          "PUBLISH_RESULT_postw1_ni.json",
+          "PUBLISH_RESULT_post06.json",
+          "PUBLISH_RESULT_post03.json",
+          "PUBLISH_RESULT_postw1_06.json",
+          "PUBLISH_RESULT_post01.json",
+          "PUBLISH_RESULT_post02.json",
+          "PUBLISH_RESULT_post09.json",
+          "PUBLISH_RESULT_postw2_01.json",
+          "PUBLISH_RESULT_postw2_02.json"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-09-22 21:38 WIB",
+      "type": "TACII_DAILY_NOTION_SYNC",
+      "details": {
+        "action": "Daily Notion Command Center Sync (21:30 WIB)",
+        "database_id": "3d2b044d-7011-81f9-b249-ca8e17dfc8f0",
+        "updates": [
+          {
+            "post": "PUBLISH_RESULT_post01.json",
+            "title": "Perdana: Launching @naskah.fk & Mengapa Penulisan Akademik Perlu Lebih Manusiawi",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/Dc8ThgdE8AX/",
+            "threads_link": "https://www.threads.net/@naskah.efka/post/18096573902173563",
+            "http_code": 200
+          },
+          {
+            "post": "2",
+            "title": "Cheatsheet: Struktur Jurnal Ilmiah Standar JOPS",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/Dc8dJyfD9PV/",
+            "threads_link": "https://www.threads.com/@naskah.efka/post/Dc8dK-9D9EE",
+            "http_code": 200
+          },
+          {
+            "post": "3",
+            "title": "Skripsi vs Tesis Kedokteran: 3 Kebiasaan Penulisan yang Wajib Diubah",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/Dc-66XGGui8/",
+            "threads_link": "https://www.threads.net/@naskah.efka/post/18062717825786389",
+            "http_code": 200
+          },
+          {
+            "post": "6",
+            "title": "7 Layout Carousel Edukasi Kesehatan",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/DdHBMjiGhhC/",
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdHBOIhGggP",
+            "http_code": 200
+          },
+          {
+            "post": "7",
+            "title": "Sunday Academic Reset",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/DdIZXvbGh9L/",
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdIZZq1mucr",
+            "http_code": 200
+          },
+          {
+            "post": "8",
+            "title": "Hard Sell: Kapan Lagi 3 Juta Skripsi Lengkap Anak FK?",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/DdK-LK8Gj2e/",
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdK-M0qmj98",
+            "http_code": 200
+          },
+          {
+            "post": "9",
+            "title": "Menu & Transparansi Biaya Naskah.fk 2026",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/DdN-cIImqN7/",
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdN-hUBGqz5",
+            "http_code": 200
+          },
+          {
+            "post": "w1_01",
+            "title": "Post W1-01: Diagnosis Penyakit Skripsi (ICD-10 Edisi Akademik)",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/DdQHw1PGuwQ/",
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdQHybrmvVI",
+            "http_code": 200
+          },
+          {
+            "post": "w1_02",
+            "title": "Thread W1-02: Dua Kebenaran Satu Bohong: Metode Penelitian",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdSsxzrmlXs",
+            "http_code": 200
+          },
+          {
+            "post": "w1_03",
+            "title": "Thread W1-03: UGC Call — Drop Abstrak/Research Question lo",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdVRRL6mvlS",
+            "http_code": 200
+          },
+          {
+            "post": "w1_06",
+            "title": "Thread W1-06: Jam 3 Pagi Threads — Album: 3AM Thoughts vol.1",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdfkcnTmkIx",
+            "http_code": 200
+          },
+          {
+            "post": "w1_ni",
+            "title": "Post W1-NI: Naskah Inside EP.1 — Gimana Carousel Ini Dibuat?",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "",
+            "http_code": 200
+          },
+          {
+            "post": "w2_01",
+            "title": "Post W2_01: Uji Diagnostik: Sensitivitas vs Spesifisitas",
+            "action": "CREATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdikwjbmmjA",
+            "http_code": 200
+          },
+          {
+            "post": "w2_02",
+            "title": "Post W2_02: SCU Ep. 2: Bimbingan Kilat & KEPK",
+            "action": "CREATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "",
+            "http_code": 200
+          }
+        ],
+        "total_updates": 14,
+        "publish_results_checked": [
+          "PUBLISH_RESULT_postw1_01.json",
+          "PUBLISH_RESULT_post07.json",
+          "PUBLISH_RESULT_post08.json",
+          "PUBLISH_RESULT_postw1_02.json",
+          "PUBLISH_RESULT_postw1_03.json",
+          "PUBLISH_RESULT_postw1_ni.json",
+          "PUBLISH_RESULT_post06.json",
+          "PUBLISH_RESULT_post03.json",
+          "PUBLISH_RESULT_postw1_06.json",
+          "PUBLISH_RESULT_post01.json",
+          "PUBLISH_RESULT_post02.json",
+          "PUBLISH_RESULT_post09.json",
+          "PUBLISH_RESULT_postw2_01.json",
+          "PUBLISH_RESULT_postw2_02.json"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-09-22 21:35 WIB",
+      "type": "TACII_DAILY_NOTION_SYNC",
+      "details": {
+        "action": "Daily Notion Command Center Sync (21:30 WIB)",
+        "database_id": "3d2b044d-7011-81f9-b249-ca8e17dfc8f0",
+        "updates": [
+          {
+            "post": "3",
+            "title": "Thread #3: Open Table di Jurnal Medis",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/Dc-66XGGui8/",
+            "threads_link": "https://www.threads.net/@naskah.efka/post/18062717825786389",
+            "http_code": 200
+          },
+          {
+            "post": "6",
+            "title": "7 Layout Carousel Edukasi Kesehatan",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/DdHBMjiGhhC/",
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdHBOIhGggP",
+            "http_code": 200
+          },
+          {
+            "post": "7",
+            "title": "Sunday Academic Reset",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": "https://www.instagram.com/p/DdIZXvbGh9L/",
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdIZZq1mucr",
+            "http_code": 200
+          },
+          {
+            "post": "w1_06",
+            "title": "Thread W1-06: Jam 3 Pagi Threads — Album: 3AM Thoughts vol.1",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "https://www.threads.com/@naskah.efka/post/DdfkcnTmkIx",
+            "http_code": 200
+          },
+          {
+            "post": "w1_ni",
+            "title": "Post W1-NI: Naskah Inside EP.1 — Gimana Carousel Ini Dibuat?",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "",
+            "http_code": 200
+          },
+          {
+            "post": "w2_02",
+            "title": "Post W1-04: SCU Episode 1 — Kenalan sama Rini, Budi, Sari",
+            "action": "UPDATED",
+            "status": "Published",
+            "ig_link": null,
+            "threads_link": "",
+            "http_code": 200
+          }
+        ],
+        "total_updates": 6,
+        "publish_results_checked": [
+          "PUBLISH_RESULT_postw1_01.json",
+          "PUBLISH_RESULT_post07.json",
+          "PUBLISH_RESULT_post08.json",
+          "PUBLISH_RESULT_postw1_02.json",
+          "PUBLISH_RESULT_postw1_03.json",
+          "PUBLISH_RESULT_postw1_ni.json",
+          "PUBLISH_RESULT_post06.json",
+          "PUBLISH_RESULT_post03.json",
+          "PUBLISH_RESULT_postw1_06.json",
+          "PUBLISH_RESULT_post01.json",
+          "PUBLISH_RESULT_post02.json",
+          "PUBLISH_RESULT_post09.json",
+          "PUBLISH_RESULT_postw2_01.json",
+          "PUBLISH_RESULT_postw2_02.json"
+        ]
+      }
+    },
+    {
       "timestamp": "2026-09-20 21:34 WIB",
       "type": "TACII_DAILY_NOTION_SYNC",
       "details": {
@@ -18,7 +1320,7 @@
         "updates": [
           {
             "post": "w1_06",
-            "title": "Thread W1-06: Jam 3 Pagi Threads \u2014 Album: 3AM Thoughts vol.1",
+            "title": "Thread W1-06: Jam 3 Pagi Threads — Album: 3AM Thoughts vol.1",
             "status": "Published",
             "ig_link": null,
             "threads_link": "https://www.threads.com/@naskah.efka/post/DdfkcnTmkIx",
@@ -26,7 +1328,7 @@
           },
           {
             "post": "w1_ni",
-            "title": "Post W1-NI: Naskah Inside EP.1 \u2014 Gimana Carousel Ini Dibuat?",
+            "title": "Post W1-NI: Naskah Inside EP.1 — Gimana Carousel Ini Dibuat?",
             "status": "Published",
             "ig_link": "Available on @naskah.efka",
             "threads_link": "Pending retry",
@@ -34,7 +1336,7 @@
           },
           {
             "post": "w1_03",
-            "title": "Thread W1-03: UGC Call \u2014 Drop Abstrak/Research Question lo",
+            "title": "Thread W1-03: UGC Call — Drop Abstrak/Research Question lo",
             "status": "Published",
             "ig_link": null,
             "threads_link": "https://www.threads.com/@naskah.efka/post/DdVRRL6mvlS",
@@ -123,7 +1425,7 @@
           },
           {
             "post": "w1_03",
-            "title": "Thread W1-03: UGC Call \u2014 Drop Abstrak/Research Question lo",
+            "title": "Thread W1-03: UGC Call — Drop Abstrak/Research Question lo",
             "status": "Published",
             "ig_link": null,
             "threads_link": "https://www.threads.com/@naskah.efka/post/DdVRRL6mvlS",
@@ -243,7 +1545,7 @@
           },
           {
             "post": "w1_03",
-            "title": "Thread W1-03: UGC Call \u2014 Drop Abstrak/Research Question lo",
+            "title": "Thread W1-03: UGC Call — Drop Abstrak/Research Question lo",
             "status": "Published",
             "ig_link": null,
             "threads_link": "https://www.threads.com/@naskah.efka/post/DdVRRL6mvlS",
@@ -338,7 +1640,7 @@
           },
           {
             "post": "w1_03",
-            "title": "Thread W1-03: UGC Call \u2014 Drop Abstrak/Research Question lo",
+            "title": "Thread W1-03: UGC Call — Drop Abstrak/Research Question lo",
             "status": "Published",
             "ig_link": null,
             "threads_link": "https://www.threads.com/@naskah.efka/post/DdVRRL6mvlS",
@@ -735,7 +2037,7 @@
       "timestamp": "2026-09-12 21:36 WIB",
       "type": "TACII_DAILY_NOTION_SYNC",
       "details": {
-        "action": "Daily Notion sync \u2014 cross-checked PUBLISH_RESULT files against DB",
+        "action": "Daily Notion sync — cross-checked PUBLISH_RESULT files against DB",
         "database_id": "3d2b044d-7011-817a-8e98-000b9bd9a77c",
         "updates": [
           {
@@ -903,7 +2205,7 @@
       "type": "INITIAL_NOTION_SYNC",
       "details": {
         "status": "SUCCESS",
-        "notion_hub": "Naskah Social OS \u2014 Command Center",
+        "notion_hub": "Naskah Social OS — Command Center",
         "database_id": "3d2b044d-7011-81f9-b249-ca8e17dfc8f0",
         "total_posts_synced": 21,
         "week_range": "2026-09-06 to 2026-09-13",
@@ -1041,6 +2343,445 @@
         "synced_rows": 11,
         "database_id": "3d2b044d-7011-817a-8e98-000b9bd9a77c",
         "sync_mode": "daily_21:30_wib"
+      }
+    },
+    {
+      "timestamp": "2026-09-21 14:00 WIB",
+      "type": "POST_PUBLISHED_META_DIRECT",
+      "details": {
+        "post_number": "w2_01",
+        "topic": "Uji Diagnostik: Sensitivitas vs Spesifisitas",
+        "published_at_wib": "2026-09-21 14:00 WIB",
+        "instagram": {
+          "status": "PUBLISHED",
+          "media_id": null,
+          "permalink": null,
+          "media_type": null,
+          "slides_count": 5
+        },
+        "threads": [
+          {
+            "slot": "#visual_afternoon",
+            "status": "PUBLISHED",
+            "thread_id": "18104795774223077",
+            "permalink": "https://www.threads.com/@naskah.efka/post/DdikwjbmmjA",
+            "timestamp": "2026-09-21T07:00:38+0000"
+          }
+        ],
+        "evidence": {
+          "caption_source": "/home/hermes.taci/workspaces/content/06_CONTENT_PIPELINE/03_APPROVED/2026-09-21_post_w2_01_sensitivitas_spesifisitas/CAPTION_DAN_THREADS_2026-09-21_POST_W2_01_SENSITIVITAS_SPESIFISITAS.md",
+          "asset_base": "https://raw.githubusercontent.com/tebakkasus/Naskah/main/06_CONTENT_PIPELINE/03_APPROVED/2026-09-21_post_w2_01_sensitivitas_spesifisitas/",
+          "api_verified": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-09-21 19:00 WIB",
+      "type": "POST_PUBLISHED_META_DIRECT",
+      "details": {
+        "post_number": "w2_01",
+        "topic": "Uji Diagnostik: Sensitivitas vs Spesifisitas",
+        "published_at_wib": "2026-09-21 19:00 WIB",
+        "instagram": {
+          "status": "PUBLISHED",
+          "media_id": null,
+          "permalink": null,
+          "media_type": null,
+          "slides_count": 5
+        },
+        "threads": [
+          {
+            "slot": "#visual_afternoon",
+            "status": "PUBLISHED",
+            "thread_id": "18104795774223077",
+            "permalink": "https://www.threads.com/@naskah.efka/post/DdikwjbmmjA",
+            "timestamp": "2026-09-21T07:00:38+0000"
+          },
+          {
+            "slot": "#3 (MALAM (19:00 WIB))",
+            "status": "PUBLISHED",
+            "thread_id": "17999443466798287",
+            "permalink": "https://www.threads.com/@naskah.efka/post/DdjHCvUGkWx",
+            "timestamp": "2026-09-21T12:00:11+0000"
+          }
+        ],
+        "evidence": {
+          "caption_source": "/home/hermes.taci/workspaces/content/06_CONTENT_PIPELINE/03_APPROVED/2026-09-21_post_w2_01_sensitivitas_spesifisitas/CAPTION_DAN_THREADS_2026-09-21_POST_W2_01_SENSITIVITAS_SPESIFISITAS.md",
+          "asset_base": "https://raw.githubusercontent.com/tebakkasus/Naskah/main/06_CONTENT_PIPELINE/03_APPROVED/2026-09-21_post_w2_01_sensitivitas_spesifisitas/",
+          "api_verified": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-09-22 14:00 WIB",
+      "type": "POST_PUBLISHED_META_DIRECT",
+      "details": {
+        "post_number": "w2_02",
+        "topic": "SCU Ep. 2: Bimbingan Kilat & KEPK",
+        "published_at_wib": "2026-09-22 14:00 WIB",
+        "instagram": {
+          "status": "PUBLISHED",
+          "media_id": null,
+          "permalink": null,
+          "media_type": null,
+          "slides_count": 5
+        },
+        "threads": [],
+        "evidence": {
+          "caption_source": "/home/hermes.taci/workspaces/content/06_CONTENT_PIPELINE/03_APPROVED/2026-09-22_post_w2_02_scu_episode2/CAPTION_DAN_THREADS_2026-09-22_POST_W2_02_SCU_EPISODE2.md",
+          "asset_base": "https://raw.githubusercontent.com/tebakkasus/Naskah/main/06_CONTENT_PIPELINE/03_APPROVED/2026-09-22_post_w2_02_scu_episode2/",
+          "api_verified": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-09-22 19:00 WIB",
+      "type": "POST_PUBLISHED_META_DIRECT",
+      "details": {
+        "post_number": "w2_02",
+        "topic": "SCU Ep. 2: Bimbingan Kilat & KEPK",
+        "published_at_wib": "2026-09-22 19:00 WIB",
+        "instagram": {
+          "status": "PUBLISHED",
+          "media_id": null,
+          "permalink": null,
+          "media_type": null,
+          "slides_count": 5
+        },
+        "threads": [
+          {
+            "slot": "#3 (MALAM (19:00 WIB))",
+            "status": "FAILED",
+            "thread_id": "",
+            "permalink": "",
+            "timestamp": ""
+          }
+        ],
+        "evidence": {
+          "caption_source": "/home/hermes.taci/workspaces/content/06_CONTENT_PIPELINE/03_APPROVED/2026-09-22_post_w2_02_scu_episode2/CAPTION_DAN_THREADS_2026-09-22_POST_W2_02_SCU_EPISODE2.md",
+          "asset_base": "https://raw.githubusercontent.com/tebakkasus/Naskah/main/06_CONTENT_PIPELINE/03_APPROVED/2026-09-22_post_w2_02_scu_episode2/",
+          "api_verified": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-09-23 14:00 WIB",
+      "type": "POST_PUBLISHED_META_DIRECT",
+      "details": {
+        "post_number": "w2_03",
+        "topic": "Cross-Sectional vs Case-Control vs Cohort",
+        "published_at_wib": "2026-09-23 14:00 WIB",
+        "instagram": {
+          "status": "PUBLISHED",
+          "media_id": null,
+          "permalink": null,
+          "media_type": null,
+          "slides_count": 5
+        },
+        "threads": [
+          {
+            "slot": "#visual_afternoon",
+            "status": "PUBLISHED",
+            "thread_id": "18179615548436921",
+            "permalink": "https://www.threads.com/@naskah.efka/post/DdnuWpLmuyS",
+            "timestamp": "2026-09-23T07:00:41+0000"
+          }
+        ],
+        "evidence": {
+          "caption_source": "/home/hermes.taci/workspaces/content/06_CONTENT_PIPELINE/03_APPROVED/2026-09-23_post_w2_03_case_control_vs_cross_sectional/CAPTION_DAN_THREADS_2026-09-23_POST_W2_03_CASE_CONTROL_VS_CROSS_SECTIONAL.md",
+          "asset_base": "https://raw.githubusercontent.com/tebakkasus/Naskah/main/06_CONTENT_PIPELINE/03_APPROVED/2026-09-23_post_w2_03_case_control_vs_cross_sectional/",
+          "api_verified": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-09-23 19:00 WIB",
+      "type": "POST_PUBLISHED_META_DIRECT",
+      "details": {
+        "post_number": "w2_03",
+        "topic": "Cross-Sectional vs Case-Control vs Cohort",
+        "published_at_wib": "2026-09-23 19:00 WIB",
+        "instagram": {
+          "status": "PUBLISHED",
+          "media_id": null,
+          "permalink": null,
+          "media_type": null,
+          "slides_count": 5
+        },
+        "threads": [
+          {
+            "slot": "#visual_afternoon",
+            "status": "PUBLISHED",
+            "thread_id": "18179615548436921",
+            "permalink": "https://www.threads.com/@naskah.efka/post/DdnuWpLmuyS",
+            "timestamp": "2026-09-23T07:00:41+0000"
+          },
+          {
+            "slot": "#3 (MALAM (19:00 WIB))",
+            "status": "PUBLISHED",
+            "thread_id": "18122371424301643",
+            "permalink": "https://www.threads.com/@naskah.efka/post/DdoQoUbGv2p",
+            "timestamp": "2026-09-23T12:00:10+0000"
+          }
+        ],
+        "evidence": {
+          "caption_source": "/home/hermes.taci/workspaces/content/06_CONTENT_PIPELINE/03_APPROVED/2026-09-23_post_w2_03_case_control_vs_cross_sectional/CAPTION_DAN_THREADS_2026-09-23_POST_W2_03_CASE_CONTROL_VS_CROSS_SECTIONAL.md",
+          "asset_base": "https://raw.githubusercontent.com/tebakkasus/Naskah/main/06_CONTENT_PIPELINE/03_APPROVED/2026-09-23_post_w2_03_case_control_vs_cross_sectional/",
+          "api_verified": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-09-24 14:00 WIB",
+      "type": "POST_PUBLISHED_META_DIRECT",
+      "details": {
+        "post_number": "w2_04",
+        "topic": "5 Tipe Dosen Pembimbing FK",
+        "published_at_wib": "2026-09-24 14:00 WIB",
+        "instagram": {
+          "status": "PUBLISHED",
+          "media_id": null,
+          "permalink": null,
+          "media_type": null,
+          "slides_count": 5
+        },
+        "threads": [
+          {
+            "slot": "#visual_afternoon",
+            "status": "PUBLISHED",
+            "thread_id": "18114973825877566",
+            "permalink": "https://www.threads.com/@naskah.efka/post/DdqTJi5mmg7",
+            "timestamp": "2026-09-24T07:00:41+0000"
+          }
+        ],
+        "evidence": {
+          "caption_source": "/home/hermes.taci/workspaces/content/06_CONTENT_PIPELINE/03_APPROVED/2026-09-24_post_w2_04_tipe_dospem_fk/CAPTION_DAN_THREADS_2026-09-24_POST_W2_04_TIPE_DOSPEM_FK.md",
+          "asset_base": "https://raw.githubusercontent.com/tebakkasus/Naskah/main/06_CONTENT_PIPELINE/03_APPROVED/2026-09-24_post_w2_04_tipe_dospem_fk/",
+          "api_verified": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-09-24 19:00 WIB",
+      "type": "POST_PUBLISHED_META_DIRECT",
+      "details": {
+        "post_number": "w2_04",
+        "topic": "5 Tipe Dosen Pembimbing FK",
+        "published_at_wib": "2026-09-24 19:00 WIB",
+        "instagram": {
+          "status": "PUBLISHED",
+          "media_id": null,
+          "permalink": null,
+          "media_type": null,
+          "slides_count": 5
+        },
+        "threads": [
+          {
+            "slot": "#visual_afternoon",
+            "status": "PUBLISHED",
+            "thread_id": "18114973825877566",
+            "permalink": "https://www.threads.com/@naskah.efka/post/DdqTJi5mmg7",
+            "timestamp": "2026-09-24T07:00:41+0000"
+          },
+          {
+            "slot": "#3 (MALAM (19:00 WIB))",
+            "status": "PUBLISHED",
+            "thread_id": "18357950194247525",
+            "permalink": "https://www.threads.com/@naskah.efka/post/Ddq1bL9GoYX",
+            "timestamp": "2026-09-24T12:00:10+0000"
+          }
+        ],
+        "evidence": {
+          "caption_source": "/home/hermes.taci/workspaces/content/06_CONTENT_PIPELINE/03_APPROVED/2026-09-24_post_w2_04_tipe_dospem_fk/CAPTION_DAN_THREADS_2026-09-24_POST_W2_04_TIPE_DOSPEM_FK.md",
+          "asset_base": "https://raw.githubusercontent.com/tebakkasus/Naskah/main/06_CONTENT_PIPELINE/03_APPROVED/2026-09-24_post_w2_04_tipe_dospem_fk/",
+          "api_verified": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-09-25 14:00 WIB",
+      "type": "POST_PUBLISHED_META_DIRECT",
+      "details": {
+        "post_number": "w2_05",
+        "topic": "3 Kata Terlarang Judul Skripsi FK (KEPK)",
+        "published_at_wib": "2026-09-25 14:00 WIB",
+        "instagram": {
+          "status": "PUBLISHED",
+          "media_id": null,
+          "permalink": null,
+          "media_type": null,
+          "slides_count": 5
+        },
+        "threads": [
+          {
+            "slot": "#visual_afternoon",
+            "status": "PUBLISHED",
+            "thread_id": "17948498025340505",
+            "permalink": "https://www.threads.com/@naskah.efka/post/Dds38heGnBm",
+            "timestamp": "2026-09-25T07:00:42+0000"
+          }
+        ],
+        "evidence": {
+          "caption_source": "/home/hermes.taci/workspaces/content/06_CONTENT_PIPELINE/03_APPROVED/2026-09-25_post_w2_05_judul_skripsi_kepk_red_flags/CAPTION_DAN_THREADS_2026-09-25_POST_W2_05_JUDUL_SKRIPSI_KEPK_RED_FLAGS.md",
+          "asset_base": "https://raw.githubusercontent.com/tebakkasus/Naskah/main/06_CONTENT_PIPELINE/03_APPROVED/2026-09-25_post_w2_05_judul_skripsi_kepk_red_flags/",
+          "api_verified": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-09-25 19:00 WIB",
+      "type": "POST_PUBLISHED_META_DIRECT",
+      "details": {
+        "post_number": "w2_05",
+        "topic": "3 Kata Terlarang Judul Skripsi FK (KEPK)",
+        "published_at_wib": "2026-09-25 19:00 WIB",
+        "instagram": {
+          "status": "PUBLISHED",
+          "media_id": null,
+          "permalink": null,
+          "media_type": null,
+          "slides_count": 5
+        },
+        "threads": [
+          {
+            "slot": "#visual_afternoon",
+            "status": "PUBLISHED",
+            "thread_id": "17948498025340505",
+            "permalink": "https://www.threads.com/@naskah.efka/post/Dds38heGnBm",
+            "timestamp": "2026-09-25T07:00:42+0000"
+          },
+          {
+            "slot": "#3 (MALAM (19:00 WIB))",
+            "status": "PUBLISHED",
+            "thread_id": "18011051489986831",
+            "permalink": "https://www.threads.com/@naskah.efka/post/DdtaOA_moaQ",
+            "timestamp": "2026-09-25T12:00:10+0000"
+          }
+        ],
+        "evidence": {
+          "caption_source": "/home/hermes.taci/workspaces/content/06_CONTENT_PIPELINE/03_APPROVED/2026-09-25_post_w2_05_judul_skripsi_kepk_red_flags/CAPTION_DAN_THREADS_2026-09-25_POST_W2_05_JUDUL_SKRIPSI_KEPK_RED_FLAGS.md",
+          "asset_base": "https://raw.githubusercontent.com/tebakkasus/Naskah/main/06_CONTENT_PIPELINE/03_APPROVED/2026-09-25_post_w2_05_judul_skripsi_kepk_red_flags/",
+          "api_verified": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-09-26 14:00 WIB",
+      "type": "POST_PUBLISHED_META_DIRECT",
+      "details": {
+        "post_number": "w2_06",
+        "topic": "Resep Anti-Revisi Skripsi FK",
+        "published_at_wib": "2026-09-26 14:00 WIB",
+        "instagram": {
+          "status": "PUBLISHED",
+          "media_id": null,
+          "permalink": null,
+          "media_type": null,
+          "slides_count": 5
+        },
+        "threads": [
+          {
+            "slot": "#visual_afternoon",
+            "status": "PUBLISHED",
+            "thread_id": "17885074854653289",
+            "permalink": "https://www.threads.com/@naskah.efka/post/DdvcvbMGsm7",
+            "timestamp": "2026-09-26T07:00:43+0000"
+          }
+        ],
+        "evidence": {
+          "caption_source": "/home/hermes.taci/workspaces/content/06_CONTENT_PIPELINE/03_APPROVED/2026-09-26_post_w2_06_resep_anti_revisi_fk/CAPTION_DAN_THREADS_2026-09-26_POST_W2_06_RESEP_ANTI_REVISI_FK.md",
+          "asset_base": "https://raw.githubusercontent.com/tebakkasus/Naskah/main/06_CONTENT_PIPELINE/03_APPROVED/2026-09-26_post_w2_06_resep_anti_revisi_fk/",
+          "api_verified": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-09-26 19:00 WIB",
+      "type": "POST_PUBLISHED_META_DIRECT",
+      "details": {
+        "post_number": "w2_06",
+        "topic": "Resep Anti-Revisi Skripsi FK",
+        "published_at_wib": "2026-09-26 19:00 WIB",
+        "instagram": {
+          "status": "PUBLISHED",
+          "media_id": null,
+          "permalink": null,
+          "media_type": null,
+          "slides_count": 5
+        },
+        "threads": [
+          {
+            "slot": "#visual_afternoon",
+            "status": "PUBLISHED",
+            "thread_id": "17885074854653289",
+            "permalink": "https://www.threads.com/@naskah.efka/post/DdvcvbMGsm7",
+            "timestamp": "2026-09-26T07:00:43+0000"
+          },
+          {
+            "slot": "#3 (MALAM (19:00 WIB))",
+            "status": "PUBLISHED",
+            "thread_id": "17892158040613556",
+            "permalink": "https://www.threads.com/@naskah.efka/post/Ddv_A6nGvZD",
+            "timestamp": "2026-09-26T12:00:10+0000"
+          }
+        ],
+        "evidence": {
+          "caption_source": "/home/hermes.taci/workspaces/content/06_CONTENT_PIPELINE/03_APPROVED/2026-09-26_post_w2_06_resep_anti_revisi_fk/CAPTION_DAN_THREADS_2026-09-26_POST_W2_06_RESEP_ANTI_REVISI_FK.md",
+          "asset_base": "https://raw.githubusercontent.com/tebakkasus/Naskah/main/06_CONTENT_PIPELINE/03_APPROVED/2026-09-26_post_w2_06_resep_anti_revisi_fk/",
+          "api_verified": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-09-27 14:00 WIB",
+      "type": "POST_PUBLISHED_META_DIRECT",
+      "details": {
+        "post_number": "w2_07",
+        "topic": "Naskah Inside Ep. 2: PubMed & Scopus MeSH",
+        "published_at_wib": "2026-09-27 14:00 WIB",
+        "instagram": {
+          "status": "PUBLISHED",
+          "media_id": null,
+          "permalink": null,
+          "media_type": null,
+          "slides_count": 5
+        },
+        "threads": [],
+        "evidence": {
+          "caption_source": "/home/hermes.taci/workspaces/content/06_CONTENT_PIPELINE/03_APPROVED/2026-09-27_post_w2_07_naskah_inside_pubmed_mesh/CAPTION_DAN_THREADS_2026-09-27_POST_W2_07_NASKAH_INSIDE_PUBMED_MESH.md",
+          "asset_base": "https://raw.githubusercontent.com/tebakkasus/Naskah/main/06_CONTENT_PIPELINE/03_APPROVED/2026-09-27_post_w2_07_naskah_inside_pubmed_mesh/",
+          "api_verified": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-09-27 19:00 WIB",
+      "type": "POST_PUBLISHED_META_DIRECT",
+      "details": {
+        "post_number": "w2_07",
+        "topic": "Naskah Inside Ep. 2: PubMed & Scopus MeSH",
+        "published_at_wib": "2026-09-27 19:00 WIB",
+        "instagram": {
+          "status": "PUBLISHED",
+          "media_id": null,
+          "permalink": null,
+          "media_type": null,
+          "slides_count": 5
+        },
+        "threads": [
+          {
+            "slot": "#3 (MALAM (19:00 WIB))",
+            "status": "FAILED",
+            "thread_id": "",
+            "permalink": "",
+            "timestamp": ""
+          }
+        ],
+        "evidence": {
+          "caption_source": "/home/hermes.taci/workspaces/content/06_CONTENT_PIPELINE/03_APPROVED/2026-09-27_post_w2_07_naskah_inside_pubmed_mesh/CAPTION_DAN_THREADS_2026-09-27_POST_W2_07_NASKAH_INSIDE_PUBMED_MESH.md",
+          "asset_base": "https://raw.githubusercontent.com/tebakkasus/Naskah/main/06_CONTENT_PIPELINE/03_APPROVED/2026-09-27_post_w2_07_naskah_inside_pubmed_mesh/",
+          "api_verified": true
+        }
       }
     }
   ]

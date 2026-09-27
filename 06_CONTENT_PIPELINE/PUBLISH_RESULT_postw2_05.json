@@ -1,0 +1,33 @@
+{
+  "post_number": "w2_05",
+  "topic": "3 Kata Terlarang Judul Skripsi FK (KEPK)",
+  "published_at_wib": "2026-09-25 19:00 WIB",
+  "instagram": {
+    "status": "PUBLISHED",
+    "media_id": null,
+    "permalink": null,
+    "media_type": null,
+    "slides_count": 5
+  },
+  "threads": [
+    {
+      "slot": "#visual_afternoon",
+      "status": "PUBLISHED",
+      "thread_id": "17948498025340505",
+      "permalink": "https://www.threads.com/@naskah.efka/post/Dds38heGnBm",
+      "timestamp": "2026-09-25T07:00:42+0000"
+    },
+    {
+      "slot": "#3 (MALAM (19:00 WIB))",
+      "status": "PUBLISHED",
+      "thread_id": "18011051489986831",
+      "permalink": "https://www.threads.com/@naskah.efka/post/DdtaOA_moaQ",
+      "timestamp": "2026-09-25T12:00:10+0000"
+    }
+  ],
+  "evidence": {
+    "caption_source": "/home/hermes.taci/workspaces/content/06_CONTENT_PIPELINE/03_APPROVED/2026-09-25_post_w2_05_judul_skripsi_kepk_red_flags/CAPTION_DAN_THREADS_2026-09-25_POST_W2_05_JUDUL_SKRIPSI_KEPK_RED_FLAGS.md",
+    "asset_base": "https://raw.githubusercontent.com/tebakkasus/Naskah/main/06_CONTENT_PIPELINE/03_APPROVED/2026-09-25_post_w2_05_judul_skripsi_kepk_red_flags/",
+    "api_verified": true
+  }
+}

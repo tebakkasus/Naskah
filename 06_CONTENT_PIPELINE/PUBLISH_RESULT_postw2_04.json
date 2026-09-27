@@ -1,0 +1,33 @@
+{
+  "post_number": "w2_04",
+  "topic": "5 Tipe Dosen Pembimbing FK",
+  "published_at_wib": "2026-09-24 19:00 WIB",
+  "instagram": {
+    "status": "PUBLISHED",
+    "media_id": null,
+    "permalink": null,
+    "media_type": null,
+    "slides_count": 5
+  },
+  "threads": [
+    {
+      "slot": "#visual_afternoon",
+      "status": "PUBLISHED",
+      "thread_id": "18114973825877566",
+      "permalink": "https://www.threads.com/@naskah.efka/post/DdqTJi5mmg7",
+      "timestamp": "2026-09-24T07:00:41+0000"
+    },
+    {
+      "slot": "#3 (MALAM (19:00 WIB))",
+      "status": "PUBLISHED",
+      "thread_id": "18357950194247525",
+      "permalink": "https://www.threads.com/@naskah.efka/post/Ddq1bL9GoYX",
+      "timestamp": "2026-09-24T12:00:10+0000"
+    }
+  ],
+  "evidence": {
+    "caption_source": "/home/hermes.taci/workspaces/content/06_CONTENT_PIPELINE/03_APPROVED/2026-09-24_post_w2_04_tipe_dospem_fk/CAPTION_DAN_THREADS_2026-09-24_POST_W2_04_TIPE_DOSPEM_FK.md",
+    "asset_base": "https://raw.githubusercontent.com/tebakkasus/Naskah/main/06_CONTENT_PIPELINE/03_APPROVED/2026-09-24_post_w2_04_tipe_dospem_fk/",
+    "api_verified": true
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "post_number": "w2_01",
+  "topic": "Uji Diagnostik: Sensitivitas vs Spesifisitas",
+  "published_at_wib": "2026-09-21 19:00 WIB",
+  "instagram": {
+    "status": "PUBLISHED",
+    "media_id": null,
+    "permalink": null,
+    "media_type": null,
+    "slides_count": 5
+  },
+  "threads": [
+    {
+      "slot": "#visual_afternoon",
+      "status": "PUBLISHED",
+      "thread_id": "18104795774223077",
+      "permalink": "https://www.threads.com/@naskah.efka/post/DdikwjbmmjA",
+      "timestamp": "2026-09-21T07:00:38+0000"
+    },
+    {
+      "slot": "#3 (MALAM (19:00 WIB))",
+      "status": "PUBLISHED",
+      "thread_id": "17999443466798287",
+      "permalink": "https://www.threads.com/@naskah.efka/post/DdjHCvUGkWx",
+      "timestamp": "2026-09-21T12:00:11+0000"
+    }
+  ],
+  "evidence": {
+    "caption_source": "/home/hermes.taci/workspaces/content/06_CONTENT_PIPELINE/03_APPROVED/2026-09-21_post_w2_01_sensitivitas_spesifisitas/CAPTION_DAN_THREADS_2026-09-21_POST_W2_01_SENSITIVITAS_SPESIFISITAS.md",
+    "asset_base": "https://raw.githubusercontent.com/tebakkasus/Naskah/main/06_CONTENT_PIPELINE/03_APPROVED/2026-09-21_post_w2_01_sensitivitas_spesifisitas/",
+    "api_verified": true
+  }
+}
