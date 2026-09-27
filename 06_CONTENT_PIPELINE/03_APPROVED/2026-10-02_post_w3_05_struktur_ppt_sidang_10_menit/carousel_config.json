@@ -1,0 +1,127 @@
+{
+  "tag": "Presentation Skills",
+  "cover": {
+    "pill": "Teknik Presentasi",
+    "headline": [
+      "PPT SIDANG FK",
+      "10 MENIT PADAT",
+      "ANTI-DITEGUR"
+    ],
+    "mark_word_line": 2,
+    "body": "Formula alokasi 8-10 slide presentasi sidang skripsi kedokteran yang tajam dan efisien.",
+    "items": [
+      {
+        "num": "01",
+        "title": "Alokasi Waktu Ketat",
+        "desc": "10 menit presentasi + 20 menit tanya jawab"
+      },
+      {
+        "num": "02",
+        "title": "Hierarki Visual",
+        "desc": "Tampilkan bagan & tabel kunci, bukan teks narasi"
+      },
+      {
+        "num": "03",
+        "title": "Opening & Closing",
+        "desc": "Kunci ketenangan mental di 60 detik pertama"
+      }
+    ]
+  },
+  "formula": {
+    "pill": "Alokasi Slide",
+    "headline": [
+      "BLUEPRINT 10 MENIT",
+      "PRESENTASI SIDANG"
+    ],
+    "body": "Bagi waktu secara proporsional sesuai bobot penilaian penguji.",
+    "steps": [
+      {
+        "pill": "Slide 1-3 (2 Min)",
+        "text": "Judul, Latar Belakang Klinis & Rumusan Masalah"
+      },
+      {
+        "pill": "Slide 4-5 (2 Min)",
+        "text": "Kerangka Konsep & Metodologi Inti Riset"
+      },
+      {
+        "pill": "Slide 6-8 (4 Min)",
+        "text": "Tabel 1 Karakteristik & Hasil Analisis Utama"
+      }
+    ],
+    "insight": "Sisa 2 menit terakhir: Pembahasan Kritis, Limitasi, Kesimpulan, dan Rekomendasi Klinis."
+  },
+  "editorial": {
+    "pill": "Aturan Visual",
+    "headline": [
+      "3 ATURAN MUTLAK",
+      "SLIDE SIDANG FK"
+    ],
+    "mark_word_line": 1,
+    "lead": "Hindari kesalahan desain yang memicu kemarahan penguji:",
+    "items": [
+      {
+        "num": "1",
+        "title": "Minimal Font 20pt",
+        "desc": "Jangan bikin konsulen nyipitin mata baca teks",
+        "emoji": "🔍"
+      },
+      {
+        "num": "2",
+        "title": "Pakai Flowchart",
+        "desc": "Ganti paragraf alur sampel dengan diagram STROBE",
+        "emoji": "🔄"
+      },
+      {
+        "num": "3",
+        "title": "Sorot Key Finding",
+        "desc": "Beri kotak penegas pada angka p-value & OR utama",
+        "emoji": "🎯"
+      },
+      {
+        "num": "4",
+        "title": "Jangan Baca Slide",
+        "desc": "Slide untuk penguji melihat, mulut lo untuk bercerita",
+        "emoji": "🗣️"
+      }
+    ]
+  },
+  "callout": {
+    "pill": "Pesan Penguji",
+    "headline": [
+      "BUKAN TADARUS",
+      "SKRIPSI! 🛑"
+    ],
+    "lead": "Reaksi umum penguji saat melihat slide 40 halaman:",
+    "quote": [
+      "\"Ini kamu mau presentasi hasil riset atau mau ngajak kami tadarus naskah skripsi?\"",
+      "Ringkas slide lo jadi 8-10 slide padat data. Tunjukkan penguasaan konsep, bukan kemampuan membaca teks."
+    ],
+    "body": "Presentasi yang efektif menghargai waktu penguji yang padat."
+  },
+  "cta": {
+    "pill": "Free Deliverable",
+    "headline": [
+      "TEMPLATE PPT SIDANG",
+      "SKRIPSI FK (16:9)"
+    ],
+    "sub": "Slide PowerPoint minimalis modern siap edit beserta panduan alokasi waktu.",
+    "items": [
+      {
+        "num": "1",
+        "title": "Komen 'PPT'",
+        "desc": "Admin kirim template PPTX & PDF panduan ke DM"
+      },
+      {
+        "num": "2",
+        "title": "Tinggal Masukkan Data",
+        "desc": "Layout sudah disesuaikan standar sidang meja hijau"
+      },
+      {
+        "num": "3",
+        "title": "Follow @naskah.fk",
+        "desc": "Tips & template penulisan akademik kedokteran"
+      }
+    ],
+    "button": "KOMEN 'PPT' DI BAWAH"
+  }
+}

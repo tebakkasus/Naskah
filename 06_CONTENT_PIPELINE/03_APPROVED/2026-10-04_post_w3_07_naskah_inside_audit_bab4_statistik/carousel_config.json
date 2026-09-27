@@ -1,0 +1,127 @@
+{
+  "tag": "Naskah Inside",
+  "cover": {
+    "pill": "Behind The Scenes",
+    "headline": [
+      "NASKAH INSIDE EP.3",
+      "CARA KAMI AUDIT",
+      "BAB 4 & DATA KLIEN"
+    ],
+    "mark_word_line": 2,
+    "body": "Bocoran SOP 15 menit tim medis Naskah memverifikasi Bab 4 dan analisis data skripsi FK.",
+    "items": [
+      {
+        "num": "01",
+        "title": "Konsistensi Sampel N",
+        "desc": "Cek keselarasan total N di Bab 3, 4, dan abstrak"
+      },
+      {
+        "num": "02",
+        "title": "Verifikasi Uji Hipotesis",
+        "desc": "Kesesuaian skala variabel & uji normalitas data"
+      },
+      {
+        "num": "03",
+        "title": "Standar Open-Table",
+        "desc": "Presisi notasi koma desimal & footnote uji"
+      }
+    ]
+  },
+  "formula": {
+    "pill": "4 Titik Kritis",
+    "headline": [
+      "4 TITIK RAWAN",
+      "AUDIT DATA NASKAH"
+    ],
+    "body": "Titik yang selalu kami bedah sebelum naskah dikirim kembali ke klien.",
+    "steps": [
+      {
+        "pill": "Titik 1",
+        "text": "Apakah ada angka sampel di tabel yang tidak sinkron?"
+      },
+      {
+        "pill": "Titik 2",
+        "text": "Apakah uji parametrik sudah lolos uji normalitas?"
+      },
+      {
+        "pill": "Titik 3",
+        "text": "Apakah nilai p ditulis 3 desimal eksak (p=0.024)?"
+      }
+    ],
+    "insight": "Titik 4: Memastikan semua key findings di tabel dibahas maknanya secara klinis di Bab 5."
+  },
+  "editorial": {
+    "pill": "Quality Control",
+    "headline": [
+      "STANDAR PRECISI",
+      "TIM MEDIS NASKAH"
+    ],
+    "mark_word_line": 1,
+    "lead": "Mengapa standar audit Naskah begitu ketat?",
+    "items": [
+      {
+        "num": "1",
+        "title": "Bebas Celah Penguji",
+        "desc": "Dosen penguji selalu mencari inkonsistensi terkecil",
+        "emoji": "🔍"
+      },
+      {
+        "num": "2",
+        "title": "Sidang Jadi Formalitas",
+        "desc": "Naskah yang 100% presisi mengubah interogasi jadi diskusi",
+        "emoji": "🎓"
+      },
+      {
+        "num": "3",
+        "title": "Tim Dokter & Statistisi",
+        "desc": "Dikerjakan oleh lulusan FK yang paham klinis & biostat",
+        "emoji": "🩺"
+      },
+      {
+        "num": "4",
+        "title": "Kecepatan & Keamanan",
+        "desc": "Audit menyeluruh dengan jaminan kerahasiaan data",
+        "emoji": "🔒"
+      }
+    ]
+  },
+  "callout": {
+    "pill": "Philosophy",
+    "headline": [
+      "BUKAN JUALAN JASA,",
+      "TAPI TRUST 🤝"
+    ],
+    "lead": "Komitmen Naskah:",
+    "quote": [
+      "Kami tidak membantu kecurangan akademik. Kami mendampingi mahasiswa memahami risetnya sendiri.",
+      "Ketika kamu paham logika di balik setiap angka di naskahmu, rasa takut menghadapi sidang otomatis hilang."
+    ],
+    "body": "Naskah adalah partner akademik terpercaya mahasiswa kedokteran."
+  },
+  "cta": {
+    "pill": "Free Deliverable",
+    "headline": [
+      "CHECKLIST 15 MENIT",
+      "SELF-AUDIT SKRIPSI"
+    ],
+    "sub": "Gunakan checklist internal Naskah untuk mengaudit naskahmu sendiri sebelum bimbingan.",
+    "items": [
+      {
+        "num": "1",
+        "title": "Komen 'AUDIT'",
+        "desc": "Admin kirim checklist PDF langsung ke DM"
+      },
+      {
+        "num": "2",
+        "title": "Audit Mandiri",
+        "desc": "Cek 10 poin kritis naskahmu dalam 15 menit"
+      },
+      {
+        "num": "3",
+        "title": "Konsultasi Naskah",
+        "desc": "DM kami jika butuh pendampingan intensif 1-on-1"
+      }
+    ],
+    "button": "KOMEN 'AUDIT' DI BAWAH"
+  }
+}

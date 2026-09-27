@@ -1,0 +1,127 @@
+{
+  "tag": "Biostatistika FK",
+  "cover": {
+    "pill": "Metodologi Riset",
+    "headline": [
+      "ALUR 30 DETIK",
+      "MILIH UJI HIPOTESIS",
+      "SKRIPSI FK"
+    ],
+    "mark_word_line": 2,
+    "body": "Gausah ngafal 20 uji statistik. Ini alur tercepat nentuin uji di SPSS tanpa galau.",
+    "items": [
+      {
+        "num": "01",
+        "title": "Skala Variabel",
+        "desc": "Kategorik (nominal/ordinal) vs Numerik"
+      },
+      {
+        "num": "02",
+        "title": "Hubungan Kelompok",
+        "desc": "Bebas (independen) vs Berpasangan (paired)"
+      },
+      {
+        "num": "03",
+        "title": "Uji Normalitas",
+        "desc": "Penentu mutlak jalur parametrik vs non-parametrik"
+      }
+    ]
+  },
+  "formula": {
+    "pill": "Decision Tree",
+    "headline": [
+      "MATRIKS BIVARIAT",
+      "KEDOKTERAN"
+    ],
+    "body": "Pilih uji berdasarkan kombinasi variabel bebas dan terikat lo.",
+    "steps": [
+      {
+        "pill": "Kat vs Kat",
+        "text": "Chi-Square (Alternatif: Fisher's Exact jika E<5)"
+      },
+      {
+        "pill": "Num 2 Kelompok",
+        "text": "T-Test (Normal) atau Mann-Whitney (Tidak Normal)"
+      },
+      {
+        "pill": "Num >2 Kelompok",
+        "text": "One-Way ANOVA (Normal) atau Kruskal-Wallis"
+      }
+    ],
+    "insight": "Golden Rule: Uji normalitas Shapiro-Wilk untuk N<50, Kolmogorov-Smirnov untuk N>=50 subjek."
+  },
+  "editorial": {
+    "pill": "Pitfalls",
+    "headline": [
+      "KESALAHAN FATAL",
+      "DI RUANG SIDANG"
+    ],
+    "mark_word_line": 1,
+    "lead": "Hal yang bikin dospem biostatistika langsung mencoret Bab 4 lo:",
+    "items": [
+      {
+        "num": "1",
+        "title": "SPSS Asal Run",
+        "desc": "Data ordinal dipaksa Independent T-Test demi p-value",
+        "emoji": "⚠️"
+      },
+      {
+        "num": "2",
+        "title": "Skip Uji Normalitas",
+        "desc": "Langsung uji parametrik padahal sebaran miring",
+        "emoji": "🚨"
+      },
+      {
+        "num": "3",
+        "title": "Expected Count Error",
+        "desc": "Sel Chi-Square <5 tapi tidak switch ke Fisher",
+        "emoji": "📉"
+      },
+      {
+        "num": "4",
+        "title": "Salah Paired vs Unpaired",
+        "desc": "Pre-post test tapi diuji independent t-test",
+        "emoji": "❌"
+      }
+    ]
+  },
+  "callout": {
+    "pill": "Mindset FK",
+    "headline": [
+      "SPSS ITU HANYA",
+      "KALKULATOR 🧠"
+    ],
+    "lead": "Ingat prinsip dasar metodologi:",
+    "quote": [
+      "SPSS itu cuma mesin hitung. Lo masukin nomor sepatu sama tekanan darah juga bakal keluar nilai p.",
+      "Yang nentuin riset lo sahih itu logika berpikir metodologinya, bukan klik software-nya."
+    ],
+    "body": "Pahami dulu skala variabel & hipotesis sebelum buka aplikasi statistik."
+  },
+  "cta": {
+    "pill": "Free Deliverable",
+    "headline": [
+      "DOWNLOAD PDF",
+      "DECISION TREE FK"
+    ],
+    "sub": "Lengkap dengan bagan alur & alternatif uji statistik.",
+    "items": [
+      {
+        "num": "1",
+        "title": "Komen 'STATISTIK'",
+        "desc": "Admin DM file Decision Tree Uji Hipotesis FK HD"
+      },
+      {
+        "num": "2",
+        "title": "Save Postingan Ini",
+        "desc": "Buka lagi nanti pas masuk bab olah data Bab 4"
+      },
+      {
+        "num": "3",
+        "title": "Follow @naskah.fk",
+        "desc": "Edukasi riset klinis tanpa bahasa berbelit"
+      }
+    ],
+    "button": "KOMEN 'STATISTIK' DI BAWAH"
+  }
+}

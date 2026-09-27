@@ -1,0 +1,127 @@
+{
+  "tag": "Defense Strategy",
+  "cover": {
+    "pill": "Sidang Meja Hijau",
+    "headline": [
+      "5 PERTANYAAN JEBAKAN",
+      "PENGUJI SIDANG FK",
+      "(+ CARA JAWABNYA)"
+    ],
+    "mark_word_line": 2,
+    "body": "Bocoran pertanyaan maut penguji sidang skripsi kedokteran dan script jawaban taktis.",
+    "items": [
+      {
+        "num": "01",
+        "title": "Alasan Rumus Sampel",
+        "desc": "Kenapa pakai rumus estimasi proporsi vs uji hipotesis"
+      },
+      {
+        "num": "02",
+        "title": "Kriteria Eksklusi",
+        "desc": "Jebakan nulis 'pasien tidak bersedia' di eksklusi"
+      },
+      {
+        "num": "03",
+        "title": "Kontrol Confounder",
+        "desc": "Cara mengatasi variabel perancu di Bab 3 & 4"
+      }
+    ]
+  },
+  "formula": {
+    "pill": "Jebakan Maut",
+    "headline": [
+      "3 JEBAKAN UTAMA",
+      "RUANG SIDANG"
+    ],
+    "body": "Hafalkan pola pertanyaan ini sebelum masuk ruang ujian.",
+    "steps": [
+      {
+        "pill": "Jebakan 1",
+        "text": "Kenapa kriteria eksklusi lo kebalikan dari inklusi?"
+      },
+      {
+        "pill": "Jebakan 2",
+        "text": "Bagaimana lo menjamin data kuesioner bebas bias recall?"
+      },
+      {
+        "pill": "Jebakan 3",
+        "text": "Kenapa hasil bivariat lo bertentangan dengan teori?"
+      }
+    ],
+    "insight": "Kunci: Jawab selalu berbasis metodologi, batas studi, dan justifikasi literatur rujukan."
+  },
+  "editorial": {
+    "pill": "Script Jawaban",
+    "headline": [
+      "SCRIPT TACTICAL",
+      "MENJAWAB PENGUJI"
+    ],
+    "mark_word_line": 1,
+    "lead": "Contoh respon ilmiah saat dicecar penguji sidang meja hijau:",
+    "items": [
+      {
+        "num": "1",
+        "title": "Soal Eksklusi",
+        "desc": "\"Pasien menolak ikut adalah refusal to participate, bukan kriteria eksklusi biologis.\"",
+        "emoji": "🛡️"
+      },
+      {
+        "num": "2",
+        "title": "Soal Confounder",
+        "desc": "\"Kami kontrol melalui restriksi sampel dan model regresi logistik ganda.\"",
+        "emoji": "🎯"
+      },
+      {
+        "num": "3",
+        "title": "Soal Sampel Drop",
+        "desc": "\"Kami telah antisipasi dengan penambahan 10% dropout correction factor.\"",
+        "emoji": "📊"
+      },
+      {
+        "num": "4",
+        "title": "Saat Buntu",
+        "desc": "\"Terima kasih masukannya Prof, ini menjadi limitasi riset kami untuk studi lanjutan.\"",
+        "emoji": "🙏"
+      }
+    ]
+  },
+  "callout": {
+    "pill": "Golden Rule",
+    "headline": [
+      "JANGAN PERNAH",
+      "NGARANG FAKTA! ⚠️"
+    ],
+    "lead": "Etika mutlak di ruang sidang:",
+    "quote": [
+      "Kalau lo beneran ngga tahu jawabannya, akui dengan santun sebagai keterbatasan metodologi dan catat sebagai masukan perbaikan.",
+      "Mengarang teori palsu di depan dokter konsulen adalah tiket tercepat menuju sidang ulang."
+    ],
+    "body": "Kejujuran akademik dinilai jauh lebih tinggi daripada sok tahu."
+  },
+  "cta": {
+    "pill": "Free Deliverable",
+    "headline": [
+      "BANK 15 PERTANYAAN",
+      "SIDANG SKRIPSI FK"
+    ],
+    "sub": "Lengkap dengan script contekan jawaban taktis untuk sempro dan sidang hasil.",
+    "items": [
+      {
+        "num": "1",
+        "title": "Komen 'SIDANG'",
+        "desc": "Admin kirim file PDF Bank Pertanyaan Sidang ke DM"
+      },
+      {
+        "num": "2",
+        "title": "Simulasi Bareng Teman",
+        "desc": "Latihan tanya jawab sebelum hari H ujian"
+      },
+      {
+        "num": "3",
+        "title": "Follow @naskah.fk",
+        "desc": "Tips & survival guide lengkap anak kedokteran"
+      }
+    ],
+    "button": "KOMEN 'SIDANG' DI BAWAH"
+  }
+}

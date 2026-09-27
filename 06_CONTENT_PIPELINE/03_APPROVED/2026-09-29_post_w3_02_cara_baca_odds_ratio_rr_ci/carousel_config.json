@@ -1,0 +1,126 @@
+{
+  "tag": "Epidemiologi Klinis",
+  "cover": {
+    "pill": "Analisis Risiko",
+    "headline": [
+      "CARA BACA OR, RR",
+      "DAN 95% CI",
+      "BIAR GA BENGONG"
+    ],
+    "mark_word_line": 2,
+    "body": "Panduan cepat memahami ukuran asosiasi & confidence interval saat ujian skripsi.",
+    "items": [
+      {
+        "num": "01",
+        "title": "Odds Ratio (OR)",
+        "desc": "Rasio peluang paparan pada desain Case-Control"
+      },
+      {
+        "num": "02",
+        "title": "Relative Risk (RR)",
+        "desc": "Rasio insiden penyakit pada desain Cohort/RCT"
+      },
+      {
+        "num": "03",
+        "title": "The Null Value (1.0)",
+        "desc": "Penentu kemaknaan klinis rentang 95% CI"
+      }
+    ]
+  },
+  "formula": {
+    "pill": "Aturan Angka 1",
+    "headline": [
+      "ATURAN BAKU",
+      "THE NULL VALUE"
+    ],
+    "body": "Lihat apakah rentang Confidence Interval melewati angka 1.0.",
+    "steps": [
+      {
+        "pill": "OR > 1.0",
+        "text": "Faktor Risiko (Meningkatkan kejadian sakit)"
+      },
+      {
+        "pill": "OR < 1.0",
+        "text": "Faktor Protektif (Menurunkan kejadian sakit)"
+      },
+      {
+        "pill": "CI Lewat 1.0",
+        "text": "Tidak Signifikan (Misal CI 0.85 - 2.40)"
+      }
+    ],
+    "insight": "Meskipun nilai OR = 2.5, kalau 95% CI-nya 0.90 - 4.50, hasilnya TIDAK BERMAKNA secara statistik!"
+  },
+  "editorial": {
+    "pill": "Desain Studi",
+    "headline": [
+      "JANGAN SALAH",
+      "PASANG UKURAN"
+    ],
+    "mark_word_line": 1,
+    "lead": "Cocokkan ukuran asosiasi dengan desain metodologi penelitian lo:",
+    "items": [
+      {
+        "num": "1",
+        "title": "Case-Control",
+        "desc": "Wajib lapor Odds Ratio (OR) & 95% CI",
+        "emoji": "🔍"
+      },
+      {
+        "num": "2",
+        "title": "Cohort / RCT",
+        "desc": "Wajib lapor Relative Risk (RR) / Risk Ratio",
+        "emoji": "📈"
+      },
+      {
+        "num": "3",
+        "title": "Cross-Sectional",
+        "desc": "Lapor Prevalence Odds Ratio (POR) / PR",
+        "emoji": "📊"
+      },
+      {
+        "num": "4",
+        "title": "Multivariat Logistik",
+        "desc": "Lapor Adjusted Odds Ratio (aOR) terkontrol",
+        "emoji": "🎯"
+      }
+    ]
+  },
+  "callout": {
+    "pill": "Script Ujian",
+    "headline": [
+      "CONTOH KALIMAT",
+      "PELAPORAN BAB 4 📝"
+    ],
+    "lead": "Format baku menjawab penguji sidang:",
+    "quote": [
+      "\"Berdasarkan analisis multivariat regresi logistik, pasien dengan riwayat X memiliki risiko 2,45 kali lebih tinggi mengalami komplikasi Y secara signifikan (aOR = 2,45; 95% CI: 1,28 – 4,69; p = 0,007).\""
+    ],
+    "body": "Sebutkan nilai estimator titik (OR), rentang presisi (95% CI), dan nilai p eksak."
+  },
+  "cta": {
+    "pill": "Free Deliverable",
+    "headline": [
+      "CHEAT SHEET OR, RR",
+      "& 95% CI FK"
+    ],
+    "sub": "Lengkap dengan tabel interpretasi dan contoh script jawaban sidang.",
+    "items": [
+      {
+        "num": "1",
+        "title": "Komen 'ODDSRATIO'",
+        "desc": "Admin kirim Cheat Sheet PDF langsung ke DM"
+      },
+      {
+        "num": "2",
+        "title": "Share ke Teman",
+        "desc": "Bantu rekan stase/skripsi yang lagi olah data"
+      },
+      {
+        "num": "3",
+        "title": "Follow @naskah.fk",
+        "desc": "Edukasi riset klinis & statistik kedokteran"
+      }
+    ],
+    "button": "KOMEN 'ODDSRATIO' DI BAWAH"
+  }
+}

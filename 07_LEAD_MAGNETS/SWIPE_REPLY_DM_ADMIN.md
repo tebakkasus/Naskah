@@ -81,6 +81,87 @@ Panduan respons cepat untuk TM / Admin saat followers mengirimkan DM trigger key
 
 ---
 
+---
+
+## 🌟 WEEK 3 LEAD MAGNET SUITE (28 Sep – 04 Okt 2026)
+
+### 8. TRIGGER: `STATISTIK` (Senin, 28 Sep 2026)
+**Lampirkan:** `08_STATISTIK_Decision_Tree_Uji_Hipotesis_FK.pdf`
+**Copy Balasan:**
+> Halo dok! 🙌 Ini file **Decision Tree Pemilihan Uji Hipotesis FK** dari Naskah.
+>
+> Di dalamnya ada diagram alur pemilihan uji bivariat & multivariat berdasarkan skala variabel (kategorik/numerik) dan sebaran data normal/tidak normal.
+>
+> Btw, variabel utama di skripsi kamu skalanya numerik atau kategorik dok? Lagi bingung nentuin uji di SPSS?
+
+---
+
+### 9. TRIGGER: `ODDSRATIO` (Selasa, 29 Sep 2026)
+**Lampirkan:** `09_INTERPRETASI_CheatSheet_Odds_Ratio_RR_pVal.pdf`
+**Copy Balasan:**
+> Halo dok! Ini **Cheat Sheet Interpretasi OR, RR, dan 95% Confidence Interval**.
+>
+> Ada aturan baku angka 1 (the null value) plus contoh kalimat pelaporan resmi Bab 4 yang siap kamu pakai buat bimbingan atau ujian.
+>
+> Nilai OR di hasil olah data kamu udah keluar dok? Rentang 95% CI-nya nyebrang angka 1 atau aman?
+
+---
+
+### 10. TRIGGER: `TABEL1` (Rabu, 30 Sep 2026)
+**Lampirkan:** `10_TABEL1_Template_Karakteristik_Subjek_Word.docx`
+**Copy Balasan:**
+> Halo dok! Ini template Word **Tabel 1 Karakteristik Subjek Penelitian**.
+>
+> Formatnya sudah 100% open-table standar jurnal Scopus/Sinta (3 garis horizontal, tanpa garis vertikal, plus footnote uji statistik pembanding).
+>
+> Total sampel penelitian kamu ada berapa subjek dok? Mau dipecah jadi berapa kelompok perbandingan?
+
+---
+
+### 11. TRIGGER: `SIDANG` (Kamis, 01 Okt 2026)
+**Lampirkan:** `11_SIDANG_Bank_Pertanyaan_Penguji_dan_Script_Jawaban.pdf`
+**Copy Balasan:**
+> Halo dok! Ini **Bank Pertanyaan Jebakan Sidang Skripsi FK & Script Jawaban Taktis**.
+>
+> Isinya bocoran pertanyaan dospem soal rumus sampel, bias/confounder, sampai cara ngeles ilmiah kalau hasil riset kamu tidak signifikan.
+>
+> Jadwal sidang kamu kapan dok? Penguji kamu tipe yang kritis di metodologi atau di pembahasan klinis? 😄
+
+---
+
+### 12. TRIGGER: `PPT` (Jumat, 02 Okt 2026)
+**Lampirkan:** `12_PRESENTASI_PPT_Sidang_10_Menit_Naskah.pptx` dan `12_PRESENTASI_Panduan_Slide_Sidang_10_Menit_FK.pdf`
+**Copy Balasan:**
+> Halo dok! Ini template **Slide PPT Sidang Skripsi FK 10 Menit** (format 16:9 modern) beserta PDF panduan alokasi waktunya.
+>
+> Struktur 8 slide esensial ini dirancang biar presentasi kamu padat data, ga kepanjangan, dan bebas teguran penguji.
+>
+> Udah mulai nyusun slide sidang dok? Ada bagian Bab 4 yang bingung mau divisualisasikan gimana?
+
+---
+
+### 13. TRIGGER: `SIGNIFIKAN` (Sabtu, 03 Okt 2026)
+**Lampirkan:** `13_NON_SIGNIFIKAN_Panduan_Bahas_Hasil_Negatif_Bab5.docx`
+**Copy Balasan:**
+> Halo dok! Ini panduan **Strategi Menulis Bab 5 untuk Hasil Penelitian Tidak Signifikan (p > 0.05)**.
+>
+> Di dalamnya ada 4 langkah ilmiah membahas hasil negatif: dari komparasi literatur, patofisiologi alternatif, sampai evaluasi power sampel.
+>
+> Hasil uji hipotesis kamu p-nya berapa dok? Dospem udah sempat komentarin hasilnya?
+
+---
+
+### 14. TRIGGER: `AUDIT` (Minggu, 04 Okt 2026)
+**Lampirkan:** `14_SOP_Audit_Skripsi_15_Menit_Checklist.pdf`
+**Copy Balasan:**
+> Halo dok! Ini **Checklist 15 Menit Self-Audit Bab 4 & Statistik Skripsi FK**.
+>
+> Cek 10 poin kritis ini (konsistensi N sampel, tanda koma desimal, singkatan footnote) sebelum minta tanda tangan persetujuan dospem.
+>
+> Sekarang draft skripsi kamu udah di tahap berapa persen dok? Mau kita bantu review bareng tim medis Naskah?
+
+---
+
 ### 🎯 NEXT STEP KETIKA USER CURHAT KENDALA:
 Jika user merespons dengan kendala naskahnya yang rumit/mendesak:
 > *"Paham banget dok, hal itu emang sering bikin mahasiswa FK stuck berminggu-minggu.*

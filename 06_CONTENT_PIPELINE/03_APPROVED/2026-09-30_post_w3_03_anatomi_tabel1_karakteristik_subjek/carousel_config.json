@@ -1,0 +1,127 @@
+{
+  "tag": "Academic Publishing",
+  "cover": {
+    "pill": "Standar Jurnal",
+    "headline": [
+      "ANATOMI TABEL 1",
+      "KARAKTERISTIK SUBJEK",
+      "STANDAR FK"
+    ],
+    "mark_word_line": 2,
+    "body": "Format tabel baku standar jurnal internasional & skripsi FK yang auto lolos review.",
+    "items": [
+      {
+        "num": "01",
+        "title": "Open-Table Standard",
+        "desc": "3 garis horizontal utama, zero garis vertikal"
+      },
+      {
+        "num": "02",
+        "title": "Mean vs Median",
+        "desc": "Mean ± SD (Normal) vs Median (IQR) (Miring)"
+      },
+      {
+        "num": "03",
+        "title": "Footnote Lengkap",
+        "desc": "Definisi seluruh singkatan dan uji statistik pembanding"
+      }
+    ]
+  },
+  "formula": {
+    "pill": "Format Open-Table",
+    "headline": [
+      "STRUKTUR 3 GARIS",
+      "BEBAS KOTAK ABU"
+    ],
+    "body": "Gunakan aturan tabel terbuka sesuai standar AMA / Vancouver style.",
+    "steps": [
+      {
+        "pill": "Garis 1",
+        "text": "Border atas tabel (Top border 1 pt solid)"
+      },
+      {
+        "pill": "Garis 2",
+        "text": "Border bawah baris header kolom (0.5 pt)"
+      },
+      {
+        "pill": "Garis 3",
+        "text": "Border penutup paling bawah tabel (1 pt)"
+      }
+    ],
+    "insight": "Dilarang keras memakai garis vertikal (tegak) atau shading warna warni di dalam tabel ilmiah!"
+  },
+  "editorial": {
+    "pill": "Aturan Variabel",
+    "headline": [
+      "CARA MENYAJIKAN",
+      "NILAI DATA"
+    ],
+    "mark_word_line": 1,
+    "lead": "Format penulisan data berdasarkan jenis sebaran di Tabel 1:",
+    "items": [
+      {
+        "num": "1",
+        "title": "Numerik Normal",
+        "desc": "Tuliskan Mean ± SD (misal: Usia: 48,2 ± 7,5 th)",
+        "emoji": "📏"
+      },
+      {
+        "num": "2",
+        "title": "Numerik Tidak Normal",
+        "desc": "Tuliskan Median (IQR) atau Median (Min-Max)",
+        "emoji": "📊"
+      },
+      {
+        "num": "3",
+        "title": "Kategorik",
+        "desc": "Tuliskan Frekuensi n (%) (misal: 35 (58,3%))",
+        "emoji": "👥"
+      },
+      {
+        "num": "4",
+        "title": "Nilai p Pembanding",
+        "desc": "Tulis 3 desimal eksak + tanda bintang uji",
+        "emoji": "⭐"
+      }
+    ]
+  },
+  "callout": {
+    "pill": "Dosa Bab 4",
+    "headline": [
+      "JANGAN SCREENSHOT",
+      "OUTPUT SPSS! 🛑"
+    ],
+    "lead": "Pesan penting buat mahasiswa FK:",
+    "quote": [
+      "Output SPSS yang berlatar abu-abu dan bergaris kotak tebal itu lembar kerja komputasi, bukan tabel skripsi.",
+      "Salin angkanya ke format Word Open-Table bersih. Dospem langsung respect dalam 5 detik pertama."
+    ],
+    "body": "Tabel yang rapi mencerminkan kualitas peneliti yang teliti."
+  },
+  "cta": {
+    "pill": "Free Deliverable",
+    "headline": [
+      "DOWNLOAD TEMPLATE",
+      "WORD TABEL 1 FK"
+    ],
+    "sub": "Format Word (.docx) siap pakai dengan formula open-table dan footnote.",
+    "items": [
+      {
+        "num": "1",
+        "title": "Komen 'TABEL1'",
+        "desc": "Admin kirim template Word langsung ke DM"
+      },
+      {
+        "num": "2",
+        "title": "Edit Cepat",
+        "desc": "Tinggal ganti variabel & isi data penelitian lo"
+      },
+      {
+        "num": "3",
+        "title": "Follow @naskah.fk",
+        "desc": "Tips penulisan karya ilmiah kedokteran"
+      }
+    ],
+    "button": "KOMEN 'TABEL1' DI BAWAH"
+  }
+}

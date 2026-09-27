@@ -62,6 +62,15 @@ SCHEDULE_MAP = {
     "2026-09-25": {"post": "w2_05", "skip_3am": True},  # Jumat: 3 Kata Terlarang Judul Skripsi FK (KEPK)
     "2026-09-26": {"post": "w2_06", "skip_3am": True},  # Sabtu: Resep Anti-Revisi Skripsi FK
     "2026-09-27": {"post": "w2_07", "skip_3am": True},  # Minggu: Naskah Inside Ep. 2 (PubMed & Scopus MeSH)
+
+    # Week 3 (W39: 28 Sep - 04 Okt 2026) — "Bedah Tuntas Data & Sidang FK" — (1 IG + 3 Threads/day = 28 posts)
+    "2026-09-28": {"post": "w3_01", "skip_3am": True},  # Senin: Decision Tree Uji Hipotesis FK
+    "2026-09-29": {"post": "w3_02", "skip_3am": True},  # Selasa: Cara Baca OR, RR, dan 95% CI
+    "2026-09-30": {"post": "w3_03", "skip_3am": True},  # Rabu: Anatomi Tabel 1 Karakteristik Subjek FK
+    "2026-10-01": {"post": "w3_04", "skip_3am": True},  # Kamis: 5 Pertanyaan Jebakan Sidang Skripsi FK
+    "2026-10-02": {"post": "w3_05", "skip_3am": True},  # Jumat: Struktur PPT Sidang Skripsi FK 10 Menit
+    "2026-10-03": {"post": "w3_06", "skip_3am": True},  # Sabtu: Bedah Hasil Riset p > 0.05 di Bab 5
+    "2026-10-04": {"post": "w3_07", "skip_3am": True},  # Minggu: Naskah Inside Ep. 3 (SOP Audit Bab 4 & Data)
 }
 
 def load_env_file():

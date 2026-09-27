@@ -1,0 +1,127 @@
+{
+  "tag": "Research Integrity",
+  "cover": {
+    "pill": "Pembahasan Bab 5",
+    "headline": [
+      "HASIL p > 0.05 BUKAN",
+      "BERARTI SKRIPSI LO",
+      "GAGAL! JANGAN PANIK"
+    ],
+    "mark_word_line": 2,
+    "body": "Panduan menyusun pembahasan Bab 5 saat hipotesis riset lo tidak terbukti secara statistik.",
+    "items": [
+      {
+        "num": "01",
+        "title": "Nilai Ilmiah Hasil Negatif",
+        "desc": "Membuktikan tidak ada hubungan tetap kontribusi sains"
+      },
+      {
+        "num": "02",
+        "title": "4 Langkah Bab 5",
+        "desc": "Komparasi, patofisiologi, metodologi, dan limitasi"
+      },
+      {
+        "num": "03",
+        "title": "Integritas Data",
+        "desc": "Dosa manipulasi angka p-value demi 'signifikan'"
+      }
+    ]
+  },
+  "formula": {
+    "pill": "Kerangka 4 Langkah",
+    "headline": [
+      "4 STRATEGI MENULIS",
+      "PEMBAHASAN BAB 5"
+    ],
+    "body": "Gunakan alur sistematis ini untuk menjelaskan hasil p > 0.05.",
+    "steps": [
+      {
+        "pill": "Langkah 1",
+        "text": "Bandingkan dengan studi terdahulu yang hasilnya serupa"
+      },
+      {
+        "pill": "Langkah 2",
+        "text": "Jelaskan mekanisme biologis / farmakologis alternatif"
+      },
+      {
+        "pill": "Langkah 3",
+        "text": "Evaluasi keterbatasan metodologi & power sampel"
+      }
+    ],
+    "insight": "Langkah 4: Tegaskan implikasi klinis temuan ini dan berikan saran metodologi studi lanjutan."
+  },
+  "editorial": {
+    "pill": "Nilai Klinis",
+    "headline": [
+      "KENAPA HASIL NEGATIF",
+      "SANGAT BERHARGA?"
+    ],
+    "mark_word_line": 1,
+    "lead": "Manfaat nyata hasil penelitian yang tidak signifikan bagi dunia medis:",
+    "items": [
+      {
+        "num": "1",
+        "title": "Cegah Tindakan Sia-sia",
+        "desc": "Menghindarkan pasien dari terapi yang tidak terbukti efektif",
+        "emoji": "🛡️"
+      },
+      {
+        "num": "2",
+        "title": "Anti Publication Bias",
+        "desc": "Menjaga kejujuran data evidence-based medicine",
+        "emoji": "📚"
+      },
+      {
+        "num": "3",
+        "title": "Buka Hipotesis Baru",
+        "desc": "Menemukan faktor perancu lain yang lebih dominan",
+        "emoji": "💡"
+      },
+      {
+        "num": "4",
+        "title": "Bukti Ketelitian",
+        "desc": "Penguji respect pada peneliti yang jujur pada data",
+        "emoji": "🎖️"
+      }
+    ]
+  },
+  "callout": {
+    "pill": "Warning Etika",
+    "headline": [
+      "DOSA BESAR",
+      "MANIPULASI DATA! 🚨"
+    ],
+    "lead": "Peringatan integritas ilmiah:",
+    "quote": [
+      "Ngedit data di Excel cuma biar p-value berubah dari 0.08 jadi 0.04 adalah pelanggaran etika akademik paling fatal.",
+      "Dosen penguji yang jeli bakal tahu dalam hitungan menit saat melihat sebaran varians dan standard deviasi lo."
+    ],
+    "body": "Pertahankan kejujuran data riset lo sampai meja sidang."
+  },
+  "cta": {
+    "pill": "Free Deliverable",
+    "headline": [
+      "PANDUAN BAB 5 HASIL",
+      "TIDAK SIGNIFIKAN"
+    ],
+    "sub": "Template Word & PDF strategi pembahasan hasil riset negatif kedokteran.",
+    "items": [
+      {
+        "num": "1",
+        "title": "Komen 'SIGNIFIKAN'",
+        "desc": "Admin kirim panduan lengkap Bab 5 ke DM"
+      },
+      {
+        "num": "2",
+        "title": "Susun Pembahasan",
+        "desc": "Ikuti 4 langkah taktis komparasi literatur"
+      },
+      {
+        "num": "3",
+        "title": "Follow @naskah.fk",
+        "desc": "Belajar riset kedokteran dengan integritas"
+      }
+    ],
+    "button": "KOMEN 'SIGNIFIKAN' DI BAWAH"
+  }
+}
