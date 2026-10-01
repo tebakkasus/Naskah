@@ -421,23 +421,22 @@ def load_threads_text(filepath: pathlib.Path) -> list[dict]:
     """Read Threads companion texts from the md file."""
     text = filepath.read_text(encoding="utf-8", errors="replace")
     
-    # Check Week 2 format first (## 🧵 THREADS N — ...)
-    w2_markers = list(re.finditer(r"## 🧵 THREADS (\d+)\s*—\s*([^\n]+)", text))
-    if w2_markers:
+    # Check Week 2 & Week 3 formats (e.g. ## 🧵 THREADS 1 — PAGI or ### 🧵 THREADS PAGI — THREAD #1)
+    w_markers = list(re.finditer(r"#+\s*🧵\s*THREADS?(?:\s+(\d+)\s*—\s*([^\n]+)|\s*([^\n—]+)\s*—\s*THREAD\s*#?(\d+)[^\n]*)", text, re.IGNORECASE))
+    if w_markers:
         threads = []
-        for idx, m in enumerate(w2_markers):
-            num = m.group(1)
-            slot_name = m.group(2).strip()
+        for idx, m in enumerate(w_markers):
+            num = m.group(1) or m.group(4) or str(idx + 1)
+            slot_name = (m.group(2) or m.group(3) or "").strip()
             start = m.end()
-            end = w2_markers[idx + 1].start() if idx + 1 < len(w2_markers) else len(text)
+            end = w_markers[idx + 1].start() if idx + 1 < len(w_markers) else len(text)
             chunk = text[start:end].strip()
             # Extract from code block if present
             if "```" in chunk:
                 parts = chunk.split("```")
                 if len(parts) >= 3:
                     body = parts[1].strip()
-                    if body.startswith("markdown"):
-                        body = body[8:].strip()
+                    body = re.sub(r"^(?:markdown|text)\s*\n?", "", body, flags=re.IGNORECASE).strip()
                 else:
                     body = chunk
             else:
@@ -446,39 +445,39 @@ def load_threads_text(filepath: pathlib.Path) -> list[dict]:
             cleaned_lines = []
             for line in body.splitlines():
                 l = line.strip()
-                if l and not l.startswith("**Slot:**") and not l.startswith("**Media:**") and not l.startswith("**Copy:**"):
+                if l and not l.startswith("**Slot:**") and not l.startswith("**Media:**") and not l.startswith("**Copy:**") and not l.startswith("**Tipe:**"):
                     cleaned_lines.append(line.lstrip("> ").strip())
             content = "\n\n".join([c for c in cleaned_lines if c])
             threads.append({
-                "slot": f"#{num} ({slot_name})",
+                "slot": f"#{num} ({slot_name})" if slot_name else f"#{num}",
                 "text": content,
             })
         return threads
 
     # Week 0 / Week 1 format
     marker = "COMPANION THREADS"
-    if marker not in text:
-        raise ValueError(f"Threads marker not found in {filepath}")
-    after = text.split(marker, 1)[1]
+    if marker in text:
+        after = text.split(marker, 1)[1]
+        thread_markers = list(re.finditer(r"### Thread #(\d+) \((?:Slot )?([^)]+)\)", after))
+        threads = []
+        for idx, m in enumerate(thread_markers):
+            num = m.group(1)
+            start = m.end()
+            end = thread_markers[idx + 1].start() if idx + 1 < len(thread_markers) else len(after)
+            raw_content = after[start:end].strip()
+            cleaned_lines = []
+            for line in raw_content.splitlines():
+                cleaned = line.lstrip("> ").strip()
+                if cleaned:
+                    cleaned_lines.append(cleaned)
+            content = "\n\n".join(cleaned_lines)
+            threads.append({
+                "slot": f"#{num}",
+                "text": content,
+            })
+        return threads
 
-    thread_markers = list(re.finditer(r"### Thread #(\d+) \((?:Slot )?([^)]+)\)", after))
-    threads = []
-    for idx, m in enumerate(thread_markers):
-        num = m.group(1)
-        start = m.end()
-        end = thread_markers[idx + 1].start() if idx + 1 < len(thread_markers) else len(after)
-        raw_content = after[start:end].strip()
-        cleaned_lines = []
-        for line in raw_content.splitlines():
-            cleaned = line.lstrip("> ").strip()
-            if cleaned:
-                cleaned_lines.append(cleaned)
-        content = "\n\n".join(cleaned_lines)
-        threads.append({
-            "slot": f"#{num}",
-            "text": content,
-        })
-    return threads
+    raise ValueError(f"Threads marker not found in {filepath}")
 
 
 def load_threads_from_json(draft_key: str) -> list[dict]:

@@ -256,65 +256,74 @@ def main() -> int:
 
     if result.returncode == 0:
         print(f"Post #{post_num} slot '{slot}' published successfully.")
-    else:
-        print(f"ERROR: Post #{post_num} slot '{slot}' publish failed rc={result.returncode}", file=sys.stderr)
-
-    # Load latest PUBLISH_RESULT for reporting / Notion update
-    if post_num.isdigit():
-        result_name = f"PUBLISH_RESULT_post0{post_num}.json"
-    else:
-        result_name = f"PUBLISH_RESULT_post{post_num}.json"
-    result_path = CONTENT_PIPELINE / "06_CONTENT_PIPELINE" / result_name
-    published = None
-    if result_path.exists():
-        try:
-            published = json.loads(result_path.read_text(encoding="utf-8"))
-        except Exception:
-            published = None
-    if published:
-        notion_update = update_notion_via_api(published)
-        print("Notion update:", json.dumps(notion_update, ensure_ascii=False))
-
-        # Build Telegram report (Compact TM Standard)
-        ig = published.get("instagram", {})
-        ig_url = ig.get("permalink", "")
-        threads = published.get("threads", [])
         
-        thread_links = " | ".join([f'<a href="{t.get("permalink", "")}">{t.get("slot", "")}</a>' for t in threads if t.get("permalink")])
-        notion_status = "Synced" if notion_update.get("success") else "Failed"
+        # Load latest PUBLISH_RESULT for reporting / Notion update
+        if post_num.isdigit():
+            result_name = f"PUBLISH_RESULT_post0{post_num}.json"
+        else:
+            result_name = f"PUBLISH_RESULT_post{post_num}.json"
+        result_path = CONTENT_PIPELINE / "06_CONTENT_PIPELINE" / result_name
+        published = None
+        if result_path.exists():
+            try:
+                published = json.loads(result_path.read_text(encoding="utf-8"))
+            except Exception:
+                published = None
+        if published:
+            notion_update = update_notion_via_api(published)
+            print("Notion update:", json.dumps(notion_update, ensure_ascii=False))
 
-        next_val = "besok sesuai jadwal"
-        try:
-            next_val = f"Post #{int(post_num)+1}"
-        except Exception:
-            pass
+            # Build Telegram report (Compact TM Standard)
+            ig = published.get("instagram", {})
+            ig_url = ig.get("permalink", "")
+            threads = published.get("threads", [])
+            
+            thread_links = " | ".join([f'<a href="{t.get("permalink", "")}">{t.get("slot", "")}</a>' for t in threads if t.get("permalink")])
+            notion_status = "Synced" if notion_update.get("success") else "Failed"
 
-        next_slot_str = "14:00 WIB (Threads Visual)" if slot == "morning" else ("19:00 WIB (Thread #2)" if slot == "afternoon" else ("03:00 WIB (3AM)" if slot == "evening" else "10:00 WIB (IG + Thread #1)"))
+            next_val = "besok sesuai jadwal"
+            try:
+                next_val = f"Post #{int(post_num)+1}"
+            except Exception:
+                pass
 
-        report = (
-            f"✅ <b>Post #{post_num} [{slot.upper()}]: {published.get('topic', '')}</b>\n\n"
-            f"📸 <b>IG:</b> " + (f'<a href="{ig_url}">Live Post</a>\n' if ig_url else "N/A (Threads Slot)\n") +
-            f"🧵 <b>Threads:</b> {thread_links if thread_links else 'Published'}\n"
-            f"🗂️ <b>Notion:</b> {notion_status}\n\n"
-            f"⏭️ <b>Next Slot:</b> {next_slot_str}\n\n"
-            f"📣 <b>Action 30 detik:</b> Quote-share ke <b>Science Threads</b> (76K) + <b>Study Threads</b> (38K) buat panen engagement!"
-        )
-        print("TELEGRAM REPORT:")
-        print(report)
-        tg = send_telegram(report)
-        print("Telegram result:", json.dumps(tg, ensure_ascii=False))
+            next_slot_str = "14:00 WIB (Threads Visual)" if slot == "morning" else ("19:00 WIB (Thread #2)" if slot == "afternoon" else ("03:00 WIB (3AM)" if slot == "evening" else "10:00 WIB (IG + Thread #1)"))
+
+            report = (
+                f"✅ <b>Post #{post_num} [{slot.upper()}]: {published.get('topic', '')}</b>\n\n"
+                f"📸 <b>IG:</b> " + (f'<a href="{ig_url}">Live Post</a>\n' if ig_url else "N/A (Threads Slot)\n") +
+                f"🧵 <b>Threads:</b> {thread_links if thread_links else 'Published'}\n"
+                f"🗂️ <b>Notion:</b> {notion_status}\n\n"
+                f"⏭️ <b>Next Slot:</b> {next_slot_str}\n\n"
+                f"📣 <b>Action 30 detik:</b> Quote-share ke <b>Science Threads</b> (76K) + <b>Study Threads</b> (38K) buat panen engagement!"
+            )
+            print("TELEGRAM REPORT:")
+            print(report)
+            tg = send_telegram(report)
+            print("Telegram result:", json.dumps(tg, ensure_ascii=False))
+        else:
+            print(f"No PUBLISH_RESULT found for post #{post_num}.")
+
+        # Record slot execution to prevent duplicate
+        completed = run_state.get("completed_slots", [])
+        if slot not in completed:
+            completed.append(slot)
+        run_state["completed_slots"] = completed
+        run_state["last_updated"] = now_wib()
+        SLOT_TRACK_FILE.write_text(json.dumps(run_state, indent=2), encoding="utf-8")
+        return 0
     else:
-        print(f"No PUBLISH_RESULT found for post #{post_num}.")
-
-    # Record slot execution to prevent duplicate
-    completed = run_state.get("completed_slots", [])
-    if slot not in completed:
-        completed.append(slot)
-    run_state["completed_slots"] = completed
-    run_state["last_updated"] = now_wib()
-    SLOT_TRACK_FILE.write_text(json.dumps(run_state, indent=2), encoding="utf-8")
-
-    return result.returncode if result.returncode != 0 else 0
+        err_msg = (result.stderr or result.stdout)[-500:].strip()
+        print(f"ERROR: Post #{post_num} slot '{slot}' publish failed rc={result.returncode}", file=sys.stderr)
+        
+        # Send Alert to Telegram so TM is notified immediately
+        fail_report = (
+            f"🚨 <b>ALERT: GAGAL PUBLISH Post #{post_num} [{slot.upper()}]</b>\n\n"
+            f"⚠️ <b>Error:</b> <code>{err_msg}</code>\n\n"
+            f"🛠️ <b>Status:</b> Slot tidak ditandai selesai; butuh pengecekan."
+        )
+        send_telegram(fail_report)
+        return result.returncode
 
 
 if __name__ == "__main__":
